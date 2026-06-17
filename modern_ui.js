@@ -30,7 +30,137 @@
       <div class="switcher-segment" id="opt-layout-classic" data-layout="classic">Cổ điển</div>
       <div class="switcher-segment" id="opt-layout-futuristic" data-layout="futuristic">Tương lai</div>
       <div class="switcher-segment" id="opt-layout-neo" data-layout="neo">Neo</div>
+      <div class="switcher-segment" id="opt-layout-gradient" data-layout="gradient">Gradient</div>
       <div class="switcher-slider" id="switcher-slider"></div>
+    </div>
+  `;
+
+  // ==========================================
+  // OPTION 4: GRADIENT LAYOUT TEMPLATES
+  // ==========================================
+
+  const gradientTopTitleHTML = `
+    <div class="gradient-top-title-card">
+      <div class="project-name">KHU ĐÔ THỊ MỚI LATIEN</div>
+      <div class="project-subtitle">Virtual Tour 360&deg;</div>
+    </div>
+  `;
+
+  const gradientQuickActionsHTML = `
+    <div class="gradient-quick-actions">
+      <div class="quick-action-btn" data-action="fullscreen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      </div>
+    </div>
+  `;
+
+  const gradientTopNavHTML = `
+    <div class="gradient-nav-container">
+      <!-- We use a horizontal layout for this -->
+      <div class="gradient-nav-item active" data-id="overview" data-target="node1">
+        <div class="nav-content">TỔNG QUAN</div>
+        <div class="gradient-submenu">
+          <div class="submenu-item active" data-action="overview-top" data-pano-node="node1">Top View</div>
+          <div class="submenu-item" data-action="overview-bird" data-pano-node="node2">Bird View</div>
+        </div>
+      </div>
+      <div class="gradient-nav-item" data-id="amenities">
+        <div class="nav-content">TIỆN ÍCH</div>
+        <div class="gradient-submenu">
+          <div class="submenu-item" data-pano-node="node1">Clubhouse</div>
+          <div class="submenu-item" data-pano-node="node1">Bến Du Thuyền</div>
+          <div class="submenu-item" data-pano-node="node2">Khu Thể Thao</div>
+          <div class="submenu-item" data-pano-node="node3">Công Viên</div>
+        </div>
+      </div>
+      <div class="gradient-nav-item" data-id="architecture">
+        <div class="nav-content">KIẾN TRÚC</div>
+        <div class="gradient-submenu">
+          <div class="submenu-item" data-pano-node="node3">Mặt Bằng</div>
+          <div class="submenu-item" data-pano-node="node4">Biệt Thự Song Lập</div>
+          <div class="submenu-item" data-pano-node="node5">Biệt Thự Đơn Lập</div>
+        </div>
+      </div>
+      <div class="gradient-nav-item" data-id="interior">
+        <div class="nav-content">NỘI THẤT</div>
+        <div class="gradient-submenu">
+          <div class="submenu-item" data-pano-node="node4">Phòng Khách</div>
+          <div class="submenu-item" data-pano-node="node5">Phòng Ngủ</div>
+        </div>
+      </div>
+      <div class="gradient-nav-item" data-id="surrounding">
+        <div class="nav-content">KẾT NỐI</div>
+        <div class="gradient-submenu">
+          <div class="submenu-item" data-pano-node="node2">Giao Thông</div>
+          <div class="submenu-item" data-pano-node="node1">Tiện Ích Ngoại Khu</div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  
+  const gradientBottomDockHTML = `
+    <div class="gradient-dock-container">
+      <div class="gradient-dock-item" data-action="music">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="2"/></svg>
+        <span class="dock-tooltip">Nhạc Nền</span>
+      </div>
+      
+      <!-- Images Parent -->
+      <div class="gradient-dock-item has-dock-submenu" id="gradient-images-parent">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path d="M21 15l-5-5L5 21" stroke="currentColor" stroke-width="2"/></svg>
+        <span class="dock-tooltip">Hình Ảnh</span>
+        <div class="dock-submenu dock-submenu-images">
+          <div class="dock-submenu-scrollable">
+            <div class="dock-pano-card" onclick="window.pano && window.pano.openNext('{node1}')">
+              <img src="pano_aerial.png" alt="Toàn cảnh" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100px\' style=\'background:%23333\'%3E%3C/svg%3E'">
+              <span>Toàn cảnh</span>
+            </div>
+            <div class="dock-pano-card" onclick="window.pano && window.pano.openNext('{node2}')">
+              <img src="pano_detached.png" alt="Đơn lập" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100px\' style=\'background:%23333\'%3E%3C/svg%3E'">
+              <span>Biệt thự Đơn lập</span>
+            </div>
+            <div class="dock-pano-card" onclick="window.pano && window.pano.openNext('{node3}')">
+              <img src="pano_semidetached.png" alt="Song lập" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100px\' style=\'background:%23333\'%3E%3C/svg%3E'">
+              <span>Biệt thự Song lập</span>
+            </div>
+            <div class="dock-pano-card" onclick="window.pano && window.pano.openNext('{node4}')">
+              <img src="pano_townhouse.png" alt="Liền kề" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100px\' style=\'background:%23333\'%3E%3C/svg%3E'">
+              <span>Biệt thự Liền kề</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gradient-dock-item active-tool" data-action="hotspots">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2.5" fill="currentColor"/></svg>
+        <span class="dock-tooltip">Điểm Neo</span>
+      </div>
+      
+      <!-- Share Parent -->
+      <div class="gradient-dock-item has-dock-submenu" id="gradient-share-parent">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="2"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2"/></svg>
+        <span class="dock-tooltip">Chia Sẻ</span>
+        <div class="dock-submenu dock-submenu-share">
+          <a href="https://facebook.com" target="_blank" class="dock-share-btn facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="https://instagram.com" target="_blank" class="dock-share-btn instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98C23.986 15.668 24 15.259 24 12c0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+          </a>
+          <a href="https://zalo.me" target="_blank" class="dock-share-btn zalo">
+            <svg viewBox="0 0 40 40" fill="currentColor"><path d="M20 0C8.955 0 0 8.954 0 20c0 11.045 8.955 20 20 20s20-8.955 20-20C40 8.954 31.045 0 20 0zm9.09 28.182c-1.091 1.09-2.273 1.636-3.636 1.636-.727 0-1.454-.182-2.09-.455l-5.91 2.364.91-5.273c-1.636-1.454-2.637-3.545-2.637-5.818 0-4.364 3.546-7.909 7.91-7.909 4.363 0 7.909 3.545 7.909 7.909 0 2.909-1.546 5.454-4 6.909l1.544 .637z"/></svg>
+            Zalo
+          </a>
+        </div>
+      </div>
+
+      <div class="gradient-dock-item" data-action="call">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2"/></svg>
+        <span class="dock-tooltip">Tư Vấn</span>
+      </div>
     </div>
   `;
 
@@ -689,17 +819,20 @@
     const classicSeg = document.getElementById("opt-layout-classic");
     const futuristicSeg = document.getElementById("opt-layout-futuristic");
     const neoSeg = document.getElementById("opt-layout-neo");
+    const gradientSeg = document.getElementById("opt-layout-gradient");
     const slider = document.getElementById("switcher-slider");
-    if (!classicSeg || !futuristicSeg || !neoSeg || !slider) return;
+    if (!classicSeg || !futuristicSeg || !neoSeg || !gradientSeg || !slider) return;
 
     requestAnimationFrame(() => {
       let activeSeg = classicSeg;
       if (layoutMode === "futuristic") activeSeg = futuristicSeg;
       else if (layoutMode === "neo") activeSeg = neoSeg;
+      else if (layoutMode === "gradient") activeSeg = gradientSeg;
       
       classicSeg.classList.toggle("active", layoutMode === "classic");
       futuristicSeg.classList.toggle("active", layoutMode === "futuristic");
       neoSeg.classList.toggle("active", layoutMode === "neo");
+      gradientSeg.classList.toggle("active", layoutMode === "gradient");
 
       slider.style.width = `${activeSeg.offsetWidth}px`;
       slider.style.left = `${activeSeg.offsetLeft}px`;
@@ -766,6 +899,13 @@
         uiWrapper.appendChild(tempDiv.firstChild);
       }
       setupNeoListeners();
+    } else if (layoutMode === "gradient") {
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = gradientTopTitleHTML + gradientQuickActionsHTML + gradientTopNavHTML + gradientBottomDockHTML;
+      while (tempDiv.firstChild) {
+        uiWrapper.appendChild(tempDiv.firstChild);
+      }
+      setupGradientListeners();
     }
 
     // Inject Minimap (shared HTML, styled differently in CSS)
@@ -1042,6 +1182,71 @@
         }
 
         handleSubmenuSelection(this);
+      });
+    });
+  }
+
+  function setupGradientListeners() {
+    // Quick Actions
+    const quickActions = document.querySelectorAll(".quick-action-btn");
+    quickActions.forEach(btn => {
+      btn.addEventListener("click", function() {
+        showNotification(`Action: ${this.getAttribute("data-action")}`);
+      });
+    });
+
+    // Top-left Navigation
+    const navItems = document.querySelectorAll(".gradient-nav-item");
+    navItems.forEach(item => {
+      item.addEventListener("click", function (e) {
+        if (e.target.closest(".submenu-item")) return;
+        
+        // Remove active from all items
+        navItems.forEach(n => n.classList.remove("active"));
+        this.classList.add("active");
+        
+        activeNavItemId = this.getAttribute("data-id");
+        lsSet("latien_active_nav", activeNavItemId);
+        
+        const targetNode = this.getAttribute("data-target");
+        if (targetNode && window.pano) {
+          window.pano.openNext(`{${targetNode}}`);
+          showNotification(`Navigating: ${this.querySelector('.nav-content').textContent.trim()}`);
+        }
+      });
+    });
+
+    // Submenu Items
+    const subItems = document.querySelectorAll(".gradient-submenu .submenu-item");
+    subItems.forEach(item => {
+      item.addEventListener("click", function (e) {
+        e.stopPropagation();
+        subItems.forEach(s => s.classList.remove("active"));
+        this.classList.add("active");
+        handleSubmenuSelection(this);
+      });
+    });
+
+    // Dock Items
+    const dockItems = document.querySelectorAll(".gradient-dock-item");
+    dockItems.forEach(item => {
+      item.addEventListener("click", function (e) {
+        const action = this.getAttribute("data-action");
+        if (!action) return;
+
+        // Toggle active-tool class for toggleable tools (like music, hotspots)
+        if (["music", "hotspots"].includes(action)) {
+          this.classList.toggle("active-tool");
+        }
+        
+        if (action === "hotspots") {
+          const markers = document.querySelectorAll(".hologram-marker-container");
+          const isActive = this.classList.contains("active-tool");
+          markers.forEach(m => m.style.display = isActive ? "flex" : "none");
+          showNotification(isActive ? "Bật hiển thị Điểm Neo" : "Tắt hiển thị Điểm Neo");
+        } else {
+          showNotification(`Công cụ: ${action}`);
+        }
       });
     });
   }
@@ -1346,7 +1551,7 @@
     document.body.appendChild(uiWrapper);
 
     // Sync top-level body classes
-    document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo");
+    document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient");
     document.body.classList.add(`layout-${layoutMode}`);
 
     // 2. Inject components for active layout mode
@@ -1356,6 +1561,7 @@
     const classicSeg = document.getElementById("opt-layout-classic");
     const futuristicSeg = document.getElementById("opt-layout-futuristic");
     const neoSeg = document.getElementById("opt-layout-neo");
+    const gradientSeg = document.getElementById("opt-layout-gradient");
 
     const handleSwitch = (newLayout) => {
       if (layoutMode === newLayout) return;
@@ -1383,7 +1589,7 @@
         lsSet("latien_layout_mode", layoutMode);
 
         // Update body layout class namespaces
-        document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo");
+        document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient");
         document.body.classList.add(`layout-${layoutMode}`);
 
         // Update container class namespaces
@@ -1403,15 +1609,17 @@
         let notifMsg = "Đã chuyển sang Giao diện Neo";
         if (layoutMode === "classic") notifMsg = "Đã chuyển sang Giao diện Cổ điển";
         else if (layoutMode === "futuristic") notifMsg = "Đã chuyển sang Giao diện Tương lai";
+        else if (layoutMode === "gradient") notifMsg = "Đã chuyển sang Giao diện Gradient";
         showNotification(notifMsg);
 
       }, 300);
     };
 
-    if (classicSeg && futuristicSeg && neoSeg) {
+    if (classicSeg && futuristicSeg && neoSeg && gradientSeg) {
       classicSeg.addEventListener("click", () => handleSwitch("classic"));
       futuristicSeg.addEventListener("click", () => handleSwitch("futuristic"));
       neoSeg.addEventListener("click", () => handleSwitch("neo"));
+      gradientSeg.addEventListener("click", () => handleSwitch("gradient"));
     }
 
     // 4. Initialize layout Switcher segments
@@ -1602,3 +1810,208 @@
   }
 
 })();
+
+
+
+// =========================================================
+// GLOBAL UI COMPONENTS & EVENT LISTENERS
+// =========================================================
+
+const globalModalsHTML = `
+  <!-- 1. Project Information Modal -->
+  
+  <div class="global-modal-overlay" id="project-info-modal">
+    <div class="global-modal-content project-info-expanded">
+      <div class="modal-header">
+        <h2>Thông Tin Dự Án La Tiên</h2>
+        <div class="modal-close-btn" onclick="document.getElementById('project-info-modal').classList.remove('active')">&times;</div>
+      </div>
+      <div class="modal-body scrollable-modal-body">
+        <section>
+          <h3>Tổng Quan</h3>
+          <p>Khu đô thị mới La Tiên mang đến chuẩn mực sống hoàn toàn mới với không gian xanh mát và hệ sinh thái tiện ích đẳng cấp quốc tế. Tọa lạc tại vị trí chiến lược, dự án là viên ngọc quý giữa lòng thành phố.</p>
+        </section>
+        <section>
+          <h3>Tiện Ích Nội Khu</h3>
+          <ul class="info-list">
+            <li>Hồ bơi vô cực & Công viên sinh thái 10ha</li>
+            <li>Trung tâm thương mại & Siêu thị 24/7</li>
+            <li>Hệ thống phòng Gym, Spa tiêu chuẩn 5 sao</li>
+            <li>Trường học quốc tế & Bệnh viện đa khoa</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Kiến Trúc & Nội Thất</h3>
+          <p>Sự kết hợp hoàn hảo giữa phong cách thiết kế hiện đại và sự tinh tế trong từng đường nét. Nội thất được nhập khẩu 100% từ các thương hiệu hàng đầu Châu Âu.</p>
+        </section>
+        <section>
+          <h3>Kết Nối Xung Quanh</h3>
+          <p>Cách trung tâm thành phố 15 phút di chuyển. Thuận tiện kết nối với các tuyến cao tốc huyết mạch và sân bay quốc tế.</p>
+        </section>
+        <section class="contact-section">
+          <h3>Thông Tin Liên Hệ</h3>
+          <p>Hotline: <strong>090 123 4567</strong></p>
+          <p>Email: contact@latien.vn</p>
+          <p>Website: www.latien.vn</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Image Gallery Panel -->
+  <div class="global-modal-overlay" id="image-gallery-modal">
+    <div class="global-modal-content gallery-content">
+      <div class="modal-header">
+        <h2>Thư Viện Ảnh 360</h2>
+        <div class="modal-close-btn" onclick="document.getElementById('image-gallery-modal').classList.remove('active')">&times;</div>
+      </div>
+      <div class="modal-body gallery-grid">
+        <div class="gallery-card" onclick="window.pano && window.pano.openNext('{node1}'); document.getElementById('image-gallery-modal').classList.remove('active')">
+          <img src="pano_aerial.png" alt="Top View" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100px\' style=\'background:%23333\'%3E%3C/svg%3E'" />
+          <div class="card-title">Top View</div>
+        </div>
+        <div class="gallery-card" onclick="window.pano && window.pano.openNext('{node2}'); document.getElementById('image-gallery-modal').classList.remove('active')">
+          <img src="pano_detached.png" alt="Bird View" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100px\' style=\'background:%23333\'%3E%3C/svg%3E'" />
+          <div class="card-title">Bird View</div>
+        </div>
+        <div class="gallery-card" onclick="window.pano && window.pano.openNext('{node3}'); document.getElementById('image-gallery-modal').classList.remove('active')">
+          <img src="pano_semidetached.png" alt="Biệt Thự" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100px\' style=\'background:%23333\'%3E%3C/svg%3E'" />
+          <div class="card-title">Biệt Thự Song Lập</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- 4. Contact Modal -->
+  <div class="global-modal-overlay" id="contact-info-modal">
+    <div class="global-modal-content">
+      <div class="modal-header">
+        <h2>Liên Hệ Chuyên Viên</h2>
+        <div class="modal-close-btn" onclick="document.getElementById('contact-info-modal').classList.remove('active')">&times;</div>
+      </div>
+      <div class="modal-body" style="text-align: center; padding: 20px 0;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 48px; height: 48px; margin-bottom: 16px; color: #00f2fe;">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        <h3 style="margin-bottom: 8px;">Hotline Kinh Doanh</h3>
+        <a href="tel:0901234567" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #00f2fe, #4facfe); color: #fff; text-decoration: none; border-radius: 24px; font-weight: bold; font-size: 18px; box-shadow: 0 4px 15px rgba(0,242,254,0.3);">090 123 4567</a>
+        <p style="margin-top: 16px; font-size: 13px; color: #aaa;">Hỗ trợ tư vấn 24/7</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Social Share Floating Menu -->
+  <div class="social-share-menu" id="social-share-menu">
+    <a href="https://www.facebook.com" target="_blank" class="social-btn facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+    <a href="https://www.instagram.com" target="_blank" class="social-btn instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98C23.986 15.668 24 15.259 24 12c0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+    <a href="https://zalo.me" target="_blank" class="social-btn zalo"><svg viewBox="0 0 40 40" fill="currentColor"><path d="M20 0C8.955 0 0 8.954 0 20c0 11.045 8.955 20 20 20s20-8.955 20-20C40 8.954 31.045 0 20 0zm9.09 28.182c-1.091 1.09-2.273 1.636-3.636 1.636-.727 0-1.454-.182-2.09-.455l-5.91 2.364.91-5.273c-1.636-1.454-2.637-3.545-2.637-5.818 0-4.364 3.546-7.909 7.91-7.909 4.363 0 7.909 3.545 7.909 7.909 0 2.909-1.546 5.454-4 6.909l1.544 .637z"/></svg></a>
+  </div>
+`;
+
+document.addEventListener("DOMContentLoaded", function() {
+  const wrapper = document.getElementById("modern-ui-overlay");
+  if (wrapper) {
+    const temp = document.createElement("div");
+    temp.innerHTML = globalModalsHTML;
+    while(temp.firstChild) {
+      wrapper.appendChild(temp.firstChild);
+    }
+  }
+
+  // Global Click Event Delegation
+  document.addEventListener("click", function(e) {
+    
+    // 1. Fullscreen
+    if (e.target.closest('[data-action="fullscreen"]')) {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.error("Error attempting to enable full-screen mode:", err.message);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+      return;
+    }
+
+    // 2. Project Info
+    if (e.target.closest('[data-action="info"]')) {
+      const modal = document.getElementById('project-info-modal');
+      if (modal) modal.classList.add('active');
+      return;
+    }
+
+    // 3. Image Gallery
+    if (e.target.closest('[data-action="images"]')) {
+      const modal = document.getElementById('image-gallery-modal');
+      if (modal) modal.classList.add('active');
+      return;
+    }
+
+    // 4. Social Share
+    if (e.target.closest('[data-action="share"]')) {
+      e.stopPropagation();
+      const menu = document.getElementById('social-share-menu');
+      if (menu) {
+        const btn = e.target.closest('[data-action="share"]');
+        const rect = btn.getBoundingClientRect();
+        
+        // Position menu near the button
+        menu.style.bottom = (window.innerHeight - rect.top + 10) + 'px';
+        menu.style.left = rect.left + 'px';
+        
+        menu.classList.toggle('active');
+      }
+      return;
+    }
+
+    // 7. Contact Info Call
+    if (e.target.closest('[data-action="call"]')) {
+      window.location.href = 'consultation.html';
+      return;
+    }
+
+    // 5. Close Social Share on outside click
+    const shareMenu = document.getElementById('social-share-menu');
+    if (shareMenu && shareMenu.classList.contains('active')) {
+      shareMenu.classList.remove('active');
+    }
+
+    // 6. Close Submenus on outside click (Gradient & Neo & Classic & Futuristic)
+    const navItems = document.querySelectorAll('.nav-item, .gradient-nav-item, .neo-nav-card');
+    let clickedNav = false;
+    navItems.forEach(item => {
+      if (item.contains(e.target)) clickedNav = true;
+    });
+
+    if (!clickedNav) {
+      document.querySelectorAll('.is-open').forEach(el => el.classList.remove('is-open'));
+      const neoPanel = document.getElementById('neo-submenu-panel');
+      if (neoPanel) neoPanel.classList.remove('open');
+    }
+
+    
+    // Gradient Dock Submenu click toggle
+    const dockParent = e.target.closest('.has-dock-submenu');
+    if (dockParent && !e.target.closest('.dock-submenu')) {
+      const wasOpen = dockParent.classList.contains('is-open');
+      document.querySelectorAll('.has-dock-submenu').forEach(el => el.classList.remove('is-open'));
+      if (!wasOpen) dockParent.classList.add('is-open');
+    }
+    
+    // Close dock submenu if clicked outside
+    if (!e.target.closest('.has-dock-submenu')) {
+      document.querySelectorAll('.has-dock-submenu').forEach(el => el.classList.remove('is-open'));
+    }
+
+    // Gradient Nav Item toggle click logic
+    const gradientItem = e.target.closest('.gradient-nav-item');
+    if (gradientItem && !e.target.closest('.submenu-item')) {
+      const wasOpen = gradientItem.classList.contains('is-open');
+      document.querySelectorAll('.gradient-nav-item').forEach(el => el.classList.remove('is-open'));
+      if (!wasOpen) gradientItem.classList.add('is-open');
+    }
+  });
+});
