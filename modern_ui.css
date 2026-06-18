@@ -4302,21 +4302,64 @@
 /* OPTION 4: GRADIENT LAYOUT (VISION UI REDESIGN) */
 
 /* Collapsible Gradient Docks */
-.layout-gradient .gradient-dock-wrapper {
+/* 3D Slanted Vertical Rails */
+.layout-gradient .v-rail-container {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1000;
   display: flex;
+  flex-direction: column;
   align-items: center;
   pointer-events: none;
+  /* Perspective setup for 3D */
+  perspective: 1000px;
 }
-.layout-gradient .gradient-dock-wrapper.left { left: 0; }
-.layout-gradient .gradient-dock-wrapper.right { right: 0; flex-direction: row-reverse; }
 
-.layout-gradient .gradient-dock-trigger {
-  width: 28px;
-  height: 64px;
+.layout-gradient .v-rail-container.left-rail { 
+  left: 16px; 
+}
+.layout-gradient .v-rail-container.right-rail { 
+  right: 16px; 
+}
+
+/* Single Tilted Rail */
+.layout-gradient .v-rail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  pointer-events: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+/* Tilt effects REMOVED: Parent containers must remain perfectly stable */
+.layout-gradient .v-rail-container.left-rail .v-rail-content {
+  transform: none;
+}
+.layout-gradient .v-rail-container.right-rail .v-rail-content {
+  transform: none;
+}
+
+.layout-gradient .v-rail-container.hover-expanded .v-rail-content,
+.layout-gradient .v-rail-container.pinned .v-rail-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Trigger Icon (Visible when collapsed) */
+.layout-gradient .v-rail-trigger {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   display: flex;
@@ -4325,105 +4368,114 @@
   cursor: pointer;
   color: #fff;
   pointer-events: auto;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid rgba(255, 255, 255, 0.4);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-.layout-gradient .gradient-dock-trigger.left {
-  border-radius: 0 16px 16px 0;
-  border-left: none;
+
+.layout-gradient .v-rail-container.hover-expanded .v-rail-trigger,
+.layout-gradient .v-rail-container.pinned .v-rail-trigger {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%) scale(0.5);
 }
-.layout-gradient .gradient-dock-trigger.right {
-  border-radius: 16px 0 0 16px;
-  border-right: none;
-}
-.layout-gradient .gradient-dock-trigger:hover {
+
+.layout-gradient .v-rail-trigger:hover {
   background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.1);
 }
-.layout-gradient .gradient-dock-trigger svg {
+.layout-gradient .v-rail-trigger svg {
   width: 20px;
   height: 20px;
-  transition: transform 0.3s ease;
-}
-
-.layout-gradient .gradient-dock-wrapper.left.collapsed .gradient-dock-trigger svg { transform: rotate(0deg); }
-.layout-gradient .gradient-dock-wrapper.left:not(.collapsed) .gradient-dock-trigger svg { transform: rotate(180deg); }
-.layout-gradient .gradient-dock-wrapper.right.collapsed .gradient-dock-trigger svg { transform: rotate(0deg); }
-.layout-gradient .gradient-dock-wrapper.right:not(.collapsed) .gradient-dock-trigger svg { transform: rotate(180deg); }
-
-/* The Docks (Left and Right) */
-.layout-gradient .vision-dock {
-  position: relative !important;
-  top: auto !important;
-  transform: none !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 16px 8px;
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  pointer-events: auto !important;
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-}
-
-.layout-gradient .vision-dock.left-dock {
-  margin-left: 12px;
-}
-
-.layout-gradient .vision-dock.right-dock {
-  margin-right: 12px;
-}
-
-.layout-gradient .gradient-dock-wrapper.left.collapsed .vision-dock {
-  transform: translateX(-30px) !important;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none !important;
-}
-.layout-gradient .gradient-dock-wrapper.right.collapsed .vision-dock {
-  transform: translateX(30px) !important;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none !important;
 }
 
 /* Individual Icon Wrapper */
 .layout-gradient .vision-icon-wrapper {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   cursor: pointer;
   border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition-delay: 0s !important;
+  transform-style: preserve-3d;
 }
+
+.layout-gradient .v-rail-container.left-rail .vision-icon-wrapper {
+  transform-origin: left center;
+  transform: perspective(600px) rotateY(-45deg) translateX(-10px) scale(0.95);
+}
+.layout-gradient .v-rail-container.left-rail.hover-expanded .vision-icon-wrapper,
+.layout-gradient .v-rail-container.left-rail.pinned .vision-icon-wrapper {
+  opacity: 1;
+  transform: perspective(600px) rotateY(0deg) translateX(0) scale(1);
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.layout-gradient .v-rail-container.right-rail .vision-icon-wrapper {
+  transform-origin: right center;
+  transform: perspective(600px) rotateY(45deg) translateX(10px) scale(0.95);
+}
+.layout-gradient .v-rail-container.right-rail.hover-expanded .vision-icon-wrapper,
+.layout-gradient .v-rail-container.right-rail.pinned .vision-icon-wrapper {
+  opacity: 1;
+  transform: perspective(600px) rotateY(0deg) translateX(0) scale(1);
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Staggered delay for each item ONLY when expanding */
+.layout-gradient .v-rail-container.hover-expanded .vision-icon-wrapper:nth-child(1),
+.layout-gradient .v-rail-container.pinned .vision-icon-wrapper:nth-child(1) { transition-delay: 0.03s !important; }
+.layout-gradient .v-rail-container.hover-expanded .vision-icon-wrapper:nth-child(2),
+.layout-gradient .v-rail-container.pinned .vision-icon-wrapper:nth-child(2) { transition-delay: 0.06s !important; }
+.layout-gradient .v-rail-container.hover-expanded .vision-icon-wrapper:nth-child(3),
+.layout-gradient .v-rail-container.pinned .vision-icon-wrapper:nth-child(3) { transition-delay: 0.09s !important; }
+.layout-gradient .v-rail-container.hover-expanded .vision-icon-wrapper:nth-child(4),
+.layout-gradient .v-rail-container.pinned .vision-icon-wrapper:nth-child(4) { transition-delay: 0.12s !important; }
+.layout-gradient .v-rail-container.hover-expanded .vision-icon-wrapper:nth-child(5),
+.layout-gradient .v-rail-container.pinned .vision-icon-wrapper:nth-child(5) { transition-delay: 0.15s !important; }
+.layout-gradient .v-rail-container.hover-expanded .vision-icon-wrapper:nth-child(6),
+.layout-gradient .v-rail-container.pinned .vision-icon-wrapper:nth-child(6) { transition-delay: 0.18s !important; }
+.layout-gradient .v-rail-container.hover-expanded .vision-icon-wrapper:nth-child(7),
+.layout-gradient .v-rail-container.pinned .vision-icon-wrapper:nth-child(7) { transition-delay: 0.21s !important; }
 
 /* The actual icon circle */
 .layout-gradient .vision-icon {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   color: #fff;
 }
 
 .layout-gradient .vision-icon svg {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.3s ease;
+  width: 18px;
+  height: 18px;
 }
 
 /* Interactions: Hover */
+.layout-gradient .vision-icon-wrapper:hover,
+.layout-gradient .vision-icon-wrapper.hover-open,
+.layout-gradient .vision-icon-wrapper.pinned {
+  z-index: 100;
+}
 .layout-gradient .vision-icon-wrapper:hover .vision-icon {
   background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 /* Interactions: Active Tool (e.g., Music ON) */
@@ -4431,126 +4483,146 @@
 .layout-gradient .vision-icon-wrapper.pinned .vision-icon {
   background: linear-gradient(135deg, #ff6b6b, #ff8e53);
   box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-}
-
-.layout-gradient .vision-icon-wrapper.active-tool .vision-icon svg,
-.layout-gradient .vision-icon-wrapper.pinned .vision-icon svg {
   transform: scale(1.1);
 }
 
-/* Tooltips */
-.layout-gradient .vision-tooltip {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%) scale(0.95);
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  padding: 6px 12px;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 500;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.2s ease;
-  pointer-events: none;
-}
-
-.layout-gradient .left-dock .vision-tooltip {
-  left: calc(100% + 16px);
-  transform-origin: left center;
-}
-
-.layout-gradient .right-dock .vision-tooltip {
-  right: calc(100% + 16px);
-  transform-origin: right center;
-}
-
-.layout-gradient .vision-icon-wrapper:hover .vision-tooltip {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(-50%) scale(1);
-}
-
-/* Hide tooltip if a submenu is pinned open */
-.layout-gradient .vision-icon-wrapper.pinned .vision-tooltip {
-  display: none;
-}
-
-/* Submenus (The panels that slide out) */
+/* Submenus (Floating Side Layers) */
 .layout-gradient .vision-submenu {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%) scale(0.95);
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 12px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none; /* Ignore clicks while hidden */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
   min-width: 140px;
+  z-index: 100;
 }
 
-.layout-gradient .left-dock .vision-submenu {
-  left: calc(100% + 20px);
-  transform-origin: left center;
+/* Left Rail: Pop out to the RIGHT */
+.layout-gradient .left-rail .vision-submenu {
+  left: calc(100% + 16px);
+  right: auto;
+  transform: translateY(-50%);
 }
 
-.layout-gradient .right-dock .vision-submenu {
-  right: calc(100% + 20px);
-  transform-origin: right center;
+/* Right Rail: Pop out to the LEFT */
+.layout-gradient .right-rail .vision-submenu {
+  right: calc(100% + 16px);
+  left: auto;
+  transform: translateY(-50%);
 }
 
 /* Show Submenu */
+.layout-gradient .vision-icon-wrapper:hover .vision-submenu,
 .layout-gradient .vision-icon-wrapper.hover-open .vision-submenu,
 .layout-gradient .vision-icon-wrapper.pinned .vision-submenu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(-50%) scale(1);
-  pointer-events: auto; /* Clickable now */
+  pointer-events: auto;
 }
+
+/* Submenu Items Cascade */
+.layout-gradient .vision-submenu > * {
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition-delay: 0s !important;
+}
+.layout-gradient .left-rail .vision-submenu > * {
+  transform-origin: left center;
+  transform: perspective(600px) rotateY(-45deg) translateX(-10px) scale(0.95);
+}
+.layout-gradient .right-rail .vision-submenu > * {
+  transform-origin: right center;
+  transform: perspective(600px) rotateY(45deg) translateX(10px) scale(0.95);
+}
+
+.layout-gradient .left-rail .vision-icon-wrapper:hover .vision-submenu > *,
+.layout-gradient .left-rail .vision-icon-wrapper.hover-open .vision-submenu > *,
+.layout-gradient .left-rail .vision-icon-wrapper.pinned .vision-submenu > * {
+  opacity: 1;
+  transform: perspective(600px) rotateY(0deg) translateX(0) scale(1);
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.layout-gradient .right-rail .vision-icon-wrapper:hover .vision-submenu > *,
+.layout-gradient .right-rail .vision-icon-wrapper.hover-open .vision-submenu > *,
+.layout-gradient .right-rail .vision-icon-wrapper.pinned .vision-submenu > * {
+  opacity: 1;
+  transform: perspective(600px) rotateY(0deg) translateX(0) scale(1);
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.layout-gradient .vision-icon-wrapper:hover .vision-submenu > *:nth-child(1),
+.layout-gradient .vision-icon-wrapper.hover-open .vision-submenu > *:nth-child(1),
+.layout-gradient .vision-icon-wrapper.pinned .vision-submenu > *:nth-child(1) { transition-delay: 0.03s !important; }
+.layout-gradient .vision-icon-wrapper:hover .vision-submenu > *:nth-child(2),
+.layout-gradient .vision-icon-wrapper.hover-open .vision-submenu > *:nth-child(2),
+.layout-gradient .vision-icon-wrapper.pinned .vision-submenu > *:nth-child(2) { transition-delay: 0.06s !important; }
+.layout-gradient .vision-icon-wrapper:hover .vision-submenu > *:nth-child(3),
+.layout-gradient .vision-icon-wrapper.hover-open .vision-submenu > *:nth-child(3),
+.layout-gradient .vision-icon-wrapper.pinned .vision-submenu > *:nth-child(3) { transition-delay: 0.09s !important; }
+.layout-gradient .vision-icon-wrapper:hover .vision-submenu > *:nth-child(4),
+.layout-gradient .vision-icon-wrapper.hover-open .vision-submenu > *:nth-child(4),
+.layout-gradient .vision-icon-wrapper.pinned .vision-submenu > *:nth-child(4) { transition-delay: 0.12s !important; }
+.layout-gradient .vision-icon-wrapper:hover .vision-submenu > *:nth-child(5),
+.layout-gradient .vision-icon-wrapper.hover-open .vision-submenu > *:nth-child(5),
+.layout-gradient .vision-icon-wrapper.pinned .vision-submenu > *:nth-child(5) { transition-delay: 0.15s !important; }
+.layout-gradient .vision-icon-wrapper:hover .vision-submenu > *:nth-child(6),
+.layout-gradient .vision-icon-wrapper.hover-open .vision-submenu > *:nth-child(6),
+.layout-gradient .vision-icon-wrapper.pinned .vision-submenu > *:nth-child(6) { transition-delay: 0.18s !important; }
+.layout-gradient .vision-icon-wrapper:hover .vision-submenu > *:nth-child(7),
+.layout-gradient .vision-icon-wrapper.hover-open .vision-submenu > *:nth-child(7),
+.layout-gradient .vision-icon-wrapper.pinned .vision-submenu > *:nth-child(7) { transition-delay: 0.21s !important; }
 
 /* Submenu Items (Lists, Buttons) */
 .layout-gradient .v-sub-item {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: 12px;
   color: #fff;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
   text-decoration: none;
   display: block;
 }
 
 .layout-gradient .v-sub-item:hover,
 .layout-gradient .v-sub-item.active {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
 }
 
 /* Submenu Pano Cards (Images) */
 .layout-gradient .v-pano-card {
   width: 140px;
   height: 80px;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: border-color 0.2s;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
 }
 
 .layout-gradient .v-pano-card:hover {
   border-color: #fff;
+  transform: scale(1.05);
 }
 
 .layout-gradient .v-pano-card img {

@@ -60,119 +60,130 @@
   `;
 
   const gradientRightNavHTML = `
-    <div class="gradient-dock-wrapper left collapsed" id="gradient-left-wrapper">
-      <div class="gradient-dock-trigger left" id="gradient-left-trigger">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    <div class="v-rail-container left-rail" id="gradient-left-rail">
+      <div class="v-rail-trigger" id="gradient-left-trigger">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </div>
-      <div class="vision-dock left-dock" id="vision-left-dock">
-      <div class="vision-icon-wrapper" data-id="overview">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <div class="v-rail-content" id="vision-left-dock">
+        <!-- Navigation Overview -->
+        <div class="vision-icon-wrapper" data-id="overview">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="vision-submenu">
+            <div class="v-sub-item active" data-action="overview-top" data-pano-node="node1">Top View</div>
+            <div class="v-sub-item" data-action="overview-bird" data-pano-node="node2">Bird View</div>
+          </div>
         </div>
-        <div class="vision-submenu">
-          <div class="v-sub-item active" data-action="overview-top" data-pano-node="node1">Top View</div>
-          <div class="v-sub-item" data-action="overview-bird" data-pano-node="node2">Bird View</div>
+        <!-- Navigation Amenities -->
+        <div class="vision-icon-wrapper" data-id="amenities">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/></svg>
+          </div>
+          <div class="vision-submenu">
+            <div class="v-sub-item" data-pano-node="node1">Clubhouse</div>
+            <div class="v-sub-item" data-pano-node="node1">Bến Du Thuyền</div>
+            <div class="v-sub-item" data-pano-node="node2">Khu Thể Thao</div>
+            <div class="v-sub-item" data-pano-node="node3">Công Viên</div>
+          </div>
         </div>
-      </div>
-      <div class="vision-icon-wrapper" data-id="amenities">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/></svg>
+        <!-- Navigation Architecture -->
+        <div class="vision-icon-wrapper" data-id="architecture">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <div class="vision-submenu">
+            <div class="v-sub-item" data-pano-node="node3">Mặt Bằng</div>
+            <div class="v-sub-item" data-pano-node="node4">Biệt Thự Song Lập</div>
+            <div class="v-sub-item" data-pano-node="node5">Biệt Thự Đơn Lập</div>
+          </div>
         </div>
-        <div class="vision-submenu">
-          <div class="v-sub-item" data-pano-node="node1">Clubhouse</div>
-          <div class="v-sub-item" data-pano-node="node1">Bến Du Thuyền</div>
-          <div class="v-sub-item" data-pano-node="node2">Khu Thể Thao</div>
-          <div class="v-sub-item" data-pano-node="node3">Công Viên</div>
+        <!-- Navigation Interior -->
+        <div class="vision-icon-wrapper" data-id="interior">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+          </div>
+          <div class="vision-submenu">
+            <div class="v-sub-item" data-pano-node="node4">Phòng Khách</div>
+            <div class="v-sub-item" data-pano-node="node5">Phòng Ngủ</div>
+          </div>
         </div>
-      </div>
-      <div class="vision-icon-wrapper" data-id="architecture">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-        </div>
-        <div class="vision-submenu">
-          <div class="v-sub-item" data-pano-node="node3">Mặt Bằng</div>
-          <div class="v-sub-item" data-pano-node="node4">Biệt Thự Song Lập</div>
-          <div class="v-sub-item" data-pano-node="node5">Biệt Thự Đơn Lập</div>
-        </div>
-      </div>
-      <div class="vision-icon-wrapper" data-id="interior">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/></svg>
-        </div>
-        <div class="vision-submenu">
-          <div class="v-sub-item" data-pano-node="node4">Phòng Khách</div>
-          <div class="v-sub-item" data-pano-node="node5">Phòng Ngủ</div>
-        </div>
-      </div>
-      <div class="vision-icon-wrapper" data-id="surrounding">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
-        </div>
-        <div class="vision-submenu">
-          <div class="v-sub-item" data-pano-node="node2">Giao Thông</div>
-          <div class="v-sub-item" data-pano-node="node1">Tiện Ích Ngoại Khu</div>
-        </div>
+        <!-- Navigation Surrounding -->
+        <div class="vision-icon-wrapper" data-id="surrounding">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <div class="vision-submenu">
+            <div class="v-sub-item" data-pano-node="node2">Giao Thông</div>
+            <div class="v-sub-item" data-pano-node="node1">Tiện Ích Ngoại Khu</div>
+          </div>
         </div>
       </div>
     </div>
   `;
 
-  
   const gradientLeftToolbarHTML = `
-    <div class="gradient-dock-wrapper right collapsed" id="gradient-right-wrapper">
-      <div class="gradient-dock-trigger right" id="gradient-right-trigger">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    <div class="v-rail-container right-rail" id="gradient-right-rail">
+      <div class="v-rail-trigger" id="gradient-right-trigger">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       </div>
-      <div class="vision-dock right-dock" id="vision-right-dock">
-      <div class="vision-icon-wrapper" data-action="music">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <div class="v-rail-content" id="vision-right-dock">
+        <!-- Tool Music -->
+        <div class="vision-icon-wrapper" data-action="music">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
         </div>
-      </div>
-      <div class="vision-icon-wrapper has-children">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <!-- Tool Images -->
+        <div class="vision-icon-wrapper has-children">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <div class="vision-submenu">
+              <div class="v-pano-card" onclick="window.pano && window.pano.openNext('node1')">
+                <img src="pano_aerial.png" alt="Toàn cảnh">
+                <span>Toàn cảnh</span>
+              </div>
+              <div class="v-pano-card" onclick="window.pano && window.pano.openNext('node2')">
+                <img src="pano_detached.png" alt="Đơn lập">
+                <span>Biệt thự Đơn lập</span>
+              </div>
+          </div>
         </div>
-        <div class="vision-submenu">
-            <div class="v-pano-card" onclick="window.pano && window.pano.openNext('node1')">
-              <img src="pano_aerial.png" alt="Toàn cảnh">
-              <span>Toàn cảnh</span>
-            </div>
-            <div class="v-pano-card" onclick="window.pano && window.pano.openNext('node2')">
-              <img src="pano_detached.png" alt="Đơn lập">
-              <span>Biệt thự Đơn lập</span>
-            </div>
+        <!-- Tool Hotspots -->
+        <div class="vision-icon-wrapper active-tool" data-action="hotspots">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
         </div>
-      </div>
-      <div class="vision-icon-wrapper active-tool" data-action="hotspots">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <!-- Tool Share -->
+        <div class="vision-icon-wrapper has-children">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </div>
+          <div class="vision-submenu">
+            <a href="https://facebook.com" target="_blank" class="v-sub-item">Facebook</a>
+            <a href="https://zalo.me" target="_blank" class="v-sub-item">Zalo</a>
+          </div>
         </div>
-      </div>
-      <div class="vision-icon-wrapper has-children">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        <!-- Tool Call -->
+        <div class="vision-icon-wrapper" data-action="call">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
         </div>
-        <div class="vision-submenu">
-          <a href="https://facebook.com" target="_blank" class="v-sub-item">Facebook</a>
-          <a href="https://zalo.me" target="_blank" class="v-sub-item">Zalo</a>
+        <!-- Tool Info -->
+        <div class="vision-icon-wrapper" data-action="info">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </div>
         </div>
-      </div>
-      <div class="vision-icon-wrapper" data-action="call">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <!-- Tool Fullscreen -->
+        <div class="vision-icon-wrapper" data-action="fullscreen">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </div>
         </div>
-      </div>
-      <div class="vision-icon-wrapper" data-action="info">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-        </div>
-      </div>
-      <div class="vision-icon-wrapper" data-action="fullscreen">
-        <div class="vision-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-        </div>
-      </div>
       </div>
     </div>
   `;
@@ -1238,53 +1249,44 @@
   }
 
   function setupGradientListeners() {
-    // Left Wrapper Toggling
-    const leftWrapper = document.getElementById('gradient-left-wrapper');
-    const leftTrigger = document.getElementById('gradient-left-trigger');
-    if (leftWrapper && leftTrigger) {
-      leftWrapper.addEventListener('mouseenter', () => leftWrapper.classList.remove('collapsed'));
-      leftWrapper.addEventListener('mouseleave', () => {
-         if (!leftWrapper.classList.contains('pinned')) leftWrapper.classList.add('collapsed');
+    const rails = document.querySelectorAll('.layout-gradient .v-rail-container');
+    
+    rails.forEach(rail => {
+      let hoverTimeout;
+      // Hover logic
+      rail.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+        rail.classList.add('hover-expanded');
       });
-      leftTrigger.addEventListener('click', (e) => {
-         e.stopPropagation();
-         leftWrapper.classList.toggle('pinned');
-         if (leftWrapper.classList.contains('pinned')) {
-           leftWrapper.classList.remove('collapsed');
-         } else {
-           leftWrapper.classList.add('collapsed');
-         }
+      rail.addEventListener('mouseleave', () => {
+        hoverTimeout = setTimeout(() => {
+          rail.classList.remove('hover-expanded');
+        }, 50); // Reduced from 300ms to 50ms for snappy collapse
       });
-    }
-
-    // Right Wrapper Toggling
-    const rightWrapper = document.getElementById('gradient-right-wrapper');
-    const rightTrigger = document.getElementById('gradient-right-trigger');
-    if (rightWrapper && rightTrigger) {
-      rightWrapper.addEventListener('mouseenter', () => rightWrapper.classList.remove('collapsed'));
-      rightWrapper.addEventListener('mouseleave', () => {
-         if (!rightWrapper.classList.contains('pinned')) rightWrapper.classList.add('collapsed');
-      });
-      rightTrigger.addEventListener('click', (e) => {
-         e.stopPropagation();
-         rightWrapper.classList.toggle('pinned');
-         if (rightWrapper.classList.contains('pinned')) {
-           rightWrapper.classList.remove('collapsed');
-         } else {
-           rightWrapper.classList.add('collapsed');
-         }
-      });
-    }
+      
+      // Trigger pinning
+      const trigger = rail.querySelector('.v-rail-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          rail.classList.toggle('pinned');
+        });
+      }
+    });
 
     const iconWrappers = document.querySelectorAll('.layout-gradient .vision-icon-wrapper');
     
     iconWrappers.forEach(wrapper => {
-      // Hover logic
+      let submenuTimeout;
+      // Hover logic for submenus
       wrapper.addEventListener('mouseenter', () => {
+        clearTimeout(submenuTimeout);
         if (!wrapper.classList.contains('pinned')) wrapper.classList.add('hover-open');
       });
       wrapper.addEventListener('mouseleave', () => {
-        wrapper.classList.remove('hover-open');
+        submenuTimeout = setTimeout(() => {
+          wrapper.classList.remove('hover-open');
+        }, 50); // Reduced from 200ms to 50ms for snappy collapse
       });
       
       // Click logic (for opening submenus or just clicking a tool)
@@ -1313,6 +1315,9 @@
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.layout-gradient .vision-icon-wrapper')) {
         iconWrappers.forEach(n => n.classList.remove('pinned'));
+      }
+      if (!e.target.closest('.layout-gradient .v-rail-container')) {
+        rails.forEach(rail => rail.classList.remove('pinned'));
       }
     });
   }
