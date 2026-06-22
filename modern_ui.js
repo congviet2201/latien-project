@@ -12,9 +12,10 @@
           <stop offset="100%" stop-color="#ff007f" />
         </linearGradient>
         <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#f3e5ab" />
-          <stop offset="50%" stop-color="#d4af37" />
-          <stop offset="100%" stop-color="#aa841e" />
+          <stop offset="0%" stop-color="#ffffff" />
+          <stop offset="25%" stop-color="#fdf0c2" />
+          <stop offset="60%" stop-color="#e5c058" />
+          <stop offset="100%" stop-color="#a8831e" />
         </linearGradient>
         <linearGradient id="cyan-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#e0ffff" />
