@@ -269,6 +269,7 @@
     inset 0 -1.5px 3px rgba(0, 0, 0, 0.04);
   position: relative;
   min-width: 480px;
+  transform-style: preserve-3d;
 }
 
 /* Fluid active glow backing */
@@ -297,6 +298,7 @@
   cursor: pointer;
   z-index: 1;
   transition: all 0.3s ease;
+  transform-style: preserve-3d;
 }
 
 .layout-classic .nav-item svg {
@@ -326,6 +328,17 @@
 
 .layout-classic .nav-item:hover span {
   color: #050505;
+}
+
+/* Elevate z-index on hover or open to display submenus on top of other nav elements */
+.layout-classic .nav-item:hover,
+.layout-classic .nav-item.is-open {
+  z-index: 100 !important;
+}
+
+.layout-classic .center-logo-node:hover,
+.layout-classic .center-logo-node.is-open {
+  z-index: 10 !important;
 }
 
 /* Active Nav State */
@@ -361,10 +374,11 @@
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;
+  transform-style: preserve-3d;
 }
 
 .layout-classic .center-logo-node:hover {
-  transform: translateY(-2px) scale(1.03);
+  transform: translateY(-2px) scale(1.03) translateZ(5px);
   box-shadow: 
     0 6px 15px rgba(0,0,0,0.1),
     0 0 20px rgba(212, 175, 55, 0.5),
@@ -402,7 +416,7 @@
   position: absolute;
   bottom: 60px;
   left: 50%;
-  transform: translateX(-50%) translateY(10px) scale(0.95);
+  transform: translateX(-50%) translateY(10px) translateZ(0px) scale(0.95);
   background: rgba(248, 247, 243, 0.96);
   border: 1.5px solid var(--pearl-border);
   backdrop-filter: blur(25px);
@@ -421,6 +435,7 @@
     0 0 15px rgba(212, 175, 55, 0.1),
     inset 0 1px 1.5px rgba(255, 255, 255, 0.9);
   z-index: 1050;
+  transform-style: preserve-3d;
 }
 
 /* HOVER BRIDGE - Expanded and reinforced to prevent flickering */
@@ -468,7 +483,7 @@
 .layout-classic .nav-item.is-open .nav-submenu {
   opacity: 1;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0) scale(1);
+  transform: translateX(-50%) translateY(0) translateZ(20px) scale(1);
 }
 
 /* Submenu interactive items */
