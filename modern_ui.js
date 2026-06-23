@@ -39,6 +39,8 @@
         <div class="switcher-segment" id="opt-layout-aurora" data-layout="aurora" title="Giao diện Aurora">Aurora</div>
         <div class="switcher-segment" id="opt-layout-horizon" data-layout="horizon" title="Giao diện Horizon">Horizon</div>
         <div class="switcher-segment" id="opt-layout-orbit" data-layout="orbit" title="Giao diện Orbit">Orbit</div>
+        <div class="switcher-segment" id="opt-layout-prism" data-layout="prism" title="Giao diện Prism">Prism</div>
+        <div class="switcher-segment" id="opt-layout-nexus" data-layout="nexus" title="Giao diện Nexus">Nexus</div>
         <div class="switcher-slider" id="switcher-slider"></div>
       </div>
     </div>
@@ -895,6 +897,18 @@
       </div>
 
       <div class="aurora-tool-list">
+        <!-- Project Information (Purple) -->
+        <div class="aurora-tool-item" data-action="info" title="Thông Tin Dự Án" style="--accent-color: var(--aurora-purple);">
+          <div class="aurora-tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+          </div>
+          <span class="aurora-tool-label">Thông Tin</span>
+        </div>
+
         <!-- Music (Pink) -->
         <div class="aurora-tool-item" data-action="music" title="Nhạc Nền" style="--accent-color: var(--aurora-pink);">
           <div class="aurora-tool-icon">
@@ -966,17 +980,6 @@
           <span class="aurora-tool-label">Tư Vấn</span>
         </div>
 
-        <!-- Project Information (Purple) -->
-        <div class="aurora-tool-item" data-action="info" title="Thông Tin Dự Án" style="--accent-color: var(--aurora-purple);">
-          <div class="aurora-tool-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="16" x2="12" y2="12" />
-              <line x1="12" y1="8" x2="12.01" y2="8" />
-            </svg>
-          </div>
-          <span class="aurora-tool-label">Thông Tin</span>
-        </div>
 
         <!-- Fullscreen (Electric Cyan) -->
         <div class="aurora-tool-item" data-action="fullscreen" title="Toàn Màn Hình" style="--accent-color: var(--aurora-cyan);">
@@ -1108,6 +1111,15 @@
 
   const horizonRightToolHTML = `
     <div class="horizon-tool-panel" id="horizon-tool-panel">
+      <!-- Project Information -->
+      <div class="horizon-tool-item" data-action="info" title="Thông Tin Dự Án">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="16" x2="12" y2="12" />
+          <line x1="12" y1="8" x2="12.01" y2="8" />
+        </svg>
+      </div>
+
       <!-- Music -->
       <div class="horizon-tool-item" data-action="music" title="Nhạc Nền">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1164,14 +1176,6 @@
         </svg>
       </div>
 
-      <!-- Project Information -->
-      <div class="horizon-tool-item" data-action="info" title="Thông Tin Dự Án">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10" />
-          <line x1="12" y1="16" x2="12" y2="12" />
-          <line x1="12" y1="8" x2="12.01" y2="8" />
-        </svg>
-      </div>
 
       <!-- Fullscreen -->
       <div class="horizon-tool-item" data-action="fullscreen" title="Toàn Màn Hình">
@@ -1324,6 +1328,14 @@
         </svg>
       </div>
       <div class="orbit-tool-list" id="orbit-tool-list">
+        <div class="orbit-tool-item" data-action="info" title="Thông Tin Dự Án">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+        </div>
+
         <div class="orbit-tool-item" data-action="music" title="Nhạc Nền">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 18V5l12-2v13" />
@@ -1375,13 +1387,6 @@
           </svg>
         </div>
 
-        <div class="orbit-tool-item" data-action="info" title="Thông Tin Dự Án">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <line x1="12" y1="16" x2="12" y2="12" />
-            <line x1="12" y1="8" x2="12.01" y2="8" />
-          </svg>
-        </div>
 
         <div class="orbit-tool-item" data-action="fullscreen" title="Toàn Màn Hình">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1410,6 +1415,417 @@
         </svg>
       </div>
       <div class="compass-cardinal n">N</div>
+      <div class="compass-degree-display" id="compass-degree">0°</div>
+    </div>
+  `;
+
+  // OPTION 8: PRISM LAYOUT TEMPLATES
+  const prismNavHTML = `
+    <div class="prism-nav-container" id="prism-nav-container">
+      <div class="prism-nav-wrapper">
+        <div class="prism-nav-list">
+
+          <!-- Item 1: Top View -->
+          <div class="prism-nav-item" data-id="topview" data-pano-node="node1" data-action="overview-top">
+            <div class="prism-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+            <span class="prism-nav-label">Top View</span>
+          </div>
+
+          <!-- Item 2: Bird View (has submenu) -->
+          <div class="prism-nav-item has-submenu" data-id="birdview">
+            <div class="prism-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                <path d="M12 22V12" /><path d="m12 12 8.7-5" /><path d="m12 12-8.7-5" />
+              </svg>
+            </div>
+            <span class="prism-nav-label">Bird View</span>
+            <div class="prism-submenu">
+              <div class="prism-submenu-item" data-action="overview-bird1" data-pano-node="node2">Bird View 1</div>
+              <div class="prism-submenu-item" data-action="overview-bird2" data-pano-node="node3">Bird View 2</div>
+              <div class="prism-submenu-item" data-action="overview-bird3" data-pano-node="node4">Bird View 3</div>
+            </div>
+          </div>
+
+          <!-- Item 3: Amenities -->
+          <div class="prism-nav-item" data-id="amenities" data-action="amenity-pool">
+            <div class="prism-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.886H3.88l5.03 3.656L7.002 18.43 12 14.772l4.998 3.656-1.908-5.888 5.03-3.656h-6.208L12 3Z" />
+              </svg>
+            </div>
+            <span class="prism-nav-label">Tiện Ích</span>
+          </div>
+
+          <!-- Item 4: Architecture -->
+          <div class="prism-nav-item" data-id="architecture" data-action="architecture-1">
+            <div class="prism-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
+                <path d="m8 10 3 3 5-5" />
+              </svg>
+            </div>
+            <span class="prism-nav-label">Kiến Trúc</span>
+          </div>
+
+          <!-- Item 5: Interior (has submenu) -->
+          <div class="prism-nav-item has-submenu" data-id="interior">
+            <div class="prism-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M9 3v18" /><path d="M15 3v18" />
+                <path d="M3 9h18" /><path d="M3 15h18" />
+              </svg>
+            </div>
+            <span class="prism-nav-label">Nội Thất</span>
+            <div class="prism-submenu">
+              <div class="prism-submenu-item" data-action="interior-1">Interior 1</div>
+              <div class="prism-submenu-item" data-action="interior-2">Interior 2</div>
+            </div>
+          </div>
+
+          <!-- Item 6: Liên kết vùng -->
+          <div class="prism-nav-item" data-id="surrounding" data-action="region-page">
+            <div class="prism-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <span class="prism-nav-label">Liên Kết Vùng</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  `;
+
+  const prismRightToolHTML = `
+    <div class="prism-tool-container" id="prism-tool-container">
+      <div class="prism-tool-list">
+
+        <div class="prism-tool-item" data-action="info">
+          <div class="prism-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+          </div>
+          <span class="prism-tool-label">Thông Tin</span>
+        </div>
+
+        <div class="prism-tool-item" data-action="music">
+          <div class="prism-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
+            </svg>
+          </div>
+          <span class="prism-tool-label">Nhạc</span>
+        </div>
+
+        <div class="prism-tool-item" data-action="images">
+          <div class="prism-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" /><path d="M20.4 14.5L16 10 5 21" />
+            </svg>
+          </div>
+          <span class="prism-tool-label">Thư Viện</span>
+        </div>
+
+        <div class="prism-tool-item" data-action="hotspots">
+          <div class="prism-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="3" />
+            </svg>
+          </div>
+          <span class="prism-tool-label">Hotspot</span>
+        </div>
+
+        <div class="prism-tool-item" data-action="share">
+          <div class="prism-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+            </svg>
+          </div>
+          <span class="prism-tool-label">Chia Sẻ</span>
+        </div>
+
+        <div class="prism-tool-item" data-action="call">
+          <div class="prism-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+          </div>
+          <span class="prism-tool-label">Liên Hệ</span>
+        </div>
+
+        <div class="prism-tool-item" data-action="fullscreen">
+          <div class="prism-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 3 6 6M9 21l-6-6M21 3v6h-6M3 21v-6h6" />
+            </svg>
+          </div>
+          <span class="prism-tool-label">Toàn Màn</span>
+        </div>
+
+
+      </div>
+    </div>
+  `;
+
+  const prismCompassHTML = `
+    <div class="compass-widget prism-compass" id="compass-widget">
+      <div class="compass-outer-glow"></div>
+      <div class="compass-dial" id="compass-dial">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <!-- Inner card background -->
+          <circle cx="40" cy="40" r="32" fill="#1F2937" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+          <!-- Dial border with purple/coral gradient -->
+          <circle cx="40" cy="40" r="35" stroke="url(#prismCompassGrad)" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <!-- Minimal Ticks -->
+          <line x1="40" y1="12" x2="40" y2="16" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
+          <line x1="40" y1="64" x2="40" y2="68" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <line x1="12" y1="40" x2="16" y2="40" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <line x1="64" y1="40" x2="68" y2="40" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <!-- Minimal Colorful Needle -->
+          <g>
+            <!-- North needle: Purple / Coral gradient -->
+            <polygon points="40,16 43,40 40,36 37,40" fill="url(#prismNeedleGradNorth)"/>
+            <!-- South needle: Sleek grey -->
+            <polygon points="40,64 43,40 40,44 37,40" fill="rgba(255, 255, 255, 0.15)"/>
+          </g>
+          <defs>
+            <linearGradient id="prismCompassGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FF6B6B" />
+              <stop offset="100%" stop-color="#7C3AED" />
+            </linearGradient>
+            <linearGradient id="prismNeedleGradNorth" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FF6B6B" />
+              <stop offset="100%" stop-color="#7C3AED" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="compass-cardinal prism-n">N</div>
+      <div class="compass-degree-display" id="compass-degree">0°</div>
+    </div>
+  `;
+
+  // OPTION 9: NEXUS LAYOUT TEMPLATES
+  const nexusNavHTML = `
+    <div class="nexus-nav-container" id="nexus-nav-container">
+      <div class="nexus-nav-wrapper">
+        <div class="nexus-nav-list">
+
+          <!-- Item 1: Top View -->
+          <div class="nexus-nav-item" data-id="topview" data-pano-node="node1" data-action="overview-top">
+            <div class="nexus-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0Z" />
+              </svg>
+            </div>
+            <span class="nexus-nav-label">Top View</span>
+            <span class="nexus-active-line"></span>
+          </div>
+
+          <!-- Item 2: Bird View -->
+          <div class="nexus-nav-item has-submenu" data-id="birdview">
+            <div class="nexus-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                <line x1="12" y1="22.08" x2="12" y2="12" />
+              </svg>
+            </div>
+            <span class="nexus-nav-label">Bird View</span>
+            <span class="nexus-active-line"></span>
+            <div class="nexus-submenu">
+              <div class="nexus-submenu-item" data-action="overview-bird1" data-pano-node="node2">Bird View 1</div>
+              <div class="nexus-submenu-item" data-action="overview-bird2" data-pano-node="node3">Bird View 2</div>
+              <div class="nexus-submenu-item" data-action="overview-bird3" data-pano-node="node4">Bird View 3</div>
+            </div>
+          </div>
+
+          <!-- Item 3: Amenities -->
+          <div class="nexus-nav-item" data-id="amenities" data-action="amenity-pool">
+            <div class="nexus-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.886H3.88l5.03 3.656L7.002 18.43 12 14.772l4.998 3.656-1.908-5.888 5.03-3.656h-6.208L12 3Z" />
+              </svg>
+            </div>
+            <span class="nexus-nav-label">Tiện Ích</span>
+            <span class="nexus-active-line"></span>
+          </div>
+
+          <!-- Item 4: Architecture -->
+          <div class="nexus-nav-item" data-id="architecture" data-action="architecture-1">
+            <div class="nexus-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M9 3v18" />
+                <path d="m15 9-6 6" />
+                <path d="M15 15h3" />
+                <path d="M15 9h3" />
+              </svg>
+            </div>
+            <span class="nexus-nav-label">Kiến Trúc</span>
+            <span class="nexus-active-line"></span>
+          </div>
+
+          <!-- Item 5: Interior -->
+          <div class="nexus-nav-item has-submenu" data-id="interior">
+            <div class="nexus-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 18v3h16v-3" />
+                <path d="M4 10v4h16v-4" />
+                <path d="M8 10V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5" />
+                <path d="M12 10V3" />
+              </svg>
+            </div>
+            <span class="nexus-nav-label">Nội Thất</span>
+            <span class="nexus-active-line"></span>
+            <div class="nexus-submenu">
+              <div class="nexus-submenu-item" data-action="interior-1">Interior 1</div>
+              <div class="nexus-submenu-item" data-action="interior-2">Interior 2</div>
+            </div>
+          </div>
+
+          <!-- Item 6: Liên kết vùng -->
+          <div class="nexus-nav-item" data-id="surrounding" data-action="region-page">
+            <div class="nexus-nav-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 20 3 17V4l6 3 6-3 6 3v13z" />
+                <path d="M9 7v13" />
+                <path d="M15 4v13" />
+              </svg>
+            </div>
+            <span class="nexus-nav-label">Liên Kết Vùng</span>
+            <span class="nexus-active-line"></span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  `;
+
+  const nexusRightToolHTML = `
+    <div class="nexus-tool-container" id="nexus-tool-container">
+      <div class="nexus-tool-list">
+
+        <div class="nexus-tool-item" data-action="info">
+          <div class="nexus-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+          </div>
+          <span class="nexus-tool-label">Thông Tin</span>
+          <div class="nexus-tool-tooltip">Thông tin dự án</div>
+        </div>
+
+        <div class="nexus-tool-item" data-action="music">
+          <div class="nexus-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="16" r="3" />
+            </svg>
+          </div>
+          <span class="nexus-tool-label">Nhạc</span>
+          <div class="nexus-tool-tooltip">Nhạc nền</div>
+        </div>
+
+        <div class="nexus-tool-item" data-action="images">
+          <div class="nexus-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+              <circle cx="9" cy="9" r="2" />
+            </svg>
+          </div>
+          <span class="nexus-tool-label">Thư Viện</span>
+          <div class="nexus-tool-tooltip">Thư viện ảnh</div>
+        </div>
+
+        <div class="nexus-tool-item" data-action="hotspots">
+          <div class="nexus-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="m12 8-4 4 4 4 4-4-4-4Z" />
+            </svg>
+          </div>
+          <span class="nexus-tool-label">Hotspot</span>
+          <div class="nexus-tool-tooltip">Bật/tắt điểm nóng</div>
+        </div>
+
+        <div class="nexus-tool-item" data-action="share">
+          <div class="nexus-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3" />
+              <circle cx="6" cy="12" r="3" />
+              <circle cx="18" cy="19" r="3" />
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+            </svg>
+          </div>
+          <span class="nexus-tool-label">Chia Sẻ</span>
+          <div class="nexus-tool-tooltip">Chia sẻ dự án</div>
+        </div>
+
+        <div class="nexus-tool-item" data-action="call">
+          <div class="nexus-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+          </div>
+          <span class="nexus-tool-label">Liên Hệ</span>
+          <div class="nexus-tool-tooltip">Liên hệ hỗ trợ</div>
+        </div>
+
+        <div class="nexus-tool-item" data-action="fullscreen">
+          <div class="nexus-tool-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m8 3-5 5 5 5" />
+              <path d="M3 8h18" />
+              <path d="m16 21 5-5-5-5" />
+            </svg>
+          </div>
+          <span class="nexus-tool-label">Toàn Màn</span>
+          <div class="nexus-tool-tooltip">Toàn màn hình</div>
+        </div>
+
+
+      </div>
+    </div>
+  `;
+
+  const nexusCompassHTML = `
+    <div class="compass-widget nexus-compass" id="compass-widget">
+      <div class="compass-dial" id="compass-dial">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <circle cx="40" cy="40" r="36" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+          <circle cx="40" cy="40" r="30" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+          <!-- Dial lines -->
+          <line x1="40" y1="8" x2="40" y2="14" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <line x1="40" y1="66" x2="40" y2="72" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <line x1="8" y1="40" x2="14" y2="40" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <line x1="66" y1="40" x2="72" y2="40" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <!-- Needle: Lavender and Mint subtle gradient -->
+          <g>
+            <polygon points="40,16 42,40 40,38 38,40" fill="#5EEAD4" />
+            <polygon points="40,64 42,40 40,42 38,40" fill="rgba(255,255,255,0.15)" />
+          </g>
+        </svg>
+      </div>
+      <div class="compass-cardinal nexus-n">N</div>
       <div class="compass-degree-display" id="compass-degree">0°</div>
     </div>
   `;
@@ -1680,8 +2096,11 @@
     const auroraSeg = document.getElementById("opt-layout-aurora");
     const horizonSeg = document.getElementById("opt-layout-horizon");
     const orbitSeg = document.getElementById("opt-layout-orbit");
+    const prismSeg = document.getElementById("opt-layout-prism");
+    const nexusSeg = document.getElementById("opt-layout-nexus");
     const slider = document.getElementById("switcher-slider");
-    if (!classicSeg || !futuristicSeg || !neoSeg || !gradientSeg || !auroraSeg || !horizonSeg || !orbitSeg || !slider) return;
+    if (!classicSeg || !futuristicSeg || !neoSeg || !gradientSeg || !auroraSeg || !horizonSeg || !orbitSeg || !prismSeg || !nexusSeg || !slider) return;
+
 
     requestAnimationFrame(() => {
       let activeSeg = classicSeg;
@@ -1691,6 +2110,8 @@
       else if (layoutMode === "aurora") activeSeg = auroraSeg;
       else if (layoutMode === "horizon") activeSeg = horizonSeg;
       else if (layoutMode === "orbit") activeSeg = orbitSeg;
+      else if (layoutMode === "prism" && prismSeg) activeSeg = prismSeg;
+      else if (layoutMode === "nexus" && nexusSeg) activeSeg = nexusSeg;
       
       classicSeg.classList.toggle("active", layoutMode === "classic");
       futuristicSeg.classList.toggle("active", layoutMode === "futuristic");
@@ -1699,9 +2120,11 @@
       auroraSeg.classList.toggle("active", layoutMode === "aurora");
       horizonSeg.classList.toggle("active", layoutMode === "horizon");
       orbitSeg.classList.toggle("active", layoutMode === "orbit");
+      if (prismSeg) prismSeg.classList.toggle("active", layoutMode === "prism");
+      if (nexusSeg) nexusSeg.classList.toggle("active", layoutMode === "nexus");
 
       slider.style.width = `${activeSeg.offsetWidth}px`;
-      slider.style.left = `${activeSeg.offsetLeft}px`;
+      slider.style.left  = `${activeSeg.offsetLeft}px`;
     });
   }
 
@@ -1799,6 +2222,20 @@
         uiWrapper.appendChild(tempDiv.firstChild);
       }
       setupOrbitListeners();
+    } else if (layoutMode === "prism") {
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = prismNavHTML + prismRightToolHTML;
+      while (tempDiv.firstChild) {
+        uiWrapper.appendChild(tempDiv.firstChild);
+      }
+      setupPrismListeners();
+    } else if (layoutMode === "nexus") {
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = nexusNavHTML + nexusRightToolHTML;
+      while (tempDiv.firstChild) {
+        uiWrapper.appendChild(tempDiv.firstChild);
+      }
+      setupNexusListeners();
     }
 
     // Inject Minimap (shared HTML, styled differently in CSS)
@@ -1810,7 +2247,7 @@
       setupMinimapListeners();
       minimapEl = document.getElementById("minimap-widget");
     }
-    if (minimapEl && layoutMode === "orbit") {
+    if (minimapEl && (layoutMode === "orbit" || layoutMode === "prism" || layoutMode === "nexus")) {
       minimapEl.classList.remove("collapsed");
     }
 
@@ -1828,6 +2265,10 @@
       compassDiv.innerHTML = horizonCompassHTML;
     } else if (layoutMode === "orbit") {
       compassDiv.innerHTML = orbitCompassHTML;
+    } else if (layoutMode === "prism") {
+      compassDiv.innerHTML = prismCompassHTML;
+    } else if (layoutMode === "nexus") {
+      compassDiv.innerHTML = nexusCompassHTML;
     } else {
       compassDiv.innerHTML = compassWidgetHTML;
     }
@@ -1840,7 +2281,7 @@
   // Restore navigation and submenu highlight states on rebuild
   function restoreActiveStates() {
     // 1. Restore main nav highlights
-    const navItems = document.querySelectorAll(".nav-item, .aurora-nav-item, .horizon-nav-item, .orbit-nav-item");
+    const navItems = document.querySelectorAll(".nav-item, .aurora-nav-item, .horizon-nav-item, .orbit-nav-item, .prism-nav-item, .nexus-nav-item");
     let activeNavItem = null;
     navItems.forEach(item => {
       if (item.getAttribute("data-id") === activeNavItemId) {
@@ -1852,7 +2293,7 @@
     });
 
     // 2. Restore submenu active highlight — use unique data-action only
-    const subItems = document.querySelectorAll(".submenu-item, .mega-card, .aurora-submenu-item, .horizon-submenu-item, .orbit-submenu-item");
+    const subItems = document.querySelectorAll(".submenu-item, .mega-card, .aurora-submenu-item, .horizon-submenu-item, .orbit-submenu-item, .prism-submenu-item, .nexus-submenu-item");
     subItems.forEach(sub => {
       const action = sub.getAttribute("data-action");
       if (action && action === activeSubmenuAction) {
@@ -2857,6 +3298,146 @@
   }
 
   // ==========================================
+  // PRISM LAYOUT LISTENERS
+  // ==========================================
+  function setupPrismListeners() {
+    const navItems     = document.querySelectorAll(".layout-prism .prism-nav-item");
+    const submenuItems = document.querySelectorAll(".layout-prism .prism-submenu-item");
+    const toolItems    = document.querySelectorAll(".layout-prism .prism-tool-item");
+
+    // 1. Navigation items — toggle submenu or navigate
+    navItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        if (this.classList.contains("has-submenu")) {
+          e.stopPropagation();
+          const wasOpen = this.classList.contains("open");
+          navItems.forEach(n => n.classList.remove("open"));
+          if (!wasOpen) this.classList.add("open");
+          return;
+        }
+        navItems.forEach(n => n.classList.remove("active", "open"));
+        submenuItems.forEach(s => s.classList.remove("active"));
+        this.classList.add("active");
+        activeNavItemId = this.getAttribute("data-id");
+        lsSet("latien_active_nav", activeNavItemId);
+        routeNavigation(this);
+      });
+    });
+
+    // 2. Submenu item clicks
+    submenuItems.forEach(sub => {
+      sub.addEventListener("click", function(e) {
+        e.stopPropagation();
+        submenuItems.forEach(s => s.classList.remove("active"));
+        this.classList.add("active");
+        const parentNav = this.closest(".prism-nav-item");
+        if (parentNav) {
+          navItems.forEach(n => n.classList.remove("active", "open"));
+          parentNav.classList.add("active");
+          activeNavItemId = parentNav.getAttribute("data-id");
+          lsSet("latien_active_nav", activeNavItemId);
+        }
+        activeSubmenuAction = this.getAttribute("data-action");
+        activePanoNode      = this.getAttribute("data-pano-node") || activePanoNode;
+        lsSet("latien_active_submenu", activeSubmenuAction);
+        lsSet("latien_active_node",    activePanoNode);
+        routeNavigation(this);
+      });
+    });
+
+    // 3. Right Toolbar — click toggles global action; second click on same item unpins
+    toolItems.forEach(tool => {
+      tool.addEventListener("click", function(e) {
+        e.stopPropagation();
+        const isPinned = this.classList.contains("pinned");
+        toolItems.forEach(t => t.classList.remove("pinned"));
+        if (!isPinned) this.classList.add("pinned");
+        dispatchToolAction(this);
+      });
+    });
+
+    // 4. Outside click — close nav dropdowns and unpin toolbar
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".prism-nav-item")) {
+        navItems.forEach(n => n.classList.remove("open"));
+      }
+      if (!e.target.closest(".prism-tool-item")) {
+        toolItems.forEach(t => t.classList.remove("pinned"));
+      }
+    });
+  }
+
+  // ==========================================
+  // NEXUS LAYOUT LISTENERS
+  // ==========================================
+  function setupNexusListeners() {
+    const navItems     = document.querySelectorAll(".layout-nexus .nexus-nav-item");
+    const submenuItems = document.querySelectorAll(".layout-nexus .nexus-submenu-item");
+    const toolItems    = document.querySelectorAll(".layout-nexus .nexus-tool-item");
+
+    // 1. Navigation items — toggle submenu or navigate
+    navItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        if (this.classList.contains("has-submenu")) {
+          e.stopPropagation();
+          const wasOpen = this.classList.contains("open");
+          navItems.forEach(n => n.classList.remove("open"));
+          if (!wasOpen) this.classList.add("open");
+          return;
+        }
+        navItems.forEach(n => n.classList.remove("active", "open"));
+        submenuItems.forEach(s => s.classList.remove("active"));
+        this.classList.add("active");
+        activeNavItemId = this.getAttribute("data-id");
+        lsSet("latien_active_nav", activeNavItemId);
+        routeNavigation(this);
+      });
+    });
+
+    // 2. Submenu item clicks
+    submenuItems.forEach(sub => {
+      sub.addEventListener("click", function(e) {
+        e.stopPropagation();
+        submenuItems.forEach(s => s.classList.remove("active"));
+        this.classList.add("active");
+        const parentNav = this.closest(".nexus-nav-item");
+        if (parentNav) {
+          navItems.forEach(n => n.classList.remove("active", "open"));
+          parentNav.classList.add("active");
+          activeNavItemId = parentNav.getAttribute("data-id");
+          lsSet("latien_active_nav", activeNavItemId);
+        }
+        activeSubmenuAction = this.getAttribute("data-action");
+        activePanoNode      = this.getAttribute("data-pano-node") || activePanoNode;
+        lsSet("latien_active_submenu", activeSubmenuAction);
+        lsSet("latien_active_node",    activePanoNode);
+        routeNavigation(this);
+      });
+    });
+
+    // 3. Right Toolbar — click toggles global action; second click on same item unpins
+    toolItems.forEach(tool => {
+      tool.addEventListener("click", function(e) {
+        e.stopPropagation();
+        const isPinned = this.classList.contains("pinned");
+        toolItems.forEach(t => t.classList.remove("pinned"));
+        if (!isPinned) this.classList.add("pinned");
+        dispatchToolAction(this);
+      });
+    });
+
+    // 4. Outside click — close nav dropdowns and unpin toolbar
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".nexus-nav-item")) {
+        navItems.forEach(n => n.classList.remove("open"));
+      }
+      if (!e.target.closest(".nexus-tool-item")) {
+        toolItems.forEach(t => t.classList.remove("pinned"));
+      }
+    });
+  }
+
+  // ==========================================
   // TOOLBAR ACTION DISPATCHER
   // ==========================================
 
@@ -3210,8 +3791,9 @@
     document.body.appendChild(uiWrapper);
 
     // Sync top-level body classes
-    document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit");
+    document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit", "layout-prism", "layout-nexus");
     document.body.classList.add(`layout-${layoutMode}`);
+
 
     // Inject custom Interior Page and Region Page overlays if not already present
     if (!document.getElementById("interior-page")) {
@@ -3339,6 +3921,8 @@
     const auroraSeg = document.getElementById("opt-layout-aurora");
     const horizonSeg = document.getElementById("opt-layout-horizon");
     const orbitSeg = document.getElementById("opt-layout-orbit");
+    const prismSeg = document.getElementById("opt-layout-prism");
+    const nexusSeg = document.getElementById("opt-layout-nexus");
 
     const handleSwitch = (newLayout) => {
       if (layoutMode === newLayout) return;
@@ -3347,12 +3931,12 @@
       uiWrapper.classList.add("switching");
 
       // 2. Record current active selections
-      const activeNav = document.querySelector(".nav-item.active, .aurora-nav-item.active, .horizon-nav-item.active, .orbit-nav-item.active");
+      const activeNav = document.querySelector(".nav-item.active, .aurora-nav-item.active, .horizon-nav-item.active, .orbit-nav-item.active, .prism-nav-item.active, .nexus-nav-item.active");
       if (activeNav) {
         activeNavItemId = activeNav.getAttribute("data-id");
         lsSet("latien_active_nav", activeNavItemId);
       }
-      const activeSub = document.querySelector(".submenu-item.active, .mega-card.active, .aurora-submenu-item.active, .horizon-submenu-item.active, .orbit-submenu-item.active");
+      const activeSub = document.querySelector(".submenu-item.active, .mega-card.active, .aurora-submenu-item.active, .horizon-submenu-item.active, .orbit-submenu-item.active, .prism-submenu-item.active, .nexus-submenu-item.active");
       if (activeSub) {
         activeSubmenuAction = activeSub.getAttribute("data-action") || activeSubmenuAction;
         activePanoNode = activeSub.getAttribute("data-pano-node") || activePanoNode;
@@ -3366,7 +3950,7 @@
         lsSet("latien_layout_mode", layoutMode);
 
         // Update body layout class namespaces
-        document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit");
+        document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit", "layout-prism", "layout-nexus");
         document.body.classList.add(`layout-${layoutMode}`);
 
         // Update container class namespaces
@@ -3390,6 +3974,8 @@
         else if (layoutMode === "aurora") notifMsg = "Đã chuyển sang Giao diện Aurora";
         else if (layoutMode === "horizon") notifMsg = "Đã chuyển sang Giao diện Horizon";
         else if (layoutMode === "orbit") notifMsg = "Đã chuyển sang Giao diện Orbit";
+        else if (layoutMode === "prism") notifMsg = "Đã chuyển sang Giao diện Prism";
+        else if (layoutMode === "nexus") notifMsg = "Đã chuyển sang Giao diện Nexus";
         showNotification(notifMsg);
 
       }, 300);
@@ -3402,6 +3988,8 @@
     if (auroraSeg) auroraSeg.addEventListener("click", () => handleSwitch("aurora"));
     if (horizonSeg) horizonSeg.addEventListener("click", () => handleSwitch("horizon"));
     if (orbitSeg) orbitSeg.addEventListener("click", () => handleSwitch("orbit"));
+    if (prismSeg) prismSeg.addEventListener("click", () => handleSwitch("prism"));
+    if (nexusSeg) nexusSeg.addEventListener("click", () => handleSwitch("nexus"));
 
     // 4. Initialize layout Switcher segments
     updateSwitcherUI();

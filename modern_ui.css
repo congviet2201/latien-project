@@ -1,6 +1,7 @@
 /* modern_ui.css - Combined Dual-Layout Stylesheet (Classic & Futuristic) */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Sora:wght@400;500;600;700&display=swap');
+
 
 :root {
   /* Classic Layout Variables */
@@ -8570,5 +8571,1291 @@ body.region-mode-active #container {
   box-shadow: 0 5px 15px rgba(0, 217, 255, 0.3) !important;
 }
 
+
+
+/* ====================================================
+   LAYOUT 8 — PRISM LAYOUT
+   Creative · Colorful · Modern · Elegant · Premium
+   Inspired by: Material You, Adobe CC, Figma, Fluent
+   All rules scoped under .layout-prism / body.layout-prism
+   ==================================================== */
+
+@property --prism-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes prism-border-spin {
+  from { --prism-angle: 0deg; }
+  to   { --prism-angle: 360deg; }
+}
+
+/* ---------- 1. CSS VARIABLES ---------- */
+.layout-prism,
+body.layout-prism {
+  --prism-coral:   #FF6B6B;
+  --prism-purple:  #7C3AED;
+  --prism-blue:    #3B82F6;
+  --prism-emerald: #10B981;
+  --prism-amber:   #F59E0B;
+  --prism-bg:      #111827;
+  --prism-card:    #1F2937;
+  --prism-border:  rgba(255,255,255,0.07);
+  --prism-text:    #F9FAFB;
+  --prism-muted:   #9CA3AF;
+  --prism-font:    'Plus Jakarta Sans', system-ui, sans-serif;
+  --prism-font-h:  'Space Grotesk', system-ui, sans-serif;
+}
+
+/* ================================================
+   2. TOP NAVIGATION BAR — Separated Floating Buttons
+   ================================================ */
+.layout-prism .prism-nav-container {
+  position: fixed;
+  top: 16px;
+  left: 0;
+  right: 0;
+  z-index: 1200;
+  pointer-events: none;
+}
+
+.layout-prism .prism-nav-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  pointer-events: auto;
+}
+
+.layout-prism .prism-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 8px 12px;
+  overflow: visible;
+}
+
+/* ---------- NAV ITEMS — Standalone Glassmorphic Buttons ---------- */
+.layout-prism .prism-nav-item {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  background: rgba(31, 41, 55, 0.75);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 12px;
+  cursor: pointer;
+  color: var(--prism-muted);
+  user-select: none;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition:
+    width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-radius 0.3s,
+    background 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s,
+    color 0.2s,
+    transform 0.2s;
+  pointer-events: auto;
+}
+
+/* Small dot indicator for has-submenu */
+.layout-prism .prism-nav-item.has-submenu::before {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--prism-purple);
+  opacity: 0.55;
+  transition: background 0.2s, opacity 0.2s, bottom 0.28s ease;
+  z-index: 2;
+}
+
+.layout-prism .prism-nav-item.has-submenu:hover::before,
+.layout-prism .prism-nav-item.has-submenu.open::before {
+  opacity: 0; /* hide when open/hovered */
+}
+
+/* ---------- HOVER / EXPAND STATE ---------- */
+.layout-prism .prism-nav-item:hover,
+.layout-prism .prism-nav-item.active,
+.layout-prism .prism-nav-item.open {
+  width: 155px; /* expand to show label */
+  border-radius: 16px;
+  color: #fff;
+}
+
+.layout-prism .prism-nav-item:hover,
+.layout-prism .prism-nav-item.active:hover,
+.layout-prism .prism-nav-item.open:hover {
+  transform: scale(1.05);
+  background: 
+    linear-gradient(rgba(31, 41, 55, 0.85), rgba(31, 41, 55, 0.85)) padding-box,
+    conic-gradient(from var(--prism-angle), var(--prism-coral), var(--prism-purple), var(--prism-blue), var(--prism-coral)) border-box !important;
+  border-color: transparent !important;
+  animation: prism-border-spin 3s linear infinite !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45), 0 0 12px rgba(124,58,237,0.25) !important;
+  filter: brightness(1.15);
+}
+
+.layout-prism .prism-nav-item.active,
+.layout-prism .prism-nav-item.open {
+  background: rgba(31, 41, 55, 0.95);
+  border: 1.5px solid var(--prism-purple) !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+
+.layout-prism .prism-nav-item:active {
+  transform: scale(0.96);
+}
+
+/* ---------- NAV ICON WRAPPER ---------- */
+.layout-prism .prism-nav-icon-wrapper {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.layout-prism .prism-nav-icon-wrapper svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: stroke 0.2s;
+}
+
+/* ---------- NAV LABEL — slides out horizontally ---------- */
+.layout-prism .prism-nav-label {
+  display: block;
+  font-family: var(--prism-font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: left;
+  line-height: 1;
+  color: inherit;
+  white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  margin-left: 0;
+  overflow: hidden;
+  transition: opacity 0.15s ease, max-width 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), margin-left 0.2s ease;
+  pointer-events: none;
+}
+
+.layout-prism .prism-nav-item:hover .prism-nav-label,
+.layout-prism .prism-nav-item.active .prism-nav-label,
+.layout-prism .prism-nav-item.open .prism-nav-label {
+  opacity: 1;
+  max-width: 120px;
+  margin-left: 10px;
+}
+
+/* ---------- DROPDOWN SUBMENU ---------- */
+.layout-prism .prism-submenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  min-width: 165px;
+  background: rgba(31, 41, 55, 0.95);
+  border: 1.5px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.55), 0 0 20px rgba(124,58,237,0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1300;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.layout-prism .prism-nav-item.open .prism-submenu,
+.layout-prism .prism-nav-item.has-submenu:hover .prism-submenu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.layout-prism .prism-submenu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-family: var(--prism-font);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--prism-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.layout-prism .prism-submenu-item:hover {
+  background: rgba(124,58,237,0.15);
+  color: var(--prism-text);
+  transform: translateX(4px);
+}
+
+.layout-prism .prism-submenu-item.active {
+  background: linear-gradient(135deg, rgba(255,107,107,0.15), rgba(124,58,237,0.25));
+  color: #fff;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px rgba(124,58,237,0.3);
+}
+
+/* ================================================
+   3. RIGHT TOOLBAR — Separated Floating Buttons
+   ================================================ */
+.layout-prism .prism-tool-container {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.layout-prism .prism-tool-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+  pointer-events: auto;
+}
+
+/* ---------- TOOLBAR ITEMS — Standalone Glassmorphic Buttons ---------- */
+.layout-prism .prism-tool-item {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  background: rgba(31, 41, 55, 0.75);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 12px;
+  box-sizing: border-box;
+  color: var(--prism-muted);
+  transition:
+    width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-radius 0.3s,
+    background 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s,
+    color 0.2s,
+    transform 0.2s;
+  flex-shrink: 0;
+}
+
+/* ---------- HOVER / EXPAND STATE ---------- */
+.layout-prism .prism-tool-item:hover,
+.layout-prism .prism-tool-item.pinned,
+.layout-prism .prism-tool-item.active-tool {
+  width: 140px; /* expand to show label */
+  border-radius: 16px;
+  color: #fff;
+}
+
+.layout-prism .prism-tool-item:hover,
+.layout-prism .prism-tool-item.pinned:hover,
+.layout-prism .prism-tool-item.active-tool:hover {
+  transform: scale(1.05);
+  background: 
+    linear-gradient(rgba(31, 41, 55, 0.85), rgba(31, 41, 55, 0.85)) padding-box,
+    conic-gradient(from var(--prism-angle), var(--prism-coral), var(--prism-purple), var(--prism-blue), var(--prism-coral)) border-box !important;
+  border-color: transparent !important;
+  animation: prism-border-spin 3s linear infinite !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45), 0 0 12px rgba(124,58,237,0.25) !important;
+  filter: brightness(1.15);
+}
+
+.layout-prism .prism-tool-item.pinned {
+  background: rgba(31, 41, 55, 0.95);
+  border: 1.5px solid var(--prism-purple) !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+.layout-prism .prism-tool-item.active-tool {
+  background: rgba(31, 41, 55, 0.95);
+  border: 1.5px solid var(--prism-coral) !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+.layout-prism .prism-tool-item:active {
+  transform: scale(0.96);
+}
+
+
+/* ---------- TOOL ICON WRAPPER ---------- */
+.layout-prism .prism-tool-icon-wrapper {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.layout-prism .prism-tool-icon-wrapper svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: stroke 0.2s;
+}
+
+/* ---------- TOOL LABEL — slides out horizontally ---------- */
+.layout-prism .prism-tool-label {
+  display: block;
+  font-family: var(--prism-font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: left;
+  line-height: 1;
+  color: inherit;
+  white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  margin-left: 0;
+  overflow: hidden;
+  transition: opacity 0.15s ease, max-width 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), margin-left 0.2s ease;
+  pointer-events: none;
+}
+
+.layout-prism .prism-tool-item:hover .prism-tool-label,
+.layout-prism .prism-tool-item.pinned .prism-tool-label,
+.layout-prism .prism-tool-item.active-tool .prism-tool-label {
+  opacity: 1;
+  max-width: 100px;
+  margin-left: 10px;
+}
+
+/* ================================================
+   4. COMPASS — Bottom Left (Above Switcher)
+   ================================================ */
+body.layout-prism .compass-widget {
+  bottom: 80px !important;
+  left: 24px !important;
+}
+
+body.layout-prism .prism-compass-n {
+  font-family: var(--prism-font-h, 'Space Grotesk', sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--prism-coral);
+  text-shadow: 0 0 6px rgba(255,107,107,0.6);
+  letter-spacing: 0.08em;
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+body.layout-prism .compass-degree-display {
+  font-family: var(--prism-font, 'Plus Jakarta Sans', sans-serif);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--prism-muted, #9CA3AF);
+}
+
+/* ================================================
+   5. MINIMAP — Bottom Right
+   ================================================ */
+body.layout-prism .minimap-widget {
+  border-radius: 16px !important;
+  border: 1.5px solid transparent !important;
+  background:
+    linear-gradient(#111827, #111827) padding-box,
+    linear-gradient(135deg, var(--prism-coral), var(--prism-purple)) border-box !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 20px rgba(124,58,237,0.1) !important;
+  overflow: hidden;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 1100 !important;
+}
+
+body.layout-prism .minimap-header {
+  background: rgba(31, 41, 55, 0.95);
+  border-bottom: 1px solid var(--prism-border, rgba(255,255,255,0.07));
+  color: var(--prism-muted, #9CA3AF);
+  font-family: var(--prism-font, 'Plus Jakarta Sans', sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+body.layout-prism .minimap-header svg {
+  stroke: var(--prism-purple) !important;
+}
+
+body.layout-prism .minimap-dot {
+  width: 10px !important;
+  height: 10px !important;
+  background: var(--prism-coral) !important;
+  border: 2px solid #fff !important;
+  box-shadow: 0 0 0 3px rgba(255,107,107,0.35), 0 0 12px rgba(255,107,107,0.5) !important;
+  animation: prism-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes prism-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(255,107,107,0.35), 0 0 12px rgba(255,107,107,0.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(255,107,107,0.12), 0 0 20px rgba(255,107,107,0.4); }
+}
+
+body.layout-prism .minimap-viewcone {
+  border-top-color: rgba(124,58,237,0.7) !important;
+}
+
+body.layout-prism .minimap-legend .dot.cyan {
+  background: var(--prism-coral) !important;
+}
+
+/* ================================================
+   6. HOTSPOTS — Redesigned Glassmorphic Cards
+   ================================================ */
+body.layout-prism .hologram-marker-container {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  background: rgba(31, 41, 55, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 20px !important;
+  padding: 6px 12px !important;
+  gap: 6px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
+  transition: 
+    transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), 
+    background 0.2s, 
+    border-color 0.2s, 
+    box-shadow 0.2s !important;
+  pointer-events: auto !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+body.layout-prism .hologram-marker-container:hover {
+  transform: translate(-50%, -50%) scale(1.06) !important;
+  background: 
+    linear-gradient(rgba(31, 41, 55, 0.9), rgba(31, 41, 55, 0.9)) padding-box,
+    conic-gradient(from var(--prism-angle), var(--prism-coral), var(--prism-purple), var(--prism-blue), var(--prism-coral)) border-box !important;
+  border-color: transparent !important;
+  animation: prism-border-spin 3s linear infinite !important;
+  box-shadow: 0 12px 36px rgba(124, 58, 237, 0.3) !important;
+}
+
+body.layout-prism .hologram-marker-container:active {
+  transform: translate(-50%, -50%) scale(0.96) !important;
+  background: rgba(124, 58, 237, 0.25) !important;
+}
+
+/* Location Pin icon inside hotspot */
+body.layout-prism .hotspot-marker {
+  position: relative !important;
+  width: 18px !important;
+  height: 18px !important;
+  background-color: var(--prism-coral) !important;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") no-repeat center / contain !important;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") no-repeat center / contain !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  animation: none !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  transition: background-color 0.2s !important;
+}
+
+body.layout-prism .hologram-marker-container:hover .hotspot-marker {
+  background-color: var(--prism-purple) !important;
+}
+
+/* Dynamic circle (expanding sonar ring) around the pin icon on hover */
+body.layout-prism .hologram-marker-container:hover .hotspot-marker::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--prism-purple);
+  transform: translate(-50%, -50%) scale(1);
+  animation: prism-hotspot-ring 1.2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes prism-hotspot-ring {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+}
+
+body.layout-prism .hotspot-label {
+  font-family: var(--prism-font) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  white-space: nowrap !important;
+}
+
+/* ================================================
+   7. LAYOUT SWITCHER — Prism Segment
+   ================================================ */
+#opt-layout-prism { color: #9CA3AF; }
+#opt-layout-prism.active { color: #fff; }
+.layout-switcher-pill #opt-layout-prism.active {
+  background: linear-gradient(135deg, rgba(255,107,107,0.15), rgba(124,58,237,0.2));
+}
+
+/* ================================================
+   8. NOTIFICATION — Prism
+   ================================================ */
+body.layout-prism #ui-notification {
+  color: var(--prism-coral) !important;
+  border-color: rgba(255,107,107,0.35) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 16px rgba(255,107,107,0.15) !important;
+  font-family: var(--prism-font, 'Plus Jakarta Sans', sans-serif) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* ================================================
+   9. REGION / INTERIOR PAGE — Prism overrides
+   ================================================ */
+body.layout-prism .back-to-360-btn {
+  background: linear-gradient(135deg, rgba(255,107,107,0.12), rgba(124,58,237,0.12)) !important;
+  border: 1px solid rgba(124,58,237,0.3) !important;
+  color: var(--prism-text) !important;
+  font-family: var(--prism-font, 'Plus Jakarta Sans', sans-serif) !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+}
+
+body.layout-prism .back-to-360-btn:hover {
+  background: linear-gradient(135deg, rgba(255,107,107,0.22), rgba(124,58,237,0.22)) !important;
+  box-shadow: 0 4px 16px rgba(124,58,237,0.25) !important;
+}
+
+body.layout-prism .region-menu-item {
+  background: rgba(31, 41, 55, 0.9) !important;
+  border: 1px solid var(--prism-border, rgba(255,255,255,0.07)) !important;
+  color: var(--prism-muted, #9CA3AF) !important;
+  font-family: var(--prism-font, 'Plus Jakarta Sans', sans-serif) !important;
+  border-radius: 12px !important;
+  font-weight: 500 !important;
+}
+
+body.layout-prism .region-menu-item:hover {
+  border-color: rgba(124,58,237,0.4) !important;
+  color: #fff !important;
+  box-shadow: 0 0 12px rgba(124,58,237,0.15) !important;
+}
+
+body.layout-prism .region-menu-item.active {
+  background: linear-gradient(135deg, rgba(255,107,107,0.15), rgba(124,58,237,0.2)) !important;
+  border-color: rgba(124,58,237,0.4) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 16px rgba(124,58,237,0.2) !important;
+}
+
+/* ================================================
+   10. MODALS — Prism overrides
+   ================================================ */
+body.layout-prism .global-modal-content {
+  background: rgba(17, 24, 39, 0.97) !important;
+  border: 1px solid rgba(124,58,237,0.2) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 32px rgba(124,58,237,0.08) !important;
+  font-family: var(--prism-font, 'Plus Jakarta Sans', sans-serif) !important;
+}
+
+body.layout-prism .modal-header {
+  border-bottom: 1px solid var(--prism-border, rgba(255,255,255,0.07)) !important;
+}
+
+body.layout-prism .modal-header h2 {
+  font-family: var(--prism-font-h, 'Space Grotesk', sans-serif) !important;
+  background: linear-gradient(135deg, var(--prism-coral), var(--prism-purple)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* ==========================================================================
+   NEXUS LAYOUT (9th Layout Option)
+   Bloomberg Terminal / TradingView / Stripe Dashboard Inspired UI
+   All rules scoped under .layout-nexus / body.layout-nexus
+   ========================================================================== */
+
+@property --nexus-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes nexus-border-spin {
+  from { --nexus-angle: 0deg; }
+  to   { --nexus-angle: 360deg; }
+}
+
+@keyframes nexus-active-pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(94, 234, 212, 0.3); }
+  50%       { box-shadow: 0 0 20px rgba(94, 234, 212, 0.6); }
+}
+
+@keyframes nexus-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(94, 234, 212, 0.35), 0 0 8px rgba(94, 234, 212, 0.6); }
+  50%       { box-shadow: 0 0 0 5px rgba(94, 234, 212, 0.12), 0 0 16px rgba(94, 234, 212, 0.4); }
+}
+
+/* ---------- 1. CSS VARIABLES ---------- */
+.layout-nexus,
+body.layout-nexus {
+  --nexus-bg: #0F1117;
+  --nexus-panel: #171923;
+  --nexus-panel-glow: rgba(56, 189, 248, 0.08);
+  --nexus-mint: #5EEAD4;
+  --nexus-sky: #38BDF8;
+  --nexus-lavender: #A78BFA;
+  --nexus-amber: #FBBF24;
+  --nexus-neutral: #CBD5E1;
+  --nexus-text: #F8FAFC;
+  --nexus-muted: #94A3B8;
+  --nexus-border: rgba(255, 255, 255, 0.06);
+  --nexus-font: 'Outfit', sans-serif;
+  --nexus-font-h: 'Sora', sans-serif;
+}
+
+/* ---------- 2. TOP NAVIGATION BAR — Floating Capsules ---------- */
+.layout-nexus .nexus-nav-container {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.layout-nexus .nexus-nav-wrapper {
+  padding: 4px;
+}
+
+.layout-nexus .nexus-nav-list {
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.layout-nexus .nexus-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(23, 25, 35, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--nexus-border);
+  border-radius: 9999px;
+  cursor: pointer;
+  position: relative;
+  transition: 
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s,
+    color 0.3s;
+  color: var(--nexus-muted);
+  font-family: var(--nexus-font);
+  font-size: 13px;
+  font-weight: 500;
+  user-select: none;
+}
+
+.layout-nexus .nexus-nav-item:hover,
+.layout-nexus .nexus-nav-item.active:hover {
+  transform: scale(1.03);
+  background: 
+    linear-gradient(#171923, #171923) padding-box,
+    conic-gradient(from var(--nexus-angle), var(--nexus-sky), var(--nexus-mint), var(--nexus-sky)) border-box !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.25) !important;
+  animation: nexus-border-spin 4s linear infinite, nexus-active-pulse 2s ease-in-out infinite !important;
+  color: var(--nexus-text);
+}
+
+.layout-nexus .nexus-nav-item.active {
+  color: var(--nexus-text) !important;
+  background: rgba(23, 25, 35, 0.95);
+  border: 1px solid var(--nexus-mint) !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+.layout-nexus .nexus-nav-item.open {
+  background: rgba(23, 25, 35, 0.95);
+  border-color: var(--nexus-sky) !important;
+  color: var(--nexus-text);
+}
+
+
+.layout-nexus .nexus-nav-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.layout-nexus .nexus-nav-icon-wrapper svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.5;
+  stroke: currentColor;
+  transition: stroke 0.3s ease;
+}
+
+.layout-nexus .nexus-nav-item:hover .nexus-nav-icon-wrapper {
+  transform: scale(1.05);
+}
+
+.layout-nexus .nexus-nav-item.active .nexus-nav-icon-wrapper svg {
+  stroke: var(--nexus-mint);
+}
+
+.layout-nexus .nexus-nav-label {
+  font-family: var(--nexus-font);
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Underline slide effect */
+.layout-nexus .nexus-active-line {
+  position: absolute;
+  bottom: 6px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: var(--nexus-mint);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.layout-nexus .nexus-nav-item:hover .nexus-active-line {
+  transform: scaleX(1);
+}
+
+.layout-nexus .nexus-nav-item.active .nexus-active-line {
+  transform: scaleX(1);
+  background: var(--nexus-sky);
+}
+
+/* Dropdown Submenu style */
+.layout-nexus .nexus-submenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(23, 25, 35, 0.95);
+  border: 1px solid var(--nexus-border);
+  border-radius: 12px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 140px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 1001;
+}
+
+.layout-nexus .nexus-nav-item.open .nexus-submenu,
+.layout-nexus .nexus-nav-item.has-submenu:hover .nexus-submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.layout-nexus .nexus-submenu-item {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: var(--nexus-font);
+  color: var(--nexus-muted);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.layout-nexus .nexus-submenu-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--nexus-text);
+  padding-left: 14px;
+}
+
+.layout-nexus .nexus-submenu-item.active {
+  background: rgba(94, 234, 212, 0.1);
+  color: var(--nexus-mint) !important;
+  font-weight: 600;
+}
+
+
+/* ---------- 3. RIGHT TOOLBAR — Horizontal Expansion ---------- */
+.layout-nexus .nexus-tool-container {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.layout-nexus .nexus-tool-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: auto;
+  align-items: flex-end;
+}
+
+.layout-nexus .nexus-tool-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 42px;
+  height: 42px;
+  background: rgba(23, 25, 35, 0.75);
+  border: 1px solid var(--nexus-border);
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  color: var(--nexus-muted);
+  font-family: var(--nexus-font);
+  font-size: 13px;
+  font-weight: 500;
+  transition: 
+    width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s,
+    color 0.3s;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  user-select: none;
+}
+
+.layout-nexus .nexus-tool-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.layout-nexus .nexus-tool-icon-wrapper svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.5;
+  stroke: currentColor;
+  transition: stroke 0.3s, transform 0.3s;
+}
+
+.layout-nexus .nexus-tool-label {
+  margin-left: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-family: var(--nexus-font);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--nexus-text);
+}
+
+.layout-nexus .nexus-tool-item.pinned,
+.layout-nexus .nexus-tool-item.active-tool {
+  width: 135px;
+  color: var(--nexus-text);
+  background: rgba(23, 25, 35, 0.95);
+  border-color: var(--nexus-sky);
+  box-shadow: none;
+}
+
+.layout-nexus .nexus-tool-item.active-tool {
+  border-color: var(--nexus-mint) !important;
+}
+
+.layout-nexus .nexus-tool-item:hover,
+.layout-nexus .nexus-tool-item.pinned:hover,
+.layout-nexus .nexus-tool-item.active-tool:hover {
+  width: 135px;
+  color: var(--nexus-text);
+  background: rgba(23, 25, 35, 0.95);
+  border-color: var(--nexus-sky);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 8px rgba(56, 189, 248, 0.15);
+}
+
+.layout-nexus .nexus-tool-item.active-tool:hover {
+  border-color: var(--nexus-mint) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 8px rgba(94, 234, 212, 0.15) !important;
+}
+
+.layout-nexus .nexus-tool-item:hover .nexus-tool-label,
+.layout-nexus .nexus-tool-item.pinned .nexus-tool-label,
+.layout-nexus .nexus-tool-item.active-tool .nexus-tool-label {
+  opacity: 1;
+  transition-delay: 0.05s;
+}
+
+.layout-nexus .nexus-tool-item:hover .nexus-tool-icon-wrapper svg,
+.layout-nexus .nexus-tool-item.pinned .nexus-tool-icon-wrapper svg,
+.layout-nexus .nexus-tool-item.active-tool .nexus-tool-icon-wrapper svg {
+  stroke: var(--nexus-sky);
+  transform: scale(1.05);
+}
+
+.layout-nexus .nexus-tool-item.active-tool .nexus-tool-icon-wrapper svg {
+  stroke: var(--nexus-mint) !important;
+}
+
+
+/* Unused tooltips in slide mode, keeping styling clean */
+.layout-nexus .nexus-tool-tooltip {
+  display: none !important;
+}
+
+
+/* ---------- 4. COMPASS WIDGET — Minimal Dial ---------- */
+body.layout-nexus .compass-widget {
+  position: fixed !important;
+  bottom: 90px !important; /* Positioned above layout switcher */
+  left: 20px !important;
+  width: 72px !important;
+  height: 72px !important;
+  background: rgba(23, 25, 35, 0.75) !important;
+  border: 1px solid var(--nexus-border) !important;
+  border-radius: 50% !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  z-index: 1000 !important;
+}
+
+body.layout-nexus .compass-dial {
+  width: 100% !important;
+  height: 100% !important;
+  transition: transform 0.1s ease-out !important;
+}
+
+body.layout-nexus .compass-cardinal.nexus-n {
+  position: absolute !important;
+  top: 4px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-family: var(--nexus-font-h) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: var(--nexus-mint) !important;
+  letter-spacing: 0.05em !important;
+  text-shadow: 0 0 4px rgba(94, 234, 212, 0.5) !important;
+}
+
+body.layout-nexus .compass-degree-display {
+  position: absolute !important;
+  bottom: -22px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-family: var(--nexus-font) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  color: var(--nexus-muted) !important;
+  background: rgba(23, 25, 35, 0.8) !important;
+  border: 1px solid var(--nexus-border) !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  white-space: nowrap !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+
+/* ---------- 5. MINIMAP WIDGET — Minimalist Card ---------- */
+body.layout-nexus .minimap-widget {
+  border-radius: 8px !important;
+  border: 1px solid var(--nexus-border) !important;
+  background: rgba(23, 25, 35, 0.75) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 1000 !important;
+  overflow: hidden !important;
+}
+
+body.layout-nexus .minimap-header {
+  background: rgba(23, 25, 35, 0.9) !important;
+  border-bottom: 1px solid var(--nexus-border) !important;
+  color: var(--nexus-text) !important;
+  font-family: var(--nexus-font-h) !important;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+body.layout-nexus .minimap-header svg {
+  stroke: var(--nexus-sky) !important;
+}
+
+body.layout-nexus .minimap-dot {
+  width: 8px !important;
+  height: 8px !important;
+  background: var(--nexus-mint) !important;
+  border: 1.5px solid #fff !important;
+  box-shadow: 0 0 0 2px rgba(94, 234, 212, 0.35), 0 0 8px rgba(94, 234, 212, 0.6) !important;
+  animation: nexus-dot-pulse 2s ease-in-out infinite !important;
+}
+
+body.layout-nexus .minimap-viewcone {
+  border-top-color: rgba(56, 189, 248, 0.5) !important;
+}
+
+body.layout-nexus .minimap-legend .dot.cyan {
+  background: var(--nexus-mint) !important;
+}
+
+body.layout-nexus .minimap-legend {
+  color: var(--nexus-muted) !important;
+  font-family: var(--nexus-font) !important;
+  font-size: 9px !important;
+}
+
+
+/* ---------- 6. HOTSPOTS — Premium Glass Capsules ---------- */
+body.layout-nexus .hologram-marker-container {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(23, 25, 35, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--nexus-border) !important;
+  border-radius: 9999px !important;
+  padding: 6px 14px !important;
+  gap: 8px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+  transition: 
+    transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), 
+    background-color 0.2s, 
+    border-color 0.2s, 
+    box-shadow 0.2s !important;
+  pointer-events: auto !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+body.layout-nexus .hologram-marker-container:hover,
+body.layout-nexus .hologram-marker-container.active:hover {
+  transform: translate(-50%, -50%) scale(1.05) !important;
+  background: 
+    linear-gradient(#171923, #171923) padding-box,
+    conic-gradient(from var(--nexus-angle), var(--nexus-sky), var(--nexus-mint), var(--nexus-sky)) border-box !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2) !important;
+  animation: nexus-border-spin 4s linear infinite, nexus-active-pulse 2s ease-in-out infinite !important;
+}
+
+body.layout-nexus .hologram-marker-container.active {
+  background: rgba(23, 25, 35, 0.9) !important;
+  border: 1px solid var(--nexus-mint) !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+
+body.layout-nexus .hotspot-marker {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  background-color: var(--nexus-mint) !important;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") no-repeat center / contain !important;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") no-repeat center / contain !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  animation: none !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  transition: background-color 0.2s !important;
+}
+
+body.layout-nexus .hologram-marker-container:hover .hotspot-marker {
+  background-color: var(--nexus-sky) !important;
+}
+
+body.layout-nexus .hotspot-label {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  font-family: var(--nexus-font) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: var(--nexus-text) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  white-space: nowrap !important;
+}
+
+
+/* ---------- 7. LAYOUT SWITCHER — Nexus Segment ---------- */
+#opt-layout-nexus { color: var(--nexus-muted); }
+#opt-layout-nexus.active { color: #fff; }
+.layout-switcher-pill #opt-layout-nexus.active {
+  background: linear-gradient(135deg, rgba(94,234,212,0.15), rgba(56,189,248,0.2)) !important;
+}
+
+
+/* ---------- 8. NOTIFICATION — Nexus ---------- */
+body.layout-nexus #ui-notification {
+  color: var(--nexus-mint) !important;
+  border-color: rgba(94, 234, 212, 0.35) !important;
+  background: rgba(23, 25, 35, 0.95) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 16px rgba(94, 234, 212, 0.15) !important;
+  font-family: var(--nexus-font) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  border-radius: 8px !important;
+}
+
+
+/* ---------- 9. REGION & INTERIOR PAGES — Nexus Overrides ---------- */
+body.layout-nexus .back-to-360-btn {
+  background: linear-gradient(135deg, rgba(94,234,212,0.12), rgba(56,189,248,0.12)) !important;
+  border: 1px solid rgba(56,189,248,0.3) !important;
+  color: var(--nexus-text) !important;
+  font-family: var(--nexus-font) !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+body.layout-nexus .back-to-360-btn:hover {
+  background: linear-gradient(135deg, rgba(94,234,212,0.22), rgba(56,189,248,0.22)) !important;
+  box-shadow: 0 4px 16px rgba(56,189,248,0.25) !important;
+  transform: scale(1.02) !important;
+}
+
+body.layout-nexus .region-menu-item {
+  background: rgba(23, 25, 35, 0.9) !important;
+  border: 1px solid var(--nexus-border) !important;
+  color: var(--nexus-muted) !important;
+  font-family: var(--nexus-font) !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+body.layout-nexus .region-menu-item:hover {
+  border-color: rgba(56,189,248,0.4) !important;
+  color: #fff !important;
+  box-shadow: 0 0 12px rgba(56,189,248,0.15) !important;
+}
+
+body.layout-nexus .region-menu-item.active {
+  background: linear-gradient(135deg, rgba(94,234,212,0.15), rgba(56,189,248,0.2)) !important;
+  border-color: rgba(56,189,248,0.4) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 16px rgba(56,189,248,0.2) !important;
+}
+
+
+/* ---------- 10. MODALS — Nexus Overrides ---------- */
+body.layout-nexus .global-modal-content {
+  background: rgba(23, 25, 35, 0.97) !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 32px rgba(56, 189, 248, 0.08) !important;
+  font-family: var(--nexus-font) !important;
+}
+
+body.layout-nexus .modal-header {
+  border-bottom: 1px solid var(--nexus-border) !important;
+}
+
+body.layout-nexus .modal-header h2 {
+  font-family: var(--nexus-font-h) !important;
+  background: linear-gradient(135deg, var(--nexus-sky), var(--nexus-mint)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
 
 
