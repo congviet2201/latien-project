@@ -8062,10 +8062,10 @@ body.region-mode-active #container {
 
 .layout-orbit .orbit-tool-list {
   position: absolute;
-  top: 7px;
-  right: 7px;
-  width: 30px;
-  height: 30px;
+  top: 6px;
+  right: 6px;
+  width: 32px;
+  height: 32px;
   pointer-events: none;
 }
 
@@ -8077,8 +8077,8 @@ body.region-mode-active #container {
   position: absolute;
   top: 0;
   right: 0;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--orbit-glass);
   border: 1px solid var(--orbit-glass-border);
@@ -8097,8 +8097,8 @@ body.region-mode-active #container {
 }
 
 .layout-orbit .orbit-tool-item svg {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
 }
 
 .layout-orbit .orbit-tool-item:hover {
@@ -8115,14 +8115,14 @@ body.region-mode-active #container {
   background: rgba(255, 154, 0, 0.08);
 }
 
-/* Single circular arc layout for 7 buttons (radius 120px and diameter 30px to prevent overlaps) */
-.layout-orbit .orbit-tool-item:nth-child(1) { --tx: -120px; --ty: 0px; transition-delay: 0s; }
-.layout-orbit .orbit-tool-item:nth-child(2) { --tx: -116px; --ty: 31px; transition-delay: 0.04s; }
-.layout-orbit .orbit-tool-item:nth-child(3) { --tx: -104px; --ty: 60px; transition-delay: 0.08s; }
-.layout-orbit .orbit-tool-item:nth-child(4) { --tx: -85px; --ty: 85px; transition-delay: 0.12s; }
-.layout-orbit .orbit-tool-item:nth-child(5) { --tx: -60px; --ty: 104px; transition-delay: 0.16s; }
-.layout-orbit .orbit-tool-item:nth-child(6) { --tx: -31px; --ty: 116px; transition-delay: 0.2s; }
-.layout-orbit .orbit-tool-item:nth-child(7) { --tx: 0px; --ty: 120px; transition-delay: 0.24s; }
+/* Staggered concentric arc layout for 7 buttons (radius 70px & 115px to be closer and prevent overlaps) */
+.layout-orbit .orbit-tool-item:nth-child(1) { --tx: -70px; --ty: 0px; transition-delay: 0s; }
+.layout-orbit .orbit-tool-item:nth-child(2) { --tx: -49px; --ty: 49px; transition-delay: 0.04s; }
+.layout-orbit .orbit-tool-item:nth-child(3) { --tx: 0px; --ty: 70px; transition-delay: 0.08s; }
+.layout-orbit .orbit-tool-item:nth-child(4) { --tx: -115px; --ty: 0px; transition-delay: 0.12s; }
+.layout-orbit .orbit-tool-item:nth-child(5) { --tx: -100px; --ty: 58px; transition-delay: 0.16s; }
+.layout-orbit .orbit-tool-item:nth-child(6) { --tx: -58px; --ty: 100px; transition-delay: 0.2s; }
+.layout-orbit .orbit-tool-item:nth-child(7) { --tx: 0px; --ty: 115px; transition-delay: 0.24s; }
 
 .layout-orbit .orbit-tool-container.open .orbit-tool-item {
   opacity: 1;
@@ -8133,7 +8133,7 @@ body.region-mode-active #container {
 /* Tool submenus (gallery, share) opening leftwards */
 .layout-orbit .orbit-tool-submenu {
   position: absolute;
-  right: calc(100% + 10px);
+  right: calc(100% + 11px);
   top: 50%;
   background: var(--orbit-glass);
   border: 1px solid var(--orbit-glass-border);
@@ -8158,8 +8158,8 @@ body.region-mode-active #container {
   position: absolute;
   top: 0;
   bottom: 0;
-  right: -13px;
-  width: 13px;
+  right: -14px;
+  width: 14px;
   background: transparent;
 }
 
