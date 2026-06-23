@@ -425,11 +425,11 @@
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border-radius: 12px;
-  padding: 6px;
+  padding: 4px;
   display: flex;
   flex-direction: column;
   gap: 2.5px;
-  min-width: 130px;
+  min-width: 100px;
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -491,8 +491,8 @@
 
 /* Submenu interactive items */
 .layout-classic .submenu-item {
-  padding: 5px 12px;
-  border-radius: 8px;
+  padding: 4px 10px;
+  border-radius: 6px;
   color: #302f2a;
   font-size: 10px;
   font-weight: 600;
@@ -2085,14 +2085,14 @@
    ===================================================================== */
 
 .layout-neo {
-  --neo-primary: #8B5CF6;
-  --neo-indigo: #4F46E5;
-  --neo-emerald: #10B981;
-  --neo-bg: rgba(15, 17, 23, 0.65);
-  --neo-glass: rgba(255, 255, 255, 0.05);
-  --neo-border: rgba(255, 255, 255, 0.1);
-  --neo-text: #F8FAFC;
-  --neo-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --neo-primary: #7C3AED;      /* Vivid Purple/Violet accent */
+  --neo-indigo: #4F46E5;       /* Royal Indigo */
+  --neo-emerald: #059669;      /* Fresh Emerald green */
+  --neo-bg: rgba(255, 255, 255, 0.88); /* Bright frosted glass base */
+  --neo-glass: rgba(255, 255, 255, 0.7);
+  --neo-border: rgba(255, 255, 255, 0.6);
+  --neo-text: #1E293B;         /* Slate 800 - dark high contrast text */
+  --neo-shadow: 0 10px 30px rgba(124, 58, 237, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05);
   font-family: var(--ui-font);
 }
 
@@ -2112,15 +2112,15 @@
   -webkit-backdrop-filter: blur(24px);
 }
 .layout-neo .switcher-segment {
-  color: rgba(248, 250, 252, 0.5);
+  color: rgba(30, 41, 59, 0.6);
 }
 .layout-neo .switcher-segment.active {
   color: #fff;
-  text-shadow: 0 0 8px rgba(139, 92, 246, 0.8);
+  text-shadow: none;
 }
 .layout-neo .switcher-slider {
   background: linear-gradient(135deg, var(--neo-primary) 0%, var(--neo-indigo) 100%);
-  box-shadow: 0 2px 10px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
 }
 .layout-neo .switcher-segment:not(.active):hover {
   color: var(--neo-primary);
@@ -2151,13 +2151,13 @@
   color: var(--neo-text);
   letter-spacing: 3px;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #A78BFA, var(--neo-emerald));
+  background: linear-gradient(90deg, #7C3AED, var(--neo-emerald));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .layout-neo .neo-subtitle {
   font-size: 11px;
-  color: rgba(248, 250, 252, 0.7);
+  color: #475569;
   margin-top: 6px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -3544,7 +3544,28 @@
   margin-bottom: 4px;
 }
 \n.layout-gradient .gradient-right-toolbar { position: fixed !important; right: 20px !important; top: 50% !important; transform: translateY(-50%) !important; display: flex !important; flex-direction: column !important; gap: 16px !important; z-index: 1000 !important; pointer-events: auto !important; height: auto !important; }\n
-\n.layout-gradient .glass-circle-node svg { width: 20px; height: 20px; transition: all 0.3s ease; }\n.layout-gradient .glass-circle-node:hover, .layout-gradient .glass-circle-node.hover-open, .layout-gradient .glass-circle-node.pinned, .layout-gradient .glass-circle-node.active-tool { background: rgba(212, 175, 55, 0.15); color: #b89020; border-color: rgba(212, 175, 55, 0.6); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }\n.layout-gradient .glass-tooltip { position: absolute; right: 60px; top: 50%; transform: translateY(-50%) translateX(10px); background: rgba(255, 252, 245, 0.92); backdrop-filter: blur(8px); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; color: #1E293B; white-space: nowrap; pointer-events: none; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); border: 1px solid rgba(212, 175, 55, 0.25); }\n.layout-gradient .glass-circle-node:not(.has-children):hover .glass-tooltip { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0); }\n.layout-gradient .glass-submenu { position: absolute; right: 60px; top: 50%; transform: translateY(-50%) translateX(15px) scale(0.95); background: rgba(255, 252, 245, 0.92); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 12px; padding: 12px; min-width: 200px; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: 0 10px 30px rgba(0,0,0,0.12); pointer-events: none; }\n.layout-gradient .glass-circle-node.hover-open .glass-submenu, .layout-gradient .glass-circle-node.pinned .glass-submenu { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0) scale(1); pointer-events: auto; }\n.layout-gradient .glass-submenu .dock-share-btn { display: block; padding: 10px 16px; color: #1E293B; text-decoration: none; font-size: 14px; border-radius: 6px; transition: background 0.2s; text-align: center; margin-bottom: 8px; background: rgba(212, 175, 55, 0.07); }\n.layout-gradient .glass-submenu .dock-share-btn:hover { background: rgba(212, 175, 55, 0.2); color: #b89020; }\n.layout-futuristic .sidebar-logo { display: none !important; }\n.layout-neo .neo-nav-card:hover, .layout-neo .neo-nav-card.active, .layout-neo .neo-nav-card.pinned { background: rgba(255, 255, 255, 0.08) !important; color: #00D9FF !important; border-left: 3px solid #00D9FF !important; border-radius: 4px; }\n
+.layout-gradient .glass-circle-node svg { width: 20px; height: 20px; transition: all 0.3s ease; }
+.layout-gradient .glass-circle-node:hover, .layout-gradient .glass-circle-node.hover-open, .layout-gradient .glass-circle-node.pinned, .layout-gradient .glass-circle-node.active-tool { background: rgba(212, 175, 55, 0.15); color: #b89020; border-color: rgba(212, 175, 55, 0.6); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+.layout-gradient .glass-tooltip { position: absolute; right: 60px; top: 50%; transform: translateY(-50%) translateX(10px); background: rgba(255, 252, 245, 0.92); backdrop-filter: blur(8px); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; color: #1E293B; white-space: nowrap; pointer-events: none; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); border: 1px solid rgba(212, 175, 55, 0.25); }
+.layout-gradient .glass-circle-node:not(.has-children):hover .glass-tooltip { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0); }
+.layout-gradient .glass-submenu { position: absolute; right: 60px; top: 50%; transform: translateY(-50%) translateX(15px) scale(0.95); background: rgba(255, 252, 245, 0.92); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 12px; padding: 12px; min-width: 200px; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: 0 10px 30px rgba(0,0,0,0.12); pointer-events: none; }
+.layout-gradient .glass-circle-node.hover-open .glass-submenu, .layout-gradient .glass-circle-node.pinned .glass-submenu { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0) scale(1); pointer-events: auto; }
+.layout-gradient .glass-submenu .dock-share-btn { display: block; padding: 10px 16px; color: #1E293B; text-decoration: none; font-size: 14px; border-radius: 6px; transition: background 0.2s; text-align: center; margin-bottom: 8px; background: rgba(212, 175, 55, 0.07); }
+.layout-gradient .glass-submenu .dock-share-btn:hover { background: rgba(212, 175, 55, 0.2); color: #b89020; }
+.layout-futuristic .sidebar-logo { display: none !important; }
+.layout-neo .neo-nav-card:hover {
+  background: rgba(124, 58, 237, 0.1) !important;
+  border-color: #7C3AED !important;
+  color: #7C3AED !important;
+}
+.layout-neo .neo-nav-card.active, .layout-neo .neo-nav-card.pinned {
+  background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%) !important;
+  border: 1px solid transparent !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4) !important;
+  border-radius: 10px !important;
+}
 
 /* =========================================
    FIXES FOR GRADIENT OVERLAP
@@ -3654,13 +3675,19 @@
 /* =========================================
    FIX FOR NEO ACTIVE/HOVER STATE
    ========================================= */
-.layout-neo .neo-nav-card:hover,
+.layout-neo .neo-nav-card:hover {
+  background: rgba(124, 58, 237, 0.1) !important;
+  border-color: #7C3AED !important;
+  color: #7C3AED !important;
+}
 .layout-neo .neo-nav-card.active,
 .layout-neo .neo-nav-card.pinned {
-  background: rgba(255, 255, 255, 0.08) !important;
-  color: #00D9FF !important;
-  border-left: 3px solid #00D9FF !important;
-  border-radius: 4px;
+  background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%) !important;
+  border: 1px solid transparent !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4) !important;
+  border-radius: 10px !important;
 }
 
 
@@ -3682,19 +3709,19 @@
 /* Unified three-dot trigger */
 .layout-neo .neo-unified-trigger {
   pointer-events: auto !important;
-  width: 34px !important;
-  height: 34px !important;
-  background: rgba(15, 17, 23, 0.6) !important;
+  width: 30px !important;
+  height: 30px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(124, 58, 237, 0.2) !important;
   border-radius: 50% !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  color: #F8FAFC !important;
+  color: #1E293B !important;
   cursor: pointer !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.15) !important;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
   z-index: 10 !important;
   margin: 0 !important;
@@ -3702,18 +3729,19 @@
 }
 
 .layout-neo .neo-unified-trigger svg {
-  width: 16px !important;
-  height: 16px !important;
-  color: #00D9FF !important; /* Cyan Accent */
+  width: 14px !important;
+  height: 14px !important;
+  color: #7C3AED !important; /* Vivid Purple/Violet Accent */
   stroke-width: 0 !important;
+  fill: currentColor !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .layout-neo .neo-unified-trigger:hover,
 .layout-neo .neo-unified-container.active .neo-unified-trigger {
-  background: rgba(0, 217, 255, 0.15) !important;
-  border-color: #00D9FF !important;
-  box-shadow: 0 0 15px rgba(0, 217, 255, 0.4) !important;
+  background: rgba(124, 58, 237, 0.1) !important;
+  border-color: #7C3AED !important;
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.4) !important;
 }
 
 .layout-neo .neo-unified-container.active .neo-unified-trigger svg {
@@ -3750,43 +3778,57 @@
 .layout-neo .neo-nav-card {
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
-  background: rgba(23, 25, 35, 0.6) !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  color: #94A3B8 !important;
-  padding: 8px 14px !important;
-  border-radius: 10px !important;
+  border: 1px solid rgba(124, 58, 237, 0.15) !important;
+  color: #475569 !important;
+  padding: 0 12px !important;
+  height: 30px !important;
+  width: auto !important;
+  min-width: 0 !important;
+  border-radius: 8px !important;
   font-family: 'Inter', sans-serif !important;
-  font-size: 11.5px !important;
-  font-weight: 500 !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
   letter-spacing: 0.5px !important;
   cursor: pointer !important;
   text-transform: uppercase !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08) !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   white-space: nowrap !important;
   opacity: 0 !important;
   transform: translateX(15px) !important;
+  box-sizing: border-box !important;
+}
+
+.layout-neo .neo-nav-card svg {
+  width: 14px !important;
+  height: 14px !important;
+  display: block !important;
+}
+.layout-neo .neo-nav-card svg * {
+  stroke: currentColor !important;
+  fill: none !important;
 }
 
 .layout-neo .neo-nav-card:hover {
-  background: rgba(139, 92, 246, 0.2) !important;
-  border-color: #8B5CF6 !important;
-  color: #F8FAFC !important;
+  background: rgba(124, 58, 237, 0.1) !important;
+  border-color: #7C3AED !important;
+  color: #7C3AED !important;
   transform: translateY(-1px) !important;
 }
 
 .layout-neo .neo-nav-card.active,
 .layout-neo .neo-nav-card.pinned {
-  background: rgba(0, 217, 255, 0.1) !important;
-  border: 1px solid #00D9FF !important;
-  color: #00D9FF !important;
+  background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%) !important;
+  border: 1px solid transparent !important;
+  color: #FFFFFF !important;
   font-weight: 700 !important;
-  box-shadow: 0 0 12px rgba(0, 217, 255, 0.25) !important;
-  border-left: 1px solid #00D9FF !important;
-  border-radius: 10px !important;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4) !important;
+  border-radius: 8px !important;
   transform: none !important;
 }
 
@@ -3812,13 +3854,13 @@
   display: flex !important;
   flex-direction: column !important;
   gap: 4px !important;
-  background: rgba(15, 17, 23, 0.75) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(124, 58, 237, 0.2) !important;
   border-radius: 10px !important;
   padding: 6px !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.15) !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
@@ -3840,7 +3882,7 @@
   font-size: 11px !important;
   padding: 6px 12px !important;
   border-radius: 6px !important;
-  color: #94A3B8 !important;
+  color: #475569 !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
   white-space: nowrap !important;
@@ -3851,14 +3893,14 @@
 }
 
 .layout-neo .submenu-item:hover {
-  background: rgba(255, 255, 255, 0.06) !important;
-  color: #F8FAFC !important;
+  background: rgba(124, 58, 237, 0.08) !important;
+  color: #7C3AED !important;
 }
 
 .layout-neo .submenu-item.active {
-  color: #00D9FF !important;
+  color: #FFFFFF !important;
   font-weight: 600 !important;
-  background: rgba(0, 217, 255, 0.08) !important;
+  background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%) !important;
 }
 
 /* Staggered entrance for dropdown children */
@@ -3924,19 +3966,19 @@
 
 /* Toolbar Items (34px height) */
 .layout-neo .neo-toolbar .neo-dock-item {
-  background: rgba(23, 25, 35, 0.6) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  width: 34px !important;
-  height: 34px !important;
-  border-radius: 10px !important;
+  border: 1px solid rgba(124, 58, 237, 0.15) !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 8px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  color: #94A3B8 !important;
+  color: #475569 !important;
   cursor: pointer !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08) !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   position: relative !important;
   opacity: 0 !important;
@@ -3944,16 +3986,21 @@
 }
 
 .layout-neo .neo-toolbar .neo-dock-item svg {
-  width: 16px !important;
-  height: 16px !important;
+  width: 14px !important;
+  height: 14px !important;
   stroke-width: 1.8px !important;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: block !important;
+}
+.layout-neo .neo-toolbar .neo-dock-item svg * {
+  stroke: currentColor !important;
+  fill: none !important;
 }
 
 .layout-neo .neo-toolbar .neo-dock-item:hover {
-  background: rgba(0, 217, 255, 0.15) !important;
-  border-color: #00D9FF !important;
-  color: #F8FAFC !important;
+  background: rgba(124, 58, 237, 0.1) !important;
+  border-color: #7C3AED !important;
+  color: #7C3AED !important;
   transform: scale(1.05) !important;
 }
 
@@ -3962,9 +4009,9 @@
 }
 
 .layout-neo .neo-toolbar .neo-dock-item.active-tool {
-  background: rgba(0, 217, 255, 0.2) !important;
-  border-color: #00D9FF !important;
-  color: #00D9FF !important;
+  background: rgba(124, 58, 237, 0.15) !important;
+  border-color: #7C3AED !important;
+  color: #7C3AED !important;
 }
 
 /* Toolbar Sequential Cascade Animations */
@@ -3989,13 +4036,13 @@
   left: auto !important;
   transform: translateY(-50%) translateX(8px) scale(0.96) !important;
   transform-origin: right center !important;
-  background: rgba(15, 17, 23, 0.85) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(124, 58, 237, 0.2) !important;
   border-radius: 12px !important;
   padding: 8px !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15) !important;
   display: flex !important;
   gap: 6px !important;
   opacity: 0 !important;
@@ -4030,7 +4077,7 @@
   left: auto !important;
   bottom: auto !important;
   transform: translateY(-50%) translateX(8px) !important;
-  background: rgba(15, 17, 23, 0.9) !important;
+  background: #1E293B !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   padding: 4px 8px !important;
   border-radius: 5px !important;
@@ -4042,7 +4089,7 @@
   visibility: hidden !important;
   pointer-events: none !important;
   transition: all 0.2s ease !important;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
 }
 
 .layout-neo .neo-dock-item:hover .neo-tooltip {
@@ -4059,14 +4106,14 @@
   overflow: hidden !important;
   position: relative !important;
   cursor: pointer !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(124, 58, 237, 0.2) !important;
   transition: all 0.25s ease !important;
 }
 
 .layout-neo .dock-pano-card:hover {
-  border-color: #00D9FF !important;
+  border-color: #7C3AED !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.25) !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
 }
 
 .layout-neo .dock-pano-card img {
@@ -5585,69 +5632,125 @@ body.region-mode-active #container {
 
 /* -------------------------------- NEO OVERRIDES -------------------------------- */
 .layout-neo .back-to-360-btn {
-  background: rgba(15, 17, 23, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  color: #E2E8F0;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(124, 58, 237, 0.2) !important;
+  backdrop-filter: blur(32px) !important;
+  -webkit-backdrop-filter: blur(32px) !important;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.1) !important;
+  color: #1E293B !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  height: 30px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  padding: 0 12px !important;
+  font-size: 11px !important;
 }
 .layout-neo .back-to-360-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  background: rgba(124, 58, 237, 0.1) !important;
+  border-color: #7C3AED !important;
+  color: #7C3AED !important;
+}
+.layout-neo .back-to-360-btn svg {
+  width: 14px !important;
+  height: 14px !important;
+  display: inline-block !important;
+}
+.layout-neo .back-to-360-btn svg * {
+  stroke: currentColor !important;
+  fill: none !important;
 }
 
 .layout-neo .interior-switcher-container {
-  background: rgba(15, 17, 23, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(124, 58, 237, 0.2) !important;
+  backdrop-filter: blur(32px) !important;
+  -webkit-backdrop-filter: blur(32px) !important;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.1) !important;
+  border-radius: 10px !important;
+  bottom: 20px !important;
+  padding: 4px !important;
 }
 .layout-neo .interior-switch-btn {
-  color: #94A3B8;
-  font-family: 'Inter', sans-serif;
+  color: #475569 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+  height: 28px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+  font-size: 11px !important;
+}
+.layout-neo .interior-switch-btn:hover {
+  color: #7C3AED !important;
+  background: rgba(124, 58, 237, 0.08) !important;
 }
 .layout-neo .interior-switch-btn.active {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #fff;
+  background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%) !important;
+  border: 1px solid transparent !important;
+  color: #fff !important;
+  font-weight: 600 !important;
 }
 
 .layout-neo .region-sidebar {
-  background: rgba(15, 17, 23, 0.5);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(40px) !important;
+  -webkit-backdrop-filter: blur(40px) !important;
+  border-right: 1px solid rgba(124, 58, 237, 0.15) !important;
+  box-shadow: 4px 0 24px rgba(124, 58, 237, 0.05) !important;
 }
 .layout-neo .region-sidebar .sidebar-header h3 {
-  color: #F8FAFC;
+  color: #1E293B !important;
+  font-weight: 700 !important;
 }
 .layout-neo .region-menu-item {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  color: #94A3B8;
-  font-family: 'Inter', sans-serif;
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(124, 58, 237, 0.1) !important;
+  color: #475569 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 12px !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+  font-size: 11.5px !important;
+  transition: all 0.2s ease !important;
 }
-.layout-neo .region-menu-item:hover,
+.layout-neo .region-menu-item:hover {
+  background: rgba(124, 58, 237, 0.08) !important;
+  border-color: rgba(124, 58, 237, 0.25) !important;
+  color: #7C3AED !important;
+}
 .layout-neo .region-menu-item.active {
-  background: rgba(139, 92, 246, 0.15);
-  border-color: rgba(139, 92, 246, 0.3);
-  color: #F8FAFC;
+  background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%) !important;
+  border-color: transparent !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25) !important;
 }
 
 .layout-neo .pin-dot {
-  background: #1e1b4b;
-  border-color: #8b5cf6;
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  background: #ffffff;
+  border-color: #7C3AED;
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
 }
 .layout-neo .pin-pulse {
-  background: rgba(139, 92, 246, 0.2);
+  background: rgba(124, 58, 237, 0.3);
 }
 .layout-neo .pin-label {
-  background: rgba(15, 17, 23, 0.85);
-  border-color: rgba(255, 255, 255, 0.08);
-  color: #F8FAFC;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  color: #1E293B;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
 }
 
 /* -------------------------------- GRADIENT OVERRIDES -------------------------------- */
