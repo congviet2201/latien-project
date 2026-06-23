@@ -45,14 +45,7 @@
   // OPTION 4: GRADIENT LAYOUT TEMPLATES
   // ==========================================
 
-  const gradientTopTitleHTML = `
-    <div class="gradient-top-title-card">
-      <div class="logo-text-col">
-        <div class="project-name">LA TIÊN</div>
-        <div class="project-subtitle">V I L L A</div>
-      </div>
-    </div>
-  `;
+  const gradientTopTitleHTML = ``;
 
   const gradientQuickActionsHTML = `
     <div class="gradient-quick-actions">
@@ -64,25 +57,40 @@
 
   const gradientRightNavHTML = `
     <div class="v-rail-container left-rail" id="gradient-left-rail">
-      <div class="v-rail-trigger" id="gradient-left-trigger">
+      <div class="v-rail-trigger" id="gradient-left-trigger" title="Mở menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </div>
       <div class="v-rail-content" id="vision-left-dock">
-        <!-- Navigation Overview -->
-        <div class="vision-icon-wrapper" data-id="overview">
-          <div class="vision-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <!-- Logo inside Menu -->
+        <div class="gradient-menu-logo">
+          <div class="project-name">LA TIÊN</div>
+          <div class="project-subtitle">V I L L A</div>
+        </div>
+        <!-- Top View -->
+        <div class="vision-icon-wrapper" data-id="topview" data-pano-node="node1" data-action="overview-top">
+          <div class="vision-icon" title="Top View">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
+          <span>Top View</span>
+        </div>
+        <!-- Bird View -->
+        <div class="vision-icon-wrapper" data-id="birdview">
+          <div class="vision-icon" title="Bird View">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M12 4h9M3 12l3-3 3 3M6 9v11M3 20h6"/></svg>
+          </div>
+          <span>Bird View</span>
           <div class="vision-submenu">
-            <div class="v-sub-item active" data-action="overview-top" data-pano-node="node1">Top View</div>
-            <div class="v-sub-item" data-action="overview-bird" data-pano-node="node2">Bird View</div>
+            <div class="v-sub-item" data-action="overview-bird1" data-pano-node="node2">Bird View 1</div>
+            <div class="v-sub-item" data-action="overview-bird2" data-pano-node="node3">Bird View 2</div>
+            <div class="v-sub-item" data-action="overview-bird3" data-pano-node="node4">Bird View 3</div>
           </div>
         </div>
         <!-- Navigation Amenities -->
         <div class="vision-icon-wrapper" data-id="amenities">
-          <div class="vision-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/></svg>
+          <div class="vision-icon" title="Tiện Ích">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg>
           </div>
+          <span>Tiện Ích</span>
           <div class="vision-submenu">
             <div class="v-sub-item" data-pano-node="node1">Clubhouse</div>
             <div class="v-sub-item" data-pano-node="node1">Bến Du Thuyền</div>
@@ -92,9 +100,10 @@
         </div>
         <!-- Navigation Architecture -->
         <div class="vision-icon-wrapper" data-id="architecture">
-          <div class="vision-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          <div class="vision-icon" title="Kiến Trúc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-6 9 6v13"/><path d="M9 21v-6h6v6"/><path d="M14 3v-1h3v4"/></svg>
           </div>
+          <span>Kiến Trúc</span>
           <div class="vision-submenu">
             <div class="v-sub-item" data-pano-node="node3">Mặt Bằng</div>
             <div class="v-sub-item" data-pano-node="node4">Biệt Thự Song Lập</div>
@@ -103,23 +112,21 @@
         </div>
         <!-- Navigation Interior -->
         <div class="vision-icon-wrapper" data-id="interior">
-          <div class="vision-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+          <div class="vision-icon" title="Nội Thất">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8h4M7 11h6"/></svg>
           </div>
+          <span>Nội Thất</span>
           <div class="vision-submenu">
-            <div class="v-sub-item" data-pano-node="node4">Phòng Khách</div>
-            <div class="v-sub-item" data-pano-node="node5">Phòng Ngủ</div>
+            <div class="v-sub-item" data-action="interior-1">Interior 1</div>
+            <div class="v-sub-item" data-action="interior-2">Interior 2</div>
           </div>
         </div>
-        <!-- Navigation Surrounding -->
-        <div class="vision-icon-wrapper" data-id="surrounding">
-          <div class="vision-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+        <!-- Navigation Surrounding (Liên kết vùng) -->
+        <div class="vision-icon-wrapper" data-id="surrounding" data-action="region-page">
+          <div class="vision-icon" title="Liên kết vùng">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>
           </div>
-          <div class="vision-submenu">
-            <div class="v-sub-item" data-pano-node="node2">Giao Thông</div>
-            <div class="v-sub-item" data-pano-node="node1">Tiện Ích Ngoại Khu</div>
-          </div>
+          <span>Liên kết vùng</span>
         </div>
       </div>
     </div>
@@ -131,6 +138,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       </div>
       <div class="v-rail-content" id="vision-right-dock">
+        <!-- Tool Info -->
+        <div class="vision-icon-wrapper" data-action="info">
+          <div class="vision-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </div>
+        </div>
         <!-- Tool Music -->
         <div class="vision-icon-wrapper" data-action="music">
           <div class="vision-icon">
@@ -175,12 +188,6 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
           </div>
         </div>
-        <!-- Tool Info -->
-        <div class="vision-icon-wrapper" data-action="info">
-          <div class="vision-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-          </div>
-        </div>
         <!-- Tool Fullscreen -->
         <div class="vision-icon-wrapper" data-action="fullscreen">
           <div class="vision-icon">
@@ -197,7 +204,16 @@
 
   // Toolbar HTML - used by BOTH layouts (icon-only, tooltip on hover)
   const toolbarButtonsHTML = `
-        <!-- 1. Music On/Off -->
+        <!-- 1. Project Information -->
+        <div class="tool-button" data-action="info" id="btn-info">
+          <svg class="tool-icon" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 16v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="8" r="1" fill="currentColor"/>
+          </svg>
+          <div class="tool-tooltip">Thông Tin Dự Án</div>
+        </div>
+        <!-- 2. Music On/Off -->
         <div class="tool-button" data-action="music" id="btn-music">
           <svg class="tool-icon" viewBox="0 0 24 24" fill="none">
             <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -206,7 +222,7 @@
           </svg>
           <div class="tool-tooltip">Nhạc Nền</div>
         </div>
-        <!-- 2. Show/Hide Images -->
+        <!-- 3. Show/Hide Images -->
         <div class="tool-button" data-action="images" id="btn-images">
           <svg class="tool-icon" viewBox="0 0 24 24" fill="none">
             <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
@@ -215,7 +231,7 @@
           </svg>
           <div class="tool-tooltip">Ảnh Toàn Cảnh</div>
         </div>
-        <!-- 3. Show/Hide Hotspots -->
+        <!-- 4. Show/Hide Hotspots -->
         <div class="tool-button" data-action="hotspots" id="btn-hotspots">
           <svg class="tool-icon" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
@@ -225,7 +241,7 @@
           </svg>
           <div class="tool-tooltip">Điểm Điều Hướng</div>
         </div>
-        <!-- 4. Share -->
+        <!-- 5. Share -->
         <div class="tool-button" data-action="share" id="btn-share">
           <svg class="tool-icon" viewBox="0 0 24 24" fill="none">
             <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2"/>
@@ -235,14 +251,14 @@
           </svg>
           <div class="tool-tooltip">Chia Sẻ</div>
         </div>
-        <!-- 5. Call for Consultation -->
+        <!-- 6. Call for Consultation -->
         <div class="tool-button" data-action="call" id="btn-call">
           <svg class="tool-icon" viewBox="0 0 24 24" fill="none">
             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.92 1.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <div class="tool-tooltip">Tư Vấn</div>
         </div>
-        <!-- 6. Social Links (with sub-dropdown) -->
+        <!-- 7. Social Links (with sub-dropdown) -->
         <div class="tool-button has-dropdown" data-action="social" id="btn-social">
           <svg class="tool-icon" viewBox="0 0 24 24" fill="none">
             <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -263,15 +279,6 @@
               <span>Zalo</span>
             </a>
           </div>
-        </div>
-        <!-- 7. Project Information -->
-        <div class="tool-button" data-action="info" id="btn-info">
-          <svg class="tool-icon" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-            <path d="M12 16v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="12" cy="8" r="1" fill="currentColor"/>
-          </svg>
-          <div class="tool-tooltip">Thông Tin Dự Án</div>
         </div>
   `;
 
@@ -300,30 +307,38 @@
         <!-- Active Back Glow element -->
         <div class="active-nav-glow" id="nav-glow"></div>
 
-        <!-- 1. TỔNG QUAN -->
-        <div class="nav-item active" data-id="overview" id="nav-home">
+        <!-- 1. TOP VIEW -->
+        <div class="nav-item" data-id="topview" id="nav-topview" data-pano-node="node1" data-action="overview-top">
           <svg viewBox="0 0 24 24" fill="none">
-            <path d="M3 9.5L12 3L21 9.5V20C21 20.5 20.5 21 20 21H4C3.5 21 3 20.5 3 20V9.5Z" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9 21V12H15V21" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="12" y1="17" x2="12" y2="21" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span>Tổng Quan</span>
+          <span>Top View</span>
+        </div>
 
+        <!-- 2. BIRD VIEW -->
+        <div class="nav-item" data-id="birdview" id="nav-birdview">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 20h9M12 4h9M3 12l3-3 3 3M6 9v11M3 20h6" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <span>Bird View</span>
           <!-- Submenu -->
           <div class="nav-submenu">
-            <div class="submenu-item active" data-action="overview-top">Nhìn Tổng Thể</div>
-            <div class="submenu-item" data-action="overview-bird">Góc Nhìn Flycam</div>
+            <div class="submenu-item" data-action="overview-bird1" data-pano-node="node2">Bird View 1</div>
+            <div class="submenu-item" data-action="overview-bird2" data-pano-node="node3">Bird View 2</div>
+            <div class="submenu-item" data-action="overview-bird3" data-pano-node="node4">Bird View 3</div>
           </div>
         </div>
 
-        <!-- 2. TIỆN ÍCH -->
+        <!-- 3. TIỆN ÍCH -->
         <div class="nav-item" data-id="amenities" id="nav-amenities">
           <svg viewBox="0 0 24 24" fill="none">
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span>Tiện Ích</span>
-
           <!-- Submenu -->
           <div class="nav-submenu">
             <div class="submenu-item" data-action="amenity-1">Tiện Ích 1</div>
@@ -332,7 +347,7 @@
           </div>
         </div>
 
-        <!-- 3. LA TIÊN VILLA (Center logo-node with compact Mega Menu) -->
+        <!-- 4. LA TIÊN VILLA (Center logo-node with compact Mega Menu) -->
         <div class="nav-item center-logo-node" data-id="latien-brand" id="nav-logo">
           <div class="logo-script-top">LA TIÊN</div>
           <div class="logo-script-wave"></div>
@@ -341,7 +356,7 @@
           <!-- MEGA MENU: Compact cards -->
           <div class="nav-submenu mega-menu">
             <!-- Card 1: Toàn cảnh dự án (Node 1) -->
-            <div class="mega-card active" data-pano-node="node1" data-action="pano-node1">
+            <div class="mega-card" data-pano-node="node1" data-action="pano-node1">
               <img src="pano_aerial.png" alt="Toàn cảnh dự án" class="mega-card-img">
               <div class="mega-card-overlay"></div>
               <div class="mega-card-title">Toàn cảnh dự án</div>
@@ -367,13 +382,14 @@
           </div>
         </div>
 
-        <!-- 4. KIẾN TRÚC -->
+        <!-- 5. KIẾN TRÚC -->
         <div class="nav-item" data-id="architecture" id="nav-architecture">
           <svg viewBox="0 0 24 24" fill="none">
-            <path d="M3 21h18M3 10h18M5 10V6a2 2 0 012-2h10a2 2 0 012 2v4M10 21V14h4v7" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+            <path d="M3 21V8l9-6 9 6v13" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+            <path d="M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+            <path d="M14 3v-1h3v4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
           </svg>
           <span>Kiến Trúc</span>
-
           <!-- Submenu -->
           <div class="nav-submenu">
             <div class="submenu-item" data-action="architecture-1">Kiến Trúc 1</div>
@@ -382,20 +398,28 @@
           </div>
         </div>
 
-        <!-- 5. NỘI THẤT -->
+        <!-- 6. NỘI THẤT (Interior) -->
         <div class="nav-item" data-id="interior" id="nav-interior">
           <svg viewBox="0 0 24 24" fill="none">
-            <path d="M20 9V7a2 2 0 00-2-2h-2M4 9V7a2 2 0 012-2h2M4 15v2a2 2 0 002 2h2M20 15v2a2 2 0 01-2 2h-2M9 9h6v6H9z" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 21h8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 17v4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7 8h4M7 11h6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span>Nội Thất</span>
-
           <!-- Submenu -->
           <div class="nav-submenu">
-            <div class="submenu-item" data-action="interior-bedroom">Phòng Ngủ</div>
-            <div class="submenu-item" data-action="interior-kitchen">Nhà Bếp</div>
-            <div class="submenu-item" data-action="interior-balcony">Ban Công</div>
-            <div class="submenu-item" data-action="interior-rooftop">Sân Thượng</div>
+            <div class="submenu-item" data-action="interior-1">Interior 1</div>
+            <div class="submenu-item" data-action="interior-2">Interior 2</div>
           </div>
+        </div>
+
+        <!-- 7. LIÊN KẾT VÙNG (Liên kết vùng) -->
+        <div class="nav-item" data-id="surrounding" id="nav-surrounding" data-action="region-page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
+          </svg>
+          <span>Liên kết vùng</span>
         </div>
       </div>
     </div>
@@ -405,25 +429,24 @@
   // OPTION B: FUTURISTIC LAYOUT TEMPLATES
   // ==========================================
 
-  // Independent settings gear top right
+  // Independent settings gear and vertical tool stack top right (wrapped for smooth hover/dropdown)
   const settingsToggleFuturisticHTML = `
-    <div class="settings-toggle-btn" id="btn-settings-toggle" title="Cài đặt hệ thống">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/>
-      </svg>
-    </div>
-  `;
-
-  // Settings Panel on the Right
-  const verticalToolStackFuturisticHTML = `
-    <div class="vertical-tool-stack" id="right-tool-stack">
-      <div class="tool-buttons-sub-stack" id="tool-sub-stack">
-        ${toolbarButtonsHTML}
-        <!-- (end toolbar buttons) -->
+    <div class="futuristic-settings-group" id="futuristic-settings-group">
+      <div class="settings-toggle-btn" id="btn-settings-toggle" title="Cài đặt hệ thống">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="vertical-tool-stack" id="right-tool-stack">
+        <div class="tool-buttons-sub-stack" id="tool-sub-stack">
+          ${toolbarButtonsHTML}
+        </div>
       </div>
     </div>
   `;
+
+  const verticalToolStackFuturisticHTML = "";
 
   const sidebarNavFuturisticHTML = `
     <div class="sidebar-container" id="sidebar-container">
@@ -442,30 +465,38 @@
           <!-- Active Back Glow element -->
           <div class="active-nav-glow" id="nav-glow"></div>
 
-          <!-- 1. TỔNG QUAN -->
-          <div class="nav-item active" data-id="overview" id="nav-home">
+          <!-- 1. TOP VIEW -->
+          <div class="nav-item" data-id="topview" id="nav-topview" data-pano-node="node1" data-action="overview-top">
             <svg viewBox="0 0 24 24" fill="none">
-              <path d="M3 9.5L12 3L21 9.5V20C21 20.5 20.5 21 20 21H4C3.5 21 3 20.5 3 20V9.5Z" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M9 21V12H15V21" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="12" y1="17" x2="12" y2="21" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>Tổng Quan</span>
+            <span>Top View</span>
+          </div>
 
+          <!-- 2. BIRD VIEW -->
+          <div class="nav-item" data-id="birdview" id="nav-birdview">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 20h9M12 4h9M3 12l3-3 3 3M6 9v11M3 20h6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>Bird View</span>
             <!-- Submenu -->
             <div class="nav-submenu">
-              <div class="submenu-item active" data-action="overview-top">Nhìn Tổng Thể</div>
-              <div class="submenu-item" data-action="overview-bird">Góc Nhìn Flycam</div>
+              <div class="submenu-item" data-action="overview-bird1" data-pano-node="node2">Bird View 1</div>
+              <div class="submenu-item" data-action="overview-bird2" data-pano-node="node3">Bird View 2</div>
+              <div class="submenu-item" data-action="overview-bird3" data-pano-node="node4">Bird View 3</div>
             </div>
           </div>
 
-          <!-- 2. TIỆN ÍCH -->
+          <!-- 3. TIỆN ÍCH -->
           <div class="nav-item" data-id="amenities" id="nav-amenities">
             <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 2L2 7l10 5 10-5-10-5z" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span>Tiện Ích</span>
-
             <!-- Submenu -->
             <div class="nav-submenu">
               <div class="submenu-item" data-action="amenity-1">Tiện Ích 1</div>
@@ -474,7 +505,7 @@
             </div>
           </div>
 
-          <!-- 3. LA TIÊN VILLA (Center script-node) -->
+          <!-- 4. LA TIÊN VILLA (Center script-node) -->
           <div class="nav-item center-logo-node" data-id="latien-brand" id="nav-logo">
             <svg viewBox="0 0 24 24" fill="none">
               <path d="M3 21h18M3 10h18M5 10V6a2 2 0 012-2h10a2 2 0 012 2v4M10 21V14h4v7" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
@@ -510,13 +541,14 @@
             </div>
           </div>
 
-          <!-- 4. KIẾN TRÚC -->
+          <!-- 5. KIẾN TRÚC -->
           <div class="nav-item" data-id="architecture" id="nav-architecture">
             <svg viewBox="0 0 24 24" fill="none">
-              <path d="M3 21h18M3 10h18M5 10V6a2 2 0 012-2h10a2 2 0 012 2v4M10 21V14h4v7" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+              <path d="M3 21V8l9-6 9 6v13" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+              <path d="M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+              <path d="M14 3v-1h3v4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
             </svg>
             <span>Kiến Trúc</span>
-
             <!-- Submenu -->
             <div class="nav-submenu">
               <div class="submenu-item" data-action="architecture-1">Kiến Trúc 1</div>
@@ -525,20 +557,28 @@
             </div>
           </div>
 
-          <!-- 5. NỘI THẤT -->
+          <!-- 6. NỘI THẤT (Interior) -->
           <div class="nav-item" data-id="interior" id="nav-interior">
             <svg viewBox="0 0 24 24" fill="none">
-              <path d="M20 9V7a2 2 0 00-2-2h-2M4 9V7a2 2 0 012-2h2M4 15v2a2 2 0 002 2h2M20 15v2a2 2 0 01-2 2h-2M9 9h6v6H9z" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 21h8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 17v4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 8h4M7 11h6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span>Nội Thất</span>
-
             <!-- Submenu -->
             <div class="nav-submenu">
-              <div class="submenu-item" data-action="interior-bedroom">Phòng Ngủ</div>
-              <div class="submenu-item" data-action="interior-kitchen">Nhà Bếp</div>
-              <div class="submenu-item" data-action="interior-balcony">Ban Công</div>
-              <div class="submenu-item" data-action="interior-rooftop">Sân Thượng</div>
+              <div class="submenu-item" data-action="interior-1">Interior 1</div>
+              <div class="submenu-item" data-action="interior-2">Interior 2</div>
             </div>
+          </div>
+
+          <!-- 7. LIÊN KẾT VÙNG (Liên kết vùng) -->
+          <div class="nav-item" data-id="surrounding" id="nav-surrounding" data-action="region-page">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
+            </svg>
+            <span>Liên kết vùng</span>
           </div>
         </div>
       </div>
@@ -557,22 +597,168 @@
     </div>
   `;
 
-  // The Left Nav has floating cards for main categories
+  // The Unified Control Panel containing both Navigation and Toolbar
   const neoLeftNavHTML = `
-    <div class="neo-left-nav-wrapper collapsed" id="neo-left-nav-wrapper">
-      <div class="neo-nav-trigger" id="neo-left-trigger" title="Mở menu">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="neo-unified-container collapsed" id="neo-unified-container">
+      <!-- Unified three-dot button (...) -->
+      <div class="neo-unified-trigger" id="neo-unified-trigger" title="Mở menu">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="6" cy="12" r="2" fill="currentColor"/>
+          <circle cx="12" cy="12" r="2" fill="currentColor"/>
+          <circle cx="18" cy="12" r="2" fill="currentColor"/>
+        </svg>
       </div>
-      <div class="neo-left-nav" id="neo-left-nav">
-        <div class="neo-nav-card active" data-id="overview" id="nav-neo-overview">Tổng Quan</div>
-        <div class="neo-nav-card" data-id="amenities" id="nav-neo-amenities">Tiện Ích</div>
-        <div class="neo-nav-card center-logo-node" data-id="latien-brand" id="nav-neo-logo">Dự Án</div>
-        <div class="neo-nav-card" data-id="architecture" id="nav-neo-architecture">Kiến Trúc</div>
-        <div class="neo-nav-card" data-id="interior" id="nav-neo-interior">Nội Thất</div>
+      
+      <!-- Navigation Panel: RIGHT -> LEFT -->
+      <div class="neo-nav-panel" id="neo-nav-panel">
+        <!-- Top View Group -->
+        <div class="neo-nav-item-group" data-id="topview">
+          <div class="neo-nav-card" data-id="topview" id="nav-neo-topview" data-pano-node="node1" data-action="overview-top">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="12" y1="17" x2="12" y2="21" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Top View</span>
+          </div>
+        </div>
+
+        <!-- Bird View Group -->
+        <div class="neo-nav-item-group" data-id="birdview">
+          <div class="neo-nav-card" data-id="birdview" id="nav-neo-birdview">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 20h9M12 4h9M3 12l3-3 3 3M6 9v11M3 20h6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>Bird View</span>
+          </div>
+          <div class="neo-submenu-tree">
+            <div class="submenu-item" data-action="overview-bird1" data-pano-node="node2">Bird View 1</div>
+            <div class="submenu-item" data-action="overview-bird2" data-pano-node="node3">Bird View 2</div>
+            <div class="submenu-item" data-action="overview-bird3" data-pano-node="node4">Bird View 3</div>
+          </div>
+        </div>
+
+        <!-- Amenities Group -->
+        <div class="neo-nav-item-group" data-id="amenities">
+          <div class="neo-nav-card" data-id="amenities" id="nav-neo-amenities">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Tiện Ích</span>
+          </div>
+          <div class="neo-submenu-tree">
+            <div class="submenu-item" data-action="amenity-pool">Hồ Bơi</div>
+            <div class="submenu-item" data-action="amenity-gym">Phòng Gym</div>
+            <div class="submenu-item" data-action="amenity-park">Công Viên</div>
+            <div class="submenu-item" data-action="amenity-spa">Spa & Massage</div>
+          </div>
+        </div>
+
+        <!-- Architecture Group -->
+        <div class="neo-nav-item-group" data-id="architecture">
+          <div class="neo-nav-card" data-id="architecture" id="nav-neo-architecture">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 21V8l9-6 9 6v13" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+              <path d="M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+              <path d="M14 3v-1h3v4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+            </svg>
+            <span>Kiến Trúc</span>
+          </div>
+          <div class="neo-submenu-tree">
+            <div class="submenu-item" data-action="architecture-1">Kiến Trúc 1</div>
+            <div class="submenu-item" data-action="architecture-2">Kiến Trúc 2</div>
+            <div class="submenu-item" data-action="architecture-3">Kiến Trúc 3</div>
+          </div>
+        </div>
+
+        <!-- Interior Group -->
+        <div class="neo-nav-item-group" data-id="interior">
+          <div class="neo-nav-card" data-id="interior" id="nav-neo-interior">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 21h8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 17v4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 8h4M7 11h6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Nội Thất</span>
+          </div>
+          <div class="neo-submenu-tree">
+            <div class="submenu-item" data-action="interior-1">Interior 1</div>
+            <div class="submenu-item" data-action="interior-2">Interior 2</div>
+          </div>
+        </div>
+
+        <!-- Liên kết vùng Group -->
+        <div class="neo-nav-item-group" data-id="surrounding">
+          <div class="neo-nav-card" data-id="surrounding" id="nav-neo-logo" data-action="region-page">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
+            </svg>
+            <span>Liên kết vùng</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toolbar: TOP -> BOTTOM -->
+      <div class="neo-toolbar" id="neo-toolbar">
+        <!-- Project Information (First as requested) -->
+        <div class="neo-dock-item" data-action="info">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="neo-tooltip">Thông Tin Dự Án</div>
+        </div>
+
+        <!-- Music -->
+        <div class="neo-dock-item" data-action="music">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="neo-tooltip">Nhạc Nền</div>
+        </div>
         
-        <!-- Submenu Panel floats next to the active card -->
-        <div class="neo-submenu-panel" id="neo-submenu-panel">
-          <div class="neo-submenu-content" id="neo-submenu-content"></div>
+        <!-- Images -->
+        <div class="neo-dock-item has-children" id="neo-images-parent">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="neo-tooltip">Hình Ảnh</div>
+          <div class="neo-dock-submenu">
+            <div class="dock-pano-card" onclick="window.pano && window.pano.openNext('node1')">
+              <img src="pano_aerial.png" alt="Toàn cảnh">
+              <span>Toàn cảnh</span>
+            </div>
+            <div class="dock-pano-card" onclick="window.pano && window.pano.openNext('node2')">
+              <img src="pano_detached.png" alt="Đơn lập">
+              <span>Biệt thự Đơn lập</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotspots -->
+        <div class="neo-dock-item" data-action="hotspots">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="neo-tooltip">Ẩn/Hiện Hotspots</div>
+        </div>
+
+        <!-- Share -->
+        <div class="neo-dock-item has-children" id="neo-share-parent">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M18 8A3 3 0 1018 2a3 3 0 000 6zM6 15a3 3 0 100-6 3 3 0 000 6zM18 22a3 3 0 100-6 3 3 0 000 6zM8.59 13.51l6.83 3.98M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="neo-tooltip">Chia Sẻ</div>
+          <div class="neo-dock-submenu flex-col">
+            <a href="https://facebook.com" target="_blank" class="dock-share-btn facebook">Facebook</a>
+            <a href="https://zalo.me" target="_blank" class="dock-share-btn zalo">Zalo</a>
+          </div>
+        </div>
+
+        <!-- Call -->
+        <div class="neo-dock-item" data-action="call">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="neo-tooltip">Tư Vấn</div>
+        </div>
+
+        <!-- Fullscreen -->
+        <div class="neo-dock-item" data-action="fullscreen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+          </svg>
+          <div class="neo-tooltip">Toàn Màn Hình</div>
         </div>
       </div>
     </div>
@@ -581,54 +767,8 @@
   // Right quick panel has been removed from Neo layout to prevent duplication with the bottom dock
   const neoRightQuickPanelHTML = ``;
 
-
-  // macOS style Bottom Dock
-  const neoBottomDockHTML = `
-    <div class="neo-dock-wrapper collapsed" id="neo-dock-wrapper">
-      <div class="neo-dock-trigger" id="neo-bottom-trigger" title="Mở công cụ">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M18 15l-6-6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="neo-bottom-dock-container" id="neo-bottom-dock">
-        <div class="neo-dock" id="neo-dock">
-          <div class="neo-dock-item" data-action="home"><svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2"/><polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="2"/></svg><div class="neo-tooltip">Trang Chủ</div></div>
-          <div class="neo-dock-item" data-action="gallery"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/><path d="M21 15l-5-5L5 21" stroke="currentColor" stroke-width="2"/></svg><div class="neo-tooltip">Thư Viện Ảnh</div></div>
-          
-          <!-- SUBMENU FOR SHARE -->
-          <div class="neo-dock-item has-children" id="neo-share-parent">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M18 8A3 3 0 1018 2a3 3 0 000 6zM6 15a3 3 0 100-6 3 3 0 000 6zM18 22a3 3 0 100-6 3 3 0 000 6zM8.59 13.51l6.83 3.98M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="2"/></svg>
-            <div class="neo-tooltip">Chia Sẻ</div>
-            <div class="neo-dock-submenu flex-col">
-              <a href="https://facebook.com" target="_blank" class="dock-share-btn facebook">Facebook</a>
-              <a href="https://zalo.me" target="_blank" class="dock-share-btn zalo">Zalo</a>
-            </div>
-          </div>
-          
-          <div class="neo-dock-item" data-action="call"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2"/></svg><div class="neo-tooltip">Tư Vấn</div></div>
-          <div class="neo-dock-item" data-action="info"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2"/></svg><div class="neo-tooltip">Thông Tin Dự Án</div></div>
-          <div class="neo-dock-divider"></div>
-          <div class="neo-dock-item" data-action="music"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="2"/></svg><div class="neo-tooltip">Nhạc Nền</div></div>
-          
-          <!-- SUBMENU FOR IMAGES -->
-          <div class="neo-dock-item has-children" id="neo-images-parent">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>
-            <div class="neo-tooltip">Hình Ảnh</div>
-            <div class="neo-dock-submenu">
-              <div class="dock-pano-card" onclick="window.pano && window.pano.openNext('node1')">
-                <img src="pano_aerial.png" alt="Toàn cảnh">
-                <span>Toàn cảnh</span>
-              </div>
-              <div class="dock-pano-card" onclick="window.pano && window.pano.openNext('node2')">
-                <img src="pano_detached.png" alt="Đơn lập">
-                <span>Biệt thự Đơn lập</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="neo-dock-item" data-action="hotspots"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg><div class="neo-tooltip">Ẩn/Hiện Hotspots</div></div>
-        </div>
-      </div>
-    </div>
-  `;
+  // Bottom dock is merged into the unified container
+  const neoBottomDockHTML = ``;
 
   // ==========================================
   // SHARED WIDGET TEMPLATES (both layouts)
@@ -812,8 +952,8 @@
 
   // System states (stored & persisted in localStorage)
   let layoutMode = lsGet("latien_layout_mode", "futuristic");
-  let activeNavItemId = lsGet("latien_active_nav", "overview");
-  let activeSubmenuAction = lsGet("latien_active_submenu", "overview-top");
+  let activeNavItemId = "";
+  let activeSubmenuAction = "";
   let activePanoNode = lsGet("latien_active_node", "node1");
   let isSidebarExpanded = false; // state for collapsed sidebar in futuristic layout
 
@@ -1100,6 +1240,13 @@
         activeNavItemId = this.getAttribute("data-id");
         lsSet("latien_active_nav", activeNavItemId);
         updateActiveGlow(this);
+
+        // Route parent navigation if no submenu, or if it is interior or surrounding
+        const hasSubmenu = this.querySelector(".nav-submenu") !== null;
+        const id = this.getAttribute("data-id");
+        if (!hasSubmenu || id === "interior" || id === "surrounding") {
+          routeNavigation(this);
+        }
       });
     });
 
@@ -1121,7 +1268,7 @@
           parentNavItem.classList.remove("is-open");
         }
 
-        handleSubmenuSelection(this);
+        routeNavigation(this);
       });
     });
   }
@@ -1136,13 +1283,33 @@
     const navItems = document.querySelectorAll(".nav-item");
 
     if (settingsToggle && rightToolStack) {
+      let hoverTimeout;
+      
       settingsToggle.addEventListener("click", function (e) {
         e.stopPropagation();
-        rightToolStack.classList.toggle("expanded");
-        if (rightToolStack.classList.contains("expanded")) {
+        rightToolStack.classList.toggle("pinned");
+        if (rightToolStack.classList.contains("pinned")) {
+          rightToolStack.classList.add("expanded");
           showNotification("Bảng điều khiển đã mở rộng");
+        } else {
+          rightToolStack.classList.remove("expanded");
         }
       });
+
+      const settingsGroup = document.getElementById("futuristic-settings-group");
+      if (settingsGroup) {
+        settingsGroup.addEventListener("mouseenter", () => {
+          clearTimeout(hoverTimeout);
+          rightToolStack.classList.add("expanded");
+        });
+        settingsGroup.addEventListener("mouseleave", () => {
+          hoverTimeout = setTimeout(() => {
+            if (!rightToolStack.classList.contains("pinned")) {
+              rightToolStack.classList.remove("expanded");
+            }
+          }, 300);
+        });
+      }
     }
 
     if (sidebarToggle && sidebarContainer) {
@@ -1221,6 +1388,13 @@
         activeNavItemId = this.getAttribute("data-id");
         lsSet("latien_active_nav", activeNavItemId);
         updateActiveGlow(this);
+
+        // Route parent navigation if no submenu, or if it is interior or surrounding
+        const hasSubmenu = this.querySelector(".nav-submenu") !== null;
+        const id = this.getAttribute("data-id");
+        if (!hasSubmenu || id === "interior" || id === "surrounding") {
+          routeNavigation(this);
+        }
       });
     });
 
@@ -1246,7 +1420,7 @@
           }
         }
 
-        handleSubmenuSelection(this);
+        routeNavigation(this);
       });
     });
   }
@@ -1303,24 +1477,28 @@
           siblings.forEach(s => s.classList.remove('active'));
           subItem.classList.add('active');
           // Navigate
-          handleSubmenuSelection(subItem);
+          routeNavigation(subItem);
           // Close rail submenu after selection
           iconWrappers.forEach(n => n.classList.remove('pinned', 'hover-open'));
           return;
         }
         
         const hasSubmenu = wrapper.querySelector('.vision-submenu') !== null;
-        if (hasSubmenu) {
+        const id = wrapper.getAttribute("data-id");
+        
+        if (hasSubmenu && id !== "interior") {
             const isPinned = wrapper.classList.contains('pinned');
             // Close all others
             iconWrappers.forEach(n => n.classList.remove('pinned', 'hover-open'));
             if (!isPinned) wrapper.classList.add('pinned');
         } else {
-            // It's a simple tool, handle it via dispatchToolAction
+            // It has no submenu, or it is interior (where clicking parent triggers Interior page)
             iconWrappers.forEach(n => n.classList.remove('pinned', 'hover-open'));
-            if (typeof dispatchToolAction === "function" && wrapper.hasAttribute("data-action")) {
+            const action = wrapper.getAttribute("data-action");
+            if (action && ["music", "hotspots", "info", "fullscreen", "call"].includes(action)) {
               dispatchToolAction(wrapper);
-              e.stopPropagation(); // Prevent broken global handlers from interfering
+            } else {
+              routeNavigation(wrapper);
             }
         }
       });
@@ -1338,151 +1516,129 @@
   }
 
   function setupNeoListeners() {
-    // Left Nav Wrapper Logic
-    const leftNavWrapper = document.getElementById('neo-left-nav-wrapper');
-    const leftNavTrigger = document.getElementById('neo-left-trigger');
-    if (leftNavWrapper && leftNavTrigger) {
-      leftNavWrapper.addEventListener('mouseenter', () => {
-        if (!leftNavWrapper.classList.contains('pinned')) leftNavWrapper.classList.remove('collapsed');
-      });
-      leftNavWrapper.addEventListener('mouseleave', () => {
-        if (!leftNavWrapper.classList.contains('pinned')) leftNavWrapper.classList.add('collapsed');
-      });
-      leftNavTrigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isPinned = leftNavWrapper.classList.contains('pinned');
-        if (isPinned) {
-          leftNavWrapper.classList.remove('pinned');
-          leftNavWrapper.classList.add('collapsed');
-        } else {
-          leftNavWrapper.classList.add('pinned');
-          leftNavWrapper.classList.remove('collapsed');
-        }
+    // Unified Control Button Logic
+    const unifiedContainer = document.getElementById('neo-unified-container');
+    const unifiedTrigger = document.getElementById('neo-unified-trigger');
+    const navCards = document.querySelectorAll(".layout-neo .neo-nav-card");
+    const itemGroups = document.querySelectorAll(".layout-neo .neo-nav-item-group");
+
+    function closeAllSubmenus() {
+      itemGroups.forEach(g => g.classList.remove("open"));
+      navCards.forEach(c => {
+        if (!c.classList.contains("pinned")) c.classList.remove("active");
       });
     }
 
-    // Bottom Dock Wrapper Logic
-    const bottomDockWrapper = document.getElementById('neo-dock-wrapper');
-    const bottomDockTrigger = document.getElementById('neo-bottom-trigger');
-    if (bottomDockWrapper && bottomDockTrigger) {
-      bottomDockWrapper.addEventListener('mouseenter', () => {
-        if (!bottomDockWrapper.classList.contains('pinned')) bottomDockWrapper.classList.remove('collapsed');
-      });
-      bottomDockWrapper.addEventListener('mouseleave', () => {
-        if (!bottomDockWrapper.classList.contains('pinned')) bottomDockWrapper.classList.add('collapsed');
-      });
-      bottomDockTrigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isPinned = bottomDockWrapper.classList.contains('pinned');
-        if (isPinned) {
-          bottomDockWrapper.classList.remove('pinned');
-          bottomDockWrapper.classList.add('collapsed');
-        } else {
-          bottomDockWrapper.classList.add('pinned');
-          bottomDockWrapper.classList.remove('collapsed');
+    if (unifiedContainer && unifiedTrigger) {
+      unifiedContainer.addEventListener('mouseenter', () => {
+        if (!unifiedContainer.classList.contains('pinned')) {
+          unifiedContainer.classList.remove('collapsed');
+          unifiedContainer.classList.add('active');
         }
       });
-    }
+      
+      unifiedContainer.addEventListener('mouseleave', () => {
+        if (!unifiedContainer.classList.contains('pinned')) {
+          unifiedContainer.classList.add('collapsed');
+          unifiedContainer.classList.remove('active');
+          closeAllSubmenus();
+        }
+      });
+      
+      unifiedTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isPinned = unifiedContainer.classList.contains('pinned');
+        if (isPinned) {
+          unifiedContainer.classList.remove('pinned', 'active');
+          unifiedContainer.classList.add('collapsed');
+          closeAllSubmenus();
+          navCards.forEach(c => { c.classList.remove("pinned"); });
+        } else {
+          unifiedContainer.classList.add('pinned', 'active');
+          unifiedContainer.classList.remove('collapsed');
+        }
+      });
 
-    document.addEventListener('click', (e) => {
-      if (leftNavWrapper && !e.target.closest('.neo-left-nav-wrapper')) {
-        leftNavWrapper.classList.remove('pinned');
-        leftNavWrapper.classList.add('collapsed');
-      }
-      if (bottomDockWrapper && !e.target.closest('.neo-dock-wrapper')) {
-        bottomDockWrapper.classList.remove('pinned');
-        bottomDockWrapper.classList.add('collapsed');
-      }
-    });
-
-    const navCards = document.querySelectorAll(".layout-neo .neo-nav-card:not(.center-logo-node)");
-    const panel = document.getElementById("neo-submenu-panel");
-    const content = document.getElementById("neo-submenu-content");
-
-    const submenuData = {
-      "overview": `
-        <div class="submenu-item" data-action="pano-topview">Top View</div>
-        <div class="submenu-item" data-action="pano-birdview">Bird View</div>
-      `,
-      "amenities": `
-        <div class="submenu-item" data-action="amenity-pool">Hồ Bơi</div>
-        <div class="submenu-item" data-action="amenity-gym">Phòng Gym</div>
-        <div class="submenu-item" data-action="amenity-park">Công Viên</div>
-        <div class="submenu-item" data-action="amenity-spa">Spa & Massage</div>
-      `,
-      "architecture": `
-        <div class="submenu-item" data-action="architecture-1">Kiến Trúc 1</div>
-        <div class="submenu-item" data-action="architecture-2">Kiến Trúc 2</div>
-        <div class="submenu-item" data-action="architecture-3">Kiến Trúc 3</div>
-      `,
-      "interior": `
-        <div class="submenu-item" data-action="interior-bedroom">Phòng Ngủ</div>
-        <div class="submenu-item" data-action="interior-kitchen">Nhà Bếp</div>
-        <div class="submenu-item" data-action="interior-balcony">Ban Công</div>
-        <div class="submenu-item" data-action="interior-rooftop">Sân Thượng</div>
-      `,
-      "latien-brand": `
-        <div class="mega-card" data-pano-node="node1" data-action="pano-node1"><img src="pano_aerial.png" alt="Toàn cảnh" class="mega-card-img"><div class="mega-card-overlay"></div><div class="mega-card-title">Toàn cảnh dự án</div></div>
-        <div class="mega-card" data-pano-node="node2" data-action="pano-node2"><img src="pano_detached.png" alt="Biệt thự Đơn lập A" class="mega-card-img"><div class="mega-card-overlay"></div><div class="mega-card-title">Biệt thự Đơn lập A</div></div>
-        <div class="mega-card" data-pano-node="node3" data-action="pano-node3"><img src="pano_semidetached.png" alt="Biệt thự Song lập B" class="mega-card-img"><div class="mega-card-overlay"></div><div class="mega-card-title">Biệt thự Song lập B</div></div>
-        <div class="mega-card" data-pano-node="node4" data-action="pano-node4"><img src="pano_townhouse.png" alt="Biệt thự Liền kề C" class="mega-card-img"><div class="mega-card-overlay"></div><div class="mega-card-title">Biệt thự Liền kề C</div></div>
-      `
-    };
-
-    function bindSubmenuItems() {
-      if (!content) return;
-      const subItems = content.querySelectorAll(".submenu-item, .mega-card");
-      subItems.forEach(item => {
-        item.addEventListener("click", function (e2) {
-          e2.stopPropagation();
-          subItems.forEach(s => s.classList.remove("active"));
-          this.classList.add("active");
-          if (panel) panel.classList.remove("open");
-          if (typeof handleSubmenuSelection === "function") handleSubmenuSelection(this);
-        });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('#neo-unified-container')) {
+          unifiedContainer.classList.remove('pinned', 'active');
+          unifiedContainer.classList.add('collapsed');
+          closeAllSubmenus();
+          navCards.forEach(c => { c.classList.remove("pinned", "active"); });
+        }
       });
     }
 
     navCards.forEach(card => {
+      const group = card.closest('.neo-nav-item-group');
+
       card.addEventListener("mouseenter", () => {
-        if (panel && card.classList.contains("pinned")) return;
-        const targetId = card.getAttribute("data-id");
-        if (targetId && submenuData[targetId] && content) {
-          content.innerHTML = submenuData[targetId];
-          panel.classList.add("open");
-          if (targetId === "latien-brand") panel.classList.add("mega-mode");
-          else panel.classList.remove("mega-mode");
-          bindSubmenuItems();
-          navCards.forEach(c => { if (!c.classList.contains("pinned")) c.classList.remove("active"); });
-          if (!document.querySelector(".layout-neo .neo-nav-card.pinned")) card.classList.add("active");
-        }
+        if (card.classList.contains("pinned")) return;
+        
+        // If there's a pinned card in the layout, don't auto-open others on hover
+        const hasPinned = document.querySelector(".layout-neo .neo-nav-card.pinned");
+        if (hasPinned) return;
+
+        closeAllSubmenus();
+        card.classList.add("active");
+        if (group) group.classList.add("open");
       });
 
       card.addEventListener("mouseleave", () => {
-        if (!card.classList.contains("pinned") && !document.querySelector(".layout-neo .neo-nav-card.pinned")) {
-          if (panel) panel.classList.remove("open");
+        const hasPinned = document.querySelector(".layout-neo .neo-nav-card.pinned");
+        if (!card.classList.contains("pinned") && !hasPinned) {
           card.classList.remove("active");
+          if (group) group.classList.remove("open");
         }
       });
 
       card.addEventListener("click", (e) => {
         e.stopPropagation();
-        const isPinned = card.classList.contains("pinned");
-        navCards.forEach(c => { c.classList.remove("pinned", "active"); });
-        if (!isPinned) {
+        const isPinnedCard = card.classList.contains("pinned");
+        
+        // Remove pinned class from other nav cards
+        navCards.forEach(c => { if (c !== card) c.classList.remove("pinned"); });
+        closeAllSubmenus();
+        
+        if (!isPinnedCard) {
           card.classList.add("pinned", "active");
-          if (panel) panel.classList.add("open");
+          if (group) group.classList.add("open");
         } else {
-          if (panel) panel.classList.remove("open");
+          card.classList.remove("pinned", "active");
+        }
+
+        // Direct navigation if no submenu, or if it is interior or surrounding
+        const hasSubmenu = group && group.querySelector(".neo-submenu-tree") !== null;
+        const id = card.getAttribute("data-id");
+        if (!hasSubmenu || id === "interior" || id === "surrounding") {
+          routeNavigation(card);
         }
       });
     });
 
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest('.neo-left-nav-wrapper')) {
-        navCards.forEach(c => { c.classList.remove("pinned", "active"); });
-        if (panel) panel.classList.remove("open");
-      }
+    // Static sub-menu item selection logic
+    const subItems = document.querySelectorAll(".layout-neo .submenu-item, .layout-neo .mega-card");
+    subItems.forEach(item => {
+      item.addEventListener("click", function (e2) {
+        e2.stopPropagation();
+        
+        const submenuTree = this.closest('.neo-submenu-tree');
+        if (submenuTree) {
+          const siblings = submenuTree.querySelectorAll(".submenu-item, .mega-card");
+          siblings.forEach(s => s.classList.remove("active"));
+        }
+        
+        this.classList.add("active");
+        
+        // Close menu/submenus if not pinned
+        if (unifiedContainer && !unifiedContainer.classList.contains("pinned")) {
+          unifiedContainer.classList.remove("active", "pinned");
+          unifiedContainer.classList.add("collapsed");
+        }
+        closeAllSubmenus();
+        
+        routeNavigation(this);
+      });
     });
 
     const allTools = document.querySelectorAll(".neo-quick-btn, .neo-dock-item");
@@ -1497,9 +1653,9 @@
         btn.addEventListener("click", (e) => {
           if (e.target.closest('.neo-dock-submenu')) return; // ignore clicks inside submenu
           e.stopPropagation();
-          const isPinned = btn.classList.contains("pinned");
+          const isPinnedTool = btn.classList.contains("pinned");
           allTools.forEach(t => t.classList.remove("pinned", "hover-open"));
-          if (!isPinned) btn.classList.add("pinned");
+          if (!isPinnedTool) btn.classList.add("pinned");
         });
       } else {
         btn.addEventListener("click", function(e) {
@@ -1712,10 +1868,159 @@
     });
   }
 
+  // ==========================================
+  // CUSTOM PAGES & ROUTING
+  // ==========================================
+
+  let previousPanoNode = "node1";
+
+  function openInteriorPage(panoIndex = 1) {
+    if (window.pano && typeof window.pano.getCurrentNode === "function") {
+      const cur = window.pano.getCurrentNode();
+      if (cur && cur !== "node3" && cur !== "node4") {
+        previousPanoNode = cur;
+      }
+    } else {
+      previousPanoNode = activePanoNode || "node1";
+    }
+
+    document.body.classList.add("interior-mode-active");
+    
+    const targetNode = (panoIndex === 2) ? "node4" : "node3";
+    if (window.pano) {
+      window.pano.openNext(`{${targetNode}}`);
+    }
+
+    const btns = document.querySelectorAll("#interior-page .interior-switch-btn");
+    btns.forEach(btn => {
+      const pVal = parseInt(btn.getAttribute("data-pano"));
+      btn.classList.toggle("active", pVal === panoIndex);
+    });
+
+    showNotification(layoutMode === "classic" ? "Đã mở trang Thiết kế Nội thất" : "Interior Page opened");
+  }
+
+  function closeInteriorPage() {
+    document.body.classList.remove("interior-mode-active");
+    if (window.pano && previousPanoNode) {
+      window.pano.openNext(`{${previousPanoNode}}`);
+    }
+    showNotification(layoutMode === "classic" ? "Đã quay lại 360" : "Returned to 360");
+  }
+
+  function openRegionPage() {
+    if (window.pano && typeof window.pano.getCurrentNode === "function") {
+      const cur = window.pano.getCurrentNode();
+      if (cur) {
+        previousPanoNode = cur;
+      }
+    } else {
+      previousPanoNode = activePanoNode || "node1";
+    }
+
+    document.body.classList.add("region-mode-active");
+    showNotification(layoutMode === "classic" ? "Đã mở trang Liên kết vùng" : "Region Map opened");
+  }
+
+  function closeRegionPage() {
+    document.body.classList.remove("region-mode-active");
+    showNotification(layoutMode === "classic" ? "Đã quay lại 360" : "Returned to 360");
+  }
+
+  function setupInteriorPageListeners() {
+    const btns = document.querySelectorAll("#interior-page .interior-switch-btn");
+    btns.forEach(btn => {
+      btn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        const panoIndex = parseInt(this.getAttribute("data-pano"));
+        btns.forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+        
+        const targetNode = (panoIndex === 2) ? "node4" : "node3";
+        if (window.pano) {
+          window.pano.openNext(`{${targetNode}}`);
+        }
+      });
+    });
+
+    const backBtn = document.getElementById("interior-back-btn");
+    if (backBtn) {
+      backBtn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        closeInteriorPage();
+      });
+    }
+  }
+
+  function setupRegionPageListeners() {
+    const listItems = document.querySelectorAll("#region-page .region-menu-item");
+    const pins = document.querySelectorAll("#region-page .map-pin");
+
+    listItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation();
+        listItems.forEach(li => li.classList.remove("active"));
+        this.classList.add("active");
+
+        const category = this.getAttribute("data-category");
+        pins.forEach(pin => {
+          if (pin.classList.contains(category)) {
+            pin.classList.add("active");
+          } else {
+            pin.classList.remove("active");
+          }
+        });
+      });
+    });
+
+    const backBtn = document.getElementById("region-back-btn");
+    if (backBtn) {
+      backBtn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        closeRegionPage();
+      });
+    }
+  }
+
+  function routeNavigation(element) {
+    const id = element.getAttribute("data-id");
+    const action = element.getAttribute("data-action");
+    const panoNode = element.getAttribute("data-pano-node");
+
+    // 1. Check if it's Region Page
+    if (id === "surrounding" || action === "region-page" || element.id === "nav-surrounding" || element.id === "nav-neo-logo") {
+      openRegionPage();
+      return;
+    }
+
+    // 2. Check if it's Interior Page
+    if (id === "interior" || (action && action.startsWith("interior-"))) {
+      let panoIndex = 1;
+      if (action === "interior-2") panoIndex = 2;
+      openInteriorPage(panoIndex);
+      return;
+    }
+
+    // 3. Otherwise, normal panorama switching
+    if (panoNode && window.pano) {
+      window.pano.openNext(`{${panoNode}}`);
+      let titleText = element.textContent.trim();
+      if (element.classList.contains("mega-card")) {
+        const cardTitle = element.querySelector(".mega-card-title");
+        if (cardTitle) titleText = cardTitle.textContent.trim();
+      }
+      showNotification(layoutMode === "classic" ? `Đang chuyển đến: ${titleText}` : `Navigating: ${titleText.toUpperCase()}`);
+    } else if (action) {
+      let titleText = element.textContent.trim();
+      showNotification(layoutMode === "classic" ? `Đang tải: ${titleText}` : `Loading: ${titleText}`);
+    }
+  }
+
   // Setup outer containers and Layout switch click actions
   function injectUI() {
     // 1. Create outer wrapper container
     const uiWrapper = document.createElement("div");
+    uiWrapper.id = "modern-ui-overlay";
     uiWrapper.className = `modern-ui-overlay layout-${layoutMode}`;
     uiWrapper.innerHTML = gradientDefs + layoutSwitcherHTML;
     document.body.appendChild(uiWrapper);
@@ -1723,6 +2028,121 @@
     // Sync top-level body classes
     document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient");
     document.body.classList.add(`layout-${layoutMode}`);
+
+    // Inject custom Interior Page and Region Page overlays if not already present
+    if (!document.getElementById("interior-page")) {
+      const interiorDiv = document.createElement("div");
+      interiorDiv.id = "interior-page";
+      interiorDiv.className = "custom-overlay-page";
+      interiorDiv.innerHTML = `
+        <button class="back-to-360-btn" id="interior-back-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Quay lại 360</span>
+        </button>
+        <div class="interior-switcher-container">
+          <button class="interior-switch-btn active" data-pano="1">Panorama 1</button>
+          <button class="interior-switch-btn" data-pano="2">Panorama 2</button>
+        </div>
+      `;
+      document.body.appendChild(interiorDiv);
+      setupInteriorPageListeners();
+    }
+
+    if (!document.getElementById("region-page")) {
+      const regionDiv = document.createElement("div");
+      regionDiv.id = "region-page";
+      regionDiv.className = "custom-overlay-page";
+      regionDiv.innerHTML = `
+        <button class="back-to-360-btn" id="region-back-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Quay lại 360</span>
+        </button>
+        <div class="region-sidebar">
+          <div class="sidebar-header">
+            <h3>LIÊN KẾT VÙNG</h3>
+          </div>
+          <ul class="region-menu-list">
+            <li class="region-menu-item active" data-category="hospital">
+              <span class="icon">🏥</span> Bệnh viện
+            </li>
+            <li class="region-menu-item" data-category="school">
+              <span class="icon">🏫</span> Trường học
+            </li>
+            <li class="region-menu-item" data-category="station">
+              <span class="icon">🚉</span> Nhà ga
+            </li>
+            <li class="region-menu-item" data-category="airport">
+              <span class="icon">✈️</span> Sân bay
+            </li>
+            <li class="region-menu-item" data-category="mall">
+              <span class="icon">🛍️</span> Trung tâm thương mại
+            </li>
+            <li class="region-menu-item" data-category="park">
+              <span class="icon">🌳</span> Công viên
+            </li>
+            <li class="region-menu-item" data-category="admin">
+              <span class="icon">🏛️</span> Cơ quan hành chính
+            </li>
+            <li class="region-menu-item" data-category="highway">
+              <span class="icon">🛣️</span> Đường quốc lộ
+            </li>
+          </ul>
+        </div>
+        <div class="region-map-container">
+          <div class="region-map-wrapper">
+            <img src="regional_map.png" alt="Bản đồ liên kết vùng" class="region-map-img">
+            <div class="map-pin hospital active" style="top: 45%; left: 35%;">
+              <div class="pin-pulse"></div>
+              <div class="pin-dot">🏥</div>
+              <div class="pin-label">Bệnh viện Đa khoa Quốc tế</div>
+            </div>
+            <div class="map-pin school" style="top: 30%; left: 60%;">
+              <div class="pin-pulse"></div>
+              <div class="pin-dot">🏫</div>
+              <div class="pin-label">Trường THPT Quốc tế</div>
+            </div>
+            <div class="map-pin station" style="top: 65%; left: 20%;">
+              <div class="pin-pulse"></div>
+              <div class="pin-dot">🚉</div>
+              <div class="pin-label">Nhà ga Trung tâm</div>
+            </div>
+            <div class="map-pin airport" style="top: 15%; left: 80%;">
+              <div class="pin-pulse"></div>
+              <div class="pin-dot">✈️</div>
+              <div class="pin-label">Sân bay Quốc tế</div>
+            </div>
+            <div class="map-pin mall" style="top: 50%; left: 55%;">
+              <div class="pin-pulse"></div>
+              <div class="pin-dot">🛍️</div>
+              <div class="pin-label">Trung tâm Thương mại Latien Mall</div>
+            </div>
+            <div class="map-pin park" style="top: 40%; left: 45%;">
+              <div class="pin-pulse"></div>
+              <div class="pin-dot">🌳</div>
+              <div class="pin-label">Công viên Trung tâm 10ha</div>
+            </div>
+            <div class="map-pin admin" style="top: 25%; left: 30%;">
+              <div class="pin-pulse"></div>
+              <div class="pin-dot">🏛️</div>
+              <div class="pin-label">Ủy ban Nhân dân Quận</div>
+            </div>
+            <div class="map-pin highway" style="top: 75%; left: 70%;">
+              <div class="pin-pulse"></div>
+              <div class="pin-dot">🛣️</div>
+              <div class="pin-label">Đường Quốc lộ 1A</div>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(regionDiv);
+      setupRegionPageListeners();
+    }
 
     // 2. Inject components for active layout mode
     injectLayoutComponents();
@@ -1822,7 +2242,10 @@
       navItems.forEach(n => n.classList.remove("is-open"));
 
       const rightToolStack = document.getElementById("right-tool-stack");
-      if (rightToolStack) rightToolStack.classList.remove("expanded");
+      if (rightToolStack) {
+        rightToolStack.classList.remove("expanded");
+        rightToolStack.classList.remove("pinned");
+      }
 
       const sidebarContainer = document.getElementById("sidebar-container");
       if (sidebarContainer) {
