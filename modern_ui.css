@@ -1,6 +1,6 @@
 /* modern_ui.css - Combined Dual-Layout Stylesheet (Classic & Futuristic) */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
 
 :root {
   /* Classic Layout Variables */
@@ -6055,3 +6055,2520 @@ body.region-mode-active #container {
   transform: perspective(600px) rotateY(0deg) translateX(0) scale(1) !important;
   transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
+
+
+/* =========================================================
+   OPTION 5: AURORA LAYOUT SPECIFIC VARIABLES & GLOBAL OVERRIDES
+   ========================================================= */
+
+:root {
+  /* Aurora Colors */
+  --aurora-cyan: #00D9FF;
+  --aurora-purple: #8B5CF6;
+  --aurora-pink: #EC4899;
+  --aurora-orange: #FF8A00;
+  --aurora-emerald: #00E676;
+  --aurora-bg: #08111F;
+  --aurora-glass: rgba(8, 17, 31, 0.7);
+  --aurora-glass-border: rgba(0, 217, 255, 0.15);
+  --aurora-glow-gradient: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple), var(--aurora-pink));
+  --aurora-font: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+/* Hide new layouts components in other layouts by default */
+.aurora-nav-container,
+.aurora-tool-panel {
+  display: none !important;
+}
+
+/* Hide old layouts components under layout-aurora */
+.layout-aurora .bottom-nav-container,
+.layout-aurora .vertical-tool-stack,
+.layout-aurora .settings-toggle-btn,
+.layout-aurora .modern-ui-sidebar,
+.layout-aurora .v-rail-container,
+.layout-aurora #sidebar-container {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------
+   AURORA SWITCHER PILL & SLIDER
+   --------------------------------------------------------- */
+.layout-aurora .layout-switcher-pill {
+  background: rgba(8, 17, 31, 0.85) !important;
+  border: 1px solid rgba(0, 217, 255, 0.2) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 217, 255, 0.15) !important;
+}
+.layout-aurora .switcher-segment {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-family: var(--aurora-font) !important;
+  transition: all 0.3s ease !important;
+}
+.layout-aurora .switcher-segment.active {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(0, 217, 255, 0.8) !important;
+}
+.layout-aurora .switcher-slider {
+  background: linear-gradient(135deg, var(--aurora-cyan) 0%, var(--aurora-purple) 50%, var(--aurora-pink) 100%) !important;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.6) !important;
+}
+
+/* ---------------------------------------------------------
+   AURORA LEFT NAVIGATION PANEL
+   --------------------------------------------------------- */
+.layout-aurora .aurora-nav-container {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  bottom: 24px;
+  display: flex !important;
+  flex-direction: column;
+  background: var(--aurora-glass);
+  border: 1px solid var(--aurora-glass-border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 20px;
+  padding: 20px 14px;
+  width: 70px;
+  z-index: 2000;
+  box-sizing: border-box;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  pointer-events: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.layout-aurora .aurora-nav-container.expanded {
+  width: 240px;
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(139, 92, 246, 0.15);
+}
+
+/* Logo block */
+.layout-aurora .aurora-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  padding-left: 6px;
+  height: 24px;
+  overflow: hidden;
+}
+
+.layout-aurora .aurora-logo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-pink));
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.8);
+  flex-shrink: 0;
+  animation: logoPulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes logoPulse {
+  0% { transform: scale(0.9); filter: brightness(1); }
+  100% { transform: scale(1.15); filter: brightness(1.3); }
+}
+
+.layout-aurora .aurora-logo-text {
+  font-family: var(--aurora-font);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #fff;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.layout-aurora .aurora-nav-container.expanded .aurora-logo-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Nav Item list */
+.layout-aurora .aurora-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.layout-aurora .aurora-nav-item-wrapper {
+  position: relative;
+}
+
+.layout-aurora .aurora-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 14px;
+  cursor: pointer;
+  height: 42px;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  background: transparent;
+  gap: 12px;
+}
+
+/* Rounded Icon Borders, glow and floating shadows */
+.layout-aurora .aurora-icon-wrapper {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 1px; /* border space */
+}
+
+/* Inner SVG style */
+.layout-aurora .aurora-icon-wrapper svg {
+  width: 14px;
+  height: 14px;
+  color: #fff;
+  transition: all 0.3s ease;
+  stroke-width: 2;
+}
+
+/* Dotted / gradient borders around icons using padding trick */
+.layout-aurora .aurora-icon-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: background 0.3s ease;
+}
+
+/* Accent Color hover effect */
+.layout-aurora .aurora-nav-item:hover .aurora-icon-wrapper::before {
+  background: var(--accent-color);
+}
+.layout-aurora .aurora-nav-item:hover .aurora-icon-wrapper {
+  box-shadow: 0 0 12px var(--accent-color);
+  transform: scale(1.1);
+  color: #fff;
+}
+.layout-aurora .aurora-nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  padding-left: 12px;
+}
+
+/* Labels display sequentially with staggered transitions */
+.layout-aurora .aurora-nav-label {
+  font-family: var(--aurora-font);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+}
+
+.layout-aurora .aurora-nav-container.expanded .aurora-nav-label {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sequential delay for expansion */
+.layout-aurora .aurora-nav-item-wrapper:nth-child(1) .aurora-nav-label { transition-delay: 0.05s; }
+.layout-aurora .aurora-nav-item-wrapper:nth-child(2) .aurora-nav-label { transition-delay: 0.10s; }
+.layout-aurora .aurora-nav-item-wrapper:nth-child(3) .aurora-nav-label { transition-delay: 0.15s; }
+.layout-aurora .aurora-nav-item-wrapper:nth-child(4) .aurora-nav-label { transition-delay: 0.20s; }
+.layout-aurora .aurora-nav-item-wrapper:nth-child(5) .aurora-nav-label { transition-delay: 0.25s; }
+.layout-aurora .aurora-nav-item-wrapper:nth-child(6) .aurora-nav-label { transition-delay: 0.30s; }
+
+/* Active navigation item states */
+.layout-aurora .aurora-nav-item.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* Highlight bar & neon glow on active item */
+.layout-aurora .aurora-nav-item.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+  border-radius: 0 4px 4px 0;
+  animation: activePulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes activePulse {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; filter: brightness(1.2); }
+}
+
+.layout-aurora .aurora-nav-item.active .aurora-icon-wrapper {
+  background: var(--accent-color);
+  box-shadow: 0 0 15px var(--accent-color);
+  transform: scale(1.05);
+}
+.layout-aurora .aurora-nav-item.active .aurora-icon-wrapper svg {
+  color: #08111F;
+}
+.layout-aurora .aurora-nav-item.active .aurora-icon-wrapper::before {
+  background: transparent;
+}
+
+/* Chevron arrow */
+.layout-aurora .aurora-chevron {
+  margin-left: auto;
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  flex-shrink: 0;
+}
+
+.layout-aurora .aurora-nav-container.expanded .aurora-chevron {
+  opacity: 0.5;
+}
+.layout-aurora .aurora-nav-container.expanded .aurora-nav-item:hover .aurora-chevron {
+  opacity: 1;
+}
+
+.layout-aurora .aurora-chevron.rotate {
+  transform: rotate(180deg);
+  opacity: 1 !important;
+}
+
+/* Submenu layout styling */
+.layout-aurora .aurora-submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 0 0 46px;
+}
+
+.layout-aurora .aurora-nav-container.expanded .aurora-submenu.open {
+  max-height: 150px;
+  padding: 4px 0 8px 46px;
+}
+
+.layout-aurora .aurora-submenu-item {
+  font-family: var(--aurora-font);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+.layout-aurora .aurora-nav-container.expanded .aurora-submenu.open .aurora-submenu-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.layout-aurora .aurora-nav-container.expanded .aurora-submenu.open .aurora-submenu-item:nth-child(1) { transition-delay: 0.05s; }
+.layout-aurora .aurora-nav-container.expanded .aurora-submenu.open .aurora-submenu-item:nth-child(2) { transition-delay: 0.10s; }
+.layout-aurora .aurora-nav-container.expanded .aurora-submenu.open .aurora-submenu-item:nth-child(3) { transition-delay: 0.15s; }
+
+.layout-aurora .aurora-submenu-item:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.layout-aurora .aurora-submenu-item.active {
+  color: #fff;
+  background: rgba(139, 92, 246, 0.15);
+  border-left: 2px solid var(--aurora-purple);
+  padding-left: 12px;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   AURORA RIGHT TOOLSTACK PANEL
+   --------------------------------------------------------- */
+.layout-aurora .aurora-tool-panel {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex !important;
+  flex-direction: column;
+  background: var(--aurora-glass);
+  border: 1px solid var(--aurora-glass-border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 20px;
+  padding: 16px 8px;
+  width: 54px;
+  z-index: 2000;
+  box-sizing: border-box;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  pointer-events: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.layout-aurora .aurora-tool-panel.expanded {
+  width: 180px;
+  border-color: rgba(236, 72, 153, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(236, 72, 153, 0.15);
+}
+
+.layout-aurora .aurora-tool-panel.pinned {
+  border-color: var(--aurora-cyan);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 217, 255, 0.15);
+}
+
+/* Pin Toggle Button */
+.layout-aurora .aurora-tool-pin-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+.layout-aurora .aurora-tool-pin-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.layout-aurora .aurora-tool-pin-btn:hover,
+.layout-aurora .aurora-tool-pin-btn.active {
+  color: var(--aurora-cyan);
+  background: rgba(0, 217, 255, 0.08);
+}
+.layout-aurora .aurora-tool-pin-btn.active {
+  transform: rotate(45deg);
+}
+
+/* Tools List */
+.layout-aurora .aurora-tool-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.layout-aurora .aurora-tool-item {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  box-sizing: border-box;
+  padding: 6px;
+  gap: 12px;
+}
+
+.layout-aurora .aurora-tool-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.layout-aurora .aurora-tool-icon svg {
+  width: 12px;
+  height: 12px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Glowing borders */
+.layout-aurora .aurora-tool-icon::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: background 0.3s ease;
+}
+
+.layout-aurora .aurora-tool-item:hover .aurora-tool-icon::before {
+  background: var(--accent-color);
+}
+.layout-aurora .aurora-tool-item:hover .aurora-tool-icon {
+  box-shadow: 0 0 10px var(--accent-color);
+  transform: scale(1.1);
+}
+.layout-aurora .aurora-tool-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  padding-left: 10px;
+}
+
+/* Tool labels */
+.layout-aurora .aurora-tool-label {
+  font-family: var(--aurora-font);
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+}
+
+.layout-aurora .aurora-tool-panel.expanded .aurora-tool-label {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Active tool state */
+.layout-aurora .aurora-tool-item.active-tool .aurora-tool-icon {
+  background: var(--accent-color);
+  box-shadow: 0 0 12px var(--accent-color);
+}
+.layout-aurora .aurora-tool-item.active-tool .aurora-tool-icon svg {
+  color: #08111F;
+}
+.layout-aurora .aurora-tool-item.active-tool .aurora-tool-icon::before {
+  background: transparent;
+}
+
+/* Tool submenus (image gallery, share) */
+.layout-aurora .aurora-tool-submenu {
+  position: absolute;
+  right: calc(100% + 15px);
+  top: 50%;
+  transform: translateY(-50%) scale(0.9) translateX(10px);
+  background: var(--aurora-glass);
+  border: 1px solid var(--aurora-glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: -5px 5px 25px rgba(0,0,0,0.5), 0 0 20px rgba(139, 92, 246, 0.1);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.layout-aurora .aurora-tool-submenu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) scale(1) translateX(0);
+  pointer-events: auto;
+}
+
+.layout-aurora .aurora-tool-submenu.flex-col {
+  flex-direction: column;
+  min-width: 100px;
+}
+
+/* Pano Cards inside toolbar */
+.layout-aurora .aurora-pano-card {
+  width: 90px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.layout-aurora .aurora-pano-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.layout-aurora .aurora-pano-card span {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(8, 17, 31, 0.85);
+  color: #fff;
+  font-family: var(--aurora-font);
+  font-size: 8px;
+  text-align: center;
+  padding: 4px 2px;
+  white-space: nowrap;
+}
+
+.layout-aurora .aurora-pano-card:hover {
+  border-color: var(--aurora-purple);
+  box-shadow: 0 0 10px var(--aurora-purple);
+}
+.layout-aurora .aurora-pano-card:hover img {
+  transform: scale(1.15);
+}
+
+/* Share links */
+.layout-aurora .aurora-share-btn {
+  padding: 6px 12px;
+  font-family: var(--aurora-font);
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  color: #fff;
+  transition: all 0.25s ease;
+}
+.layout-aurora .aurora-share-btn.facebook { background: rgba(24, 119, 242, 0.25); border: 1px solid rgba(24, 119, 242, 0.4); }
+.layout-aurora .aurora-share-btn.zalo { background: rgba(0, 104, 240, 0.25); border: 1px solid rgba(0, 104, 240, 0.4); }
+
+.layout-aurora .aurora-share-btn:hover {
+  transform: translateY(-1px);
+}
+.layout-aurora .aurora-share-btn.facebook:hover { background: #1877f2; box-shadow: 0 0 10px rgba(24,119,242,0.5); }
+.layout-aurora .aurora-share-btn.zalo:hover { background: #0068f0; box-shadow: 0 0 10px rgba(0,104,240,0.5); }
+
+/* ---------------------------------------------------------
+   AURORA COMPASS OVERRIDES
+   --------------------------------------------------------- */
+.layout-aurora .aurora-compass {
+  bottom: 80px !important;
+  left: 24px !important;
+  width: 70px !important;
+  height: 70px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.layout-aurora .aurora-compass .compass-dial {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.layout-aurora .aurora-compass .compass-outer-glow {
+  position: absolute;
+  top: -5px; left: -5px; right: -5px; bottom: -5px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.1);
+  pointer-events: none;
+  border: 1px solid rgba(0, 217, 255, 0.05);
+}
+
+.layout-aurora .aurora-compass .compass-cardinal.n {
+  color: var(--aurora-cyan) !important;
+  font-family: var(--aurora-font) !important;
+  font-weight: 800 !important;
+  font-size: 11px !important;
+  top: 6px !important;
+  text-shadow: 0 0 6px rgba(0, 217, 255, 0.8) !important;
+}
+
+.layout-aurora .aurora-compass .compass-degree-display {
+  display: none !important; /* Keep it clean & holographic */
+}
+
+/* ---------------------------------------------------------
+   AURORA MINIMAP OVERRIDES
+   --------------------------------------------------------- */
+.layout-aurora .minimap-widget {
+  background: var(--aurora-glass) !important;
+  border: 1px solid var(--aurora-glass-border) !important;
+  border-radius: 20px !important;
+  bottom: 24px !important;
+  right: 90px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden;
+}
+
+.layout-aurora .minimap-widget:hover {
+  border-color: rgba(0, 217, 255, 0.3) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 217, 255, 0.15) !important;
+}
+
+.layout-aurora .minimap-header {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-bottom: 1px solid rgba(0, 217, 255, 0.15) !important;
+  color: #fff !important;
+  font-family: var(--aurora-font) !important;
+  font-weight: 700 !important;
+  font-size: 10px !important;
+  letter-spacing: 1.5px !important;
+  padding: 10px 14px !important;
+}
+
+.layout-aurora .minimap-header svg {
+  color: var(--aurora-cyan) !important;
+}
+
+.layout-aurora .minimap-chevron {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.layout-aurora .minimap-body {
+  border-radius: 0 0 20px 20px !important;
+}
+
+.layout-aurora .minimap-canvas {
+  border-radius: 12px !important;
+  border: 1px solid rgba(0, 217, 255, 0.1) !important;
+  margin: 10px !important;
+}
+
+.layout-aurora .minimap-dot {
+  background: var(--aurora-cyan) !important;
+  box-shadow: 0 0 10px var(--aurora-cyan), 0 0 20px var(--aurora-cyan) !important;
+  animation: activeDotPulse 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes activeDotPulse {
+  0% { transform: translate(-50%, -50%) scale(0.9); }
+  100% { transform: translate(-50%, -50%) scale(1.35); filter: brightness(1.2); }
+}
+
+.layout-aurora .minimap-viewcone {
+  border-left-color: rgba(0, 217, 255, 0.15) !important;
+  border-right-color: rgba(0, 217, 255, 0.15) !important;
+}
+
+.layout-aurora .minimap-legend {
+  font-family: var(--aurora-font) !important;
+  font-size: 9px !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  padding: 0 10px 10px !important;
+}
+
+.layout-aurora .minimap-legend .dot.cyan {
+  background: var(--aurora-cyan) !important;
+  box-shadow: 0 0 6px var(--aurora-cyan) !important;
+}
+
+/* ---------------------------------------------------------
+   AURORA HOTSPOTS OVERRIDES (Map Pins in Region Map)
+   --------------------------------------------------------- */
+.layout-aurora .pin-dot {
+  background: #08111F !important;
+  border: 2px solid var(--aurora-cyan) !important;
+  box-shadow: 0 0 12px var(--aurora-cyan) !important;
+  color: #fff !important;
+  transition: all 0.3s ease !important;
+}
+
+.layout-aurora .pin-pulse {
+  background: rgba(0, 217, 255, 0.25) !important;
+}
+
+/* Hover Hotspot */
+.layout-aurora .map-pin:hover .pin-dot {
+  border-color: var(--aurora-pink) !important;
+  box-shadow: 0 0 20px var(--aurora-pink) !important;
+  transform: scale(1.15) !important;
+}
+.layout-aurora .map-pin:hover .pin-pulse {
+  background: rgba(236, 72, 153, 0.35) !important;
+}
+
+/* Selected hotspot: Neon Pulse */
+.layout-aurora .map-pin.active .pin-dot {
+  border-color: var(--aurora-emerald) !important;
+  box-shadow: 0 0 25px var(--aurora-emerald) !important;
+  animation: neonSelectedPulse 1.5s infinite alternate ease-in-out !important;
+}
+.layout-aurora .map-pin.active .pin-pulse {
+  background: rgba(0, 230, 118, 0.4) !important;
+}
+
+@keyframes neonSelectedPulse {
+  0% { transform: scale(1); filter: brightness(1); }
+  100% { transform: scale(1.1); filter: brightness(1.3); }
+}
+
+.layout-aurora .pin-label {
+  background: rgba(8, 17, 31, 0.95) !important;
+  border: 1px solid rgba(0, 217, 255, 0.2) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #fff !important;
+  font-family: var(--aurora-font) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 217, 255, 0.1) !important;
+}
+
+/* ---------------------------------------------------------
+   AURORA CUSTOM OVERLAYS (Back to 360, Interior, Region Page)
+   --------------------------------------------------------- */
+.layout-aurora .back-to-360-btn {
+  background: var(--aurora-glass) !important;
+  border: 1px solid var(--aurora-glass-border) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  color: #fff !important;
+  font-family: var(--aurora-font) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+.layout-aurora .back-to-360-btn svg {
+  color: var(--aurora-cyan) !important;
+  transition: transform 0.3s ease !important;
+}
+.layout-aurora .back-to-360-btn:hover {
+  border-color: var(--aurora-pink) !important;
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.25) !important;
+  color: var(--aurora-pink) !important;
+}
+.layout-aurora .back-to-360-btn:hover svg {
+  transform: translateX(-3px) !important;
+  color: var(--aurora-pink) !important;
+}
+
+/* Interior switcher */
+.layout-aurora .interior-switcher-container {
+  background: var(--aurora-glass) !important;
+  border: 1px solid var(--aurora-glass-border) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  padding: 4px !important;
+}
+.layout-aurora .interior-switch-btn {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-family: var(--aurora-font) !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease !important;
+}
+.layout-aurora .interior-switch-btn:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+.layout-aurora .interior-switch-btn.active {
+  background: linear-gradient(135deg, var(--aurora-purple) 0%, var(--aurora-pink) 100%) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4) !important;
+}
+
+/* Region sidebar */
+.layout-aurora .region-sidebar {
+  background: rgba(8, 17, 31, 0.92) !important;
+  backdrop-filter: blur(30px) !important;
+  -webkit-backdrop-filter: blur(30px) !important;
+  border-right: 1px solid rgba(0, 217, 255, 0.15) !important;
+  box-shadow: 5px 0 25px rgba(0,0,0,0.5) !important;
+}
+.layout-aurora .region-sidebar .sidebar-header h3 {
+  color: #fff !important;
+  font-family: var(--aurora-font) !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px !important;
+  background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple));
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.layout-aurora .region-menu-item {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(0, 217, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-family: var(--aurora-font) !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+.layout-aurora .region-menu-item:hover {
+  background: rgba(0, 217, 255, 0.05) !important;
+  border-color: var(--aurora-cyan) !important;
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.15) !important;
+}
+.layout-aurora .region-menu-item.active {
+  background: linear-gradient(135deg, var(--aurora-cyan) 0%, var(--aurora-purple) 100%) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 5px 15px rgba(0, 217, 255, 0.3) !important;
+}
+
+/* =========================================================
+   OPTION 6: HORIZON LAYOUT SPECIFIC VARIABLES & OVERRIDES
+   ========================================================= */
+:root {
+  /* Horizon Colors */
+  --horizon-gold: #F6C177;
+  --horizon-blue: #8ED8FF;
+  --horizon-silver: #D8DEE9;
+  --horizon-emerald: #4ADE80;
+  --horizon-bg: #0A1020;
+  --horizon-glass: rgba(10, 16, 32, 0.75);
+  --horizon-glass-border: rgba(216, 222, 233, 0.15);
+  --horizon-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.horizon-nav-container,
+.horizon-tool-panel {
+  display: none !important;
+}
+
+/* Hide other layout elements when Horizon layout is active */
+.layout-horizon .bottom-nav-container,
+.layout-horizon .vertical-tool-stack,
+.layout-horizon .settings-toggle-btn,
+.layout-horizon .modern-ui-sidebar,
+.layout-horizon .v-rail-container,
+.layout-horizon #sidebar-container,
+.layout-horizon .aurora-nav-container,
+.layout-horizon .aurora-tool-panel {
+  display: none !important;
+}
+
+/* Show Horizon layout components */
+.layout-horizon .horizon-nav-container {
+  display: flex !important;
+}
+.layout-horizon .horizon-tool-panel {
+  display: flex !important;
+}
+
+/* ---------------------------------------------------------
+   HORIZON SWITCHER PILL & SLIDER
+   --------------------------------------------------------- */
+.layout-horizon .layout-switcher-pill {
+  background: var(--horizon-glass) !important;
+  border: 1px solid var(--horizon-glass-border) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+.layout-horizon .switcher-segment {
+  font-family: var(--horizon-font) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  color: var(--horizon-silver) !important;
+}
+
+.layout-horizon .switcher-segment.active {
+  color: var(--horizon-gold) !important;
+  font-weight: 600 !important;
+}
+
+.layout-horizon .switcher-slider {
+  background: var(--horizon-gold) !important;
+  box-shadow: 0 0 10px rgba(246, 193, 119, 0.4) !important;
+}
+
+/* ---------------------------------------------------------
+   HORIZON BOTTOM NAV CURVED DOCK & SUBMENUS
+   --------------------------------------------------------- */
+.layout-horizon .horizon-nav-container {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  pointer-events: auto;
+}
+
+.layout-horizon .horizon-dock {
+  display: flex;
+  background: var(--horizon-glass);
+  border: 1px solid var(--horizon-glass-border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 20px 20px 0 0; /* curved top */
+  padding: 8px 32px;
+  gap: 24px;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  align-items: center;
+}
+
+/* Widescreen accent bar at the bottom */
+.layout-horizon .horizon-dock::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--horizon-gold), transparent);
+  opacity: 0.8;
+}
+
+.layout-horizon .horizon-nav-item-wrapper {
+  position: relative;
+}
+
+.layout-horizon .horizon-nav-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: var(--horizon-silver);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--horizon-font);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.layout-horizon .horizon-nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(246, 193, 119, 0.04);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+.layout-horizon .horizon-nav-item:hover {
+  color: #fff;
+}
+
+.layout-horizon .horizon-nav-item:hover::before {
+  opacity: 1;
+}
+
+/* Active Nav Item */
+.layout-horizon .horizon-nav-item.active {
+  color: var(--horizon-gold);
+  font-weight: 600;
+  background: rgba(246, 193, 119, 0.08);
+  box-shadow: inset 0 0 10px rgba(246, 193, 119, 0.1);
+}
+
+.layout-horizon .horizon-nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--horizon-gold);
+  box-shadow: 0 0 8px var(--horizon-gold);
+  border-radius: 2px;
+}
+
+/* Submenus expanding upward */
+.layout-horizon .horizon-submenu {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px) scale(0.95);
+  background: var(--horizon-glass);
+  border: 1px solid var(--horizon-glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(246, 193, 119, 0.05);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 140px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 2100;
+}
+
+/* Pseudo-element to bridge the gap and keep hover connected */
+.layout-horizon .horizon-submenu::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: transparent;
+}
+
+.layout-horizon .horizon-submenu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Submenu items */
+.layout-horizon .horizon-submenu-item {
+  padding: 8px 16px;
+  color: var(--horizon-silver);
+  font-family: var(--horizon-font);
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.layout-horizon .horizon-submenu-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  padding-left: 20px;
+}
+
+.layout-horizon .horizon-submenu-item.active {
+  color: var(--horizon-gold);
+  background: rgba(246, 193, 119, 0.08);
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   HORIZON RIGHT TOOLSTACK PANEL
+   --------------------------------------------------------- */
+.layout-horizon .horizon-tool-panel {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex !important;
+  background: var(--horizon-glass);
+  border: 1px solid var(--horizon-glass-border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 30px; /* pill shape */
+  padding: 6px 12px;
+  gap: 8px;
+  align-items: center;
+  z-index: 2000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.layout-horizon .horizon-tool-item {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--horizon-silver);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(216, 222, 233, 0.1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.layout-horizon .horizon-tool-item svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.layout-horizon .horizon-tool-item:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.08);
+}
+
+/* Active and Tool Action states */
+.layout-horizon .horizon-tool-item.active-tool,
+.layout-horizon .horizon-tool-item:active {
+  color: var(--horizon-blue);
+  border-color: rgba(142, 216, 255, 0.4);
+  box-shadow: 0 0 12px rgba(142, 216, 255, 0.3);
+  background: rgba(142, 216, 255, 0.08);
+}
+
+/* Tool submenus (images, share) */
+.layout-horizon .horizon-tool-submenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  background: var(--horizon-glass);
+  border: 1px solid var(--horizon-glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(142, 216, 255, 0.05);
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 2100;
+}
+
+/* Pseudo-element to bridge the gap and keep hover connected */
+.layout-horizon .horizon-tool-submenu::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: transparent;
+}
+
+.layout-horizon .horizon-tool-submenu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.layout-horizon .horizon-tool-submenu.flex-col {
+  flex-direction: column;
+  min-width: 100px;
+}
+
+/* Pano Cards inside toolbar */
+.layout-horizon .horizon-pano-card {
+  width: 100px;
+  height: 65px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(216, 222, 233, 0.1);
+  transition: all 0.3s ease;
+}
+
+.layout-horizon .horizon-pano-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.layout-horizon .horizon-pano-card span {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(10, 16, 32, 0.85);
+  color: #fff;
+  font-family: var(--horizon-font);
+  font-size: 8px;
+  text-align: center;
+  padding: 4px 2px;
+  white-space: nowrap;
+}
+
+.layout-horizon .horizon-pano-card:hover {
+  border-color: var(--horizon-gold);
+  box-shadow: 0 0 10px rgba(246, 193, 119, 0.3);
+}
+
+.layout-horizon .horizon-pano-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Share links */
+.layout-horizon .horizon-share-btn {
+  padding: 6px 12px;
+  font-family: var(--horizon-font);
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  color: var(--horizon-silver);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(216, 222, 233, 0.1);
+  transition: all 0.25s ease;
+}
+
+.layout-horizon .horizon-share-btn:hover {
+  color: #fff;
+  border-color: var(--horizon-blue);
+  background: rgba(142, 216, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   HORIZON COMPASS OVERRIDES
+   --------------------------------------------------------- */
+.layout-horizon .horizon-compass {
+  bottom: 90px !important; /* Above switcher */
+  left: 24px !important;
+  width: 76px !important;
+  height: 76px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.layout-horizon .horizon-compass .compass-dial {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.layout-horizon .horizon-compass .compass-outer-glow {
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(142, 216, 255, 0.1);
+  pointer-events: none;
+}
+
+.layout-horizon .horizon-compass .compass-cardinal.n {
+  color: var(--horizon-gold) !important;
+  font-family: var(--horizon-font) !important;
+  font-weight: 800 !important;
+  font-size: 11px !important;
+  top: 8px !important;
+  text-shadow: 0 0 6px rgba(246, 193, 119, 0.6) !important;
+}
+
+.layout-horizon .horizon-compass .compass-degree-display {
+  display: block !important;
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--horizon-blue);
+  font-family: var(--horizon-font);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ---------------------------------------------------------
+   HORIZON MINIMAP OVERRIDES
+   --------------------------------------------------------- */
+.layout-horizon .minimap-widget {
+  background: var(--horizon-glass) !important;
+  border: 1px solid var(--horizon-glass-border) !important;
+  border-radius: 16px !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden;
+}
+
+.layout-horizon .minimap-widget:hover {
+  border-color: rgba(246, 193, 119, 0.3) !important;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(246, 193, 119, 0.1) !important;
+}
+
+.layout-horizon .minimap-header {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-bottom: 1px solid rgba(216, 222, 233, 0.1) !important;
+  color: #fff !important;
+  font-family: var(--horizon-font) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 1px !important;
+  padding: 8px 12px !important;
+}
+
+.layout-horizon .minimap-header svg {
+  color: var(--horizon-gold) !important;
+}
+
+.layout-horizon .minimap-body {
+  border-radius: 0 0 16px 16px !important;
+}
+
+.layout-horizon .minimap-canvas {
+  border-radius: 10px !important;
+  border: 1px solid rgba(216, 222, 233, 0.08) !important;
+  margin: 8px !important;
+}
+
+.layout-horizon .minimap-dot {
+  background: var(--horizon-gold) !important;
+  box-shadow: 0 0 10px var(--horizon-gold) !important;
+}
+
+.layout-horizon .minimap-viewcone {
+  border-left-color: rgba(246, 193, 119, 0.15) !important;
+  border-right-color: rgba(246, 193, 119, 0.15) !important;
+}
+
+.layout-horizon .minimap-legend {
+  font-family: var(--horizon-font) !important;
+  font-size: 9px !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  padding: 0 8px 8px !important;
+}
+
+.layout-horizon .minimap-legend .dot.cyan {
+  background: var(--horizon-gold) !important;
+  box-shadow: 0 0 6px var(--horizon-gold) !important;
+}
+
+/* ---------------------------------------------------------
+   HORIZON HOTSPOTS OVERRIDES (Map Pins in Region Map & Standard Hotspots)
+   --------------------------------------------------------- */
+.layout-horizon .pin-dot {
+  background: transparent !important;
+  border: 2px solid var(--horizon-gold) !important;
+  box-shadow: 0 0 8px rgba(246, 193, 119, 0.3) !important;
+  color: var(--horizon-gold) !important;
+  transition: all 0.3s ease !important;
+}
+
+.layout-horizon .pin-pulse {
+  background: rgba(246, 193, 119, 0.15) !important;
+}
+
+/* Hover Hotspot */
+.layout-horizon .map-pin:hover .pin-dot {
+  border-color: #fff !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5) !important;
+  transform: scale(1.1) !important;
+}
+
+/* Selected hotspot: Double Ring Pulse */
+.layout-horizon .map-pin.active .pin-dot {
+  border-color: var(--horizon-gold) !important;
+  box-shadow: 0 0 15px var(--horizon-gold) !important;
+  animation: horizonActivePulse 1.5s infinite ease-in-out !important;
+}
+
+@keyframes horizonActivePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(246, 193, 119, 0.6), 0 0 0 6px rgba(246, 193, 119, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 6px rgba(246, 193, 119, 0), 0 0 0 12px rgba(246, 193, 119, 0);
+  }
+}
+
+.layout-horizon .pin-label {
+  background: var(--horizon-glass) !important;
+  border: 1px solid var(--horizon-glass-border) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #fff !important;
+  font-family: var(--horizon-font) !important;
+  font-weight: 500 !important;
+  font-size: 11px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 8px rgba(246, 193, 119, 0.05) !important;
+}
+
+/* ---------------------------------------------------------
+   HORIZON CUSTOM OVERLAYS (Back to 360, Interior, Region Page)
+   --------------------------------------------------------- */
+.layout-horizon .back-to-360-btn {
+  background: var(--horizon-glass) !important;
+  border: 1px solid var(--horizon-glass-border) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  color: #fff !important;
+  font-family: var(--horizon-font) !important;
+  font-weight: 500 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.layout-horizon .back-to-360-btn svg {
+  color: var(--horizon-gold) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.layout-horizon .back-to-360-btn:hover {
+  border-color: var(--horizon-gold) !important;
+  box-shadow: 0 8px 24px rgba(246, 193, 119, 0.15) !important;
+  color: var(--horizon-gold) !important;
+}
+
+.layout-horizon .back-to-360-btn:hover svg {
+  transform: translateX(-3px) !important;
+}
+
+/* Interior switcher */
+.layout-horizon .interior-switcher-container {
+  background: var(--horizon-glass) !important;
+  border: 1px solid var(--horizon-glass-border) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  padding: 4px !important;
+}
+
+.layout-horizon .interior-switch-btn {
+  color: var(--horizon-silver) !important;
+  font-family: var(--horizon-font) !important;
+  font-weight: 500 !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease !important;
+}
+
+.layout-horizon .interior-switch-btn:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.layout-horizon .interior-switch-btn.active {
+  background: var(--horizon-gold) !important;
+  border-color: transparent !important;
+  color: var(--horizon-bg) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(246, 193, 119, 0.3) !important;
+}
+
+/* Region sidebar */
+.layout-horizon .region-sidebar {
+  background: rgba(10, 16, 32, 0.95) !important;
+  backdrop-filter: blur(30px) !important;
+  -webkit-backdrop-filter: blur(30px) !important;
+  border-right: 1px solid rgba(216, 222, 233, 0.1) !important;
+  box-shadow: 5px 0 25px rgba(0,0,0,0.5) !important;
+}
+
+.layout-horizon .region-sidebar .sidebar-header h3 {
+  color: #fff !important;
+  font-family: var(--horizon-font) !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  background: linear-gradient(90deg, #fff, var(--horizon-gold));
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.layout-horizon .region-menu-item {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(216, 222, 233, 0.08) !important;
+  color: var(--horizon-silver) !important;
+  font-family: var(--horizon-font) !important;
+  font-weight: 500 !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease !important;
+}
+
+.layout-horizon .region-menu-item:hover {
+  background: rgba(246, 193, 119, 0.04) !important;
+  border-color: var(--horizon-gold) !important;
+  color: #fff !important;
+}
+
+.layout-horizon .region-menu-item.active {
+  background: var(--horizon-gold) !important;
+  border-color: transparent !important;
+  color: var(--horizon-bg) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 5px 15px rgba(246, 193, 119, 0.25) !important;
+}
+
+/* =========================================================
+   COMPACT COLOR DOTS LAYOUT SWITCHER
+   ========================================================= */
+
+/* 1. Reset pill container */
+.layout-switcher-pill {
+  height: 32px !important;
+  padding: 4px 8px !important;
+  border-radius: 16px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* 2. Style segments as fixed size color circles */
+.switcher-segment {
+  position: relative !important;
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  z-index: 2 !important;
+  font-size: 0 !important;
+  color: transparent !important;
+  text-indent: -9999px !important;
+  box-sizing: border-box !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease !important;
+  transform: scale(1) !important;
+}
+
+.switcher-segment:hover {
+  transform: scale(1.3) !important;
+}
+
+/* Specific color dots for each layout option */
+#opt-layout-classic {
+  background: #d4af37 !important;
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.4) !important;
+}
+#opt-layout-futuristic {
+  background: #00f2fe !important;
+  box-shadow: 0 0 6px rgba(0, 242, 254, 0.4) !important;
+}
+#opt-layout-neo {
+  background: #ffffff !important;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+#opt-layout-gradient {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb) !important;
+  box-shadow: 0 0 6px rgba(161, 140, 209, 0.4) !important;
+}
+#opt-layout-aurora {
+  background: linear-gradient(135deg, #00D9FF, #EC4899) !important;
+  box-shadow: 0 0 8px rgba(0, 217, 255, 0.4) !important;
+}
+#opt-layout-horizon {
+  background: linear-gradient(135deg, #F6C177, #8ED8FF) !important;
+  box-shadow: 0 0 8px rgba(246, 193, 119, 0.4) !important;
+}
+
+/* 3. Style the slider as an active outer glowing ring wrapping the dot */
+.switcher-slider {
+  position: absolute !important;
+  top: 4px !important;
+  bottom: 4px !important;
+  border-radius: 50% !important;
+  z-index: 1 !important;
+  background: transparent !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  box-sizing: border-box !important;
+  pointer-events: none !important;
+  transform: scale(1.5) !important; /* expands the 14px size to 21px, wrapping the active dot perfectly */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Specific ring colors for the slider depending on layout theme */
+.layout-classic .switcher-slider {
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6) !important;
+}
+.layout-futuristic .switcher-slider {
+  border-color: #00f2fe !important;
+  box-shadow: 0 0 8px rgba(0, 242, 254, 0.6) !important;
+}
+.layout-neo .switcher-slider {
+  border-color: #1e293b !important;
+  box-shadow: 0 0 6px rgba(30, 41, 59, 0.2) !important;
+}
+.layout-gradient .switcher-slider {
+  border-color: #c084fc !important;
+  box-shadow: 0 0 8px rgba(192, 132, 252, 0.6) !important;
+}
+.layout-aurora .switcher-slider {
+  border-color: #EC4899 !important;
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.6) !important;
+}
+.layout-horizon .switcher-slider {
+  border-color: var(--horizon-gold) !important;
+  box-shadow: 0 0 10px rgba(246, 193, 119, 0.6) !important;
+}
+
+/* =========================================================
+   OPTION 7: ORBIT LAYOUT SPECIFIC VARIABLES & OVERRIDES
+   ========================================================= */
+:root {
+  /* Orbit Colors */
+  --orbit-cyan: #00D9FF;
+  --orbit-orange: #FF9A00;
+  --orbit-white: #FFFFFF;
+  --orbit-blue: #14213D;
+  --orbit-glass: rgba(8, 16, 24, 0.8);
+  --orbit-glass-border: rgba(0, 217, 255, 0.2);
+  --orbit-font: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+}
+
+.orbit-nav-container,
+.orbit-tool-container {
+  display: none !important;
+}
+
+/* Hide other layout elements when Orbit layout is active */
+.layout-orbit .bottom-nav-container,
+.layout-orbit .vertical-tool-stack,
+.layout-orbit .settings-toggle-btn,
+.layout-orbit .modern-ui-sidebar,
+.layout-orbit .v-rail-container,
+.layout-orbit #sidebar-container,
+.layout-orbit .aurora-nav-container,
+.layout-orbit .aurora-tool-panel,
+.layout-orbit .horizon-nav-container,
+.layout-orbit .horizon-tool-panel {
+  display: none !important;
+}
+
+/* Show Orbit layout components */
+.layout-orbit .orbit-nav-container {
+  display: block !important;
+}
+.layout-orbit .orbit-tool-container {
+  display: block !important;
+}
+
+/* ---------------------------------------------------------
+   ORBIT SWITCHER PILL & SLIDER
+   --------------------------------------------------------- */
+.layout-orbit .layout-switcher-pill {
+  background: var(--orbit-glass) !important;
+  border: 1px solid var(--orbit-glass-border) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+#opt-layout-orbit {
+  background: linear-gradient(135deg, var(--orbit-cyan), var(--orbit-orange)) !important;
+  box-shadow: 0 0 8px rgba(0, 217, 255, 0.4) !important;
+}
+
+.layout-orbit .switcher-slider {
+  border-color: var(--orbit-cyan) !important;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.6) !important;
+}
+
+/* ---------------------------------------------------------
+   ORBIT SEMI-CIRCULAR NAVIGATION
+   --------------------------------------------------------- */
+.layout-orbit .orbit-nav-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 250px;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+/* Jarvis-style center core */
+.layout-orbit .orbit-nav-hub {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--orbit-glass);
+  border: 1.5px solid var(--orbit-glass-border);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: radarPulse 3s infinite ease-in-out;
+  pointer-events: auto;
+}
+
+@keyframes radarPulse {
+  0% { box-shadow: 0 0 10px rgba(0,217,255,0.2), inset 0 0 10px rgba(0,217,255,0.1); }
+  50% { box-shadow: 0 0 25px rgba(0,217,255,0.5), inset 0 0 15px rgba(0,217,255,0.3); }
+  100% { box-shadow: 0 0 10px rgba(0,217,255,0.2), inset 0 0 10px rgba(0,217,255,0.1); }
+}
+
+.layout-orbit .orbit-nav-dock {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+}
+
+/* Nav items positioning on 110px radius semi-circle (compacted) */
+.layout-orbit .orbit-nav-item-wrapper {
+  position: absolute;
+  bottom: -40px; /* origin is center of hub */
+  left: 50%;
+  width: 38px;
+  height: 38px;
+  margin-left: -19px; /* center it horizontally */
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.5);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1999;
+}
+
+.layout-orbit .orbit-nav-container.open .orbit-nav-item-wrapper {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(var(--tx), var(--ty)) scale(1);
+}
+
+.layout-orbit .orbit-nav-item-wrapper:nth-child(1) { --tx: -105px; --ty: -34px; transition-delay: 0s; }
+.layout-orbit .orbit-nav-item-wrapper:nth-child(2) { --tx: -75px; --ty: -80px; transition-delay: 0.04s; }
+.layout-orbit .orbit-nav-item-wrapper:nth-child(3) { --tx: -27px; --ty: -107px; transition-delay: 0.08s; }
+.layout-orbit .orbit-nav-item-wrapper:nth-child(4) { --tx: 27px; --ty: -107px; transition-delay: 0.12s; }
+.layout-orbit .orbit-nav-item-wrapper:nth-child(5) { --tx: 75px; --ty: -80px; transition-delay: 0.16s; }
+.layout-orbit .orbit-nav-item-wrapper:nth-child(6) { --tx: 105px; --ty: -34px; transition-delay: 0.20s; }
+
+/* Nav items visual styles */
+.layout-orbit .orbit-nav-item {
+  width: 100%;
+  height: 100%;
+  background: var(--orbit-glass);
+  border: 1px solid var(--orbit-glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  user-select: none;
+  position: relative;
+}
+
+.layout-orbit .orbit-nav-item svg {
+  width: 16px;
+  height: 16px;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.3s ease;
+}
+
+.layout-orbit .orbit-nav-label {
+  position: absolute;
+  bottom: 46px; /* float above the 38px button */
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  background: var(--orbit-glass);
+  border: 1px solid var(--orbit-glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #fff;
+  font-family: var(--orbit-font);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.layout-orbit .orbit-nav-item:hover {
+  border-color: var(--orbit-cyan);
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
+}
+.layout-orbit .orbit-nav-item:hover svg {
+  color: #fff;
+}
+.layout-orbit .orbit-nav-item:hover .orbit-nav-label {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Active Nav Item */
+.layout-orbit .orbit-nav-item.active {
+  background: rgba(0, 217, 255, 0.15);
+  border-color: var(--orbit-cyan);
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.5), inset 0 0 10px rgba(0, 217, 255, 0.2);
+}
+.layout-orbit .orbit-nav-item.active svg {
+  color: var(--orbit-cyan);
+}
+
+/* ---------------------------------------------------------
+   ORBIT RADIAL SUBMENUS
+   --------------------------------------------------------- */
+.layout-orbit .orbit-submenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.layout-orbit .orbit-submenu.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.layout-orbit .orbit-submenu-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max-content;
+  height: 30px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  background: var(--orbit-glass);
+  border: 1px solid var(--orbit-glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--orbit-font);
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transform: translate(-50%, -50%) translate(0, 0) scale(0.5); /* collapse to parent center */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+.layout-orbit .orbit-submenu.open .orbit-submenu-item {
+  transform: translate(-50%, -50%) translate(var(--sub-tx, 0px), var(--sub-ty, 0px)) scale(1);
+}
+
+.layout-orbit .orbit-submenu.open .orbit-submenu-item:hover {
+  border-color: var(--orbit-orange);
+  color: #fff;
+  transform: translate(-50%, -50%) translate(var(--sub-tx, 0px), var(--sub-ty, 0px)) scale(1.1) !important;
+  box-shadow: 0 0 10px rgba(255, 154, 0, 0.3);
+}
+
+.layout-orbit .orbit-submenu-item.active {
+  background: rgba(255, 154, 0, 0.15);
+  border-color: var(--orbit-orange);
+  color: var(--orbit-orange);
+  text-shadow: 0 0 5px rgba(255, 154, 0, 0.5);
+}
+
+/* Hide tooltip label when submenu is open to prevent UI clashing */
+.layout-orbit .orbit-nav-item-wrapper:has(.orbit-submenu.open) .orbit-nav-label {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  display: none !important;
+}
+
+/* Submenu radial offsets defined via variables to preserve transform translation on hover scale */
+
+/* Bird View (arc expands up-left) */
+.layout-orbit [data-id="birdview"] .orbit-submenu-item:nth-child(1) { --sub-tx: -70px; --sub-ty: -75px; }
+.layout-orbit [data-id="birdview"] .orbit-submenu-item:nth-child(2) { --sub-tx: -105px; --sub-ty: 0px; }
+.layout-orbit [data-id="birdview"] .orbit-submenu-item:nth-child(3) { --sub-tx: -70px; --sub-ty: 75px; }
+
+/* Amenities (arc expands up-left to up-right) */
+.layout-orbit [data-id="amenities"] .orbit-submenu-item:nth-child(1) { --sub-tx: -115px; --sub-ty: -40px; }
+.layout-orbit [data-id="amenities"] .orbit-submenu-item:nth-child(2) { --sub-tx: -55px; --sub-ty: -100px; }
+.layout-orbit [data-id="amenities"] .orbit-submenu-item:nth-child(3) { --sub-tx: 55px; --sub-ty: -100px; }
+.layout-orbit [data-id="amenities"] .orbit-submenu-item:nth-child(4) { --sub-tx: 115px; --sub-ty: -40px; }
+
+/* Architecture (arc expands up) */
+.layout-orbit [data-id="architecture"] .orbit-submenu-item:nth-child(1) { --sub-tx: -85px; --sub-ty: -55px; }
+.layout-orbit [data-id="architecture"] .orbit-submenu-item:nth-child(2) { --sub-tx: 0px; --sub-ty: -105px; }
+.layout-orbit [data-id="architecture"] .orbit-submenu-item:nth-child(3) { --sub-tx: 85px; --sub-ty: -55px; }
+
+/* Interior (arc expands up-right) */
+.layout-orbit [data-id="interior"] .orbit-submenu-item:nth-child(1) { --sub-tx: 60px; --sub-ty: -85px; }
+.layout-orbit [data-id="interior"] .orbit-submenu-item:nth-child(2) { --sub-tx: 110px; --sub-ty: -20px; }
+
+/* ---------------------------------------------------------
+   ORBIT QUARTER-CIRCLE TOOLBAR
+   --------------------------------------------------------- */
+.layout-orbit .orbit-tool-container {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  z-index: 2000;
+  pointer-events: auto;
+}
+
+.layout-orbit .orbit-tool-trigger {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--orbit-glass);
+  border: 1.5px solid var(--orbit-glass-border);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: var(--orbit-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 0 10px rgba(0, 217, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2001;
+}
+
+.layout-orbit .orbit-tool-trigger:hover {
+  transform: scale(1.05);
+  color: #fff;
+  border-color: var(--orbit-cyan);
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.4);
+}
+
+.layout-orbit .orbit-trigger-ring {
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 217, 255, 0.3);
+  animation: orbitRotate 10s infinite linear;
+}
+
+@keyframes orbitRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.layout-orbit .orbit-tool-list {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 38px;
+  height: 38px;
+  pointer-events: none;
+}
+
+.layout-orbit .orbit-tool-container.open .orbit-tool-list {
+  pointer-events: auto;
+}
+
+.layout-orbit .orbit-tool-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--orbit-glass);
+  border: 1px solid var(--orbit-glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.5);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  z-index: 1999;
+}
+
+.layout-orbit .orbit-tool-item svg {
+  width: 16px;
+  height: 16px;
+}
+
+.layout-orbit .orbit-tool-item:hover {
+  color: #fff;
+  border-color: var(--orbit-cyan);
+  transform: translate(var(--tx), var(--ty)) scale(1.1) !important;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
+}
+
+.layout-orbit .orbit-tool-item.active-tool {
+  color: var(--orbit-orange);
+  border-color: var(--orbit-orange);
+  box-shadow: 0 0 12px rgba(255, 154, 0, 0.4);
+  background: rgba(255, 154, 0, 0.08);
+}
+
+/* Staggered concentric arc layout for 7 buttons (radius 90px & 140px to be closer and prevent overlaps) */
+.layout-orbit .orbit-tool-item:nth-child(1) { --tx: -90px; --ty: 0px; transition-delay: 0s; }
+.layout-orbit .orbit-tool-item:nth-child(2) { --tx: -64px; --ty: 64px; transition-delay: 0.04s; }
+.layout-orbit .orbit-tool-item:nth-child(3) { --tx: 0px; --ty: 90px; transition-delay: 0.08s; }
+.layout-orbit .orbit-tool-item:nth-child(4) { --tx: -140px; --ty: 0px; transition-delay: 0.12s; }
+.layout-orbit .orbit-tool-item:nth-child(5) { --tx: -121px; --ty: 70px; transition-delay: 0.16s; }
+.layout-orbit .orbit-tool-item:nth-child(6) { --tx: -70px; --ty: 121px; transition-delay: 0.2s; }
+.layout-orbit .orbit-tool-item:nth-child(7) { --tx: 0px; --ty: 140px; transition-delay: 0.24s; }
+
+.layout-orbit .orbit-tool-container.open .orbit-tool-item {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(var(--tx), var(--ty)) scale(1);
+}
+
+/* Tool submenus (gallery, share) opening leftwards */
+.layout-orbit .orbit-tool-submenu {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  background: var(--orbit-glass);
+  border: 1px solid var(--orbit-glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 217, 255, 0.05);
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%) translateY(10px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 2100;
+}
+
+/* Hover bridge pseudo-element for left-opening submenu */
+.layout-orbit .orbit-tool-submenu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -15px;
+  width: 15px;
+  background: transparent;
+}
+
+.layout-orbit .orbit-tool-submenu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.layout-orbit .orbit-tool-submenu.flex-col {
+  flex-direction: column;
+  min-width: 100px;
+}
+
+/* Pano Cards inside toolbar */
+.layout-orbit .orbit-pano-card {
+  width: 100px;
+  height: 65px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(0, 217, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.layout-orbit .orbit-pano-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.layout-orbit .orbit-pano-card span {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(8, 16, 24, 0.85);
+  color: #fff;
+  font-family: var(--orbit-font);
+  font-size: 8px;
+  text-align: center;
+  padding: 4px 2px;
+  white-space: nowrap;
+}
+
+.layout-orbit .orbit-pano-card:hover {
+  border-color: var(--orbit-cyan);
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+}
+
+.layout-orbit .orbit-pano-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Share links */
+.layout-orbit .orbit-share-btn {
+  padding: 6px 12px;
+  font-family: var(--orbit-font);
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  color: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 217, 255, 0.1);
+  transition: all 0.25s ease;
+}
+
+.layout-orbit .orbit-share-btn:hover {
+  color: #fff;
+  border-color: var(--orbit-cyan);
+  background: rgba(0, 217, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   ORBIT COMPASS OVERRIDES (Radar Screen)
+   --------------------------------------------------------- */
+.layout-orbit .orbit-compass {
+  bottom: 90px !important;
+  left: 24px !important;
+  width: 76px !important;
+  height: 76px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.layout-orbit .orbit-radar-rings {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.layout-orbit .radar-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 217, 255, 0.1);
+  box-sizing: border-box;
+}
+.layout-orbit .radar-ring.outer {
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-style: dashed;
+  animation: orbitRotate 12s infinite linear;
+}
+.layout-orbit .radar-ring.middle {
+  top: 10px; left: 10px; right: 10px; bottom: 10px;
+  border-style: solid;
+}
+.layout-orbit .radar-ring.inner {
+  top: 22px; left: 22px; right: 22px; bottom: 22px;
+  border-style: dotted;
+  animation: orbitRotateRev 8s infinite linear;
+}
+
+@keyframes orbitRotateRev {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.layout-orbit .radar-sweep {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 50%;
+  height: 50%;
+  background: conic-gradient(from 0deg, rgba(0, 217, 255, 0.15) 0deg, rgba(0, 217, 255, 0) 90deg);
+  transform-origin: top left;
+  animation: orbitRotate 3s infinite linear;
+}
+
+.layout-orbit .orbit-compass .compass-dial {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+  z-index: 2;
+}
+
+.layout-orbit .orbit-compass .compass-cardinal.n {
+  color: var(--orbit-orange) !important;
+  font-family: var(--orbit-font) !important;
+  font-weight: 800 !important;
+  font-size: 11px !important;
+  top: 6px !important;
+  text-shadow: 0 0 6px rgba(255, 154, 0, 0.6) !important;
+}
+
+.layout-orbit .orbit-compass .compass-degree-display {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--orbit-cyan);
+  font-family: var(--orbit-font);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ---------------------------------------------------------
+   ORBIT MINIMAP OVERRIDES
+   --------------------------------------------------------- */
+.layout-orbit .minimap-widget {
+  background: var(--orbit-glass) !important;
+  border: 1px solid var(--orbit-glass-border) !important;
+  border-radius: 50% !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  width: 130px !important;
+  height: 130px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  transition: all 0.35s ease !important;
+  overflow: hidden;
+}
+
+.layout-orbit .minimap-widget.collapsed {
+  width: 130px !important;
+  height: 130px !important;
+}
+
+.layout-orbit .minimap-widget.collapsed .minimap-body {
+  height: 100% !important;
+  opacity: 1 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.layout-orbit .minimap-widget:hover {
+  border-color: var(--orbit-cyan) !important;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 217, 255, 0.2) !important;
+}
+
+.layout-orbit .minimap-header {
+  display: none !important;
+}
+
+.layout-orbit .minimap-body {
+  border-radius: 50% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  position: relative;
+}
+
+.layout-orbit .minimap-canvas {
+  border-radius: 50% !important;
+  border: 1px solid rgba(0, 217, 255, 0.1) !important;
+  margin: 6px !important;
+  width: calc(100% - 12px) !important;
+  height: calc(100% - 12px) !important;
+  background: rgba(8, 16, 24, 0.5) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.layout-orbit .minimap-canvas::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 50%;
+  height: 50%;
+  background: conic-gradient(from 0deg, rgba(0, 217, 255, 0.12) 0deg, rgba(0, 217, 255, 0) 90deg);
+  transform-origin: top left;
+  animation: orbitRotate 4s infinite linear;
+  pointer-events: none;
+}
+
+.layout-orbit .minimap-dot {
+  background: var(--orbit-orange) !important;
+  box-shadow: 0 0 10px var(--orbit-orange), 0 0 20px var(--orbit-orange) !important;
+  animation: activeRadarBlip 1.5s infinite ease-in-out;
+}
+
+@keyframes activeRadarBlip {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) scale(1.4); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+}
+
+.layout-orbit .minimap-viewcone {
+  border-left-color: rgba(0, 217, 255, 0.15) !important;
+  border-right-color: rgba(0, 217, 255, 0.15) !important;
+}
+
+.layout-orbit .minimap-legend {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------
+   ORBIT HOTSPOTS OVERRIDES (Concentric Projection Rings)
+   --------------------------------------------------------- */
+.layout-orbit .pin-dot {
+  background: rgba(8, 16, 24, 0.9) !important;
+  border: 1.5px solid var(--orbit-cyan) !important;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.3) !important;
+  color: #fff !important;
+  transition: all 0.3s ease !important;
+}
+
+.layout-orbit .pin-pulse {
+  background: rgba(0, 217, 255, 0.2) !important;
+  border: 1px solid var(--orbit-cyan) !important;
+}
+
+.layout-orbit .map-pin:hover .pin-dot {
+  border-color: var(--orbit-orange) !important;
+  box-shadow: 0 0 15px rgba(255, 154, 0, 0.5) !important;
+  transform: scale(1.1) !important;
+}
+.layout-orbit .map-pin:hover .pin-pulse {
+  background: rgba(255, 154, 0, 0.25) !important;
+  border-color: var(--orbit-orange) !important;
+}
+
+.layout-orbit .map-pin.active .pin-dot {
+  border-color: var(--orbit-orange) !important;
+  box-shadow: 0 0 20px var(--orbit-orange) !important;
+  animation: orbitActivePulse 1.5s infinite ease-in-out !important;
+}
+
+@keyframes orbitActivePulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 154, 0, 0.6), 0 0 0 4px rgba(255, 154, 0, 0.3); }
+  100% { box-shadow: 0 0 0 4px rgba(255, 154, 0, 0), 0 0 0 8px rgba(255, 154, 0, 0); }
+}
+
+.layout-orbit .pin-label {
+  background: var(--orbit-glass) !important;
+  border: 1px solid var(--orbit-glass-border) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #fff !important;
+  font-family: var(--orbit-font) !important;
+  font-weight: 500 !important;
+  font-size: 11px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 8px rgba(0, 217, 255, 0.1) !important;
+}
+
+/* ---------------------------------------------------------
+   ORBIT CUSTOM OVERLAYS (Back to 360, Interior, Region Page)
+   --------------------------------------------------------- */
+.layout-orbit .back-to-360-btn {
+  background: var(--orbit-glass) !important;
+  border: 1px solid var(--orbit-glass-border) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  color: #fff !important;
+  font-family: var(--orbit-font) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.layout-orbit .back-to-360-btn svg {
+  color: var(--orbit-cyan) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.layout-orbit .back-to-360-btn:hover {
+  border-color: var(--orbit-orange) !important;
+  box-shadow: 0 8px 24px rgba(255, 154, 0, 0.25) !important;
+  color: var(--orbit-orange) !important;
+}
+
+.layout-orbit .back-to-360-btn:hover svg {
+  transform: translateX(-3px) !important;
+  color: var(--orbit-orange) !important;
+}
+
+/* Interior switcher */
+.layout-orbit .interior-switcher-container {
+  background: var(--orbit-glass) !important;
+  border: 1px solid var(--orbit-glass-border) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  padding: 4px !important;
+}
+
+.layout-orbit .interior-switch-btn {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-family: var(--orbit-font) !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease !important;
+}
+
+.layout-orbit .interior-switch-btn:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.layout-orbit .interior-switch-btn.active {
+  background: var(--orbit-cyan) !important;
+  border-color: transparent !important;
+  color: var(--orbit-blue) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.4) !important;
+}
+
+/* Region sidebar */
+.layout-orbit .region-sidebar {
+  background: rgba(8, 16, 24, 0.95) !important;
+  backdrop-filter: blur(30px) !important;
+  -webkit-backdrop-filter: blur(30px) !important;
+  border-right: 1px solid rgba(0, 217, 255, 0.2) !important;
+  box-shadow: 5px 0 25px rgba(0,0,0,0.5) !important;
+}
+
+.layout-orbit .region-sidebar .sidebar-header h3 {
+  color: #fff !important;
+  font-family: var(--orbit-font) !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px !important;
+  background: linear-gradient(135deg, var(--orbit-cyan), var(--orbit-orange));
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.layout-orbit .region-menu-item {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(0, 217, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-family: var(--orbit-font) !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.layout-orbit .region-menu-item:hover {
+  background: rgba(0, 217, 255, 0.05) !important;
+  border-color: var(--orbit-cyan) !important;
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.15) !important;
+}
+
+.layout-orbit .region-menu-item.active {
+  background: linear-gradient(135deg, var(--orbit-cyan) 0%, var(--orbit-orange) 100%) !important;
+  border-color: transparent !important;
+  color: var(--orbit-blue) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 5px 15px rgba(0, 217, 255, 0.3) !important;
+}
+
+
+

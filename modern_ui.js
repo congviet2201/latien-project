@@ -32,10 +32,13 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
       </div>
       <div class="layout-switcher-pill" id="layout-switcher">
-        <div class="switcher-segment" id="opt-layout-classic" data-layout="classic">Cổ điển</div>
-        <div class="switcher-segment" id="opt-layout-futuristic" data-layout="futuristic">Tương lai</div>
-        <div class="switcher-segment" id="opt-layout-neo" data-layout="neo">Neo</div>
-        <div class="switcher-segment" id="opt-layout-gradient" data-layout="gradient">Gradient</div>
+        <div class="switcher-segment" id="opt-layout-classic" data-layout="classic" title="Giao diện Cổ điển">Cổ điển</div>
+        <div class="switcher-segment" id="opt-layout-futuristic" data-layout="futuristic" title="Giao diện Tương lai">Tương lai</div>
+        <div class="switcher-segment" id="opt-layout-neo" data-layout="neo" title="Giao diện Neo">Neo</div>
+        <div class="switcher-segment" id="opt-layout-gradient" data-layout="gradient" title="Giao diện Gradient">Gradient</div>
+        <div class="switcher-segment" id="opt-layout-aurora" data-layout="aurora" title="Giao diện Aurora">Aurora</div>
+        <div class="switcher-segment" id="opt-layout-horizon" data-layout="horizon" title="Giao diện Horizon">Horizon</div>
+        <div class="switcher-segment" id="opt-layout-orbit" data-layout="orbit" title="Giao diện Orbit">Orbit</div>
         <div class="switcher-slider" id="switcher-slider"></div>
       </div>
     </div>
@@ -771,6 +774,647 @@
   const neoBottomDockHTML = ``;
 
   // ==========================================
+  // OPTION 5: AURORA LAYOUT TEMPLATES
+  // ==========================================
+
+  const auroraLeftNavHTML = `
+    <div class="aurora-nav-container collapsed" id="aurora-nav-container">
+      <div class="aurora-nav-logo">
+        <span class="aurora-logo-dot"></span>
+        <span class="aurora-logo-text">AURORA</span>
+      </div>
+      <div class="aurora-nav-list" id="aurora-main-nav">
+        <!-- 1. TOP VIEW (Electric Cyan) -->
+        <div class="aurora-nav-item-wrapper" data-id="topview">
+          <div class="aurora-nav-item" data-id="topview" data-pano-node="node1" data-action="overview-top" style="--accent-color: var(--aurora-cyan);">
+            <div class="aurora-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                <polyline points="2 17 12 22 22 17" />
+                <polyline points="2 12 12 17 22 12" />
+              </svg>
+            </div>
+            <span class="aurora-nav-label">Top View</span>
+          </div>
+        </div>
+
+        <!-- 2. BIRD VIEW (Purple) -->
+        <div class="aurora-nav-item-wrapper has-children" data-id="birdview">
+          <div class="aurora-nav-item" data-id="birdview" style="--accent-color: var(--aurora-purple);">
+            <div class="aurora-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 2L11 13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            </div>
+            <span class="aurora-nav-label">Bird View</span>
+            <svg class="aurora-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+          <div class="aurora-submenu">
+            <div class="aurora-submenu-item" data-action="overview-bird1" data-pano-node="node2">Bird View 1</div>
+            <div class="aurora-submenu-item" data-action="overview-bird2" data-pano-node="node3">Bird View 2</div>
+            <div class="aurora-submenu-item" data-action="overview-bird3" data-pano-node="node4">Bird View 3</div>
+          </div>
+        </div>
+
+        <!-- 3. AMENITIES (Emerald) -->
+        <div class="aurora-nav-item-wrapper" data-id="amenities">
+          <div class="aurora-nav-item" data-id="amenities" data-action="amenity-pool" style="--accent-color: var(--aurora-emerald);">
+            <div class="aurora-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2zM9 22v-2" />
+              </svg>
+            </div>
+            <span class="aurora-nav-label">Amenities</span>
+          </div>
+        </div>
+
+        <!-- 4. ARCHITECTURE (Orange) -->
+        <div class="aurora-nav-item-wrapper" data-id="architecture">
+          <div class="aurora-nav-item" data-id="architecture" data-action="architecture-1" style="--accent-color: var(--aurora-orange);">
+            <div class="aurora-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <line x1="9" y1="3" x2="9" y2="21" />
+                <line x1="15" y1="3" x2="15" y2="21" />
+                <line x1="3" y1="9" x2="21" y2="9" />
+                <line x1="3" y1="15" x2="21" y2="15" />
+              </svg>
+            </div>
+            <span class="aurora-nav-label">Architecture</span>
+          </div>
+        </div>
+
+        <!-- 5. INTERIOR (Pink) -->
+        <div class="aurora-nav-item-wrapper has-children" data-id="interior">
+          <div class="aurora-nav-item" data-id="interior" style="--accent-color: var(--aurora-pink);">
+            <div class="aurora-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 10V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v5m14 0a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2m14 0H5" />
+                <line x1="6" y1="18" x2="6" y2="21" />
+                <line x1="18" y1="18" x2="18" y2="21" />
+              </svg>
+            </div>
+            <span class="aurora-nav-label">Interior</span>
+            <svg class="aurora-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+          <div class="aurora-submenu">
+            <div class="aurora-submenu-item" data-action="interior-1">Interior 1</div>
+            <div class="aurora-submenu-item" data-action="interior-2">Interior 2</div>
+          </div>
+        </div>
+
+        <!-- 6. LIÊN KẾT VÙNG (Electric Cyan) -->
+        <div class="aurora-nav-item-wrapper" data-id="surrounding">
+          <div class="aurora-nav-item" data-id="surrounding" data-action="region-page" style="--accent-color: var(--aurora-cyan);">
+            <div class="aurora-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <span class="aurora-nav-label">Liên kết vùng</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const auroraRightToolHTML = `
+    <div class="aurora-tool-panel collapsed" id="aurora-tool-panel">
+      <!-- Pin trigger -->
+      <div class="aurora-tool-pin-btn" id="aurora-tool-pin-btn" title="Ghim bảng công cụ">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="17" x2="12" y2="22" />
+          <path d="M5 17h14v-1.76a2 2 0 0 0-.44-1.24l-2.78-3.5A2 2 0 0 1 15 9.26V5a3 3 0 0 0-6 0v4.26a2 2 0 0 1-.78 1.24l-2.78 3.5A2 2 0 0 0 5 15.24z" />
+        </svg>
+      </div>
+
+      <div class="aurora-tool-list">
+        <!-- Music (Pink) -->
+        <div class="aurora-tool-item" data-action="music" title="Nhạc Nền" style="--accent-color: var(--aurora-pink);">
+          <div class="aurora-tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="16" r="3" />
+            </svg>
+          </div>
+          <span class="aurora-tool-label">Nhạc Nền</span>
+        </div>
+
+        <!-- Images (Purple) -->
+        <div class="aurora-tool-item has-submenu" id="aurora-tool-images" title="Hình Ảnh" style="--accent-color: var(--aurora-purple);">
+          <div class="aurora-tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+          </div>
+          <span class="aurora-tool-label">Hình Ảnh</span>
+          <div class="aurora-tool-submenu">
+            <div class="aurora-pano-card" onclick="window.pano && window.pano.openNext('node1')">
+              <img src="pano_aerial.png" alt="Toàn cảnh">
+              <span>Toàn cảnh</span>
+            </div>
+            <div class="aurora-pano-card" onclick="window.pano && window.pano.openNext('node2')">
+              <img src="pano_detached.png" alt="Đơn lập">
+              <span>Biệt thự Đơn lập</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotspots (Emerald) -->
+        <div class="aurora-tool-item" data-action="hotspots" title="Ẩn/Hiện Hotspots" style="--accent-color: var(--aurora-emerald);">
+          <div class="aurora-tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" stroke-dasharray="4 4" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </div>
+          <span class="aurora-tool-label">Hotspots</span>
+        </div>
+
+        <!-- Share (Orange) -->
+        <div class="aurora-tool-item has-submenu" id="aurora-tool-share" title="Chia Sẻ" style="--accent-color: var(--aurora-orange);">
+          <div class="aurora-tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+              <polyline points="16 6 12 2 8 6" />
+              <line x1="12" y1="2" x2="12" y2="15" />
+            </svg>
+          </div>
+          <span class="aurora-tool-label">Chia Sẻ</span>
+          <div class="aurora-tool-submenu flex-col">
+            <a href="https://facebook.com" target="_blank" class="aurora-share-btn facebook">Facebook</a>
+            <a href="https://zalo.me" target="_blank" class="aurora-share-btn zalo">Zalo</a>
+          </div>
+        </div>
+
+        <!-- Call (Electric Cyan) -->
+        <div class="aurora-tool-item" data-action="call" title="Tư Vấn" style="--accent-color: var(--aurora-cyan);">
+          <div class="aurora-tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+          </div>
+          <span class="aurora-tool-label">Tư Vấn</span>
+        </div>
+
+        <!-- Project Information (Purple) -->
+        <div class="aurora-tool-item" data-action="info" title="Thông Tin Dự Án" style="--accent-color: var(--aurora-purple);">
+          <div class="aurora-tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+          </div>
+          <span class="aurora-tool-label">Thông Tin</span>
+        </div>
+
+        <!-- Fullscreen (Electric Cyan) -->
+        <div class="aurora-tool-item" data-action="fullscreen" title="Toàn Màn Hình" style="--accent-color: var(--aurora-cyan);">
+          <div class="aurora-tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+            </svg>
+          </div>
+          <span class="aurora-tool-label">Toàn Màn Hình</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Aurora Compass Widget
+  const auroraCompassHTML = `
+    <div class="compass-widget aurora-compass" id="compass-widget">
+      <div class="compass-outer-glow"></div>
+      <div class="compass-dial" id="compass-dial">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <!-- Holographic Rings -->
+          <circle cx="40" cy="40" r="38" fill="rgba(8, 17, 31, 0.5)" stroke="url(#auroraCompassGrad)" stroke-width="1.5"/>
+          <circle cx="40" cy="40" r="32" stroke="rgba(0, 217, 255, 0.15)" stroke-width="1" stroke-dasharray="4 2"/>
+          <circle cx="40" cy="40" r="26" stroke="rgba(139, 92, 246, 0.2)" stroke-width="1"/>
+          
+          <!-- Holographic Crosshair -->
+          <line x1="40" y1="8" x2="40" y2="72" stroke="rgba(0, 217, 255, 0.1)" stroke-width="1"/>
+          <line x1="8" y1="40" x2="72" y2="40" stroke="rgba(0, 217, 255, 0.1)" stroke-width="1"/>
+
+          <!-- Dynamic Aurora Needle -->
+          <g>
+            <polygon points="40,8 44,40 40,36 36,40" fill="url(#auroraNeedleCyan)"/>
+            <polygon points="40,72 44,40 40,44 36,40" fill="url(#auroraNeedlePink)"/>
+          </g>
+          
+          <defs>
+            <linearGradient id="auroraCompassGrad" x1="0" y1="0" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00D9FF" />
+              <stop offset="50%" stop-color="#8B5CF6" />
+              <stop offset="100%" stop-color="#EC4899" />
+            </linearGradient>
+            <linearGradient id="auroraNeedleCyan" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00D9FF" />
+              <stop offset="100%" stop-color="#8B5CF6" />
+            </linearGradient>
+            <linearGradient id="auroraNeedlePink" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#EC4899" />
+              <stop offset="100%" stop-color="#FF8A00" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="compass-cardinal n">N</div>
+      <div class="compass-degree-display" id="compass-degree">0°</div>
+    </div>
+  `;
+
+  // ==========================================
+  // OPTION 6: HORIZON LAYOUT TEMPLATES
+  // ==========================================
+
+  const horizonBottomDockHTML = `
+    <div class="horizon-nav-container" id="horizon-nav-container">
+      <div class="horizon-dock">
+        <!-- 1. TOP VIEW -->
+        <div class="horizon-nav-item-wrapper" data-id="topview">
+          <div class="horizon-nav-item" data-id="topview" data-pano-node="node1" data-action="overview-top">
+            <span class="horizon-nav-label">Top View</span>
+          </div>
+        </div>
+
+        <!-- 2. BIRD VIEW -->
+        <div class="horizon-nav-item-wrapper has-submenu" data-id="birdview">
+          <div class="horizon-nav-item" data-id="birdview">
+            <span class="horizon-nav-label">Bird View</span>
+          </div>
+          <div class="horizon-submenu">
+            <div class="horizon-submenu-item" data-action="overview-bird1" data-pano-node="node2">Bird View 1</div>
+            <div class="horizon-submenu-item" data-action="overview-bird2" data-pano-node="node3">Bird View 2</div>
+            <div class="horizon-submenu-item" data-action="overview-bird3" data-pano-node="node4">Bird View 3</div>
+          </div>
+        </div>
+
+        <!-- 3. AMENITIES -->
+        <div class="horizon-nav-item-wrapper has-submenu" data-id="amenities">
+          <div class="horizon-nav-item" data-id="amenities" data-action="amenity-pool">
+            <span class="horizon-nav-label">Amenities</span>
+          </div>
+          <div class="horizon-submenu">
+            <div class="horizon-submenu-item" data-action="amenity-pool">Hồ Bơi</div>
+            <div class="horizon-submenu-item" data-action="amenity-gym">Phòng Gym</div>
+            <div class="horizon-submenu-item" data-action="amenity-park">Công Viên</div>
+            <div class="horizon-submenu-item" data-action="amenity-spa">Spa & Massage</div>
+          </div>
+        </div>
+
+        <!-- 4. ARCHITECTURE -->
+        <div class="horizon-nav-item-wrapper has-submenu" data-id="architecture">
+          <div class="horizon-nav-item" data-id="architecture" data-action="architecture-1">
+            <span class="horizon-nav-label">Architecture</span>
+          </div>
+          <div class="horizon-submenu">
+            <div class="horizon-submenu-item" data-action="architecture-1">Kiến Trúc 1</div>
+            <div class="horizon-submenu-item" data-action="architecture-2">Kiến Trúc 2</div>
+            <div class="horizon-submenu-item" data-action="architecture-3">Kiến Trúc 3</div>
+          </div>
+        </div>
+
+        <!-- 5. INTERIOR -->
+        <div class="horizon-nav-item-wrapper has-submenu" data-id="interior">
+          <div class="horizon-nav-item" data-id="interior">
+            <span class="horizon-nav-label">Interior</span>
+          </div>
+          <div class="horizon-submenu">
+            <div class="horizon-submenu-item" data-action="interior-1">Interior 1</div>
+            <div class="horizon-submenu-item" data-action="interior-2">Interior 2</div>
+          </div>
+        </div>
+
+        <!-- 6. LIÊN KẾT VÙNG -->
+        <div class="horizon-nav-item-wrapper" data-id="surrounding">
+          <div class="horizon-nav-item" data-id="surrounding" data-action="region-page">
+            <span class="horizon-nav-label">Liên kết vùng</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const horizonRightToolHTML = `
+    <div class="horizon-tool-panel" id="horizon-tool-panel">
+      <!-- Music -->
+      <div class="horizon-tool-item" data-action="music" title="Nhạc Nền">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="16" r="3" />
+        </svg>
+      </div>
+
+      <!-- Images -->
+      <div class="horizon-tool-item has-submenu" id="horizon-tool-images" title="Hình Ảnh">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <circle cx="8.5" cy="8.5" r="1.5" />
+          <polyline points="21 15 16 10 5 21" />
+        </svg>
+        <div class="horizon-tool-submenu">
+          <div class="horizon-pano-card" onclick="window.pano && window.pano.openNext('node1')">
+            <img src="pano_aerial.png" alt="Toàn cảnh">
+            <span>Toàn cảnh</span>
+          </div>
+          <div class="horizon-pano-card" onclick="window.pano && window.pano.openNext('node2')">
+            <img src="pano_detached.png" alt="Đơn lập">
+            <span>Biệt thự Đơn lập</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hotspots -->
+      <div class="horizon-tool-item" data-action="hotspots" title="Ẩn/Hiện Hotspots">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" stroke-dasharray="3 3" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      </div>
+
+      <!-- Share -->
+      <div class="horizon-tool-item has-submenu" id="horizon-tool-share" title="Chia Sẻ">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+          <polyline points="16 6 12 2 8 6" />
+          <line x1="12" y1="2" x2="12" y2="15" />
+        </svg>
+        <div class="horizon-tool-submenu flex-col">
+          <a href="https://facebook.com" target="_blank" class="horizon-share-btn facebook">Facebook</a>
+          <a href="https://zalo.me" target="_blank" class="horizon-share-btn zalo">Zalo</a>
+        </div>
+      </div>
+
+      <!-- Call -->
+      <div class="horizon-tool-item" data-action="call" title="Tư Vấn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+        </svg>
+      </div>
+
+      <!-- Project Information -->
+      <div class="horizon-tool-item" data-action="info" title="Thông Tin Dự Án">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="16" x2="12" y2="12" />
+          <line x1="12" y1="8" x2="12.01" y2="8" />
+        </svg>
+      </div>
+
+      <!-- Fullscreen -->
+      <div class="horizon-tool-item" data-action="fullscreen" title="Toàn Màn Hình">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+        </svg>
+      </div>
+    </div>
+  `;
+
+  // Horizon Compass Widget
+  const horizonCompassHTML = `
+    <div class="compass-widget horizon-compass" id="compass-widget">
+      <div class="compass-outer-glow"></div>
+      <div class="compass-dial" id="compass-dial">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <!-- Aircraft style dial -->
+          <circle cx="40" cy="40" r="38" fill="rgba(10, 16, 32, 0.6)" stroke="#D8DEE9" stroke-width="1" />
+          <line x1="20" y1="40" x2="35" y2="40" stroke="#8ED8FF" stroke-width="1.5" />
+          <line x1="45" y1="40" x2="60" y2="40" stroke="#8ED8FF" stroke-width="1.5" />
+          <circle cx="40" cy="40" r="2" fill="#F6C177" />
+          
+          <g stroke="rgba(216, 222, 233, 0.4)" stroke-width="1">
+            <line x1="40" y1="2" x2="40" y2="6" />
+            <line x1="40" y1="74" x2="40" y2="78" />
+            <line x1="2" y1="40" x2="6" y2="40" />
+            <line x1="74" y1="40" x2="78" y2="40" />
+          </g>
+          
+          <g>
+            <polygon points="40,6 43,24 37,24" fill="#F6C177" />
+            <polygon points="40,74 43,56 37,56" fill="rgba(216, 222, 233, 0.3)" />
+          </g>
+        </svg>
+      </div>
+      <div class="compass-cardinal n">N</div>
+      <div class="compass-degree-display" id="compass-degree">0°</div>
+    </div>
+  `;
+
+  // OPTION 7: ORBIT LAYOUT TEMPLATES
+  const orbitNavHTML = `
+    <div class="orbit-nav-container" id="orbit-nav-container">
+      <div class="orbit-nav-hub">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="9" stroke="rgba(0, 217, 255, 0.4)"/>
+          <circle cx="12" cy="12" r="6" stroke="rgba(0, 217, 255, 0.6)" stroke-dasharray="2 2"/>
+          <circle cx="12" cy="12" r="3" fill="#00D9FF"/>
+        </svg>
+      </div>
+      <div class="orbit-nav-dock">
+        <div class="orbit-nav-item-wrapper" data-id="topview">
+          <div class="orbit-nav-item" data-id="topview" data-pano-node="node1" data-action="overview-top" title="Top View">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="12" y1="17" x2="12" y2="21" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="orbit-nav-label">Top View</span>
+          </div>
+        </div>
+
+        <div class="orbit-nav-item-wrapper has-submenu" data-id="birdview">
+          <div class="orbit-nav-item" data-id="birdview" title="Bird View">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 20h9M12 4h9M3 12l3-3 3 3M6 9v11M3 20h6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="orbit-nav-label">Bird View</span>
+          </div>
+          <div class="orbit-submenu">
+            <div class="orbit-submenu-item" data-action="overview-bird1" data-pano-node="node2">Bird 1</div>
+            <div class="orbit-submenu-item" data-action="overview-bird2" data-pano-node="node3">Bird 2</div>
+            <div class="orbit-submenu-item" data-action="overview-bird3" data-pano-node="node4">Bird 3</div>
+          </div>
+        </div>
+
+        <div class="orbit-nav-item-wrapper has-submenu" data-id="amenities">
+          <div class="orbit-nav-item" data-id="amenities" data-action="amenity-pool" title="Amenities">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="orbit-nav-label">Amenities</span>
+          </div>
+          <div class="orbit-submenu">
+            <div class="orbit-submenu-item" data-action="amenity-pool">Hồ Bơi</div>
+            <div class="orbit-submenu-item" data-action="amenity-gym">Phòng Gym</div>
+            <div class="orbit-submenu-item" data-action="amenity-park">Công Viên</div>
+            <div class="orbit-submenu-item" data-action="amenity-spa">Spa</div>
+          </div>
+        </div>
+
+        <div class="orbit-nav-item-wrapper has-submenu" data-id="architecture">
+          <div class="orbit-nav-item" data-id="architecture" data-action="architecture-1" title="Architecture">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 21V8l9-6 9 6v13" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 3v-1h3v4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="orbit-nav-label">Architecture</span>
+          </div>
+          <div class="orbit-submenu">
+            <div class="orbit-submenu-item" data-action="architecture-1">Kiến Trúc 1</div>
+            <div class="orbit-submenu-item" data-action="architecture-2">Kiến Trúc 2</div>
+            <div class="orbit-submenu-item" data-action="architecture-3">Kiến Trúc 3</div>
+          </div>
+        </div>
+
+        <div class="orbit-nav-item-wrapper has-submenu" data-id="interior">
+          <div class="orbit-nav-item" data-id="interior" title="Interior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 21h8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 17v4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 8h4M7 11h6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="orbit-nav-label">Interior</span>
+          </div>
+          <div class="orbit-submenu">
+            <div class="orbit-submenu-item" data-action="interior-1">Interior 1</div>
+            <div class="orbit-submenu-item" data-action="interior-2">Interior 2</div>
+          </div>
+        </div>
+
+        <div class="orbit-nav-item-wrapper" data-id="surrounding">
+          <div class="orbit-nav-item" data-id="surrounding" data-action="region-page" title="Liên kết vùng">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+              <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="orbit-nav-label">Liên kết vùng</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const orbitRightToolHTML = `
+    <div class="orbit-tool-container" id="orbit-tool-container">
+      <div class="orbit-tool-trigger" id="orbit-tool-trigger" title="Hệ thống điều khiển">
+        <div class="orbit-trigger-ring"></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="4" stroke-dasharray="2 2" />
+          <line x1="12" y1="2" x2="12" y2="4" />
+          <line x1="12" y1="20" x2="12" y2="22" />
+          <line x1="2" y1="12" x2="4" y2="12" />
+          <line x1="20" y1="12" x2="22" y2="12" />
+        </svg>
+      </div>
+      <div class="orbit-tool-list" id="orbit-tool-list">
+        <div class="orbit-tool-item" data-action="music" title="Nhạc Nền">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+          </svg>
+        </div>
+
+        <div class="orbit-tool-item has-submenu" id="orbit-tool-images" title="Hình Ảnh">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <polyline points="21 15 16 10 5 21" />
+          </svg>
+          <div class="orbit-tool-submenu">
+            <div class="orbit-pano-card" onclick="window.pano && window.pano.openNext('node1')">
+              <img src="pano_aerial.png" alt="Toàn cảnh">
+              <span>Toàn cảnh</span>
+            </div>
+            <div class="orbit-pano-card" onclick="window.pano && window.pano.openNext('node2')">
+              <img src="pano_detached.png" alt="Đơn lập">
+              <span>Biệt thự Đơn lập</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="orbit-tool-item" data-action="hotspots" title="Ẩn/Hiện Hotspots">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" stroke-dasharray="3 3" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </div>
+
+        <div class="orbit-tool-item has-submenu" id="orbit-tool-share" title="Chia Sẻ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+            <polyline points="16 6 12 2 8 6" />
+            <line x1="12" y1="2" x2="12" y2="15" />
+          </svg>
+          <div class="orbit-tool-submenu flex-col">
+            <a href="https://facebook.com" target="_blank" class="orbit-share-btn facebook">Facebook</a>
+            <a href="https://zalo.me" target="_blank" class="orbit-share-btn zalo">Zalo</a>
+          </div>
+        </div>
+
+        <div class="orbit-tool-item" data-action="call" title="Tư Vấn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+        </div>
+
+        <div class="orbit-tool-item" data-action="info" title="Thông Tin Dự Án">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+        </div>
+
+        <div class="orbit-tool-item" data-action="fullscreen" title="Toàn Màn Hình">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const orbitCompassHTML = `
+    <div class="compass-widget orbit-compass" id="compass-widget">
+      <div class="orbit-radar-rings">
+        <div class="radar-ring outer"></div>
+        <div class="radar-ring middle"></div>
+        <div class="radar-ring inner"></div>
+        <div class="radar-sweep"></div>
+      </div>
+      <div class="compass-dial" id="compass-dial">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <circle cx="40" cy="40" r="38" stroke="rgba(0, 217, 255, 0.2)" stroke-width="1" />
+          <line x1="40" y1="2" x2="40" y2="78" stroke="rgba(0, 217, 255, 0.15)" stroke-width="1" stroke-dasharray="2 2" />
+          <line x1="2" y1="40" x2="78" y2="40" stroke="rgba(0, 217, 255, 0.15)" stroke-width="1" stroke-dasharray="2 2" />
+          <polygon points="40,10 43,24 37,24" fill="#FF9A00" />
+          <circle cx="40" cy="40" r="3" fill="#FFFFFF" />
+        </svg>
+      </div>
+      <div class="compass-cardinal n">N</div>
+      <div class="compass-degree-display" id="compass-degree">0°</div>
+    </div>
+  `;
+
+  // ==========================================
   // SHARED WIDGET TEMPLATES (both layouts)
   // ==========================================
 
@@ -992,6 +1636,21 @@
       container.style.borderColor = "rgba(212, 175, 55, 0.4)";
       container.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(212, 175, 55, 0.2)";
       container.textContent = `HỆ THỐNG: ${text}`;
+    } else if (layoutMode === "aurora") {
+      container.style.color = "#EC4899";
+      container.style.borderColor = "rgba(236, 72, 153, 0.4)";
+      container.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.6), 0 0 15px rgba(236, 72, 153, 0.3)";
+      container.textContent = `AURORA: ${text}`;
+    } else if (layoutMode === "horizon") {
+      container.style.color = "#F6C177";
+      container.style.borderColor = "rgba(246, 193, 119, 0.4)";
+      container.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.6), 0 0 15px rgba(246, 193, 119, 0.3)";
+      container.textContent = `HORIZON: ${text}`;
+    } else if (layoutMode === "orbit") {
+      container.style.color = "#00D9FF";
+      container.style.borderColor = "rgba(0, 217, 255, 0.4)";
+      container.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 217, 255, 0.3)";
+      container.textContent = `ORBIT HUD: ${text}`;
     } else {
       container.style.color = "#00f2fe";
       container.style.borderColor = "rgba(0, 242, 254, 0.3)";
@@ -1013,25 +1672,33 @@
   // LAYOUT SWAPPING LOGIC
   // ==========================================
 
-  // Setup layout switcher click events and indicators positioning
   function updateSwitcherUI() {
     const classicSeg = document.getElementById("opt-layout-classic");
     const futuristicSeg = document.getElementById("opt-layout-futuristic");
     const neoSeg = document.getElementById("opt-layout-neo");
     const gradientSeg = document.getElementById("opt-layout-gradient");
+    const auroraSeg = document.getElementById("opt-layout-aurora");
+    const horizonSeg = document.getElementById("opt-layout-horizon");
+    const orbitSeg = document.getElementById("opt-layout-orbit");
     const slider = document.getElementById("switcher-slider");
-    if (!classicSeg || !futuristicSeg || !neoSeg || !gradientSeg || !slider) return;
+    if (!classicSeg || !futuristicSeg || !neoSeg || !gradientSeg || !auroraSeg || !horizonSeg || !orbitSeg || !slider) return;
 
     requestAnimationFrame(() => {
       let activeSeg = classicSeg;
       if (layoutMode === "futuristic") activeSeg = futuristicSeg;
       else if (layoutMode === "neo") activeSeg = neoSeg;
       else if (layoutMode === "gradient") activeSeg = gradientSeg;
+      else if (layoutMode === "aurora") activeSeg = auroraSeg;
+      else if (layoutMode === "horizon") activeSeg = horizonSeg;
+      else if (layoutMode === "orbit") activeSeg = orbitSeg;
       
       classicSeg.classList.toggle("active", layoutMode === "classic");
       futuristicSeg.classList.toggle("active", layoutMode === "futuristic");
       neoSeg.classList.toggle("active", layoutMode === "neo");
       gradientSeg.classList.toggle("active", layoutMode === "gradient");
+      auroraSeg.classList.toggle("active", layoutMode === "aurora");
+      horizonSeg.classList.toggle("active", layoutMode === "horizon");
+      orbitSeg.classList.toggle("active", layoutMode === "orbit");
 
       slider.style.width = `${activeSeg.offsetWidth}px`;
       slider.style.left = `${activeSeg.offsetLeft}px`;
@@ -1111,26 +1778,60 @@
         uiWrapper.appendChild(tempDiv.firstChild);
       }
       setupGradientListeners();
+    } else if (layoutMode === "aurora") {
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = auroraLeftNavHTML + auroraRightToolHTML;
+      while (tempDiv.firstChild) {
+        uiWrapper.appendChild(tempDiv.firstChild);
+      }
+      setupAuroraListeners();
+    } else if (layoutMode === "horizon") {
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = horizonBottomDockHTML + horizonRightToolHTML;
+      while (tempDiv.firstChild) {
+        uiWrapper.appendChild(tempDiv.firstChild);
+      }
+      setupHorizonListeners();
+    } else if (layoutMode === "orbit") {
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = orbitNavHTML + orbitRightToolHTML;
+      while (tempDiv.firstChild) {
+        uiWrapper.appendChild(tempDiv.firstChild);
+      }
+      setupOrbitListeners();
     }
 
     // Inject Minimap (shared HTML, styled differently in CSS)
-    if (!document.getElementById("minimap-widget")) {
+    let minimapEl = document.getElementById("minimap-widget");
+    if (!minimapEl) {
       const mapDiv = document.createElement("div");
       mapDiv.innerHTML = minimapWidgetHTML;
       document.body.appendChild(mapDiv.firstElementChild);
       setupMinimapListeners();
+      minimapEl = document.getElementById("minimap-widget");
+    }
+    if (minimapEl && layoutMode === "orbit") {
+      minimapEl.classList.remove("collapsed");
     }
 
-    // Inject Compass
-    if (!document.getElementById("compass-widget")) {
-      const compassDiv = document.createElement("div");
-      if (layoutMode === "neo") {
-        compassDiv.innerHTML = neoCompassHTML;
-      } else {
-        compassDiv.innerHTML = compassWidgetHTML;
-      }
-      document.body.appendChild(compassDiv.firstElementChild);
+    // Inject Compass (recreate to ensure correct template style)
+    const oldCompass = document.getElementById("compass-widget");
+    if (oldCompass) {
+      oldCompass.remove();
     }
+    const compassDiv = document.createElement("div");
+    if (layoutMode === "neo") {
+      compassDiv.innerHTML = neoCompassHTML;
+    } else if (layoutMode === "aurora") {
+      compassDiv.innerHTML = auroraCompassHTML;
+    } else if (layoutMode === "horizon") {
+      compassDiv.innerHTML = horizonCompassHTML;
+    } else if (layoutMode === "orbit") {
+      compassDiv.innerHTML = orbitCompassHTML;
+    } else {
+      compassDiv.innerHTML = compassWidgetHTML;
+    }
+    document.body.appendChild(compassDiv.firstElementChild);
 
     // Restore selected active highlights
     restoreActiveStates();
@@ -1139,7 +1840,7 @@
   // Restore navigation and submenu highlight states on rebuild
   function restoreActiveStates() {
     // 1. Restore main nav highlights
-    const navItems = document.querySelectorAll(".nav-item");
+    const navItems = document.querySelectorAll(".nav-item, .aurora-nav-item, .horizon-nav-item, .orbit-nav-item");
     let activeNavItem = null;
     navItems.forEach(item => {
       if (item.getAttribute("data-id") === activeNavItemId) {
@@ -1151,7 +1852,7 @@
     });
 
     // 2. Restore submenu active highlight — use unique data-action only
-    const subItems = document.querySelectorAll(".submenu-item, .mega-card");
+    const subItems = document.querySelectorAll(".submenu-item, .mega-card, .aurora-submenu-item, .horizon-submenu-item, .orbit-submenu-item");
     subItems.forEach(sub => {
       const action = sub.getAttribute("data-action");
       if (action && action === activeSubmenuAction) {
@@ -1672,6 +2373,489 @@
     });
   }
 
+  function setupAuroraListeners() {
+    const navContainer = document.getElementById("aurora-nav-container");
+    const navItems = document.querySelectorAll(".layout-aurora .aurora-nav-item");
+    const submenuItems = document.querySelectorAll(".layout-aurora .aurora-submenu-item");
+    
+    if (navContainer) {
+      navContainer.addEventListener("mouseenter", () => {
+        navContainer.classList.remove("collapsed");
+        navContainer.classList.add("expanded");
+      });
+      navContainer.addEventListener("mouseleave", () => {
+        navContainer.classList.add("collapsed");
+        navContainer.classList.remove("expanded");
+        
+        // Close all submenus on collapse
+        const submenus = navContainer.querySelectorAll(".aurora-submenu.open");
+        submenus.forEach(s => s.classList.remove("open"));
+        const chevrons = navContainer.querySelectorAll(".aurora-chevron.rotate");
+        chevrons.forEach(c => c.classList.remove("rotate"));
+      });
+      
+      // Expand on click as well
+      navContainer.addEventListener("click", (e) => {
+        if (navContainer.classList.contains("collapsed")) {
+          e.stopPropagation();
+          navContainer.classList.remove("collapsed");
+          navContainer.classList.add("expanded");
+        }
+      });
+    }
+    
+    // Bind main nav item clicks
+    navItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation();
+        
+        const parentWrapper = this.closest(".aurora-nav-item-wrapper");
+        const hasChildren = parentWrapper && parentWrapper.classList.contains("has-children");
+        
+        if (hasChildren) {
+          const submenu = parentWrapper.querySelector(".aurora-submenu");
+          const chevron = this.querySelector(".aurora-chevron");
+          if (submenu) {
+            const isOpen = submenu.classList.contains("open");
+            // Close other submenus first
+            const openSubmenus = document.querySelectorAll(".layout-aurora .aurora-submenu.open");
+            openSubmenus.forEach(s => {
+              if (s !== submenu) s.classList.remove("open");
+            });
+            const rotatedChevrons = document.querySelectorAll(".layout-aurora .aurora-chevron.rotate");
+            rotatedChevrons.forEach(c => {
+              if (c !== chevron) c.classList.remove("rotate");
+            });
+            
+            submenu.classList.toggle("open", !isOpen);
+            if (chevron) chevron.classList.toggle("rotate", !isOpen);
+          }
+          return;
+        }
+        
+        // If no children, select item and route navigation
+        navItems.forEach(n => n.classList.remove("active"));
+        submenuItems.forEach(s => s.classList.remove("active"));
+        this.classList.add("active");
+        
+        activeNavItemId = parentWrapper.getAttribute("data-id");
+        lsSet("latien_active_nav", activeNavItemId);
+        
+        routeNavigation(this);
+      });
+    });
+    
+    // Bind submenu item clicks
+    submenuItems.forEach(subItem => {
+      subItem.addEventListener("click", function(e) {
+        e.stopPropagation();
+        
+        submenuItems.forEach(s => s.classList.remove("active"));
+        this.classList.add("active");
+        
+        // Also highlight parent nav item
+        const parentWrapper = this.closest(".aurora-nav-item-wrapper");
+        if (parentWrapper) {
+          const parentItem = parentWrapper.querySelector(".aurora-nav-item");
+          if (parentItem) {
+            navItems.forEach(n => n.classList.remove("active"));
+            parentItem.classList.add("active");
+          }
+          activeNavItemId = parentWrapper.getAttribute("data-id");
+          lsSet("latien_active_nav", activeNavItemId);
+        }
+        
+        activeSubmenuAction = this.getAttribute("data-action");
+        activePanoNode = this.getAttribute("data-pano-node") || activePanoNode;
+        lsSet("latien_active_submenu", activeSubmenuAction);
+        lsSet("latien_active_node", activePanoNode);
+        
+        routeNavigation(this);
+      });
+    });
+    
+    // TOOL PANEL listeners (right side)
+    const toolPanel = document.getElementById("aurora-tool-panel");
+    const pinBtn = document.getElementById("aurora-tool-pin-btn");
+    const toolItems = document.querySelectorAll(".layout-aurora .aurora-tool-item");
+    
+    if (toolPanel) {
+      // Expand on hover
+      toolPanel.addEventListener("mouseenter", () => {
+        toolPanel.classList.add("expanded");
+      });
+      toolPanel.addEventListener("mouseleave", () => {
+        if (!toolPanel.classList.contains("pinned")) {
+          toolPanel.classList.remove("expanded");
+          // Close tool submenus
+          const openSubmenus = toolPanel.querySelectorAll(".aurora-tool-submenu.open");
+          openSubmenus.forEach(s => s.classList.remove("open"));
+        }
+      });
+      
+      // Pin/unpin click
+      if (pinBtn) {
+        pinBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isPinned = toolPanel.classList.contains("pinned");
+          toolPanel.classList.toggle("pinned", !isPinned);
+          pinBtn.classList.toggle("active", !isPinned);
+          if (!isPinned) {
+            showNotification("Đã ghim bảng công cụ");
+          } else {
+            showNotification("Đã bỏ ghim bảng công cụ");
+          }
+        });
+      }
+    }
+    
+    // Bind tool buttons click
+    toolItems.forEach(btn => {
+      btn.addEventListener("click", function(e) {
+        const hasSub = this.classList.contains("has-submenu");
+        if (hasSub) {
+          e.stopPropagation();
+          const submenu = this.querySelector(".aurora-tool-submenu");
+          if (submenu) {
+            const isOpen = submenu.classList.contains("open");
+            // Close other tool submenus
+            const openSubmenus = document.querySelectorAll(".layout-aurora .aurora-tool-submenu.open");
+            openSubmenus.forEach(s => {
+              if (s !== submenu) s.classList.remove("open");
+            });
+            submenu.classList.toggle("open", !isOpen);
+          }
+          return;
+        }
+        
+        e.stopPropagation();
+        dispatchToolAction(btn);
+      });
+    });
+  }
+
+  function setupHorizonListeners() {
+    const navItems = document.querySelectorAll(".layout-horizon .horizon-nav-item");
+    const submenuItems = document.querySelectorAll(".layout-horizon .horizon-submenu-item");
+    const toolItems = document.querySelectorAll(".layout-horizon .horizon-tool-item");
+
+    // Bind main nav items
+    navItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation();
+
+        const parentWrapper = this.closest(".horizon-nav-item-wrapper");
+        const hasChildren = parentWrapper && parentWrapper.classList.contains("has-submenu");
+
+        if (hasChildren) {
+          const submenu = parentWrapper.querySelector(".horizon-submenu");
+          if (submenu) {
+            const isOpen = submenu.classList.contains("open");
+            // Close other submenus first
+            const openSubmenus = document.querySelectorAll(".layout-horizon .horizon-submenu.open");
+            openSubmenus.forEach(s => { if (s !== submenu) s.classList.remove("open"); });
+            submenu.classList.toggle("open", !isOpen);
+          }
+          return;
+        }
+
+        // If no children, select item and route navigation
+        navItems.forEach(n => n.classList.remove("active"));
+        submenuItems.forEach(s => s.classList.remove("active"));
+        this.classList.add("active");
+
+        activeNavItemId = parentWrapper.getAttribute("data-id");
+        lsSet("latien_active_nav", activeNavItemId);
+
+        routeNavigation(this);
+      });
+    });
+
+    // Bind submenu item clicks
+    submenuItems.forEach(subItem => {
+      subItem.addEventListener("click", function(e) {
+        e.stopPropagation();
+
+        submenuItems.forEach(s => s.classList.remove("active"));
+        this.classList.add("active");
+
+        // Also highlight parent nav item
+        const parentWrapper = this.closest(".horizon-nav-item-wrapper");
+        if (parentWrapper) {
+          const parentItem = parentWrapper.querySelector(".horizon-nav-item");
+          if (parentItem) {
+            navItems.forEach(n => n.classList.remove("active"));
+            parentItem.classList.add("active");
+          }
+          activeNavItemId = parentWrapper.getAttribute("data-id");
+          lsSet("latien_active_nav", activeNavItemId);
+          
+          // Close submenu
+          const submenu = parentWrapper.querySelector(".horizon-submenu");
+          if (submenu) submenu.classList.remove("open");
+        }
+
+        activeSubmenuAction = this.getAttribute("data-action");
+        activePanoNode = this.getAttribute("data-pano-node") || activePanoNode;
+        lsSet("latien_active_submenu", activeSubmenuAction);
+        lsSet("latien_active_node", activePanoNode);
+
+        routeNavigation(this);
+      });
+    });
+
+    // Tool panel hover / toggle submenu
+    toolItems.forEach(btn => {
+      const hasSub = btn.classList.contains("has-submenu");
+      if (hasSub) {
+        btn.addEventListener("mouseenter", () => {
+          const submenu = btn.querySelector(".horizon-tool-submenu");
+          if (submenu) submenu.classList.add("open");
+        });
+        btn.addEventListener("mouseleave", () => {
+          const submenu = btn.querySelector(".horizon-tool-submenu");
+          if (submenu && !submenu.classList.contains("pinned")) {
+            submenu.classList.remove("open");
+          }
+        });
+        
+        btn.addEventListener("click", function(e) {
+          if (e.target.closest('.horizon-tool-submenu')) return; // ignore clicks inside submenu
+          e.stopPropagation();
+          const submenu = this.querySelector(".horizon-tool-submenu");
+          if (submenu) {
+            const isPinned = submenu.classList.contains("pinned");
+            // Close other tool submenus
+            const allToolSubs = document.querySelectorAll(".layout-horizon .horizon-tool-submenu");
+            allToolSubs.forEach(s => {
+              if (s !== submenu) {
+                s.classList.remove("pinned");
+                s.classList.remove("open");
+              }
+            });
+
+            if (isPinned) {
+              submenu.classList.remove("pinned");
+              submenu.classList.remove("open");
+            } else {
+              submenu.classList.add("pinned");
+              submenu.classList.add("open");
+            }
+          }
+        });
+      } else {
+        btn.addEventListener("click", function(e) {
+          e.stopPropagation();
+          dispatchToolAction(btn); // Use parameter btn (not 'this' to be consistent and clean)
+        });
+      }
+    });
+
+    // Close open menus when clicking outside
+    document.addEventListener("click", () => {
+      const openSubmenus = document.querySelectorAll(".layout-horizon .horizon-submenu.open, .layout-horizon .horizon-tool-submenu.open");
+      openSubmenus.forEach(s => {
+        s.classList.remove("open");
+        s.classList.remove("pinned");
+      });
+    });
+  }
+
+  function setupOrbitListeners() {
+    const navItems = document.querySelectorAll(".layout-orbit .orbit-nav-item");
+    const submenuItems = document.querySelectorAll(".layout-orbit .orbit-submenu-item");
+    const toolContainer = document.getElementById("orbit-tool-container");
+    const toolTrigger = document.getElementById("orbit-tool-trigger");
+    const toolItems = document.querySelectorAll(".layout-orbit .orbit-tool-item");
+
+    const navHub = document.querySelector(".layout-orbit .orbit-nav-hub");
+    const navContainer = document.getElementById("orbit-nav-container");
+    const itemWrappers = document.querySelectorAll(".layout-orbit .orbit-nav-item-wrapper");
+
+    let navCloseTimeout = null;
+
+    const keepNavOpen = () => {
+      if (navCloseTimeout) {
+        clearTimeout(navCloseTimeout);
+        navCloseTimeout = null;
+      }
+      if (navContainer) {
+        navContainer.classList.add("open");
+      }
+    };
+
+    const delayNavClose = () => {
+      if (navCloseTimeout) clearTimeout(navCloseTimeout);
+      navCloseTimeout = setTimeout(() => {
+        if (navContainer && !navContainer.classList.contains("pinned")) {
+          navContainer.classList.remove("open");
+        }
+      }, 500);
+    };
+
+    if (navHub && navContainer) {
+      navHub.addEventListener("click", function(e) {
+        e.stopPropagation();
+        const isPinned = navContainer.classList.contains("pinned");
+        if (isPinned) {
+          navContainer.classList.remove("pinned");
+          navContainer.classList.remove("open");
+        } else {
+          navContainer.classList.add("pinned");
+          navContainer.classList.add("open");
+        }
+      });
+      navHub.addEventListener("mouseenter", keepNavOpen);
+      navHub.addEventListener("mouseleave", delayNavClose);
+    }
+
+    itemWrappers.forEach(wrapper => {
+      wrapper.addEventListener("mouseenter", keepNavOpen);
+      wrapper.addEventListener("mouseleave", delayNavClose);
+    });
+
+    // 1. Navigation items click/toggle submenus
+    navItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation();
+
+        const parentWrapper = this.closest(".orbit-nav-item-wrapper");
+        const hasChildren = parentWrapper && parentWrapper.classList.contains("has-submenu");
+
+        if (hasChildren) {
+          const submenu = parentWrapper.querySelector(".orbit-submenu");
+          if (submenu) {
+            const isOpen = submenu.classList.contains("open");
+            // Close other submenus first
+            const openSubmenus = document.querySelectorAll(".layout-orbit .orbit-submenu.open");
+            openSubmenus.forEach(s => { if (s !== submenu) s.classList.remove("open"); });
+            submenu.classList.toggle("open", !isOpen);
+          }
+          return;
+        }
+
+        // No children: navigate
+        navItems.forEach(n => n.classList.remove("active"));
+        submenuItems.forEach(s => s.classList.remove("active"));
+        this.classList.add("active");
+
+        activeNavItemId = parentWrapper.getAttribute("data-id");
+        lsSet("latien_active_nav", activeNavItemId);
+
+        routeNavigation(this);
+      });
+    });
+
+    // Submenu item clicks
+    submenuItems.forEach(sub => {
+      sub.addEventListener("click", function(e) {
+        e.stopPropagation();
+
+        submenuItems.forEach(s => s.classList.remove("active"));
+        this.classList.add("active");
+
+        const parentWrapper = this.closest(".orbit-nav-item-wrapper");
+        if (parentWrapper) {
+          const parentItem = parentWrapper.querySelector(".orbit-nav-item");
+          if (parentItem) {
+            navItems.forEach(n => n.classList.remove("active"));
+            parentItem.classList.add("active");
+          }
+          activeNavItemId = parentWrapper.getAttribute("data-id");
+          lsSet("latien_active_nav", activeNavItemId);
+          
+          const submenu = parentWrapper.querySelector(".orbit-submenu");
+          if (submenu) submenu.classList.remove("open");
+        }
+
+        activeSubmenuAction = this.getAttribute("data-action");
+        activePanoNode = this.getAttribute("data-pano-node") || activePanoNode;
+        lsSet("latien_active_submenu", activeSubmenuAction);
+        lsSet("latien_active_node", activePanoNode);
+
+        routeNavigation(this);
+      });
+    });
+
+    // 2. Toolbar logic (Iron Man HUD style)
+    if (toolTrigger && toolContainer) {
+      toolTrigger.addEventListener("click", function(e) {
+        e.stopPropagation();
+        toolContainer.classList.toggle("open");
+      });
+      toolTrigger.addEventListener("mouseenter", function() {
+        toolContainer.classList.add("open");
+      });
+    }
+
+    toolItems.forEach(btn => {
+      const hasSub = btn.classList.contains("has-submenu");
+      if (hasSub) {
+        btn.addEventListener("mouseenter", () => {
+          const submenu = btn.querySelector(".orbit-tool-submenu");
+          if (submenu) submenu.classList.add("open");
+        });
+        btn.addEventListener("mouseleave", () => {
+          const submenu = btn.querySelector(".orbit-tool-submenu");
+          if (submenu && !submenu.classList.contains("pinned")) {
+            submenu.classList.remove("open");
+          }
+        });
+        
+        btn.addEventListener("click", function(e) {
+          if (e.target.closest('.orbit-tool-submenu')) return;
+          e.stopPropagation();
+          const submenu = this.querySelector(".orbit-tool-submenu");
+          if (submenu) {
+            const isPinned = submenu.classList.contains("pinned");
+            // Close other tool submenus
+            const allToolSubs = document.querySelectorAll(".layout-orbit .orbit-tool-submenu");
+            allToolSubs.forEach(s => {
+              if (s !== submenu) {
+                s.classList.remove("pinned");
+                s.classList.remove("open");
+              }
+            });
+
+            if (isPinned) {
+              submenu.classList.remove("pinned");
+              submenu.classList.remove("open");
+            } else {
+              submenu.classList.add("pinned");
+              submenu.classList.add("open");
+            }
+          }
+        });
+      } else {
+        btn.addEventListener("click", function(e) {
+          e.stopPropagation();
+          dispatchToolAction(btn);
+        });
+      }
+    });
+
+    // Close on click outside
+    document.addEventListener("click", () => {
+      const openNavSubs = document.querySelectorAll(".layout-orbit .orbit-submenu.open");
+      openNavSubs.forEach(s => s.classList.remove("open"));
+
+      const openToolSubs = document.querySelectorAll(".layout-orbit .orbit-tool-submenu.open");
+      openToolSubs.forEach(s => {
+        s.classList.remove("open");
+        s.classList.remove("pinned");
+      });
+
+      if (toolContainer && !toolContainer.matches(":hover")) {
+        toolContainer.classList.remove("open");
+      }
+
+      if (navContainer) {
+        navContainer.classList.remove("open");
+        navContainer.classList.remove("pinned");
+      }
+    });
+  }
+
   // ==========================================
   // TOOLBAR ACTION DISPATCHER
   // ==========================================
@@ -2026,7 +3210,7 @@
     document.body.appendChild(uiWrapper);
 
     // Sync top-level body classes
-    document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient");
+    document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit");
     document.body.classList.add(`layout-${layoutMode}`);
 
     // Inject custom Interior Page and Region Page overlays if not already present
@@ -2147,11 +3331,14 @@
     // 2. Inject components for active layout mode
     injectLayoutComponents();
 
-    // 3. Setup Layout Switcher listeners
+     // 3. Setup Layout Switcher listeners
     const classicSeg = document.getElementById("opt-layout-classic");
     const futuristicSeg = document.getElementById("opt-layout-futuristic");
     const neoSeg = document.getElementById("opt-layout-neo");
     const gradientSeg = document.getElementById("opt-layout-gradient");
+    const auroraSeg = document.getElementById("opt-layout-aurora");
+    const horizonSeg = document.getElementById("opt-layout-horizon");
+    const orbitSeg = document.getElementById("opt-layout-orbit");
 
     const handleSwitch = (newLayout) => {
       if (layoutMode === newLayout) return;
@@ -2160,12 +3347,12 @@
       uiWrapper.classList.add("switching");
 
       // 2. Record current active selections
-      const activeNav = document.querySelector(".nav-item.active");
+      const activeNav = document.querySelector(".nav-item.active, .aurora-nav-item.active, .horizon-nav-item.active, .orbit-nav-item.active");
       if (activeNav) {
         activeNavItemId = activeNav.getAttribute("data-id");
         lsSet("latien_active_nav", activeNavItemId);
       }
-      const activeSub = document.querySelector(".submenu-item.active, .mega-card.active");
+      const activeSub = document.querySelector(".submenu-item.active, .mega-card.active, .aurora-submenu-item.active, .horizon-submenu-item.active, .orbit-submenu-item.active");
       if (activeSub) {
         activeSubmenuAction = activeSub.getAttribute("data-action") || activeSubmenuAction;
         activePanoNode = activeSub.getAttribute("data-pano-node") || activePanoNode;
@@ -2179,7 +3366,7 @@
         lsSet("latien_layout_mode", layoutMode);
 
         // Update body layout class namespaces
-        document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient");
+        document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit");
         document.body.classList.add(`layout-${layoutMode}`);
 
         // Update container class namespaces
@@ -2200,17 +3387,21 @@
         if (layoutMode === "classic") notifMsg = "Đã chuyển sang Giao diện Cổ điển";
         else if (layoutMode === "futuristic") notifMsg = "Đã chuyển sang Giao diện Tương lai";
         else if (layoutMode === "gradient") notifMsg = "Đã chuyển sang Giao diện Gradient";
+        else if (layoutMode === "aurora") notifMsg = "Đã chuyển sang Giao diện Aurora";
+        else if (layoutMode === "horizon") notifMsg = "Đã chuyển sang Giao diện Horizon";
+        else if (layoutMode === "orbit") notifMsg = "Đã chuyển sang Giao diện Orbit";
         showNotification(notifMsg);
 
       }, 300);
     };
 
-    if (classicSeg && futuristicSeg && neoSeg && gradientSeg) {
-      classicSeg.addEventListener("click", () => handleSwitch("classic"));
-      futuristicSeg.addEventListener("click", () => handleSwitch("futuristic"));
-      neoSeg.addEventListener("click", () => handleSwitch("neo"));
-      gradientSeg.addEventListener("click", () => handleSwitch("gradient"));
-    }
+    if (classicSeg) classicSeg.addEventListener("click", () => handleSwitch("classic"));
+    if (futuristicSeg) futuristicSeg.addEventListener("click", () => handleSwitch("futuristic"));
+    if (neoSeg) neoSeg.addEventListener("click", () => handleSwitch("neo"));
+    if (gradientSeg) gradientSeg.addEventListener("click", () => handleSwitch("gradient"));
+    if (auroraSeg) auroraSeg.addEventListener("click", () => handleSwitch("aurora"));
+    if (horizonSeg) horizonSeg.addEventListener("click", () => handleSwitch("horizon"));
+    if (orbitSeg) orbitSeg.addEventListener("click", () => handleSwitch("orbit"));
 
     // 4. Initialize layout Switcher segments
     updateSwitcherUI();
