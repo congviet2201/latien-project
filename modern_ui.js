@@ -41,6 +41,7 @@
         <div class="switcher-segment" id="opt-layout-orbit" data-layout="orbit" title="Giao diện Orbit">Orbit</div>
         <div class="switcher-segment" id="opt-layout-prism" data-layout="prism" title="Giao diện Prism">Prism</div>
         <div class="switcher-segment" id="opt-layout-nexus" data-layout="nexus" title="Giao diện Nexus">Nexus</div>
+        <div class="switcher-segment" id="opt-layout-monarch" data-layout="monarch" title="Giao diện Monarch">Monarch</div>
         <div class="switcher-slider" id="switcher-slider"></div>
       </div>
     </div>
@@ -1831,6 +1832,241 @@
   `;
 
   // ==========================================
+  // OPTION 10: MONARCH LAYOUT TEMPLATES
+  // ==========================================
+  const monarchNavHTML = `
+    <div class="monarch-nav-container" id="monarch-nav-container">
+      <div class="monarch-nav-wrapper">
+        <div class="monarch-nav-dock">
+          <div class="monarch-nav-item" data-id="topview" data-pano-node="node1" data-action="overview-top">
+            <div class="monarch-nav-btn monarch-hover-sweep">
+              <span class="monarch-nav-label">Top View</span>
+            </div>
+          </div>
+          
+          <div class="monarch-nav-item has-popover" data-id="birdview">
+            <div class="monarch-nav-btn monarch-hover-sweep">
+              <span class="monarch-nav-label">Bird View</span>
+            </div>
+            <div class="monarch-popover">
+              <div class="monarch-popover-title">BIRD VIEW</div>
+              <div class="monarch-popover-items">
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="overview-bird1" data-pano-node="node2">Bird View 1</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="overview-bird2" data-pano-node="node3">Bird View 2</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="overview-bird3" data-pano-node="node4">Bird View 3</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="monarch-nav-item has-popover" data-id="amenities">
+            <div class="monarch-nav-btn monarch-hover-sweep">
+              <span class="monarch-nav-label">Amenities</span>
+            </div>
+            <div class="monarch-popover">
+              <div class="monarch-popover-title">AMENITIES</div>
+              <div class="monarch-popover-items">
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="amenity-clubhouse" data-pano-node="node1">Clubhouse</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="amenity-marina" data-pano-node="node1">Marina</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="amenity-sport" data-pano-node="node2">Sport Complex</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="amenity-park" data-pano-node="node3">Central Park</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="monarch-nav-item has-popover" data-id="architecture">
+            <div class="monarch-nav-btn monarch-hover-sweep">
+              <span class="monarch-nav-label">Architecture</span>
+            </div>
+            <div class="monarch-popover">
+              <div class="monarch-popover-title">ARCHITECTURE</div>
+              <div class="monarch-popover-items">
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="arch-layout" data-pano-node="node3">Master Plan</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="arch-semi" data-pano-node="node4">Semi-Detached</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="arch-detached" data-pano-node="node5">Detached Villa</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="monarch-nav-item" data-id="interior" data-action="interior-1">
+            <div class="monarch-nav-btn monarch-hover-sweep">
+              <span class="monarch-nav-label">Interior</span>
+            </div>
+          </div>
+          
+          <div class="monarch-nav-item" data-id="surrounding" data-action="region-page">
+            <div class="monarch-nav-btn monarch-hover-sweep">
+              <span class="monarch-nav-label">Liên kết vùng</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const monarchCommandPanelHTML = `
+    <div class="monarch-command-panel" id="monarch-command-panel">
+      <div class="monarch-command-list">
+        <div class="monarch-command-item monarch-hover-sweep" data-action="music">
+          <span class="monarch-command-label">Music</span>
+          <div class="monarch-command-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M9 18V5l12-2v13" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="16" r="3" />
+            </svg>
+          </div>
+        </div>
+        
+        <div class="monarch-command-item monarch-hover-sweep" data-action="images">
+          <span class="monarch-command-label">Images</span>
+          <div class="monarch-command-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+              <circle cx="9" cy="9" r="2" />
+            </svg>
+          </div>
+        </div>
+        
+        <div class="monarch-command-item monarch-hover-sweep" data-action="hotspots">
+          <span class="monarch-command-label">Hotspots</span>
+          <div class="monarch-command-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="m12 8-4 4 4 4 4-4-4-4Z" />
+            </svg>
+          </div>
+        </div>
+        
+        <div class="monarch-command-item monarch-hover-sweep" data-action="share">
+          <span class="monarch-command-label">Share</span>
+          <div class="monarch-command-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <circle cx="18" cy="5" r="3" />
+              <circle cx="6" cy="12" r="3" />
+              <circle cx="18" cy="19" r="3" />
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+            </svg>
+          </div>
+        </div>
+        
+        <div class="monarch-command-item monarch-hover-sweep" data-action="call">
+          <span class="monarch-command-label">Call Support</span>
+          <div class="monarch-command-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+          </div>
+        </div>
+        
+        <div class="monarch-command-item monarch-hover-sweep" data-action="info">
+          <span class="monarch-command-label">Information</span>
+          <div class="monarch-command-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+          </div>
+        </div>
+        
+        <div class="monarch-command-item monarch-hover-sweep" data-action="fullscreen">
+          <span class="monarch-command-label">Fullscreen</span>
+          <div class="monarch-command-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const monarchLayoutSelectorHTML = `
+    <div class="monarch-layout-selector" id="monarch-layout-selector">
+      <div class="monarch-selector-header">
+        <span>LAYOUT</span>
+      </div>
+      <div class="monarch-selector-grid">
+        <div class="monarch-selector-item monarch-hover-sweep" data-layout="classic">01</div>
+        <div class="monarch-selector-item monarch-hover-sweep" data-layout="futuristic">02</div>
+        <div class="monarch-selector-item monarch-hover-sweep" data-layout="neo">03</div>
+        <div class="monarch-selector-item monarch-hover-sweep" data-layout="gradient">04</div>
+        <div class="monarch-selector-item monarch-hover-sweep" data-layout="aurora">05</div>
+        <div class="monarch-selector-item monarch-hover-sweep" data-layout="horizon">06</div>
+        <div class="monarch-selector-item monarch-hover-sweep" data-layout="orbit">07</div>
+        <div class="monarch-selector-item monarch-hover-sweep" data-layout="prism">08</div>
+        <div class="monarch-selector-item monarch-hover-sweep" data-layout="nexus">09</div>
+        <div class="monarch-selector-item monarch-hover-sweep active" data-layout="monarch">10</div>
+      </div>
+    </div>
+  `;
+
+  const monarchCompassHTML = `
+    <div class="compass-widget monarch-compass" id="compass-widget">
+      <div class="compass-dial" id="compass-dial">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <!-- Outer bezel watch ring -->
+          <circle cx="50" cy="50" r="48" stroke="#C8A96B" stroke-width="1.5" fill="rgba(13,13,13,0.85)" />
+          <circle cx="50" cy="50" r="44" stroke="rgba(200, 169, 107, 0.3)" stroke-width="1" />
+          
+          <!-- Bezel markers -->
+          <line x1="50" y1="2" x2="50" y2="8" stroke="#C8A96B" stroke-width="1.5"/>
+          <line x1="50" y1="92" x2="50" y2="98" stroke="#C8A96B" stroke-width="1"/>
+          <line x1="2" y1="50" x2="8" y2="50" stroke="#C8A96B" stroke-width="1"/>
+          <line x1="92" y1="50" x2="98" y2="50" stroke="#C8A96B" stroke-width="1"/>
+          
+          <!-- Subdivisions (chronograph style) -->
+          <g stroke="rgba(228, 197, 144, 0.4)" stroke-width="0.5">
+            <line x1="50" y1="5" x2="50" y2="10" transform="rotate(30 50 50)" />
+            <line x1="50" y1="5" x2="50" y2="10" transform="rotate(60 50 50)" />
+            <line x1="50" y1="5" x2="50" y2="10" transform="rotate(120 50 50)" />
+            <line x1="50" y1="5" x2="50" y2="10" transform="rotate(150 50 50)" />
+            <line x1="50" y1="5" x2="50" y2="10" transform="rotate(210 50 50)" />
+            <line x1="50" y1="5" x2="50" y2="10" transform="rotate(240 50 50)" />
+            <line x1="50" y1="5" x2="50" y2="10" transform="rotate(300 50 50)" />
+            <line x1="50" y1="5" x2="50" y2="10" transform="rotate(330 50 50)" />
+          </g>
+          
+          <!-- Watch needle -->
+          <g>
+            <polygon points="50,12 53,50 50,47 47,50" fill="#E4C590" />
+            <polygon points="50,88 53,50 50,53 47,50" fill="rgba(255, 255, 255, 0.25)" />
+            <circle cx="50" cy="50" r="3" fill="#C8A96B" />
+          </g>
+        </svg>
+      </div>
+      <div class="compass-cardinal monarch-n">N</div>
+      <div class="compass-degree-display" id="compass-degree">0°</div>
+    </div>
+  `;
+
+  const monarchMinimapHTML = `
+    <div class="minimap-widget monarch-minimap collapsed" id="minimap-widget">
+      <div class="minimap-header" id="minimap-toggle-btn">
+        <svg viewBox="0 0 24 24" fill="none" width="14" height="14">
+          <path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M9 3v15M15 6v15" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span class="minimap-label">BLUEPRINT MAP</span>
+        <svg class="minimap-chevron" viewBox="0 0 24 24" fill="none" width="12" height="12">
+          <path d="M18 15l-6-6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="minimap-body" id="minimap-body">
+        <div class="minimap-canvas" id="minimap-canvas">
+          <img src="pano_aerial.png" alt="Bản đồ dự án" class="minimap-img" id="minimap-img">
+          <!-- Current viewpoint cone indicator -->
+          <div class="minimap-viewcone" id="minimap-viewcone"></div>
+          <!-- Current position dot -->
+          <div class="minimap-dot" id="minimap-dot"></div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // ==========================================
   // SHARED WIDGET TEMPLATES (both layouts)
   // ==========================================
 
@@ -2098,6 +2334,7 @@
     const orbitSeg = document.getElementById("opt-layout-orbit");
     const prismSeg = document.getElementById("opt-layout-prism");
     const nexusSeg = document.getElementById("opt-layout-nexus");
+    const monarchSeg = document.getElementById("opt-layout-monarch");
     const slider = document.getElementById("switcher-slider");
     if (!classicSeg || !futuristicSeg || !neoSeg || !gradientSeg || !auroraSeg || !horizonSeg || !orbitSeg || !prismSeg || !nexusSeg || !slider) return;
 
@@ -2112,6 +2349,7 @@
       else if (layoutMode === "orbit") activeSeg = orbitSeg;
       else if (layoutMode === "prism" && prismSeg) activeSeg = prismSeg;
       else if (layoutMode === "nexus" && nexusSeg) activeSeg = nexusSeg;
+      else if (layoutMode === "monarch" && monarchSeg) activeSeg = monarchSeg;
       
       classicSeg.classList.toggle("active", layoutMode === "classic");
       futuristicSeg.classList.toggle("active", layoutMode === "futuristic");
@@ -2122,6 +2360,7 @@
       orbitSeg.classList.toggle("active", layoutMode === "orbit");
       if (prismSeg) prismSeg.classList.toggle("active", layoutMode === "prism");
       if (nexusSeg) nexusSeg.classList.toggle("active", layoutMode === "nexus");
+      if (monarchSeg) monarchSeg.classList.toggle("active", layoutMode === "monarch");
 
       slider.style.width = `${activeSeg.offsetWidth}px`;
       slider.style.left  = `${activeSeg.offsetLeft}px`;
@@ -2154,7 +2393,7 @@
   }
 
   // Inject structural templates and initialize event listeners for layout
-  function injectLayoutComponents() {
+  function injectLayoutComponents(handleSwitch) {
     const uiWrapper = document.querySelector(".modern-ui-overlay");
     if (!uiWrapper) return;
 
@@ -2236,18 +2475,30 @@
         uiWrapper.appendChild(tempDiv.firstChild);
       }
       setupNexusListeners();
+    } else if (layoutMode === "monarch") {
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = monarchNavHTML + monarchCommandPanelHTML + monarchLayoutSelectorHTML;
+      while (tempDiv.firstChild) {
+        uiWrapper.appendChild(tempDiv.firstChild);
+      }
+      setupMonarchListeners(handleSwitch);
     }
 
-    // Inject Minimap (shared HTML, styled differently in CSS)
-    let minimapEl = document.getElementById("minimap-widget");
-    if (!minimapEl) {
-      const mapDiv = document.createElement("div");
-      mapDiv.innerHTML = minimapWidgetHTML;
-      document.body.appendChild(mapDiv.firstElementChild);
-      setupMinimapListeners();
-      minimapEl = document.getElementById("minimap-widget");
+    // Inject Minimap
+    const oldMinimap = document.getElementById("minimap-widget");
+    if (oldMinimap) {
+      oldMinimap.remove();
     }
-    if (minimapEl && (layoutMode === "orbit" || layoutMode === "prism" || layoutMode === "nexus")) {
+    const mapDiv = document.createElement("div");
+    if (layoutMode === "monarch") {
+      mapDiv.innerHTML = monarchMinimapHTML;
+    } else {
+      mapDiv.innerHTML = minimapWidgetHTML;
+    }
+    document.body.appendChild(mapDiv.firstElementChild);
+    setupMinimapListeners();
+    let minimapEl = document.getElementById("minimap-widget");
+    if (minimapEl && (layoutMode === "orbit" || layoutMode === "prism" || layoutMode === "nexus" || layoutMode === "monarch")) {
       minimapEl.classList.remove("collapsed");
     }
 
@@ -2269,6 +2520,8 @@
       compassDiv.innerHTML = prismCompassHTML;
     } else if (layoutMode === "nexus") {
       compassDiv.innerHTML = nexusCompassHTML;
+    } else if (layoutMode === "monarch") {
+      compassDiv.innerHTML = monarchCompassHTML;
     } else {
       compassDiv.innerHTML = compassWidgetHTML;
     }
@@ -2281,7 +2534,7 @@
   // Restore navigation and submenu highlight states on rebuild
   function restoreActiveStates() {
     // 1. Restore main nav highlights
-    const navItems = document.querySelectorAll(".nav-item, .aurora-nav-item, .horizon-nav-item, .orbit-nav-item, .prism-nav-item, .nexus-nav-item");
+    const navItems = document.querySelectorAll(".nav-item, .aurora-nav-item, .horizon-nav-item, .orbit-nav-item, .prism-nav-item, .nexus-nav-item, .monarch-nav-item");
     let activeNavItem = null;
     navItems.forEach(item => {
       if (item.getAttribute("data-id") === activeNavItemId) {
@@ -2293,7 +2546,7 @@
     });
 
     // 2. Restore submenu active highlight — use unique data-action only
-    const subItems = document.querySelectorAll(".submenu-item, .mega-card, .aurora-submenu-item, .horizon-submenu-item, .orbit-submenu-item, .prism-submenu-item, .nexus-submenu-item");
+    const subItems = document.querySelectorAll(".submenu-item, .mega-card, .aurora-submenu-item, .horizon-submenu-item, .orbit-submenu-item, .prism-submenu-item, .nexus-submenu-item, .monarch-popover-item");
     subItems.forEach(sub => {
       const action = sub.getAttribute("data-action");
       if (action && action === activeSubmenuAction) {
@@ -3438,6 +3691,106 @@
   }
 
   // ==========================================
+  // MONARCH LAYOUT LISTENERS
+  // ==========================================
+  function setupMonarchListeners(handleSwitch) {
+    const navItems = document.querySelectorAll(".layout-monarch .monarch-nav-item");
+    const popoverItems = document.querySelectorAll(".layout-monarch .monarch-popover-item");
+    const toolItems = document.querySelectorAll(".layout-monarch .monarch-command-item");
+    const selectorItems = document.querySelectorAll(".layout-monarch .monarch-selector-item");
+
+    // 1. Navigation dock items click handler
+    navItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        // If user clicked inside the popover itself, handle selection instead
+        if (e.target.closest(".monarch-popover")) {
+          return;
+        }
+
+        const popover = this.querySelector(".monarch-popover");
+        if (popover) {
+          e.stopPropagation();
+          const wasOpen = popover.classList.contains("open");
+          
+          // Close all popovers first
+          document.querySelectorAll(".layout-monarch .monarch-popover").forEach(p => p.classList.remove("open"));
+          
+          if (!wasOpen) {
+            popover.classList.add("open");
+          }
+          return;
+        }
+
+        // Otherwise (Top View, Interior, Liên kết vùng)
+        // Close all popovers
+        document.querySelectorAll(".layout-monarch .monarch-popover").forEach(p => p.classList.remove("open"));
+        
+        navItems.forEach(n => n.classList.remove("active"));
+        popoverItems.forEach(p => p.classList.remove("active"));
+        this.classList.add("active");
+        activeNavItemId = this.getAttribute("data-id");
+        lsSet("latien_active_nav", activeNavItemId);
+        routeNavigation(this);
+      });
+    });
+
+    // 2. Popover item click handler
+    popoverItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation();
+        popoverItems.forEach(p => p.classList.remove("active"));
+        this.classList.add("active");
+
+        // Close all popovers
+        document.querySelectorAll(".layout-monarch .monarch-popover").forEach(p => p.classList.remove("open"));
+
+        // Highlight parent nav item
+        const parentNav = this.closest(".monarch-nav-item");
+        if (parentNav) {
+          navItems.forEach(n => n.classList.remove("active"));
+          parentNav.classList.add("active");
+          activeNavItemId = parentNav.getAttribute("data-id");
+          lsSet("latien_active_nav", activeNavItemId);
+        }
+
+        activeSubmenuAction = this.getAttribute("data-action");
+        activePanoNode = this.getAttribute("data-pano-node") || activePanoNode;
+        lsSet("latien_active_submenu", activeSubmenuAction);
+        lsSet("latien_active_node", activePanoNode);
+        
+        routeNavigation(this);
+      });
+    });
+
+    // 3. Command panel items click handler
+    toolItems.forEach(tool => {
+      tool.addEventListener("click", function(e) {
+        e.stopPropagation();
+        const isPinned = this.classList.contains("pinned");
+        toolItems.forEach(t => t.classList.remove("pinned"));
+        if (!isPinned) this.classList.add("pinned");
+        dispatchToolAction(this);
+      });
+    });
+
+    // 4. Layout selector items click handler
+    selectorItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation();
+        const layoutTarget = this.getAttribute("data-layout");
+        handleSwitch(layoutTarget);
+      });
+    });
+
+    // 5. Close popovers when clicking anywhere else
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".monarch-nav-item")) {
+        document.querySelectorAll(".layout-monarch .monarch-popover").forEach(p => p.classList.remove("open"));
+      }
+    });
+  }
+
+  // ==========================================
   // TOOLBAR ACTION DISPATCHER
   // ==========================================
 
@@ -3791,7 +4144,7 @@
     document.body.appendChild(uiWrapper);
 
     // Sync top-level body classes
-    document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit", "layout-prism", "layout-nexus");
+    document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit", "layout-prism", "layout-nexus", "layout-monarch");
     document.body.classList.add(`layout-${layoutMode}`);
 
 
@@ -3910,20 +4263,6 @@
       setupRegionPageListeners();
     }
 
-    // 2. Inject components for active layout mode
-    injectLayoutComponents();
-
-     // 3. Setup Layout Switcher listeners
-    const classicSeg = document.getElementById("opt-layout-classic");
-    const futuristicSeg = document.getElementById("opt-layout-futuristic");
-    const neoSeg = document.getElementById("opt-layout-neo");
-    const gradientSeg = document.getElementById("opt-layout-gradient");
-    const auroraSeg = document.getElementById("opt-layout-aurora");
-    const horizonSeg = document.getElementById("opt-layout-horizon");
-    const orbitSeg = document.getElementById("opt-layout-orbit");
-    const prismSeg = document.getElementById("opt-layout-prism");
-    const nexusSeg = document.getElementById("opt-layout-nexus");
-
     const handleSwitch = (newLayout) => {
       if (layoutMode === newLayout) return;
 
@@ -3931,12 +4270,12 @@
       uiWrapper.classList.add("switching");
 
       // 2. Record current active selections
-      const activeNav = document.querySelector(".nav-item.active, .aurora-nav-item.active, .horizon-nav-item.active, .orbit-nav-item.active, .prism-nav-item.active, .nexus-nav-item.active");
+      const activeNav = document.querySelector(".nav-item.active, .aurora-nav-item.active, .horizon-nav-item.active, .orbit-nav-item.active, .prism-nav-item.active, .nexus-nav-item.active, .monarch-nav-item.active");
       if (activeNav) {
         activeNavItemId = activeNav.getAttribute("data-id");
         lsSet("latien_active_nav", activeNavItemId);
       }
-      const activeSub = document.querySelector(".submenu-item.active, .mega-card.active, .aurora-submenu-item.active, .horizon-submenu-item.active, .orbit-submenu-item.active, .prism-submenu-item.active, .nexus-submenu-item.active");
+      const activeSub = document.querySelector(".submenu-item.active, .mega-card.active, .aurora-submenu-item.active, .horizon-submenu-item.active, .orbit-submenu-item.active, .prism-submenu-item.active, .nexus-submenu-item.active, .monarch-popover-item.active");
       if (activeSub) {
         activeSubmenuAction = activeSub.getAttribute("data-action") || activeSubmenuAction;
         activePanoNode = activeSub.getAttribute("data-pano-node") || activePanoNode;
@@ -3950,14 +4289,14 @@
         lsSet("latien_layout_mode", layoutMode);
 
         // Update body layout class namespaces
-        document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit", "layout-prism", "layout-nexus");
+        document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit", "layout-prism", "layout-nexus", "layout-monarch");
         document.body.classList.add(`layout-${layoutMode}`);
 
         // Update container class namespaces
         uiWrapper.className = `modern-ui-overlay layout-${layoutMode}`;
 
         // Re-inject layout structures and bind events
-        injectLayoutComponents();
+        injectLayoutComponents(handleSwitch);
 
         // Slide the switcher segments
         updateSwitcherUI();
@@ -3976,10 +4315,26 @@
         else if (layoutMode === "orbit") notifMsg = "Đã chuyển sang Giao diện Orbit";
         else if (layoutMode === "prism") notifMsg = "Đã chuyển sang Giao diện Prism";
         else if (layoutMode === "nexus") notifMsg = "Đã chuyển sang Giao diện Nexus";
+        else if (layoutMode === "monarch") notifMsg = "Đã chuyển sang Giao diện Monarch";
         showNotification(notifMsg);
 
       }, 300);
     };
+
+    // 2. Inject components for active layout mode
+    injectLayoutComponents(handleSwitch);
+
+     // 3. Setup Layout Switcher listeners
+    const classicSeg = document.getElementById("opt-layout-classic");
+    const futuristicSeg = document.getElementById("opt-layout-futuristic");
+    const neoSeg = document.getElementById("opt-layout-neo");
+    const gradientSeg = document.getElementById("opt-layout-gradient");
+    const auroraSeg = document.getElementById("opt-layout-aurora");
+    const horizonSeg = document.getElementById("opt-layout-horizon");
+    const orbitSeg = document.getElementById("opt-layout-orbit");
+    const prismSeg = document.getElementById("opt-layout-prism");
+    const nexusSeg = document.getElementById("opt-layout-nexus");
+    const monarchSeg = document.getElementById("opt-layout-monarch");
 
     if (classicSeg) classicSeg.addEventListener("click", () => handleSwitch("classic"));
     if (futuristicSeg) futuristicSeg.addEventListener("click", () => handleSwitch("futuristic"));
@@ -3990,6 +4345,7 @@
     if (orbitSeg) orbitSeg.addEventListener("click", () => handleSwitch("orbit"));
     if (prismSeg) prismSeg.addEventListener("click", () => handleSwitch("prism"));
     if (nexusSeg) nexusSeg.addEventListener("click", () => handleSwitch("nexus"));
+    if (monarchSeg) monarchSeg.addEventListener("click", () => handleSwitch("monarch"));
 
     // 4. Initialize layout Switcher segments
     updateSwitcherUI();

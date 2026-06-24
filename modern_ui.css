@@ -1,6 +1,6 @@
 /* modern_ui.css - Combined Dual-Layout Stylesheet (Classic & Futuristic) */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Sora:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Sora:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;700&display=swap');
 
 
 :root {
@@ -7888,14 +7888,17 @@ body.region-mode-active #container {
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.layout-orbit .orbit-nav-item:hover {
+.layout-orbit .orbit-nav-item:hover,
+.layout-orbit .orbit-nav-item-wrapper:hover .orbit-nav-item {
   border-color: var(--orbit-cyan);
   box-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
 }
-.layout-orbit .orbit-nav-item:hover svg {
+.layout-orbit .orbit-nav-item:hover svg,
+.layout-orbit .orbit-nav-item-wrapper:hover .orbit-nav-item svg {
   color: #fff;
 }
-.layout-orbit .orbit-nav-item:hover .orbit-nav-label {
+.layout-orbit .orbit-nav-item:hover .orbit-nav-label,
+.layout-orbit .orbit-nav-item-wrapper:hover .orbit-nav-item .orbit-nav-label {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) scale(1);
@@ -7967,10 +7970,10 @@ body.region-mode-active #container {
 }
 
 .layout-orbit .orbit-submenu.open .orbit-submenu-item:hover {
-  border-color: var(--orbit-orange);
+  border-color: var(--orbit-cyan);
   color: #fff;
   transform: translate(-50%, -50%) translate(var(--sub-tx, 0px), var(--sub-ty, 0px)) scale(1.1) !important;
-  box-shadow: 0 0 10px rgba(255, 154, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
 }
 
 .layout-orbit .orbit-submenu-item.active {
@@ -9180,6 +9183,25 @@ body.layout-prism .back-to-360-btn:hover {
   box-shadow: 0 4px 16px rgba(124,58,237,0.25) !important;
 }
 
+body.layout-prism .region-sidebar {
+  background: rgba(17, 24, 39, 0.92) !important;
+  backdrop-filter: blur(30px) !important;
+  -webkit-backdrop-filter: blur(30px) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.layout-prism .region-sidebar .sidebar-header h3 {
+  color: #fff !important;
+  font-family: var(--prism-font-h, 'Space Grotesk', sans-serif) !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+  background: linear-gradient(135deg, var(--prism-coral), var(--prism-purple)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
 body.layout-prism .region-menu-item {
   background: rgba(31, 41, 55, 0.9) !important;
   border: 1px solid var(--prism-border, rgba(255,255,255,0.07)) !important;
@@ -9201,6 +9223,98 @@ body.layout-prism .region-menu-item.active {
   color: #fff !important;
   font-weight: 700 !important;
   box-shadow: 0 4px 16px rgba(124,58,237,0.2) !important;
+}
+
+/* Interior Page switcher overrides */
+body.layout-prism .interior-switcher-container {
+  background: rgba(31, 41, 55, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  padding: 4px !important;
+}
+
+body.layout-prism .interior-switch-btn {
+  color: var(--prism-muted) !important;
+  font-family: var(--prism-font, 'Plus Jakarta Sans', sans-serif) !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+body.layout-prism .interior-switch-btn:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+body.layout-prism .interior-switch-btn.active {
+  background: linear-gradient(135deg, var(--prism-coral) 0%, var(--prism-purple) 100%) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4) !important;
+}
+
+/* Region Map container overrides */
+body.layout-prism .region-map-container {
+  background: #0d0f14 !important;
+}
+
+body.layout-prism .region-map-wrapper {
+  border: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+  border-radius: 16px !important;
+}
+
+/* Map Pins */
+body.layout-prism .pin-dot {
+  background: var(--prism-bg) !important;
+  border: 2px solid var(--prism-coral) !important;
+  box-shadow: 0 0 12px var(--prism-coral) !important;
+  color: #fff !important;
+  transition: all 0.3s ease !important;
+}
+
+body.layout-prism .pin-pulse {
+  background: rgba(255, 107, 107, 0.25) !important;
+  animation: prism-pinPulse 2s infinite ease-out !important;
+}
+
+@keyframes prism-pinPulse {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+}
+
+body.layout-prism .map-pin:hover .pin-dot {
+  border-color: var(--prism-purple) !important;
+  box-shadow: 0 0 20px var(--prism-purple) !important;
+  transform: scale(1.15) !important;
+}
+
+body.layout-prism .map-pin:hover .pin-pulse {
+  background: rgba(124, 58, 237, 0.35) !important;
+}
+
+body.layout-prism .map-pin.active .pin-dot {
+  border-color: var(--prism-emerald) !important;
+  box-shadow: 0 0 25px var(--prism-emerald) !important;
+}
+
+body.layout-prism .map-pin.active .pin-pulse {
+  background: rgba(16, 185, 129, 0.4) !important;
+}
+
+body.layout-prism .pin-label {
+  background: rgba(31, 41, 55, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #fff !important;
+  font-family: var(--prism-font, 'Plus Jakarta Sans', sans-serif) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 8px !important;
 }
 
 /* ================================================
@@ -9812,6 +9926,23 @@ body.layout-nexus .back-to-360-btn:hover {
   transform: scale(1.02) !important;
 }
 
+body.layout-nexus .region-sidebar {
+  background: rgba(23, 25, 35, 0.95) !important;
+  border-right: 1px solid var(--nexus-border) !important;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5) !important;
+  font-family: var(--nexus-font) !important;
+}
+
+body.layout-nexus .region-sidebar .sidebar-header h3 {
+  font-family: var(--nexus-font-h, 'Sora', sans-serif) !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+  background: linear-gradient(135deg, var(--nexus-sky), var(--nexus-mint)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
 body.layout-nexus .region-menu-item {
   background: rgba(23, 25, 35, 0.9) !important;
   border: 1px solid var(--nexus-border) !important;
@@ -9836,6 +9967,98 @@ body.layout-nexus .region-menu-item.active {
   box-shadow: 0 4px 16px rgba(56,189,248,0.2) !important;
 }
 
+/* Interior switcher overrides */
+body.layout-nexus .interior-switcher-container {
+  background: rgba(23, 25, 35, 0.9) !important;
+  border: 1px solid var(--nexus-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  padding: 4px !important;
+}
+
+body.layout-nexus .interior-switch-btn {
+  color: var(--nexus-muted) !important;
+  font-family: var(--nexus-font) !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+body.layout-nexus .interior-switch-btn:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+body.layout-nexus .interior-switch-btn.active {
+  background: linear-gradient(135deg, rgba(94,234,212,0.15), rgba(56,189,248,0.2)) !important;
+  border: 1px solid rgba(56,189,248,0.4) !important;
+  color: var(--nexus-mint) !important;
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.25) !important;
+}
+
+/* Region Map container overrides */
+body.layout-nexus .region-map-container {
+  background: #0a0b0e !important;
+}
+
+body.layout-nexus .region-map-wrapper {
+  border: 1px solid var(--nexus-border) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+  border-radius: 12px !important;
+}
+
+/* Map Pins */
+body.layout-nexus .pin-dot {
+  background: var(--nexus-panel) !important;
+  border: 2px solid var(--nexus-mint) !important;
+  box-shadow: 0 0 12px rgba(94, 234, 212, 0.4) !important;
+  color: #fff !important;
+  transition: all 0.3s ease !important;
+  border-radius: 8px !important;
+}
+
+body.layout-nexus .pin-pulse {
+  background: rgba(94, 234, 212, 0.2) !important;
+  animation: nexus-pinPulse 2s infinite ease-out !important;
+  border-radius: 8px !important;
+}
+
+@keyframes nexus-pinPulse {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+}
+
+body.layout-nexus .map-pin:hover .pin-dot {
+  border-color: var(--nexus-sky) !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.6) !important;
+  transform: scale(1.15) !important;
+}
+
+body.layout-nexus .map-pin:hover .pin-pulse {
+  background: rgba(56, 189, 248, 0.3) !important;
+}
+
+body.layout-nexus .map-pin.active .pin-dot {
+  border-color: var(--nexus-lavender) !important;
+  box-shadow: 0 0 25px rgba(167, 139, 250, 0.6) !important;
+}
+
+body.layout-nexus .map-pin.active .pin-pulse {
+  background: rgba(167, 139, 250, 0.35) !important;
+}
+
+body.layout-nexus .pin-label {
+  background: var(--nexus-panel) !important;
+  border: 1px solid var(--nexus-border) !important;
+  border-radius: 6px !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: var(--nexus-text) !important;
+  font-family: var(--nexus-font) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
 
 /* ---------- 10. MODALS — Nexus Overrides ---------- */
 body.layout-nexus .global-modal-content {
@@ -9856,6 +10079,842 @@ body.layout-nexus .modal-header h2 {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
+}
+
+/* =========================================================
+   11. GIAO DIỆN MONARCH (LAYOUT #10) - PREMIUM SHOWROOM
+   ========================================================= */
+
+/* Typography & Root variables override for Monarch */
+.layout-monarch {
+  --monarch-bg: #0D0D0D;
+  --monarch-secondary: #151515;
+  --monarch-gold: #C8A96B;
+  --monarch-champagne: #E4C590;
+  --monarch-accent: #D4AF37;
+  --monarch-white: #FFFFFF;
+  --monarch-font-h: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --monarch-font-b: 'DM Sans', 'Inter', sans-serif;
+}
+
+body.layout-monarch {
+  background-color: var(--monarch-bg) !important;
+  font-family: var(--monarch-font-b) !important;
+}
+
+/* Hide default layout switcher wrapper when Monarch is active */
+body.layout-monarch #layout-switcher-wrapper {
+  display: none !important;
+}
+
+/* -------------------------------------------------------
+   LUXURY LIGHT SWEEP ANIMATION
+   ------------------------------------------------------- */
+.monarch-hover-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.monarch-hover-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(228, 197, 144, 0) 30%,
+    rgba(228, 197, 144, 0.2) 50%,
+    rgba(228, 197, 144, 0) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+  transition: none;
+}
+
+.monarch-hover-sweep:hover::after {
+  left: 150%;
+  transition: left 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* -------------------------------------------------------
+   BOTTOM NAVIGATION DOCK
+   ------------------------------------------------------- */
+.layout-monarch .monarch-nav-container {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  pointer-events: auto;
+  overflow: visible !important;
+}
+
+.layout-monarch .monarch-nav-dock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  background: rgba(21, 21, 21, 0.75);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(200, 169, 107, 0.35);
+  border-radius: 30px;
+  padding: 8px 24px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(228, 197, 144, 0.05);
+  overflow: visible !important;
+}
+
+.layout-monarch .monarch-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible !important;
+}
+
+.layout-monarch .monarch-nav-btn {
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-family: var(--monarch-font-h);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.layout-monarch .monarch-nav-btn:hover {
+  color: var(--monarch-champagne);
+  background: rgba(200, 169, 107, 0.08);
+}
+
+.layout-monarch .monarch-nav-item.active .monarch-nav-btn {
+  color: var(--monarch-champagne);
+  border: 1px solid rgba(200, 169, 107, 0.6);
+  background: rgba(21, 21, 21, 0.9);
+  box-shadow: 0 4px 15px rgba(228, 197, 144, 0.15);
+}
+
+/* Popover details */
+.layout-monarch .monarch-popover {
+  position: absolute;
+  bottom: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(13, 13, 13, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(200, 169, 107, 0.45);
+  border-radius: 0; /* Premium structural look */
+  padding: 14px 0;
+  min-width: 180px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.layout-monarch .monarch-nav-item:hover .monarch-popover,
+.layout-monarch .monarch-popover.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Triangle indicator with gold border */
+.layout-monarch .monarch-popover::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: rgba(13, 13, 13, 0.95) transparent transparent transparent;
+}
+
+.layout-monarch .monarch-popover::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 9px;
+  border-style: solid;
+  border-color: rgba(200, 169, 107, 0.45) transparent transparent transparent;
+  z-index: -1;
+}
+
+.layout-monarch .monarch-popover-title {
+  font-family: var(--monarch-font-h);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  color: var(--monarch-gold);
+  border-bottom: 1px solid rgba(200, 169, 107, 0.25);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.layout-monarch .monarch-popover-item {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: var(--monarch-font-b);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.layout-monarch .monarch-popover-item:hover {
+  color: var(--monarch-champagne);
+  background: rgba(200, 169, 107, 0.1);
+}
+
+.layout-monarch .monarch-popover-item.active {
+  color: var(--monarch-champagne);
+  font-weight: 700;
+  background: rgba(200, 169, 107, 0.15);
+  box-shadow: inset 0 0 5px rgba(228, 197, 144, 0.1);
+}
+
+/* -------------------------------------------------------
+   TOP LEFT COMMAND PANEL
+   ------------------------------------------------------- */
+.layout-monarch .monarch-command-panel {
+  position: fixed;
+  top: 180px;
+  right: 40px;
+  left: auto;
+  z-index: 2000;
+  pointer-events: auto;
+}
+
+.layout-monarch .monarch-command-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(21, 21, 21, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(200, 169, 107, 0.35);
+  padding: 14px 10px;
+  border-radius: 0; /* Architectural block look */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.layout-monarch .monarch-command-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+  cursor: pointer;
+  padding: 8px;
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: visible;
+}
+
+.layout-monarch .monarch-command-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout-monarch .monarch-command-icon svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.layout-monarch .monarch-command-label {
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+  white-space: nowrap;
+  font-family: var(--monarch-font-b);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--monarch-champagne);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(5px);
+}
+
+/* Hover triggers expansion and label reveal */
+.layout-monarch .monarch-command-item:hover {
+  color: var(--monarch-champagne);
+  background: rgba(200, 169, 107, 0.08);
+}
+
+.layout-monarch .monarch-command-item:hover .monarch-command-label {
+  width: 110px;
+  opacity: 1;
+  visibility: visible;
+  margin-right: 12px;
+  margin-left: 0;
+  transform: translateX(0);
+}
+
+.layout-monarch .monarch-command-item.active-tool,
+.layout-monarch .monarch-command-item.pinned {
+  color: var(--monarch-gold) !important;
+  border-right: 2px solid var(--monarch-accent) !important;
+  border-left: none !important;
+  background: rgba(200, 169, 107, 0.15) !important;
+  box-shadow: inset 0 0 10px rgba(228, 197, 144, 0.15) !important;
+}
+
+.layout-monarch .monarch-command-item.active-tool .monarch-command-icon svg,
+.layout-monarch .monarch-command-item.pinned .monarch-command-icon svg {
+  stroke: var(--monarch-accent) !important;
+  filter: drop-shadow(0 0 4px var(--monarch-accent)) !important;
+  transform: scale(1.05);
+}
+
+/* -------------------------------------------------------
+   TOP RIGHT LAYOUT SELECTOR
+   ------------------------------------------------------- */
+.layout-monarch .monarch-layout-selector {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  z-index: 2000;
+  background: rgba(21, 21, 21, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(200, 169, 107, 0.3);
+  padding: 12px 14px;
+  border-radius: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  min-width: 140px;
+}
+
+.layout-monarch .monarch-selector-header {
+  font-family: var(--monarch-font-h);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--monarch-gold);
+  border-bottom: 1px solid rgba(200, 169, 107, 0.25);
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.layout-monarch .monarch-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.layout-monarch .monarch-selector-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--monarch-font-b);
+  font-size: 10px;
+  font-weight: 500;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.layout-monarch .monarch-selector-item:hover {
+  color: var(--monarch-champagne);
+  background: rgba(200, 169, 107, 0.1);
+  border-color: rgba(228, 197, 144, 0.25);
+}
+
+.layout-monarch .monarch-selector-item.active {
+  color: var(--monarch-champagne);
+  border-color: var(--monarch-gold);
+  background: rgba(21, 21, 21, 0.95);
+  font-weight: 700;
+  box-shadow: 0 0 6px rgba(228, 197, 144, 0.25);
+}
+
+/* -------------------------------------------------------
+   COMPASS
+   ------------------------------------------------------- */
+body.layout-monarch .compass-widget {
+  bottom: 40px;
+  left: 40px;
+  width: 76px;
+  height: 76px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+body.layout-monarch .compass-dial {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body.layout-monarch .compass-cardinal {
+  font-family: var(--monarch-font-h) !important;
+  color: var(--monarch-champagne) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  top: 6px !important;
+}
+
+body.layout-monarch .compass-degree-display {
+  display: none !important;
+}
+
+/* -------------------------------------------------------
+   MINIMAP
+   ------------------------------------------------------- */
+body.layout-monarch .minimap-widget {
+  bottom: 40px;
+  right: 40px;
+  width: 260px; /* Wide design */
+  background: rgba(21, 21, 21, 0.8) !important;
+  border: 1px solid rgba(200, 169, 107, 0.35) !important;
+  border-radius: 0 !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
+  overflow: hidden;
+}
+
+body.layout-monarch .minimap-header {
+  background: rgba(13, 13, 13, 0.9) !important;
+  border-bottom: 1px solid rgba(200, 169, 107, 0.25) !important;
+  color: var(--monarch-champagne) !important;
+  font-family: var(--monarch-font-h) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px !important;
+  padding: 10px 14px !important;
+}
+
+body.layout-monarch .minimap-body {
+  padding: 8px !important;
+  background: transparent !important;
+}
+
+body.layout-monarch .minimap-canvas {
+  height: 120px !important;
+  border: 1px solid rgba(200, 169, 107, 0.15) !important;
+  background: #000000 !important;
+}
+
+/* Filter to turn aerial image into golden CAD blueprint */
+body.layout-monarch .minimap-img {
+  filter: invert(1) brightness(0.35) contrast(1.6) sepia(1) hue-rotate(5deg) saturate(1.8) !important;
+  opacity: 0.6 !important;
+}
+
+body.layout-monarch .minimap-dot {
+  background: var(--monarch-champagne) !important;
+  border: 1.5px solid var(--monarch-gold) !important;
+  box-shadow: 0 0 10px var(--monarch-gold) !important;
+}
+
+body.layout-monarch .minimap-viewcone {
+  border-left: 2px dashed rgba(228, 197, 144, 0.45) !important;
+  border-right: 2px dashed rgba(228, 197, 144, 0.45) !important;
+  background: radial-gradient(circle at top, rgba(228, 197, 144, 0.12) 0%, transparent 65%) !important;
+}
+
+body.layout-monarch .minimap-legend {
+  display: none !important; /* Keep it minimal */
+}
+
+/* -------------------------------------------------------
+   HOTSPOT JEWEL MARKER DESIGN
+   ------------------------------------------------------- */
+body.layout-monarch .hologram-marker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+body.layout-monarch .hologram-marker-container .hotspot-hitbox {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+body.layout-monarch .hologram-marker-container .hotspot-marker {
+  width: 12px;
+  height: 12px;
+  background: var(--monarch-gold) !important;
+  transform: rotate(45deg);
+  border: 1.5px solid #FFFFFF !important;
+  box-shadow: 0 0 10px rgba(200, 169, 107, 0.6), inset 0 0 3px rgba(255,255,255,0.7);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative;
+  animation: none !important;
+}
+
+/* Reflection inside crystal */
+body.layout-monarch .hologram-marker-container .hotspot-marker::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%);
+  pointer-events: none;
+}
+
+body.layout-monarch .hologram-marker-container .hotspot-label {
+  position: absolute;
+  top: calc(100% + 10px);
+  background: rgba(13, 13, 13, 0.95) !important;
+  color: var(--monarch-champagne) !important;
+  border: 1px solid rgba(200, 169, 107, 0.5) !important;
+  padding: 6px 12px !important;
+  font-family: var(--monarch-font-b) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6) !important;
+  border-radius: 0 !important;
+}
+
+body.layout-monarch .hologram-marker-container:hover .hotspot-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.layout-monarch .hologram-marker-container:hover .hotspot-marker {
+  transform: rotate(45deg) scale(1.2);
+  border-color: var(--monarch-champagne) !important;
+  box-shadow: 0 0 15px rgba(228, 197, 144, 0.8), inset 0 0 5px rgba(255,255,255,1);
+}
+
+body.layout-monarch .hologram-marker-container.active .hotspot-marker {
+  background: var(--monarch-champagne) !important;
+  border: 1.5px solid var(--monarch-accent) !important;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.95), inset 0 0 6px rgba(255,255,255,1) !important;
+}
+
+/* -------------------------------------------------------
+   CUSTOM PAGES OVERRIDES (INTERIOR & REGION PAGES)
+   ------------------------------------------------------- */
+
+/* Interior Page Overlay */
+body.layout-monarch.interior-mode-active #interior-page {
+  display: block;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(13, 13, 13, 0.1) 0%, rgba(13, 13, 13, 0.9) 100%) !important;
+  animation: monarchCrossfade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes monarchCrossfade {
+  from { opacity: 0; background-color: #0D0D0D; }
+  to { opacity: 1; }
+}
+
+.layout-monarch #interior-page .interior-switcher-container {
+  background: rgba(21, 21, 21, 0.8);
+  border: 1px solid rgba(200, 169, 107, 0.45);
+  border-radius: 0;
+  padding: 8px 18px;
+  gap: 16px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+}
+
+.layout-monarch #interior-page .interior-switch-btn {
+  font-family: var(--monarch-font-h);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  border-bottom: 2px solid transparent;
+  transition: all 0.35s ease;
+  border-radius: 0;
+  padding: 6px 12px;
+}
+
+.layout-monarch #interior-page .interior-switch-btn:hover {
+  color: var(--monarch-champagne);
+}
+
+.layout-monarch #interior-page .interior-switch-btn.active {
+  background: transparent;
+  color: var(--monarch-gold);
+  border-bottom: 2px solid var(--monarch-gold);
+  box-shadow: none;
+  font-weight: 700;
+}
+
+/* Region Page Overlay */
+body.layout-monarch.region-mode-active #region-page {
+  background: var(--monarch-bg) !important;
+}
+
+.layout-monarch #region-page .region-sidebar {
+  background: var(--monarch-secondary) !important;
+  border-right: 1px solid rgba(200, 169, 107, 0.3) !important;
+  font-family: var(--monarch-font-b) !important;
+  padding-top: 110px !important;
+  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+.layout-monarch #region-page .region-sidebar h3 {
+  font-family: var(--monarch-font-h) !important;
+  color: var(--monarch-gold) !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  letter-spacing: 3px !important;
+  border-bottom: 1px solid rgba(200, 169, 107, 0.2) !important;
+  padding-bottom: 18px !important;
+  margin-bottom: 24px !important;
+  text-align: center;
+}
+
+.layout-monarch #region-page .region-menu-item {
+  color: rgba(255, 255, 255, 0.65) !important;
+  border-left: 2px solid transparent !important;
+  font-size: 13px !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  padding: 12px 18px !important;
+  border-radius: 0 !important;
+}
+
+.layout-monarch #region-page .region-menu-item:hover {
+  background: rgba(200, 169, 107, 0.05) !important;
+  color: var(--monarch-champagne) !important;
+}
+
+.layout-monarch #region-page .region-menu-item.active {
+  background: rgba(200, 169, 107, 0.1) !important;
+  color: var(--monarch-gold) !important;
+  border-left: 2px solid var(--monarch-gold) !important;
+}
+
+.layout-monarch #region-page .region-map-container {
+  background: var(--monarch-bg) !important;
+}
+
+.layout-monarch #region-page .region-map-wrapper {
+  border: 1px solid rgba(200, 169, 107, 0.3) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8) !important;
+  border-radius: 0 !important;
+}
+
+.layout-monarch #region-page .map-pin .pin-dot {
+  background: var(--monarch-secondary) !important;
+  border: 1.5px solid var(--monarch-gold) !important;
+  box-shadow: 0 0 10px rgba(200, 169, 107, 0.4) !important;
+  color: var(--monarch-champagne) !important;
+  border-radius: 0 !important;
+}
+
+.layout-monarch #region-page .map-pin .pin-pulse {
+  background: rgba(200, 169, 107, 0.15) !important;
+  border-radius: 0 !important;
+}
+
+.layout-monarch #region-page .map-pin.active .pin-dot {
+  background: var(--monarch-gold) !important;
+  border-color: var(--monarch-champagne) !important;
+  color: var(--monarch-secondary) !important;
+  box-shadow: 0 0 20px rgba(228, 197, 144, 0.8) !important;
+}
+
+.layout-monarch #region-page .map-pin.active .pin-pulse {
+  background: rgba(228, 197, 144, 0.3) !important;
+}
+
+.layout-monarch #region-page .pin-label {
+  background: var(--monarch-secondary) !important;
+  border: 1px solid rgba(200, 169, 107, 0.3) !important;
+  color: #FFFFFF !important;
+  font-family: var(--monarch-font-b) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  border-radius: 0 !important;
+}
+
+/* Common Back button override */
+.layout-monarch .back-to-360-btn {
+  font-family: var(--monarch-font-h) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  background: rgba(13, 13, 13, 0.95) !important;
+  border: 1px solid var(--monarch-gold) !important;
+  color: #FFFFFF !important;
+  border-radius: 0 !important;
+  padding: 12px 24px !important;
+}
+
+.layout-monarch .back-to-360-btn:hover {
+  background: var(--monarch-gold) !important;
+  color: var(--monarch-bg) !important;
+  border-color: var(--monarch-champagne) !important;
+}
+
+/* -------------------------------------------------------
+   RESPONSIVENESS AND COLLAPSES
+   ------------------------------------------------------- */
+@media (max-width: 991px) {
+  .layout-monarch .monarch-nav-dock {
+    gap: 8px;
+    padding: 6px 16px;
+  }
+  
+  .layout-monarch .monarch-nav-item {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+  
+  .layout-monarch .monarch-command-panel {
+    top: 150px;
+    right: 20px;
+    left: auto;
+  }
+  
+  .layout-monarch .monarch-layout-selector {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout-monarch .monarch-nav-container {
+    bottom: 20px;
+    width: 90%;
+  }
+
+  .layout-monarch .monarch-nav-dock {
+    width: 100%;
+    justify-content: space-around;
+    padding: 6px 8px;
+    border-radius: 20px;
+  }
+  
+  .layout-monarch .monarch-nav-item {
+    font-size: 11px;
+    padding: 6px 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .layout-monarch .monarch-popover {
+    min-width: 140px;
+    bottom: calc(100% + 15px);
+  }
+  
+  body.layout-monarch .minimap-widget {
+    bottom: 90px;
+    right: 20px;
+    width: 200px !important;
+  }
+
+  body.layout-monarch .minimap-canvas {
+    height: 90px !important;
+  }
+
+  body.layout-monarch .compass-widget {
+    bottom: 90px;
+    left: 20px;
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .layout-monarch #region-page .region-sidebar {
+    width: 220px !important;
+    padding-top: 80px !important;
+  }
+  
+  .layout-monarch #region-page .region-sidebar h3 {
+    font-size: 16px !important;
+  }
+  
+  .layout-monarch #region-page .region-menu-item {
+    font-size: 11px !important;
+    padding: 10px 12px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Prevent overlap of widgets with nav on mobile */
+  .layout-monarch .monarch-command-panel {
+    right: 10px;
+    top: 130px;
+    left: auto;
+  }
+  
+  .layout-monarch .monarch-layout-selector {
+    right: 10px;
+    top: 10px;
+    min-width: 110px;
+    padding: 8px 10px;
+  }
+  
+  .layout-monarch .monarch-selector-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .layout-monarch .monarch-selector-item {
+    width: 18px;
+    height: 18px;
+    font-size: 9px;
+  }
+
+  .layout-monarch .monarch-nav-dock {
+    flex-wrap: wrap;
+    gap: 4px;
+    border-radius: 10px;
+  }
+
+  .layout-monarch .monarch-nav-item {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+  
+  body.layout-monarch .minimap-widget,
+  body.layout-monarch .compass-widget {
+    display: none !important; /* Hide on small mobile to maximize view space */
+  }
 }
 
 
