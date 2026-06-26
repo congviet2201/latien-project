@@ -42,6 +42,7 @@
         <div class="switcher-segment" id="opt-layout-prism" data-layout="prism" title="Giao diện Prism">Prism</div>
         <div class="switcher-segment" id="opt-layout-nexus" data-layout="nexus" title="Giao diện Nexus">Nexus</div>
         <div class="switcher-segment" id="opt-layout-monarch" data-layout="monarch" title="Giao diện Monarch">Monarch</div>
+        <div class="switcher-segment" id="opt-layout-regal" data-layout="regal" title="Giao diện Regal">Regal</div>
         <div class="switcher-slider" id="switcher-slider"></div>
       </div>
     </div>
@@ -2000,7 +2001,8 @@
         <div class="monarch-selector-item monarch-hover-sweep" data-layout="orbit">07</div>
         <div class="monarch-selector-item monarch-hover-sweep" data-layout="prism">08</div>
         <div class="monarch-selector-item monarch-hover-sweep" data-layout="nexus">09</div>
-        <div class="monarch-selector-item monarch-hover-sweep active" data-layout="monarch">10</div>
+        <div class="monarch-selector-item monarch-hover-sweep" data-layout="monarch">10</div>
+        <div class="monarch-selector-item monarch-hover-sweep" data-layout="regal">11</div>
       </div>
     </div>
   `;
@@ -2361,6 +2363,7 @@
     const prismSeg = document.getElementById("opt-layout-prism");
     const nexusSeg = document.getElementById("opt-layout-nexus");
     const monarchSeg = document.getElementById("opt-layout-monarch");
+    const regalSeg = document.getElementById("opt-layout-regal");
     const slider = document.getElementById("switcher-slider");
     if (!classicSeg || !futuristicSeg || !neoSeg || !gradientSeg || !auroraSeg || !horizonSeg || !orbitSeg || !prismSeg || !nexusSeg || !slider) return;
 
@@ -2376,6 +2379,7 @@
       else if (layoutMode === "prism" && prismSeg) activeSeg = prismSeg;
       else if (layoutMode === "nexus" && nexusSeg) activeSeg = nexusSeg;
       else if (layoutMode === "monarch" && monarchSeg) activeSeg = monarchSeg;
+      else if (layoutMode === "regal" && regalSeg) activeSeg = regalSeg;
       
       classicSeg.classList.toggle("active", layoutMode === "classic");
       futuristicSeg.classList.toggle("active", layoutMode === "futuristic");
@@ -2387,6 +2391,7 @@
       if (prismSeg) prismSeg.classList.toggle("active", layoutMode === "prism");
       if (nexusSeg) nexusSeg.classList.toggle("active", layoutMode === "nexus");
       if (monarchSeg) monarchSeg.classList.toggle("active", layoutMode === "monarch");
+      if (regalSeg) regalSeg.classList.toggle("active", layoutMode === "regal");
 
       slider.style.width = `${activeSeg.offsetWidth}px`;
       slider.style.left  = `${activeSeg.offsetLeft}px`;
@@ -2501,7 +2506,7 @@
         uiWrapper.appendChild(tempDiv.firstChild);
       }
       setupNexusListeners();
-    } else if (layoutMode === "monarch") {
+    } else if (layoutMode === "monarch" || layoutMode === "regal") {
       const tempDiv = document.createElement("div");
       tempDiv.innerHTML = monarchNavHTML + monarchCommandPanelHTML + monarchLayoutSelectorHTML;
       while (tempDiv.firstChild) {
@@ -2516,7 +2521,7 @@
       oldMinimap.remove();
     }
     const mapDiv = document.createElement("div");
-    if (layoutMode === "monarch") {
+    if (layoutMode === "monarch" || layoutMode === "regal") {
       mapDiv.innerHTML = monarchMinimapHTML;
     } else {
       mapDiv.innerHTML = minimapWidgetHTML;
@@ -2526,7 +2531,7 @@
     populateMinimapMarkers();
     updateMinimapPosition(activePanoNode);
     let minimapEl = document.getElementById("minimap-widget");
-    if (minimapEl && (layoutMode === "orbit" || layoutMode === "prism" || layoutMode === "nexus" || layoutMode === "monarch")) {
+    if (minimapEl && (layoutMode === "orbit" || layoutMode === "prism" || layoutMode === "nexus" || layoutMode === "monarch" || layoutMode === "regal")) {
       minimapEl.classList.remove("collapsed");
     }
 
@@ -2548,7 +2553,7 @@
       compassDiv.innerHTML = prismCompassHTML;
     } else if (layoutMode === "nexus") {
       compassDiv.innerHTML = nexusCompassHTML;
-    } else if (layoutMode === "monarch") {
+    } else if (layoutMode === "monarch" || layoutMode === "regal") {
       compassDiv.innerHTML = monarchCompassHTML;
     } else {
       compassDiv.innerHTML = compassWidgetHTML;
@@ -3740,10 +3745,16 @@
   // MONARCH LAYOUT LISTENERS
   // ==========================================
   function setupMonarchListeners(handleSwitch) {
-    const navItems = document.querySelectorAll(".layout-monarch .monarch-nav-item");
-    const popoverItems = document.querySelectorAll(".layout-monarch .monarch-popover-item");
-    const toolItems = document.querySelectorAll(".layout-monarch .monarch-command-item");
-    const selectorItems = document.querySelectorAll(".layout-monarch .monarch-selector-item");
+    const navItems = document.querySelectorAll(".layout-monarch .monarch-nav-item, .layout-regal .monarch-nav-item");
+    const popoverItems = document.querySelectorAll(".layout-monarch .monarch-popover-item, .layout-regal .monarch-popover-item");
+    const toolItems = document.querySelectorAll(".layout-monarch .monarch-command-item, .layout-regal .monarch-command-item");
+    const selectorItems = document.querySelectorAll(".layout-monarch .monarch-selector-item, .layout-regal .monarch-selector-item");
+
+    // Highlight active layout selector item
+    selectorItems.forEach(item => {
+      const layout = item.getAttribute("data-layout");
+      item.classList.toggle("active", layout === layoutMode);
+    });
 
     // 1. Navigation dock items click handler
     navItems.forEach(item => {
@@ -3759,7 +3770,7 @@
           const wasOpen = popover.classList.contains("open");
           
           // Close all popovers first
-          document.querySelectorAll(".layout-monarch .monarch-popover").forEach(p => p.classList.remove("open"));
+          document.querySelectorAll(".layout-monarch .monarch-popover, .layout-regal .monarch-popover").forEach(p => p.classList.remove("open"));
           
           if (!wasOpen) {
             popover.classList.add("open");
@@ -3769,7 +3780,7 @@
 
         // Otherwise (Top View, Interior, Liên kết vùng)
         // Close all popovers
-        document.querySelectorAll(".layout-monarch .monarch-popover").forEach(p => p.classList.remove("open"));
+        document.querySelectorAll(".layout-monarch .monarch-popover, .layout-regal .monarch-popover").forEach(p => p.classList.remove("open"));
         
         navItems.forEach(n => n.classList.remove("active"));
         popoverItems.forEach(p => p.classList.remove("active"));
@@ -3788,7 +3799,7 @@
         this.classList.add("active");
 
         // Close all popovers
-        document.querySelectorAll(".layout-monarch .monarch-popover").forEach(p => p.classList.remove("open"));
+        document.querySelectorAll(".layout-monarch .monarch-popover, .layout-regal .monarch-popover").forEach(p => p.classList.remove("open"));
 
         // Highlight parent nav item
         const parentNav = this.closest(".monarch-nav-item");
@@ -3831,7 +3842,7 @@
     // 5. Close popovers when clicking anywhere else
     document.addEventListener("click", function(e) {
       if (!e.target.closest(".monarch-nav-item")) {
-        document.querySelectorAll(".layout-monarch .monarch-popover").forEach(p => p.classList.remove("open"));
+        document.querySelectorAll(".layout-monarch .monarch-popover, .layout-regal .monarch-popover").forEach(p => p.classList.remove("open"));
       }
     });
   }
@@ -4437,12 +4448,12 @@
       uiWrapper.classList.add("switching");
 
       // 2. Record current active selections
-      const activeNav = document.querySelector(".nav-item.active, .aurora-nav-item.active, .horizon-nav-item.active, .orbit-nav-item.active, .prism-nav-item.active, .nexus-nav-item.active, .monarch-nav-item.active");
+      const activeNav = document.querySelector(".nav-item.active, .aurora-nav-item.active, .horizon-nav-item.active, .orbit-nav-item.active, .prism-nav-item.active, .nexus-nav-item.active, .monarch-nav-item.active, .regal-nav-item.active");
       if (activeNav) {
         activeNavItemId = activeNav.getAttribute("data-id");
         lsSet("latien_active_nav", activeNavItemId);
       }
-      const activeSub = document.querySelector(".submenu-item.active, .mega-card.active, .aurora-submenu-item.active, .horizon-submenu-item.active, .orbit-submenu-item.active, .prism-submenu-item.active, .nexus-submenu-item.active, .monarch-popover-item.active");
+      const activeSub = document.querySelector(".submenu-item.active, .mega-card.active, .aurora-submenu-item.active, .horizon-submenu-item.active, .orbit-submenu-item.active, .prism-submenu-item.active, .nexus-submenu-item.active, .monarch-popover-item.active, .regal-submenu-item.active");
       if (activeSub) {
         activeSubmenuAction = activeSub.getAttribute("data-action") || activeSubmenuAction;
         activePanoNode = activeSub.getAttribute("data-pano-node") || activePanoNode;
@@ -4456,7 +4467,7 @@
         lsSet("latien_layout_mode", layoutMode);
 
         // Update body layout class namespaces
-        document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit", "layout-prism", "layout-nexus", "layout-monarch");
+        document.body.classList.remove("layout-classic", "layout-futuristic", "layout-neo", "layout-gradient", "layout-aurora", "layout-horizon", "layout-orbit", "layout-prism", "layout-nexus", "layout-monarch", "layout-regal");
         document.body.classList.add(`layout-${layoutMode}`);
 
         // Update container class namespaces
@@ -4483,6 +4494,7 @@
         else if (layoutMode === "prism") notifMsg = "Đã chuyển sang Giao diện Prism";
         else if (layoutMode === "nexus") notifMsg = "Đã chuyển sang Giao diện Nexus";
         else if (layoutMode === "monarch") notifMsg = "Đã chuyển sang Giao diện Monarch";
+        else if (layoutMode === "regal") notifMsg = "Đã chuyển sang Giao diện Regal";
         showNotification(notifMsg);
 
       }, 300);
@@ -4502,6 +4514,7 @@
     const prismSeg = document.getElementById("opt-layout-prism");
     const nexusSeg = document.getElementById("opt-layout-nexus");
     const monarchSeg = document.getElementById("opt-layout-monarch");
+    const regalSeg = document.getElementById("opt-layout-regal");
 
     if (classicSeg) classicSeg.addEventListener("click", () => handleSwitch("classic"));
     if (futuristicSeg) futuristicSeg.addEventListener("click", () => handleSwitch("futuristic"));
@@ -4513,6 +4526,7 @@
     if (prismSeg) prismSeg.addEventListener("click", () => handleSwitch("prism"));
     if (nexusSeg) nexusSeg.addEventListener("click", () => handleSwitch("nexus"));
     if (monarchSeg) monarchSeg.addEventListener("click", () => handleSwitch("monarch"));
+    if (regalSeg) regalSeg.addEventListener("click", () => handleSwitch("regal"));
 
     // 4. Initialize layout Switcher segments
     updateSwitcherUI();
