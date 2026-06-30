@@ -1923,11 +1923,11 @@
     <div class="compass-widget neo-compass" id="compass-widget">
       <div class="compass-dial" id="compass-dial">
         <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-          <circle cx="40" cy="40" r="38" fill="rgba(15, 17, 23, 0.4)" stroke="rgba(139, 92, 246, 0.4)" stroke-width="1"/>
+          <circle cx="40" cy="40" r="38" fill="none" stroke="rgba(124, 58, 237, 0.35)" stroke-width="1.5"/>
           <!-- Glow needle for Neo -->
           <g>
-            <polygon points="40,10 43,40 40,36 37,40" fill="#00D9FF"/>
-            <polygon points="40,70 43,40 40,44 37,40" fill="rgba(248, 250, 252, 0.2)"/>
+            <polygon class="needle-north" points="40,8 44,40 40,35 36,40" fill="#7C3AED"/>
+            <polygon class="needle-south" points="40,72 44,40 40,45 36,40" fill="rgba(30, 41, 59, 0.25)"/>
           </g>
         </svg>
       </div>

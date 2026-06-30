@@ -2055,15 +2055,13 @@
   box-shadow: 0 0 10px rgba(0, 217, 255, 0.35) !important;
 }
 
-.layout-futuristic .minimap-action-btn,
-.layout-neo .minimap-action-btn {
+.layout-futuristic .minimap-action-btn {
   background: rgba(0, 242, 254, 0.06) !important;
   border-color: rgba(0, 242, 254, 0.15) !important;
   color: rgba(0, 242, 254, 0.75) !important;
 }
 
-.layout-futuristic .minimap-action-btn:hover,
-.layout-neo .minimap-action-btn:hover {
+.layout-futuristic .minimap-action-btn:hover {
   background: rgba(0, 242, 254, 0.18) !important;
   border-color: rgba(0, 242, 254, 0.45) !important;
   color: #ffffff !important;
@@ -2359,11 +2357,14 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   --neo-primary: #7C3AED;      /* Vivid Purple/Violet accent */
   --neo-indigo: #4F46E5;       /* Royal Indigo */
   --neo-emerald: #059669;      /* Fresh Emerald green */
-  --neo-bg: rgba(255, 255, 255, 0.88); /* Bright frosted glass base */
-  --neo-glass: rgba(255, 255, 255, 0.7);
-  --neo-border: rgba(255, 255, 255, 0.6);
+  --neo-bg: rgba(255, 255, 255, 0.9); /* Brighter unified frosted glass base */
+  --neo-glass: rgba(255, 255, 255, 0.75); /* Brighter button base */
+  --neo-border: rgba(124, 58, 237, 0.3); /* More visible purple border */
   --neo-text: #1E293B;         /* Slate 800 - dark high contrast text */
-  --neo-shadow: 0 10px 30px rgba(124, 58, 237, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05);
+  --neo-shadow: 0 8px 24px rgba(124, 58, 237, 0.1), 0 2px 6px rgba(0, 0, 0, 0.05);
+  --neo-shadow-hover: 0 8px 24px rgba(124, 58, 237, 0.25), 0 2px 6px rgba(0, 0, 0, 0.05);
+  --neo-shadow-active: 0 12px 32px rgba(124, 58, 237, 0.45), 0 4px 10px rgba(124, 58, 237, 0.2);
+  --neo-blur: blur(20px);
   font-family: var(--ui-font);
 }
 
@@ -2377,43 +2378,71 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
 
 /* Adjust switchers */
 .layout-neo .layout-switcher-pill {
-  background: var(--neo-bg);
-  border: 1px solid var(--neo-border);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: var(--neo-bg) !important;
+  border: 1px solid var(--neo-border) !important;
+  backdrop-filter: var(--neo-blur) !important;
+  -webkit-backdrop-filter: var(--neo-blur) !important;
+  box-shadow: var(--neo-shadow) !important;
+  transition: all 240ms ease-out !important;
 }
 .layout-neo .switcher-segment {
-  color: rgba(30, 41, 59, 0.6);
+  color: rgba(30, 41, 59, 0.6) !important;
+  transition: all 240ms ease-out !important;
 }
 .layout-neo .switcher-segment.active {
-  color: #fff;
-  text-shadow: none;
+  color: #fff !important;
+  text-shadow: none !important;
 }
 .layout-neo .switcher-slider {
-  background: linear-gradient(135deg, var(--neo-primary) 0%, var(--neo-indigo) 100%);
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  background: linear-gradient(135deg, var(--neo-primary) 0%, var(--neo-indigo) 100%) !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
 }
 .layout-neo .switcher-segment:not(.active):hover {
+  color: var(--neo-primary) !important;
+}
+
+/* Floating Logo */
+.layout-neo .layout-floating-logo {
+  top: 20px !important;
+  left: 20px !important;
+  transition: all 240ms ease-out !important;
+}
+.layout-neo .layout-floating-logo .logo-script-top {
+  font-family: var(--tech-font);
+  font-size: 15px;
+  font-weight: 700;
   color: var(--neo-primary);
+  letter-spacing: 2px;
+}
+.layout-neo .layout-floating-logo .logo-script-sub {
+  font-family: var(--ui-font);
+  font-size: 7px;
+  color: var(--neo-text);
+  letter-spacing: 3px;
+  opacity: 0.8;
+}
+.layout-neo .layout-floating-logo .logo-script-wave {
+  background: var(--neo-indigo);
 }
 
 /* 1. TOP TITLE PANEL */
 .layout-neo .neo-top-panel {
   position: absolute;
-  top: 30px;
+  top: 20px !important; /* Aligned to 20px */
   left: 50%;
   transform: translateX(-50%);
-  background: var(--neo-bg);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--neo-border);
-  padding: 14px 40px;
-  border-radius: 20px;
+  background: var(--neo-bg) !important;
+  backdrop-filter: var(--neo-blur) !important;
+  -webkit-backdrop-filter: var(--neo-blur) !important;
+  border: 1px solid var(--neo-border) !important;
+  padding: 12px 32px !important; /* Unified padding */
+  border-radius: 16px !important; /* Unified border radius */
   text-align: center;
   z-index: 1000;
-  box-shadow: var(--neo-shadow);
+  box-shadow: var(--neo-shadow) !important;
   pointer-events: auto;
   animation: neoFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: all 240ms ease-out !important;
 }
 .layout-neo .neo-title {
   font-family: var(--tech-font);
@@ -2422,7 +2451,7 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   color: var(--neo-text);
   letter-spacing: 3px;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #7C3AED, var(--neo-emerald));
+  background: linear-gradient(90deg, var(--neo-primary), var(--neo-indigo));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -2439,330 +2468,203 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   100% { opacity: 1; transform: translate(-50%, 0); }
 }
 
-/* 2. LEFT FLOATING NAV CARDS */
-.layout-neo .neo-left-nav {
-  z-index: 5 !important;
-  position: relative !important;
-  position: absolute;
-  left: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 1000;
-  pointer-events: none;
-}
-.layout-neo .neo-nav-card {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  pointer-events: auto;
-  background: rgba(23, 25, 35, 0.7); /* #171923 */
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.05);
-  color: #94A3B8; /* Inactive text */
-  padding: 12px 20px;
-  border-radius: 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--neo-shadow);
-  position: relative;
-  overflow: hidden;
-  text-transform: uppercase;
-}
-.layout-neo .neo-nav-card:hover {
-  background: rgba(139, 92, 246, 0.2); /* #8B5CF6 Secondary Accent */
-  border-color: #8B5CF6;
-  color: #F8FAFC;
-  transform: translateX(8px);
-}
-.layout-neo .neo-nav-card.active {
-  background: rgba(0, 217, 255, 0.15); /* #00D9FF Primary Accent */
-  border: 1px solid #00D9FF;
-  border-radius: 30px; /* Pill shape */
-  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3), inset 0 0 10px rgba(0, 217, 255, 0.1);
-  font-weight: 700;
-  transform: translateX(12px);
-  color: #F8FAFC; /* Active text */
-}
-
-/* Submenu Panel */
-.layout-neo .neo-submenu-panel {
-  position: absolute;
-  left: calc(100% + 24px);
-  top: 50%;
-  transform: translateY(-50%) scale(0.95);
-  transform-origin: left center;
-  background: rgba(15, 17, 23, 0.75); /* #0F1117 Background */
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: var(--neo-shadow);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  width: max-content;
-}
-.layout-neo .neo-submenu-panel.open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(-50%) scale(1);
-}
-.layout-neo .neo-submenu-content {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.layout-neo .neo-submenu-panel.mega-mode .neo-submenu-content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-.layout-neo .submenu-item {
-  padding: 10px 16px;
-  color: #94A3B8;
-  border-radius: 8px;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s;
-  background: rgba(23, 25, 35, 0.5); /* #171923 Cards */
-  border-left: 2px solid transparent;
-}
-.layout-neo .submenu-item:hover {
-  background: rgba(139, 92, 246, 0.2);
-  color: #F8FAFC;
-  transform: translateX(4px);
-  border-left: 2px solid #8B5CF6;
-}
-.layout-neo .submenu-item.active {
-  background: rgba(0, 217, 255, 0.15);
-  color: #F8FAFC;
-  border-left: 2px solid #00D9FF;
-  font-weight: 700;
-}
-
-/* 4. MAC OS STYLE BOTTOM DOCK */
-.layout-neo .neo-bottom-dock-container {
-  z-index: 5 !important;
-  position: relative !important;
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  pointer-events: none;
-}
-.layout-neo .neo-dock {
-  pointer-events: auto;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: var(--neo-bg);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  border: 1px solid var(--neo-border);
-  border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s;
-}
-.layout-neo .neo-dock-divider {
-  width: 1px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.15);
-  margin: 0 8px;
-  align-self: center;
-}
-.layout-neo .neo-dock-item {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--neo-text);
-  cursor: pointer;
-  position: relative;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transform-origin: bottom center;
-}
-.layout-neo .neo-dock-item:hover {
-  background: rgba(0, 217, 255, 0.15);
-  border-color: #00D9FF;
-  color: #fff;
-  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
-}
-.layout-neo .neo-dock-item:hover svg {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.8));
-}
-
-/* Tooltip for Dock */
-.layout-neo .neo-tooltip {
-  z-index: 20 !important;
-  position: absolute;
-  bottom: calc(100% + 16px);
-  background: var(--neo-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--neo-border);
-  padding: 6px 14px;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #fff;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-}
-.layout-neo .neo-dock-item:hover .neo-tooltip {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* Disabled tool visual indicator in dock */
-.layout-neo .neo-dock-item.active-tool {
-  color: #ff4d4f;
-  opacity: 0.5;
-}
-.layout-neo .neo-dock-item.active-tool svg {
-  stroke-dasharray: 2 4;
-}
-
-
-
-/* -------------------------------------
-   NEO MINIMAP & COMPASS REDESIGN 
-   ------------------------------------- */
+/* COMPASS WIDGET */
 .layout-neo .compass-widget {
-  background: rgba(15, 17, 23, 0.4);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(139, 92, 246, 0.3); /* Purple accent */
-  border-radius: 50%;
-  box-shadow: 0 0 20px rgba(0, 217, 255, 0.15); /* Cyan glow */
-  transform: scale(0.85);
-  transform-origin: bottom left;
-  bottom: 80px !important; /* Raised to make room for layout switcher */
-  left: 30px;
+  background: rgba(255, 255, 255, 0.85) !important; /* Brighter white glass */
+  backdrop-filter: var(--neo-blur) !important;
+  -webkit-backdrop-filter: var(--neo-blur) !important;
+  border: 1px solid var(--neo-border) !important;
+  border-radius: 50% !important;
+  box-shadow: var(--neo-shadow) !important;
+  bottom: 74px !important; /* Positioned perfectly above layout switcher */
+  left: 20px !important;   /* Aligned to 20px grid */
+  width: 60px !important;  /* Increased from 50px to 60px for better visibility */
+  height: 60px !important; /* Increased from 50px to 60px */
+  transition: all 240ms ease-out !important;
 }
 .layout-neo .compass-outer-ring {
-  display: none; /* Hide old bulky ring */
+  display: none !important;
 }
 .layout-neo .compass-cardinal.n {
-  color: #00D9FF;
-  font-weight: 700;
-  text-shadow: 0 0 8px rgba(0, 217, 255, 0.8);
+  color: var(--neo-primary) !important;
+  font-weight: 800 !important;
+  text-shadow: 0 0 6px rgba(124, 58, 237, 0.6) !important;
+  font-size: 11px !important;
+  top: 5px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
 }
 .layout-neo .compass-degree-display {
-  color: #F8FAFC;
-  background: rgba(23, 25, 35, 0.6);
-  border: 1px solid rgba(255,255,255,0.05);
+  color: var(--neo-text) !important;
+  background: var(--neo-glass) !important;
+  border: 1px solid var(--neo-border) !important;
+  font-size: 9px !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  bottom: -20px !important;
+  box-shadow: var(--neo-shadow) !important;
+}
+.layout-neo .compass-widget:hover {
+  background: rgba(124, 58, 237, 0.2) !important;
+  border-color: rgba(124, 58, 237, 0.6) !important;
+  box-shadow: var(--neo-shadow-hover) !important;
+}
+.layout-neo .compass-widget .compass-dial svg circle {
+  fill: none !important;
+  stroke: rgba(124, 58, 237, 0.55) !important; /* Brighter purple outline */
+  stroke-width: 1.5px !important;
+}
+/* Ensure needle polygons have correct fill and no stroke, bypassing global SVG overrides */
+.layout-neo .compass-dial .needle-north {
+  fill: #7C3AED !important;
+  stroke: none !important;
+  filter: drop-shadow(0 0 4px rgba(124, 58, 237, 0.6)) !important;
+}
+.layout-neo .compass-dial .needle-south {
+  fill: rgba(30, 41, 59, 0.25) !important;
+  stroke: none !important;
+}
+/* Fix compass dial SVG size override */
+.layout-neo .compass-dial svg {
+  width: 100% !important;
+  height: 100% !important;
 }
 
+/* MINIMAP WIDGET */
 .layout-neo .minimap-widget {
-  bottom: 30px !important;
-  right: 30px;
-  transform: scale(0.9);
-  transform-origin: bottom right;
+  bottom: 20px !important; /* Aligned to 20px */
+  right: 20px !important;  /* Aligned to 20px */
+  width: 220px !important;  /* Compact size for entire mini map */
+  background: var(--neo-bg) !important;
+  backdrop-filter: var(--neo-blur) !important;
+  -webkit-backdrop-filter: var(--neo-blur) !important;
+  border: 1px solid var(--neo-border) !important;
+  border-radius: 12px !important; /* Unified corner radius */
+  box-shadow: var(--neo-shadow) !important;
+  transition: all 240ms ease-out !important;
+  overflow: hidden !important; /* Ensures the map body doesn't overflow the rounded corners */
+}
+.layout-neo .minimap-widget.collapsed {
+  width: 80px !important; /* Extremely compact collapsed map pill (only icon and chevron) */
+}
+.layout-neo .minimap-widget.maximap {
+  width: 500px !important; /* Zoomed map expands horizontally to 500px */
+}
+.layout-neo .minimap-canvas {
+  height: 200px !important; /* Perfect 200px x 200px square canvas (220px width - 20px padding) */
+  background: #ffffff !important; /* Brighter white background instead of black */
+  border-color: var(--neo-border) !important;
+}
+.layout-neo .minimap-img {
+  opacity: 0.95 !important; /* Brighter map image (up from 0.7) */
+}
+.layout-neo .minimap-widget.maximap .minimap-canvas {
+  height: 320px !important; /* Zoomed canvas height */
 }
 .layout-neo .minimap-header {
-  background: rgba(15, 17, 23, 0.8);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(139, 92, 246, 0.4);
-  border-radius: 30px; /* Pill shape */
-  padding: 8px 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  color: #F8FAFC;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.15) !important; /* Subtle separator line */
+  border-radius: 0 !important;
+  padding: 6px 10px !important; /* Reduced padding */
+  gap: 6px !important;
+  color: var(--neo-text) !important;
+  transition: all 240ms ease-out !important;
+}
+.layout-neo .minimap-widget.collapsed .minimap-header {
+  border-bottom: none !important;
+}
+/* Hide the text label and resize button in collapsed state to make it very compact */
+.layout-neo .minimap-widget.collapsed .minimap-label,
+.layout-neo .minimap-widget.collapsed #minimap-resize-btn {
+  display: none !important;
 }
 .layout-neo .minimap-body {
-  background: rgba(15, 17, 23, 0.7);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid transparent;
-  box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.5), 0 10px 40px rgba(0, 217, 255, 0.15);
-  border-radius: 24px;
-  padding: 12px;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 10px !important; /* Slightly reduced padding */
+  transition: all 240ms ease-out !important;
 }
 
-/* -------------------------------------
-   NEO HOTSPOTS REDESIGN 
-   ------------------------------------- */
-
-@keyframes neoPulse {
-  0% { box-shadow: 0 0 0 0 rgba(0, 217, 255, 0.4); }
-  70% { box-shadow: 0 0 0 12px rgba(0, 217, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 217, 255, 0); }
+/* Minimap active indicators */
+.layout-neo .minimap-dot {
+  background: var(--neo-primary) !important;
+  box-shadow: 0 0 8px var(--neo-primary) !important;
+  z-index: 6 !important; /* Ensure active dot is on top of the viewcone */
+}
+.layout-neo .minimap-viewcone {
+  background: conic-gradient(from 330deg, rgba(124, 58, 237, 0.5) 0deg, rgba(124, 58, 237, 0.5) 60deg, transparent 60deg) !important;
+  z-index: 5 !important; /* Ensure viewcone is on top of the map image and visible */
 }
 
-/* -------------------------------------
-   NEO MEGA CARD
-   ------------------------------------- */
+/* Minimap markers (hotspots) */
+.layout-neo .minimap-marker {
+  background: var(--neo-primary) !important;
+  border-color: #fff !important;
+}
+.layout-neo .minimap-marker .marker-pulse-ring {
+  border-color: var(--neo-primary) !important;
+}
+.layout-neo .minimap-marker-tooltip {
+  background: rgba(28, 20, 48, 0.95) !important;
+  color: #fff !important;
+  border: 1px solid rgba(124, 58, 237, 0.5) !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2) !important;
+}
+
+/* MEGA CARD IN SUBMENU */
 .layout-neo .mega-card {
-  width: 140px;
-  height: 90px;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  box-shadow: var(--neo-shadow);
-  border: 1px solid var(--neo-border);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 110px !important;
+  height: 72px !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  cursor: pointer !important;
+  box-shadow: var(--neo-shadow) !important;
+  border: 1px solid var(--neo-border) !important;
+  transition: all 240ms ease-out !important;
 }
 .layout-neo .mega-card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.5s ease !important;
 }
 .layout-neo .mega-card-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  position: absolute !important;
+  top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent) !important;
 }
 .layout-neo .mega-card-title {
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  right: 8px;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 500;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  position: absolute !important;
+  bottom: 6px !important;
+  left: 6px !important;
+  right: 6px !important;
+  color: #fff !important;
+  font-size: 9.5px !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 .layout-neo .mega-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--neo-primary);
-  box-shadow: 0 6px 15px rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px) !important;
+  border-color: var(--neo-primary) !important;
+  box-shadow: var(--neo-shadow-hover) !important;
 }
 .layout-neo .mega-card:hover .mega-card-img {
-  transform: scale(1.1);
+  transform: scale(1.08) !important;
 }
 .layout-neo .mega-card.active {
-  border-color: var(--neo-primary);
-  box-shadow: 0 0 0 2px var(--neo-primary), 0 0 15px rgba(139, 92, 246, 0.4);
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 0 0 2px var(--neo-primary), var(--neo-shadow-active) !important;
 }
 
 
@@ -3944,25 +3846,6 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
 
 
 /* =========================================
-   FIX FOR NEO ACTIVE/HOVER STATE
-   ========================================= */
-.layout-neo .neo-nav-card:hover {
-  background: rgba(124, 58, 237, 0.1) !important;
-  border-color: #7C3AED !important;
-  color: #7C3AED !important;
-}
-.layout-neo .neo-nav-card.active,
-.layout-neo .neo-nav-card.pinned {
-  background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%) !important;
-  border: 1px solid transparent !important;
-  color: #FFFFFF !important;
-  font-weight: 700 !important;
-  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4) !important;
-  border-radius: 10px !important;
-}
-
-
-/* =========================================
    NEO COLLAPSIBLE PANELS (Drawers)
    ========================================= */
 
@@ -3982,41 +3865,54 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   pointer-events: auto !important;
   width: 30px !important;
   height: 30px !important;
-  background: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(124, 58, 237, 0.2) !important;
-  border-radius: 50% !important;
+  background: var(--neo-glass) !important;
+  backdrop-filter: var(--neo-blur) !important;
+  -webkit-backdrop-filter: var(--neo-blur) !important;
+  border: 1px solid var(--neo-border) !important;
+  border-radius: 8px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  color: #1E293B !important;
+  color: var(--neo-text) !important;
   cursor: pointer !important;
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.15) !important;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: var(--neo-shadow) !important;
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1) !important; /* Unified premium transition */
   z-index: 10 !important;
   margin: 0 !important;
-  order: 1 !important; /* Align trigger to the right of navigation panel */
+  order: 1 !important;
 }
 
 .layout-neo .neo-unified-trigger svg {
   width: 14px !important;
   height: 14px !important;
-  color: #7C3AED !important; /* Vivid Purple/Violet Accent */
+  color: var(--neo-primary) !important;
   stroke-width: 0 !important;
   fill: currentColor !important;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.layout-neo .neo-unified-trigger:hover,
+.layout-neo .neo-unified-trigger:hover {
+  background: rgba(124, 58, 237, 0.2) !important;
+  border-color: rgba(124, 58, 237, 0.6) !important;
+  color: var(--neo-primary) !important;
+  transform: translateY(-1.5px) scale(1.02) !important;
+  box-shadow: var(--neo-shadow-hover) !important;
+}
+
+.layout-neo .neo-unified-trigger:hover svg {
+  transform: scale(1.1) !important;
+}
+
 .layout-neo .neo-unified-container.active .neo-unified-trigger {
-  background: rgba(124, 58, 237, 0.1) !important;
-  border-color: #7C3AED !important;
-  box-shadow: 0 0 15px rgba(124, 58, 237, 0.4) !important;
+  background: linear-gradient(135deg, var(--neo-primary) 0%, #5B21B6 100%) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--neo-shadow-active) !important;
 }
 
 .layout-neo .neo-unified-container.active .neo-unified-trigger svg {
   transform: rotate(90deg) !important;
+  color: #FFFFFF !important;
 }
 
 /* Navigation Panel: RIGHT -> LEFT */
@@ -4026,7 +3922,7 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   gap: 6px !important;
   margin-right: 12px !important;
   pointer-events: auto !important;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
   opacity: 1 !important;
   transform: translateX(0) !important;
 }
@@ -4051,11 +3947,11 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   align-items: center !important;
   justify-content: center !important;
   gap: 6px !important;
-  background: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(124, 58, 237, 0.15) !important;
-  color: #475569 !important;
+  background: var(--neo-glass) !important;
+  backdrop-filter: var(--neo-blur) !important;
+  -webkit-backdrop-filter: var(--neo-blur) !important;
+  border: 1px solid var(--neo-border) !important;
+  color: var(--neo-text) !important;
   padding: 0 12px !important;
   height: 30px !important;
   width: auto !important;
@@ -4067,8 +3963,8 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   letter-spacing: 0.5px !important;
   cursor: pointer !important;
   text-transform: uppercase !important;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08) !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: var(--neo-shadow) !important;
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
   white-space: nowrap !important;
   opacity: 0 !important;
   transform: translateX(15px) !important;
@@ -4079,28 +3975,38 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   width: 14px !important;
   height: 14px !important;
   display: block !important;
-}
-.layout-neo .neo-nav-card svg * {
-  stroke: currentColor !important;
-  fill: none !important;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.layout-neo .neo-nav-card:hover {
-  background: rgba(124, 58, 237, 0.1) !important;
-  border-color: #7C3AED !important;
-  color: #7C3AED !important;
-  transform: translateY(-1px) !important;
+/* Hover on non-active nav cards */
+.layout-neo .neo-nav-card:not(.active):not(.pinned):hover {
+  background: linear-gradient(135deg, var(--neo-primary) 0%, #5B21B6 100%) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1.5px) scale(1.02) !important;
+  box-shadow: var(--neo-shadow-active) !important;
+}
+
+.layout-neo .neo-nav-card:hover svg {
+  transform: scale(1.1) !important;
+}
+
+/* Hover on active nav cards (keep active gradient, only apply elevation and glow) */
+.layout-neo .neo-nav-card.active:hover,
+.layout-neo .neo-nav-card.pinned:hover {
+  transform: translateY(-1.5px) scale(1.02) !important;
+  box-shadow: var(--neo-shadow-active) !important;
 }
 
 .layout-neo .neo-nav-card.active,
 .layout-neo .neo-nav-card.pinned {
-  background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%) !important;
-  border: 1px solid transparent !important;
+  background: linear-gradient(135deg, var(--neo-primary) 0%, #5B21B6 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
   color: #FFFFFF !important;
   font-weight: 700 !important;
-  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4) !important;
+  box-shadow: var(--neo-shadow-active) !important;
   border-radius: 8px !important;
-  transform: none !important;
+  transform: translateY(0) scale(1.02) !important;
 }
 
 /* Nav Sequential Cascade Animations */
@@ -4114,7 +4020,7 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
 .layout-neo .neo-unified-container.active .neo-nav-item-group:nth-child(4) .neo-nav-card { transition-delay: 0.16s !important; }
 .layout-neo .neo-unified-container.active .neo-nav-item-group:nth-child(5) .neo-nav-card { transition-delay: 0.20s !important; }
 
-/* Submenu Panel (Dropdown Tree structure) positioned directly below parent cards */
+/* Submenu Panel (Dropdown Tree structure) */
 .layout-neo .neo-submenu-tree {
   position: absolute !important;
   top: 100% !important;
@@ -4125,17 +4031,17 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   display: flex !important;
   flex-direction: column !important;
   gap: 4px !important;
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(124, 58, 237, 0.2) !important;
-  border-radius: 10px !important;
+  background: var(--neo-bg) !important;
+  backdrop-filter: var(--neo-blur) !important;
+  -webkit-backdrop-filter: var(--neo-blur) !important;
+  border: 1px solid var(--neo-border) !important;
+  border-radius: 12px !important;
   padding: 6px !important;
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.15) !important;
+  box-shadow: var(--neo-shadow) !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
   min-width: 110px !important;
   z-index: 105 !important;
 }
@@ -4151,11 +4057,17 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
 .layout-neo .submenu-item {
   font-family: 'Inter', sans-serif !important;
   font-size: 11px !important;
-  padding: 6px 12px !important;
-  border-radius: 6px !important;
-  color: #475569 !important;
+  padding: 0 12px !important;
+  height: 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  color: var(--neo-text) !important;
   cursor: pointer !important;
-  transition: all 0.2s ease !important;
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
   white-space: nowrap !important;
   text-align: center !important;
   width: 100% !important;
@@ -4163,15 +4075,28 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   text-transform: capitalize !important;
 }
 
-.layout-neo .submenu-item:hover {
-  background: rgba(124, 58, 237, 0.08) !important;
-  color: #7C3AED !important;
+/* Hover on non-active submenu items */
+.layout-neo .submenu-item:not(.active):hover {
+  background: linear-gradient(135deg, var(--neo-primary) 0%, #5B21B6 100%) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1.5px) scale(1.02) !important;
+  box-shadow: var(--neo-shadow-active) !important;
+}
+
+/* Hover on active submenu items */
+.layout-neo .submenu-item.active:hover {
+  transform: translateY(-1.5px) scale(1.02) !important;
+  box-shadow: var(--neo-shadow-active) !important;
 }
 
 .layout-neo .submenu-item.active {
   color: #FFFFFF !important;
-  font-weight: 600 !important;
-  background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%) !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, var(--neo-primary) 0%, #5B21B6 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: var(--neo-shadow-active) !important;
+  transform: translateY(0) scale(1.02) !important;
 }
 
 /* Staggered entrance for dropdown children */
@@ -4179,7 +4104,7 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
 .layout-neo .neo-submenu-tree .mega-card {
   opacity: 0 !important;
   transform: translateY(6px) !important;
-  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: opacity 240ms cubic-bezier(0.16, 1, 0.3, 1), transform 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 .layout-neo .neo-nav-item-group.open .neo-submenu-tree .submenu-item,
 .layout-neo .neo-nav-item-group.open .neo-submenu-tree .mega-card {
@@ -4224,7 +4149,7 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   gap: 6px !important;
   align-items: center !important;
   pointer-events: auto !important;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
@@ -4235,22 +4160,22 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   transform: translateY(-30px) !important;
 }
 
-/* Toolbar Items (34px height) */
+/* Toolbar Items */
 .layout-neo .neo-toolbar .neo-dock-item {
-  background: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(124, 58, 237, 0.15) !important;
+  background: var(--neo-glass) !important;
+  backdrop-filter: var(--neo-blur) !important;
+  -webkit-backdrop-filter: var(--neo-blur) !important;
+  border: 1px solid var(--neo-border) !important;
   width: 30px !important;
   height: 30px !important;
   border-radius: 8px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  color: #475569 !important;
+  color: var(--neo-text) !important;
   cursor: pointer !important;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08) !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: var(--neo-shadow) !important;
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
   position: relative !important;
   opacity: 0 !important;
   transform: translateY(-15px) !important;
@@ -4259,30 +4184,35 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
 .layout-neo .neo-toolbar .neo-dock-item svg {
   width: 14px !important;
   height: 14px !important;
-  stroke-width: 1.8px !important;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
   display: block !important;
 }
-.layout-neo .neo-toolbar .neo-dock-item svg * {
-  stroke: currentColor !important;
-  fill: none !important;
-}
 
-.layout-neo .neo-toolbar .neo-dock-item:hover {
-  background: rgba(124, 58, 237, 0.1) !important;
-  border-color: #7C3AED !important;
-  color: #7C3AED !important;
-  transform: scale(1.05) !important;
+/* Hover on non-active toolbar items */
+.layout-neo .neo-toolbar .neo-dock-item:not(.active-tool):hover {
+  background: linear-gradient(135deg, var(--neo-primary) 0%, #5B21B6 100%) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1.5px) scale(1.02) !important;
+  box-shadow: var(--neo-shadow-active) !important;
 }
 
 .layout-neo .neo-toolbar .neo-dock-item:hover svg {
   transform: scale(1.1) !important;
 }
 
+/* Hover on active toolbar items */
+.layout-neo .neo-toolbar .neo-dock-item.active-tool:hover {
+  transform: translateY(-1.5px) scale(1.02) !important;
+  box-shadow: var(--neo-shadow-active) !important;
+}
+
 .layout-neo .neo-toolbar .neo-dock-item.active-tool {
-  background: rgba(124, 58, 237, 0.15) !important;
-  border-color: #7C3AED !important;
-  color: #7C3AED !important;
+  background: linear-gradient(135deg, var(--neo-primary) 0%, #5B21B6 100%) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--neo-shadow-active) !important;
+  transform: translateY(0) scale(1.02) !important;
 }
 
 /* Toolbar Sequential Cascade Animations */
@@ -4298,7 +4228,7 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
 .layout-neo .neo-unified-container.active .neo-toolbar .neo-dock-item:nth-child(6) { transition-delay: 0.18s !important; }
 .layout-neo .neo-unified-container.active .neo-toolbar .neo-dock-item:nth-child(7) { transition-delay: 0.21s !important; }
 
-/* Tool Submenus - slides Leftward */
+/* Tool Submenus */
 .layout-neo .neo-dock-submenu {
   position: absolute !important;
   top: 50% !important;
@@ -4307,19 +4237,19 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   left: auto !important;
   transform: translateY(-50%) translateX(8px) scale(0.96) !important;
   transform-origin: right center !important;
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(124, 58, 237, 0.2) !important;
+  background: var(--neo-bg) !important;
+  backdrop-filter: var(--neo-blur) !important;
+  -webkit-backdrop-filter: var(--neo-blur) !important;
+  border: 1px solid var(--neo-border) !important;
   border-radius: 12px !important;
   padding: 8px !important;
-  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15) !important;
+  box-shadow: var(--neo-shadow) !important;
   display: flex !important;
   gap: 6px !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 240ms ease-out !important;
   z-index: 110 !important;
 }
 
@@ -4348,10 +4278,10 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   left: auto !important;
   bottom: auto !important;
   transform: translateY(-50%) translateX(8px) !important;
-  background: #1E293B !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(28, 20, 48, 0.95) !important;
+  border: 1px solid rgba(124, 58, 237, 0.5) !important;
   padding: 4px 8px !important;
-  border-radius: 5px !important;
+  border-radius: 6px !important;
   color: #fff !important;
   font-size: 10px !important;
   font-family: 'Inter', sans-serif !important;
@@ -4359,8 +4289,8 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
-  transition: all 0.2s ease !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+  transition: all 240ms ease-out !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2) !important;
 }
 
 .layout-neo .neo-dock-item:hover .neo-tooltip {
@@ -4369,7 +4299,7 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   transform: translateY(-50%) translateX(0) !important;
 }
 
-/* Pano Gallery Card (Reduced size to 110px x 72px) */
+/* Pano Gallery Card */
 .layout-neo .dock-pano-card {
   width: 110px !important;
   height: 72px !important;
@@ -4377,14 +4307,14 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   overflow: hidden !important;
   position: relative !important;
   cursor: pointer !important;
-  border: 1px solid rgba(124, 58, 237, 0.2) !important;
-  transition: all 0.25s ease !important;
+  border: 1px solid var(--neo-border) !important;
+  transition: all 240ms ease-out !important;
 }
 
 .layout-neo .dock-pano-card:hover {
-  border-color: #7C3AED !important;
+  border-color: var(--neo-primary) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+  box-shadow: var(--neo-shadow-hover) !important;
 }
 
 .layout-neo .dock-pano-card img {
@@ -4422,7 +4352,7 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
   font-size: 11.5px !important;
   font-weight: 500 !important;
   text-align: center !important;
-  transition: all 0.3s ease !important;
+  transition: all 240ms ease-out !important;
 }
 
 .layout-neo .dock-share-btn.facebook { background: #1877F2 !important; }
@@ -4430,23 +4360,87 @@ body.layout-monarch .minimap-action-btn:hover, body.layout-regal .minimap-action
 .layout-neo .dock-share-btn.zalo { background: #0068FF !important; }
 .layout-neo .dock-share-btn.zalo:hover { background: #005AE6 !important; }
 
-/* SVG Sizes inside Neo layout elements */
-.layout-neo .neo-dock-item svg,
-.layout-neo .neo-nav-card svg,
-.layout-neo .neo-quick-btn svg,
-.layout-neo .neo-dock-trigger svg,
-.layout-neo .neo-nav-trigger svg,
-.layout-neo .neo-unified-trigger svg {
-  width: 16px !important;
-  height: 16px !important;
-  stroke-width: 1.5px !important;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+/* SVG Sizes and Styles inside Neo layout elements */
+.layout-neo svg {
+  width: 14px !important;
+  height: 14px !important;
+  transition: all 240ms ease-out !important;
 }
 
-/* Micro interaction svg scale */
+.layout-neo svg path,
+.layout-neo svg rect,
+.layout-neo svg line,
+.layout-neo svg polyline,
+.layout-neo svg polygon {
+  stroke: currentColor !important;
+  stroke-width: 2px !important;
+  fill: none !important;
+}
+
+.layout-neo svg circle:not([fill="currentColor"]) {
+  stroke: currentColor !important;
+  stroke-width: 2px !important;
+  fill: none !important;
+}
+
 .layout-neo .neo-dock-item:hover svg,
 .layout-neo .neo-nav-card:hover svg {
   transform: scale(1.08) !important;
+}
+
+/* Zoom buttons style in Mini Map */
+.layout-neo .minimap-action-btn {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 8px !important;
+  background: var(--neo-glass) !important;
+  border: 1px solid var(--neo-border) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--neo-text) !important;
+  cursor: pointer !important;
+  transition: all 240ms ease-out !important;
+  box-shadow: var(--neo-shadow) !important;
+  padding: 0 !important;
+  outline: none !important;
+}
+
+.layout-neo .minimap-action-btn svg {
+  width: 14px !important;
+  height: 14px !important;
+  color: inherit !important;
+  stroke: currentColor !important;
+}
+
+.layout-neo .minimap-action-btn:hover {
+  background: rgba(124, 58, 237, 0.2) !important;
+  border-color: rgba(124, 58, 237, 0.6) !important;
+  color: var(--neo-primary) !important;
+  transform: translateY(-1.5px) scale(1.02) !important;
+  box-shadow: var(--neo-shadow-hover) !important;
+}
+
+/* Project Info Panel overrides for Neo */
+.layout-neo .project-info-panel {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(124, 58, 237, 0.3) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), 0 0 30px rgba(124, 58, 237, 0.1) !important;
+  color: #1E293B !important;
+  border-radius: 16px !important;
+}
+.layout-neo .info-panel-header {
+  border-bottom-color: rgba(124, 58, 237, 0.15) !important;
+}
+.layout-neo .info-panel-close {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #1E293B !important;
+}
+.layout-neo .info-label {
+  color: #7C3AED !important;
+}
+.layout-neo .info-value {
+  color: #1E293B !important;
 }
 
 /* Hide Tooltips for Left Toolbar */
@@ -8524,21 +8518,18 @@ body.layout-prism .minimap-legend .dot.cyan {
    ================================================ */
 body.layout-prism .hologram-marker-container {
   display: flex !important;
-  flex-direction: row !important;
+  flex-direction: column-reverse !important; /* Stack label above dot */
   align-items: center !important;
-  background: rgba(31, 41, 55, 0.8) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 20px !important;
-  padding: 6px 12px !important;
-  gap: 6px !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
-  transition: 
-    transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), 
-    background 0.2s, 
-    border-color 0.2s, 
-    box-shadow 0.2s !important;
+  justify-content: center !important;
+  background: transparent !important; /* Removed dark background */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important; /* Removed border */
+  border-radius: 0 !important;
+  padding: 0 !important; /* Removed padding */
+  gap: 8px !important; /* Space between dot and label */
+  box-shadow: none !important; /* Removed shadow */
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   pointer-events: auto !important;
   transform: translate(-50%, -50%) scale(1) !important;
   width: auto !important;
@@ -8546,49 +8537,47 @@ body.layout-prism .hologram-marker-container {
 }
 
 body.layout-prism .hologram-marker-container:hover {
-  transform: translate(-50%, -50%) scale(1.06) !important;
-  background: 
-    linear-gradient(rgba(31, 41, 55, 0.9), rgba(31, 41, 55, 0.9)) padding-box,
-    conic-gradient(from var(--prism-angle), var(--prism-coral), var(--prism-purple), var(--prism-blue), var(--prism-coral)) border-box !important;
-  border-color: transparent !important;
-  animation: prism-border-spin 3s linear infinite !important;
-  box-shadow: 0 12px 36px rgba(124, 58, 237, 0.3) !important;
+  transform: translate(-50%, -50%) scale(1.2) !important; /* Slight scale up on hover */
+  background: transparent !important;
+  border: none !important;
+  animation: none !important;
+  box-shadow: none !important;
 }
 
 body.layout-prism .hologram-marker-container:active {
-  transform: translate(-50%, -50%) scale(0.96) !important;
-  background: rgba(124, 58, 237, 0.25) !important;
+  transform: translate(-50%, -50%) scale(0.9) !important;
+  background: transparent !important;
 }
 
-/* Location Pin icon inside hotspot */
+/* Glowing circular dot matching Layout #7 theme */
 body.layout-prism .hotspot-marker {
   position: relative !important;
-  width: 18px !important;
-  height: 18px !important;
-  background-color: var(--prism-coral) !important;
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") no-repeat center / contain !important;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") no-repeat center / contain !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  animation: none !important;
+  width: 10px !important; /* Sleek 10px dot */
+  height: 10px !important;
+  background-color: var(--prism-purple) !important; /* Layout theme purple */
+  border-radius: 50% !important; /* Perfect circle */
+  border: 1.5px solid #ffffff !important; /* White outline to stand out */
+  box-shadow: 0 0 8px var(--prism-purple), 0 0 16px rgba(124, 58, 237, 0.4) !important; /* Purple glowing aura */
   flex-shrink: 0 !important;
   margin: 0 !important;
-  transition: background-color 0.2s !important;
+  transition: all 0.2s ease !important;
+  mask: none !important;
+  -webkit-mask: none !important;
 }
 
 body.layout-prism .hologram-marker-container:hover .hotspot-marker {
-  background-color: var(--prism-purple) !important;
+  background-color: var(--prism-coral) !important; /* Hover changes to coral for dynamic contrast */
+  box-shadow: 0 0 12px var(--prism-coral), 0 0 24px rgba(255, 107, 107, 0.6) !important;
 }
 
-/* Dynamic circle (expanding sonar ring) around the pin icon on hover */
+/* Dynamic circle (expanding sonar ring) around the dot on hover */
 body.layout-prism .hologram-marker-container:hover .hotspot-marker::after {
   content: '';
   position: absolute;
   top: 50%; left: 50%;
-  width: 20px; height: 20px;
+  width: 12px; height: 12px;
   border-radius: 50%;
-  border: 2px solid var(--prism-purple);
+  border: 1.5px solid var(--prism-coral); /* Coral ring */
   transform: translate(-50%, -50%) scale(1);
   animation: prism-hotspot-ring 1.2s ease-out infinite;
   pointer-events: none;
@@ -8596,23 +8585,37 @@ body.layout-prism .hologram-marker-container:hover .hotspot-marker::after {
 
 @keyframes prism-hotspot-ring {
   0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(2.0); opacity: 0; }
 }
 
 body.layout-prism .hotspot-label {
   font-family: var(--prism-font) !important;
-  font-size: 11px !important;
+  font-size: 10px !important;
   font-weight: 600 !important;
-  color: #fff !important;
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
+  color: #ffffff !important;
+  background: rgba(15, 23, 42, 0.85) !important; /* Glass tooltip background */
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  padding: 4px 8px !important;
   margin: 0 !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  text-shadow: none !important;
   white-space: nowrap !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  opacity: 0 !important; /* Hidden by default */
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(4px) !important;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+body.layout-prism .hologram-marker-container:hover .hotspot-label {
+  opacity: 1 !important; /* Show on hover */
+  visibility: visible !important;
+  transform: translateY(0) !important;
 }
 
 /* ================================================
@@ -9273,88 +9276,105 @@ body.layout-nexus .minimap-legend {
 /* ---------- 6. HOTSPOTS — Premium Glass Capsules ---------- */
 body.layout-nexus .hologram-marker-container {
   display: flex !important;
-  flex-direction: row !important;
+  flex-direction: column-reverse !important; /* Stack label above dot */
   align-items: center !important;
   justify-content: center !important;
-  background: rgba(23, 25, 35, 0.75) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid var(--nexus-border) !important;
-  border-radius: 9999px !important;
-  padding: 6px 14px !important;
-  gap: 8px !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
-  transition: 
-    transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), 
-    background-color 0.2s, 
-    border-color 0.2s, 
-    box-shadow 0.2s !important;
+  background: transparent !important; /* Removed dark background */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important; /* Removed border */
+  border-radius: 0 !important;
+  padding: 0 !important; /* Removed padding */
+  gap: 8px !important; /* Space between dot and label */
+  box-shadow: none !important; /* Removed shadow */
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   pointer-events: auto !important;
   transform: translate(-50%, -50%) scale(1) !important;
   width: auto !important;
   height: auto !important;
 }
 
-body.layout-nexus .hologram-marker-container:hover,
-body.layout-nexus .hologram-marker-container.active:hover {
-  transform: translate(-50%, -50%) scale(1.05) !important;
-  background: 
-    linear-gradient(#171923, #171923) padding-box,
-    conic-gradient(from var(--nexus-angle), var(--nexus-sky), var(--nexus-mint), var(--nexus-sky)) border-box !important;
-  border: 1px solid transparent !important;
-  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2) !important;
-  animation: nexus-border-spin 4s linear infinite, nexus-active-pulse 2s ease-in-out infinite !important;
-}
-
-body.layout-nexus .hologram-marker-container.active {
-  background: rgba(23, 25, 35, 0.9) !important;
-  border: 1px solid var(--nexus-mint) !important;
-  box-shadow: none !important;
+body.layout-nexus .hologram-marker-container:hover {
+  transform: translate(-50%, -50%) scale(1.2) !important; /* Slight scale up on hover */
+  background: transparent !important;
+  border: none !important;
   animation: none !important;
+  box-shadow: none !important;
 }
 
+body.layout-nexus .hologram-marker-container:active {
+  transform: translate(-50%, -50%) scale(0.9) !important;
+  background: transparent !important;
+}
 
+/* Glowing circular dot matching Layout #8 theme */
 body.layout-nexus .hotspot-marker {
   position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  transform: none !important;
-  width: 16px !important;
-  height: 16px !important;
-  background-color: var(--nexus-mint) !important;
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") no-repeat center / contain !important;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") no-repeat center / contain !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  animation: none !important;
+  width: 10px !important; /* Sleek 10px dot */
+  height: 10px !important;
+  background-color: var(--nexus-mint) !important; /* Layout theme mint green */
+  border-radius: 50% !important; /* Perfect circle */
+  border: 1.5px solid #ffffff !important; /* White outline to stand out */
+  box-shadow: 0 0 8px var(--nexus-mint), 0 0 16px rgba(52, 211, 153, 0.4) !important; /* Mint glowing aura */
   flex-shrink: 0 !important;
   margin: 0 !important;
-  transition: background-color 0.2s !important;
+  transition: all 0.2s ease !important;
+  mask: none !important;
+  -webkit-mask: none !important;
 }
 
 body.layout-nexus .hologram-marker-container:hover .hotspot-marker {
-  background-color: var(--nexus-sky) !important;
+  background-color: var(--nexus-sky) !important; /* Hover changes to sky blue for dynamic contrast */
+  box-shadow: 0 0 12px var(--nexus-sky), 0 0 24px rgba(56, 189, 248, 0.6) !important;
+}
+
+/* Dynamic circle (expanding sonar ring) around the dot on hover */
+body.layout-nexus .hologram-marker-container:hover .hotspot-marker::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--nexus-sky); /* Sky blue ring */
+  transform: translate(-50%, -50%) scale(1);
+  animation: nexus-hotspot-ring 1.2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes nexus-hotspot-ring {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2.0); opacity: 0; }
 }
 
 body.layout-nexus .hotspot-label {
   position: relative !important;
   top: auto !important;
   left: auto !important;
-  transform: none !important;
   font-family: var(--nexus-font) !important;
-  font-size: 11px !important;
+  font-size: 10px !important;
   font-weight: 600 !important;
   color: var(--nexus-text) !important;
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
+  background: rgba(23, 25, 35, 0.85) !important; /* Glass tooltip background */
+  border: 1px solid var(--nexus-border) !important;
+  padding: 4px 8px !important;
   margin: 0 !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  text-shadow: none !important;
   white-space: nowrap !important;
+  opacity: 0 !important; /* Hidden by default */
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(4px) !important;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+body.layout-nexus .hologram-marker-container:hover .hotspot-label {
+  opacity: 1 !important; /* Show on hover */
+  visibility: visible !important;
+  transform: translateY(0) !important;
 }
 
 
