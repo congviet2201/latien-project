@@ -93,10 +93,10 @@
         </div>
         <!-- Navigation Amenities -->
         <div class="vision-icon-wrapper" data-id="amenities">
-          <div class="vision-icon" title="Tiện Ích">
+          <div class="vision-icon" title="Tiện ích">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg>
           </div>
-          <span>Tiện Ích</span>
+          <span>Tiện ích</span>
           <div class="vision-submenu">
             <div class="v-sub-item" data-pano-node="node1">Clubhouse</div>
             <div class="v-sub-item" data-pano-node="node1">Bến Du Thuyền</div>
@@ -106,10 +106,10 @@
         </div>
         <!-- Navigation Architecture -->
         <div class="vision-icon-wrapper" data-id="architecture">
-          <div class="vision-icon" title="Kiến Trúc">
+          <div class="vision-icon" title="Kiến trúc">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-6 9 6v13"/><path d="M9 21v-6h6v6"/><path d="M14 3v-1h3v4"/></svg>
           </div>
-          <span>Kiến Trúc</span>
+          <span>Kiến trúc</span>
           <div class="vision-submenu">
             <div class="v-sub-item" data-pano-node="node3">Mặt Bằng</div>
             <div class="v-sub-item" data-pano-node="node4">Biệt Thự Song Lập</div>
@@ -118,13 +118,13 @@
         </div>
         <!-- Navigation Interior -->
         <div class="vision-icon-wrapper" data-id="interior">
-          <div class="vision-icon" title="Nội Thất">
+          <div class="vision-icon" title="Nội thất">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8h4M7 11h6"/></svg>
           </div>
-          <span>Nội Thất</span>
+          <span>Nội thất</span>
           <div class="vision-submenu">
-            <div class="v-sub-item" data-action="interior-1">Interior 1</div>
-            <div class="v-sub-item" data-action="interior-2">Interior 2</div>
+            <div class="v-sub-item" data-action="interior-1">Nội thất 1</div>
+            <div class="v-sub-item" data-action="interior-2">Nội thất 2</div>
           </div>
         </div>
         <!-- Navigation Surrounding (Liên kết vùng) -->
@@ -163,8 +163,8 @@
           </div>
           <div class="vision-submenu">
               <div class="v-pano-card" onclick="window.pano && window.pano.openNext('node1')">
-                <img src="pano_aerial.png" alt="Toàn cảnh">
-                <span>Toàn cảnh</span>
+                <img src="pano_aerial.png" alt="Top View">
+                <span>Top View</span>
               </div>
               <div class="v-pano-card" onclick="window.pano && window.pano.openNext('node2')">
                 <img src="pano_detached.png" alt="Đơn lập">
@@ -235,7 +235,7 @@
             <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
             <path d="M21 15l-5-5L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <div class="tool-tooltip">Ảnh Toàn Cảnh</div>
+          <div class="tool-tooltip">Hình Ảnh</div>
         </div>
         <!-- 4. Show/Hide Hotspots -->
         <div class="tool-button" data-action="hotspots" id="btn-hotspots">
@@ -361,11 +361,11 @@
 
           <!-- MEGA MENU: Compact cards -->
           <div class="nav-submenu mega-menu">
-            <!-- Card 1: Toàn cảnh dự án (Node 1) -->
+            <!-- Card 1: Top View dự án (Node 1) -->
             <div class="mega-card" data-pano-node="node1" data-action="pano-node1">
-              <img src="pano_aerial.png" alt="Toàn cảnh dự án" class="mega-card-img">
+              <img src="pano_aerial.png" alt="Top View dự án" class="mega-card-img">
               <div class="mega-card-overlay"></div>
-              <div class="mega-card-title">Toàn cảnh dự án</div>
+              <div class="mega-card-title">Top View dự án</div>
             </div>
             <!-- Card 2: Biệt thự Đơn lập A (Node 2) -->
             <div class="mega-card" data-pano-node="node2" data-action="pano-node2">
@@ -415,8 +415,8 @@
           <span>Nội Thất</span>
           <!-- Submenu -->
           <div class="nav-submenu">
-            <div class="submenu-item" data-action="interior-1">Interior 1</div>
-            <div class="submenu-item" data-action="interior-2">Interior 2</div>
+            <div class="submenu-item" data-action="interior-1">Nội thất 1</div>
+            <div class="submenu-item" data-action="interior-2">Nội thất 2</div>
           </div>
         </div>
 
@@ -502,12 +502,12 @@
               <path d="M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M2 17l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>Tiện Ích</span>
+            <span>Tiện ích</span>
             <!-- Submenu -->
             <div class="nav-submenu">
-              <div class="submenu-item" data-action="amenity-1">Tiện Ích 1</div>
-              <div class="submenu-item" data-action="amenity-2">Tiện Ích 2</div>
-              <div class="submenu-item" data-action="amenity-3">Tiện Ích 3</div>
+              <div class="submenu-item" data-action="amenity-1">Tiện ích 1</div>
+              <div class="submenu-item" data-action="amenity-2">Tiện ích 2</div>
+              <div class="submenu-item" data-action="amenity-3">Tiện ích 3</div>
             </div>
           </div>
 
@@ -520,11 +520,11 @@
 
             <!-- MEGA MENU: Compact cards -->
             <div class="nav-submenu mega-menu">
-              <!-- Card 1: Toàn cảnh dự án (Node 1) -->
+              <!-- Card 1: Top View dự án (Node 1) -->
               <div class="mega-card active" data-pano-node="node1" data-action="pano-node1">
-                <img src="pano_aerial.png" alt="Toàn cảnh dự án" class="mega-card-img">
+                <img src="pano_aerial.png" alt="Top View dự án" class="mega-card-img">
                 <div class="mega-card-overlay"></div>
-                <div class="mega-card-title">Toàn cảnh dự án</div>
+                <div class="mega-card-title">Top View dự án</div>
               </div>
               <!-- Card 2: Biệt thự Đơn lập A (Node 2) -->
               <div class="mega-card" data-pano-node="node2" data-action="pano-node2">
@@ -554,12 +554,12 @@
               <path d="M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
               <path d="M14 3v-1h3v4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
             </svg>
-            <span>Kiến Trúc</span>
+            <span>Kiến trúc</span>
             <!-- Submenu -->
             <div class="nav-submenu">
-              <div class="submenu-item" data-action="architecture-1">Kiến Trúc 1</div>
-              <div class="submenu-item" data-action="architecture-2">Kiến Trúc 2</div>
-              <div class="submenu-item" data-action="architecture-3">Kiến Trúc 3</div>
+              <div class="submenu-item" data-action="architecture-1">Kiến trúc 1</div>
+              <div class="submenu-item" data-action="architecture-2">Kiến trúc 2</div>
+              <div class="submenu-item" data-action="architecture-3">Kiến trúc 3</div>
             </div>
           </div>
 
@@ -571,11 +571,11 @@
               <path d="M12 17v4" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M7 8h4M7 11h6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>Nội Thất</span>
+            <span>Nội thất</span>
             <!-- Submenu -->
             <div class="nav-submenu">
-              <div class="submenu-item" data-action="interior-1">Interior 1</div>
-              <div class="submenu-item" data-action="interior-2">Interior 2</div>
+              <div class="submenu-item" data-action="interior-1">Nội thất 1</div>
+              <div class="submenu-item" data-action="interior-2">Nội thất 2</div>
             </div>
           </div>
 
@@ -652,7 +652,7 @@
               <path d="M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M2 17l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>Tiện Ích</span>
+            <span>Tiện ích</span>
           </div>
           <div class="neo-submenu-tree">
             <div class="submenu-item" data-action="amenity-pool">Hồ Bơi</div>
@@ -670,12 +670,12 @@
               <path d="M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
               <path d="M14 3v-1h3v4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
             </svg>
-            <span>Kiến Trúc</span>
+            <span>Kiến trúc</span>
           </div>
           <div class="neo-submenu-tree">
-            <div class="submenu-item" data-action="architecture-1">Kiến Trúc 1</div>
-            <div class="submenu-item" data-action="architecture-2">Kiến Trúc 2</div>
-            <div class="submenu-item" data-action="architecture-3">Kiến Trúc 3</div>
+            <div class="submenu-item" data-action="architecture-1">Kiến trúc 1</div>
+            <div class="submenu-item" data-action="architecture-2">Kiến trúc 2</div>
+            <div class="submenu-item" data-action="architecture-3">Kiến trúc 3</div>
           </div>
         </div>
 
@@ -688,11 +688,11 @@
               <path d="M12 17v4" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M7 8h4M7 11h6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>Nội Thất</span>
+            <span>Nội thất</span>
           </div>
           <div class="neo-submenu-tree">
-            <div class="submenu-item" data-action="interior-1">Interior 1</div>
-            <div class="submenu-item" data-action="interior-2">Interior 2</div>
+            <div class="submenu-item" data-action="interior-1">Nội thất 1</div>
+            <div class="submenu-item" data-action="interior-2">Nội thất 2</div>
           </div>
         </div>
 
@@ -727,8 +727,8 @@
           <div class="neo-tooltip">Hình Ảnh</div>
           <div class="neo-dock-submenu">
             <div class="dock-pano-card" onclick="window.pano && window.pano.openNext('node1')">
-              <img src="pano_aerial.png" alt="Toàn cảnh">
-              <span>Toàn cảnh</span>
+              <img src="pano_aerial.png" alt="Top View">
+              <span>Top View</span>
             </div>
             <div class="dock-pano-card" onclick="window.pano && window.pano.openNext('node2')">
               <img src="pano_detached.png" alt="Đơn lập">
@@ -832,7 +832,7 @@
                 <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2zM9 22v-2" />
               </svg>
             </div>
-            <span class="aurora-nav-label">Amenities</span>
+            <span class="aurora-nav-label">Tiện ích</span>
           </div>
         </div>
 
@@ -848,7 +848,7 @@
                 <line x1="3" y1="15" x2="21" y2="15" />
               </svg>
             </div>
-            <span class="aurora-nav-label">Architecture</span>
+            <span class="aurora-nav-label">Kiến trúc</span>
           </div>
         </div>
 
@@ -862,14 +862,14 @@
                 <line x1="18" y1="18" x2="18" y2="21" />
               </svg>
             </div>
-            <span class="aurora-nav-label">Interior</span>
+            <span class="aurora-nav-label">Nội thất</span>
             <svg class="aurora-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </div>
           <div class="aurora-submenu">
-            <div class="aurora-submenu-item" data-action="interior-1">Interior 1</div>
-            <div class="aurora-submenu-item" data-action="interior-2">Interior 2</div>
+            <div class="aurora-submenu-item" data-action="interior-1">Nội thất 1</div>
+            <div class="aurora-submenu-item" data-action="interior-2">Nội thất 2</div>
           </div>
         </div>
 
@@ -936,8 +936,8 @@
           <span class="aurora-tool-label">Hình Ảnh</span>
           <div class="aurora-tool-submenu">
             <div class="aurora-pano-card" onclick="window.pano && window.pano.openNext('node1')">
-              <img src="pano_aerial.png" alt="Toàn cảnh">
-              <span>Toàn cảnh</span>
+              <img src="pano_aerial.png" alt="Top View">
+              <span>Top View</span>
             </div>
             <div class="aurora-pano-card" onclick="window.pano && window.pano.openNext('node2')">
               <img src="pano_detached.png" alt="Đơn lập">
@@ -1035,7 +1035,7 @@
           </defs>
         </svg>
       </div>
-      <div class="compass-cardinal n">N</div>
+      <div class="compass-cardinal n">B</div>
       <div class="compass-degree-display" id="compass-degree">0°</div>
     </div>
   `;
@@ -1069,7 +1069,7 @@
         <!-- 3. AMENITIES -->
         <div class="horizon-nav-item-wrapper has-submenu" data-id="amenities">
           <div class="horizon-nav-item" data-id="amenities" data-action="amenity-pool">
-            <span class="horizon-nav-label">Amenities</span>
+            <span class="horizon-nav-label">Tiện ích</span>
           </div>
           <div class="horizon-submenu">
             <div class="horizon-submenu-item" data-action="amenity-pool">Hồ Bơi</div>
@@ -1082,23 +1082,23 @@
         <!-- 4. ARCHITECTURE -->
         <div class="horizon-nav-item-wrapper has-submenu" data-id="architecture">
           <div class="horizon-nav-item" data-id="architecture" data-action="architecture-1">
-            <span class="horizon-nav-label">Architecture</span>
+            <span class="horizon-nav-label">Kiến trúc</span>
           </div>
           <div class="horizon-submenu">
-            <div class="horizon-submenu-item" data-action="architecture-1">Kiến Trúc 1</div>
-            <div class="horizon-submenu-item" data-action="architecture-2">Kiến Trúc 2</div>
-            <div class="horizon-submenu-item" data-action="architecture-3">Kiến Trúc 3</div>
+            <div class="horizon-submenu-item" data-action="architecture-1">Kiến trúc 1</div>
+            <div class="horizon-submenu-item" data-action="architecture-2">Kiến trúc 2</div>
+            <div class="horizon-submenu-item" data-action="architecture-3">Kiến trúc 3</div>
           </div>
         </div>
 
         <!-- 5. INTERIOR -->
         <div class="horizon-nav-item-wrapper has-submenu" data-id="interior">
           <div class="horizon-nav-item" data-id="interior">
-            <span class="horizon-nav-label">Interior</span>
+            <span class="horizon-nav-label">Nội thất</span>
           </div>
           <div class="horizon-submenu">
-            <div class="horizon-submenu-item" data-action="interior-1">Interior 1</div>
-            <div class="horizon-submenu-item" data-action="interior-2">Interior 2</div>
+            <div class="horizon-submenu-item" data-action="interior-1">Nội thất 1</div>
+            <div class="horizon-submenu-item" data-action="interior-2">Nội thất 2</div>
           </div>
         </div>
 
@@ -1141,8 +1141,8 @@
         </svg>
         <div class="horizon-tool-submenu">
           <div class="horizon-pano-card" onclick="window.pano && window.pano.openNext('node1')">
-            <img src="pano_aerial.png" alt="Toàn cảnh">
-            <span>Toàn cảnh</span>
+            <img src="pano_aerial.png" alt="Top View">
+            <span>Top View</span>
           </div>
           <div class="horizon-pano-card" onclick="window.pano && window.pano.openNext('node2')">
             <img src="pano_detached.png" alt="Đơn lập">
@@ -1214,7 +1214,7 @@
           </g>
         </svg>
       </div>
-      <div class="compass-cardinal n">N</div>
+      <div class="compass-cardinal n">B</div>
       <div class="compass-degree-display" id="compass-degree">0°</div>
     </div>
   `;
@@ -1261,7 +1261,7 @@
                 <path d="m12 3-1.912 5.886H3.88l5.03 3.656L7.002 18.43 12 14.772l4.998 3.656-1.908-5.888 5.03-3.656h-6.208L12 3Z" />
               </svg>
             </div>
-            <span class="prism-nav-label">Tiện Ích</span>
+            <span class="prism-nav-label">Tiện ích</span>
           </div>
 
           <!-- Item 4: Architecture -->
@@ -1272,7 +1272,7 @@
                 <path d="m8 10 3 3 5-5" />
               </svg>
             </div>
-            <span class="prism-nav-label">Kiến Trúc</span>
+            <span class="prism-nav-label">Kiến trúc</span>
           </div>
 
           <!-- Item 5: Interior (has submenu) -->
@@ -1284,10 +1284,10 @@
                 <path d="M3 9h18" /><path d="M3 15h18" />
               </svg>
             </div>
-            <span class="prism-nav-label">Nội Thất</span>
+            <span class="prism-nav-label">Nội thất</span>
             <div class="prism-submenu">
-              <div class="prism-submenu-item" data-action="interior-1">Interior 1</div>
-              <div class="prism-submenu-item" data-action="interior-2">Interior 2</div>
+              <div class="prism-submenu-item" data-action="interior-1">Nội thất 1</div>
+              <div class="prism-submenu-item" data-action="interior-2">Nội thất 2</div>
             </div>
           </div>
 
@@ -1414,7 +1414,7 @@
           </defs>
         </svg>
       </div>
-      <div class="compass-cardinal prism-n">N</div>
+      <div class="compass-cardinal prism-n">B</div>
       <div class="compass-degree-display" id="compass-degree">0°</div>
     </div>
   `;
@@ -1462,7 +1462,7 @@
                 <path d="m12 3-1.912 5.886H3.88l5.03 3.656L7.002 18.43 12 14.772l4.998 3.656-1.908-5.888 5.03-3.656h-6.208L12 3Z" />
               </svg>
             </div>
-            <span class="nexus-nav-label">Tiện Ích</span>
+            <span class="nexus-nav-label">Tiện ích</span>
             <span class="nexus-active-line"></span>
           </div>
 
@@ -1477,7 +1477,7 @@
                 <path d="M15 9h3" />
               </svg>
             </div>
-            <span class="nexus-nav-label">Kiến Trúc</span>
+            <span class="nexus-nav-label">Kiến trúc</span>
             <span class="nexus-active-line"></span>
           </div>
 
@@ -1491,11 +1491,11 @@
                 <path d="M12 10V3" />
               </svg>
             </div>
-            <span class="nexus-nav-label">Nội Thất</span>
+            <span class="nexus-nav-label">Nội thất</span>
             <span class="nexus-active-line"></span>
             <div class="nexus-submenu">
-              <div class="nexus-submenu-item" data-action="interior-1">Interior 1</div>
-              <div class="nexus-submenu-item" data-action="interior-2">Interior 2</div>
+              <div class="nexus-submenu-item" data-action="interior-1">Nội thất 1</div>
+              <div class="nexus-submenu-item" data-action="interior-2">Nội thất 2</div>
             </div>
           </div>
 
@@ -1627,7 +1627,7 @@
           </g>
         </svg>
       </div>
-      <div class="compass-cardinal nexus-n">N</div>
+      <div class="compass-cardinal nexus-n">B</div>
       <div class="compass-degree-display" id="compass-degree">0°</div>
     </div>
   `;
@@ -1661,14 +1661,14 @@
           
           <div class="monarch-nav-item has-popover" data-id="amenities">
             <div class="monarch-nav-btn monarch-hover-sweep">
-              <span class="monarch-nav-label">Amenities</span>
+              <span class="monarch-nav-label">Tiện ích</span>
             </div>
             <div class="monarch-popover">
-              <div class="monarch-popover-title">AMENITIES</div>
+              <div class="monarch-popover-title">TIỆN ÍCH</div>
               <div class="monarch-popover-items">
                 <div class="monarch-popover-item monarch-hover-sweep" data-action="amenity-clubhouse" data-pano-node="node1">Clubhouse</div>
-                <div class="monarch-popover-item monarch-hover-sweep" data-action="amenity-marina" data-pano-node="node1">Marina</div>
-                <div class="monarch-popover-item monarch-hover-sweep" data-action="amenity-sport" data-pano-node="node2">Sport Complex</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="amenity-marina" data-pano-node="node1">Bến Du Thuyền</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="amenity-sport" data-pano-node="node2">Khu Thể Thao</div>
                 <div class="monarch-popover-item monarch-hover-sweep" data-action="amenity-park" data-pano-node="node3">Central Park</div>
               </div>
             </div>
@@ -1676,21 +1676,21 @@
           
           <div class="monarch-nav-item has-popover" data-id="architecture">
             <div class="monarch-nav-btn monarch-hover-sweep">
-              <span class="monarch-nav-label">Architecture</span>
+              <span class="monarch-nav-label">Kiến trúc</span>
             </div>
             <div class="monarch-popover">
-              <div class="monarch-popover-title">ARCHITECTURE</div>
+              <div class="monarch-popover-title">KIẾN TRÚC</div>
               <div class="monarch-popover-items">
-                <div class="monarch-popover-item monarch-hover-sweep" data-action="arch-layout" data-pano-node="node3">Master Plan</div>
-                <div class="monarch-popover-item monarch-hover-sweep" data-action="arch-semi" data-pano-node="node4">Semi-Detached</div>
-                <div class="monarch-popover-item monarch-hover-sweep" data-action="arch-detached" data-pano-node="node5">Detached Villa</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="arch-layout" data-pano-node="node3">Mặt Bằng Tổng Thể</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="arch-semi" data-pano-node="node4">Biệt Thự Song Lập</div>
+                <div class="monarch-popover-item monarch-hover-sweep" data-action="arch-detached" data-pano-node="node5">Biệt Thự Đơn Lập</div>
               </div>
             </div>
           </div>
           
           <div class="monarch-nav-item" data-id="interior" data-action="interior-1">
             <div class="monarch-nav-btn monarch-hover-sweep">
-              <span class="monarch-nav-label">Interior</span>
+              <span class="monarch-nav-label">Nội thất</span>
             </div>
           </div>
           
@@ -1707,8 +1707,19 @@
   const monarchCommandPanelHTML = `
     <div class="monarch-command-panel" id="monarch-command-panel">
       <div class="monarch-command-list">
+        <div class="monarch-command-item monarch-hover-sweep" data-action="info">
+          <span class="monarch-command-label">Thông tin</span>
+          <div class="monarch-command-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+          </div>
+        </div>
+
         <div class="monarch-command-item monarch-hover-sweep" data-action="music">
-          <span class="monarch-command-label">Music</span>
+          <span class="monarch-command-label">Nhạc nền</span>
           <div class="monarch-command-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
               <path d="M9 18V5l12-2v13" />
@@ -1719,7 +1730,7 @@
         </div>
         
         <div class="monarch-command-item monarch-hover-sweep" data-action="images">
-          <span class="monarch-command-label">Images</span>
+          <span class="monarch-command-label">Hình ảnh</span>
           <div class="monarch-command-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
               <rect x="3" y="3" width="18" height="18" rx="2" />
@@ -1730,7 +1741,7 @@
         </div>
         
         <div class="monarch-command-item monarch-hover-sweep" data-action="hotspots">
-          <span class="monarch-command-label">Hotspots</span>
+          <span class="monarch-command-label">Điểm điều hướng</span>
           <div class="monarch-command-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
               <circle cx="12" cy="12" r="10" />
@@ -1740,7 +1751,7 @@
         </div>
         
         <div class="monarch-command-item monarch-hover-sweep" data-action="share">
-          <span class="monarch-command-label">Share</span>
+          <span class="monarch-command-label">Chia sẻ</span>
           <div class="monarch-command-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
               <circle cx="18" cy="5" r="3" />
@@ -1753,7 +1764,7 @@
         </div>
         
         <div class="monarch-command-item monarch-hover-sweep" data-action="call">
-          <span class="monarch-command-label">Call Support</span>
+          <span class="monarch-command-label">Liên hệ</span>
           <div class="monarch-command-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -1761,19 +1772,8 @@
           </div>
         </div>
         
-        <div class="monarch-command-item monarch-hover-sweep" data-action="info">
-          <span class="monarch-command-label">Information</span>
-          <div class="monarch-command-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="16" x2="12" y2="12" />
-              <line x1="12" y1="8" x2="12.01" y2="8" />
-            </svg>
-          </div>
-        </div>
-        
         <div class="monarch-command-item monarch-hover-sweep" data-action="fullscreen">
-          <span class="monarch-command-label">Fullscreen</span>
+          <span class="monarch-command-label">Toàn màn hình</span>
           <div class="monarch-command-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
               <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
@@ -1787,7 +1787,7 @@
   const monarchLayoutSelectorHTML = `
     <div class="monarch-layout-selector" id="monarch-layout-selector">
       <div class="monarch-selector-header">
-        <span>LAYOUT</span>
+        <span>GIAO DIỆN</span>
       </div>
       <div class="monarch-selector-grid">
         <div class="monarch-selector-item monarch-hover-sweep" data-layout="classic">01</div>
@@ -1838,7 +1838,7 @@
           </g>
         </svg>
       </div>
-      <div class="compass-cardinal monarch-n">N</div>
+      <div class="compass-cardinal monarch-n">B</div>
       <div class="compass-degree-display" id="compass-degree">0°</div>
     </div>
   `;
@@ -1913,7 +1913,7 @@
           </g>
         </svg>
       </div>
-      <div class="compass-cardinal n">N</div>
+      <div class="compass-cardinal n">B</div>
       <div class="compass-degree-display" id="compass-degree">0°</div>
     </div>
   `;
@@ -1931,7 +1931,7 @@
           </g>
         </svg>
       </div>
-      <div class="compass-cardinal n">N</div>
+      <div class="compass-cardinal n">B</div>
       <div class="compass-degree-display" id="compass-degree">0°</div>
     </div>
   `;
@@ -2393,9 +2393,9 @@
     if (panoNode && window.pano) {
       console.log(`Navigating to Pano Node: ${panoNode}`);
       window.pano.openNext(`{${panoNode}}`);
-      showNotification(layoutMode === "classic" ? `Đang chuyển đến: ${titleText}` : `Navigating: ${titleText.toUpperCase()}`);
+      showNotification(`Đang chuyển đến: ${titleText}`);
     } else if (action) {
-      showNotification(layoutMode === "classic" ? `Đang tải: ${titleText}` : `Loading: ${titleText}`);
+      showNotification(`Đang tải: ${titleText}`);
       console.log(`Submenu Action Triggered: ${action}`);
     }
   }
@@ -2957,6 +2957,19 @@
             submenu.classList.toggle("open", !isOpen);
             if (chevron) chevron.classList.toggle("rotate", !isOpen);
           }
+          
+          // Allow navigation for interior
+          const id = this.getAttribute("data-id");
+          if (id === "interior") {
+            navItems.forEach(n => n.classList.remove("active"));
+            submenuItems.forEach(s => s.classList.remove("active"));
+            this.classList.add("active");
+            
+            activeNavItemId = id;
+            lsSet("latien_active_nav", activeNavItemId);
+            
+            routeNavigation(this);
+          }
           return;
         }
         
@@ -3083,6 +3096,19 @@
             openSubmenus.forEach(s => { if (s !== submenu) s.classList.remove("open"); });
             submenu.classList.toggle("open", !isOpen);
           }
+          
+          // Allow navigation for interior
+          const id = this.getAttribute("data-id");
+          if (id === "interior") {
+            navItems.forEach(n => n.classList.remove("active"));
+            submenuItems.forEach(s => s.classList.remove("active"));
+            this.classList.add("active");
+            
+            activeNavItemId = id;
+            lsSet("latien_active_nav", activeNavItemId);
+            
+            routeNavigation(this);
+          }
           return;
         }
 
@@ -3206,6 +3232,19 @@
           const wasOpen = this.classList.contains("open");
           navItems.forEach(n => n.classList.remove("open"));
           if (!wasOpen) this.classList.add("open");
+          
+          // Allow navigation for interior
+          const id = this.getAttribute("data-id");
+          if (id === "interior") {
+            navItems.forEach(n => n.classList.remove("active"));
+            submenuItems.forEach(s => s.classList.remove("active"));
+            this.classList.add("active");
+            
+            activeNavItemId = id;
+            lsSet("latien_active_nav", activeNavItemId);
+            
+            routeNavigation(this);
+          }
           return;
         }
         navItems.forEach(n => n.classList.remove("active", "open"));
@@ -3276,6 +3315,19 @@
           const wasOpen = this.classList.contains("open");
           navItems.forEach(n => n.classList.remove("open"));
           if (!wasOpen) this.classList.add("open");
+          
+          // Allow navigation for interior
+          const id = this.getAttribute("data-id");
+          if (id === "interior") {
+            navItems.forEach(n => n.classList.remove("active"));
+            submenuItems.forEach(s => s.classList.remove("active"));
+            this.classList.add("active");
+            
+            activeNavItemId = id;
+            lsSet("latien_active_nav", activeNavItemId);
+            
+            routeNavigation(this);
+          }
           return;
         }
         navItems.forEach(n => n.classList.remove("active", "open"));
@@ -3466,7 +3518,7 @@
           window.pano.setTextureVisible(!isImagesHidden);
         }
         btn.classList.toggle("active-tool", isImagesHidden);
-        showNotification(isImagesHidden ? "Ảnh toàn cảnh đã ẩn" : "Ảnh toàn cảnh đã hiện");
+        showNotification(isImagesHidden ? "Hình ảnh đã ẩn" : "Hình ảnh đã hiện");
         break;
 
       case "hotspots":
@@ -3813,7 +3865,7 @@
       btn.classList.toggle("active", pVal === panoIndex);
     });
 
-    showNotification(layoutMode === "classic" ? "Đã mở trang Thiết kế Nội thất" : "Interior Page opened");
+    showNotification("Đã mở trang Thiết kế Nội thất");
   }
 
   function closeInteriorPage() {
@@ -3821,7 +3873,7 @@
     if (window.pano && previousPanoNode) {
       window.pano.openNext(`{${previousPanoNode}}`);
     }
-    showNotification(layoutMode === "classic" ? "Đã quay lại 360" : "Returned to 360");
+    showNotification("Đã quay lại 360");
   }
 
   function openRegionPage() {
@@ -3835,12 +3887,12 @@
     }
 
     document.body.classList.add("region-mode-active");
-    showNotification(layoutMode === "classic" ? "Đã mở trang Liên kết vùng" : "Region Map opened");
+    showNotification("Đã mở trang Liên kết vùng");
   }
 
   function closeRegionPage() {
     document.body.classList.remove("region-mode-active");
-    showNotification(layoutMode === "classic" ? "Đã quay lại 360" : "Returned to 360");
+    showNotification("Đã quay lại 360");
   }
 
   function setupInteriorPageListeners() {
@@ -3925,10 +3977,10 @@
         const cardTitle = element.querySelector(".mega-card-title");
         if (cardTitle) titleText = cardTitle.textContent.trim();
       }
-      showNotification(layoutMode === "classic" ? `Đang chuyển đến: ${titleText}` : `Navigating: ${titleText.toUpperCase()}`);
+      showNotification(`Đang chuyển đến: ${titleText}`);
     } else if (action) {
       let titleText = element.textContent.trim();
-      showNotification(layoutMode === "classic" ? `Đang tải: ${titleText}` : `Loading: ${titleText}`);
+      showNotification(`Đang tải: ${titleText}`);
     }
   }
 
